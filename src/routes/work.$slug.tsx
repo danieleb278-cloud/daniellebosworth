@@ -163,6 +163,27 @@ function CaseStudyPage() {
         </div>
       </section>
 
+      {/* Gallery */}
+      <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
+            <span className="eyebrow">§ Selected Artifacts</span>
+            <span className="eyebrow">Fig. 02 — 04</span>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+            {study.approach.map((a, i) => (
+              <Reveal key={a.title} delay={i * 80}>
+                <PlaceholderImage
+                  label={`0${i + 2}`}
+                  caption={a.title}
+                  ratio={i === 1 ? "1/1" : "4/5"}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Outcomes */}
       <section className="border-t border-border bg-secondary px-6 py-28 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
