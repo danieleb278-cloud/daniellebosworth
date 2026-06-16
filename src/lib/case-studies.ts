@@ -1542,12 +1542,12 @@ const joomlaSections: Section[] = [
   },
 ];
 
-caseStudies.push({
+caseStudies.unshift({
     slug: "joomla",
-    index: "03",
+    index: "01",
     title: "Joomla Extension Directory",
     subtitle:
-      "Information architecture, search experience, and UX strategy for one of the largest open-source extension marketplaces.",
+      "Research, information architecture, and search redesign recommendations for the Joomla Extension Directory.",
     client: "Joomla Extension Directory",
     year: "2024",
     role: "UX Researcher & Designer",
@@ -1585,6 +1585,7 @@ caseStudies.push({
     cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
 });
+
 
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);
