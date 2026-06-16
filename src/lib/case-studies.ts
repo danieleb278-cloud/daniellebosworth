@@ -195,6 +195,14 @@ const robinSections: Section[] = [
         text: "Research identified several user groups:",
       },
       {
+        kind: "image",
+        label: "Fig. 03",
+        caption: "Samantha — primary persona and experience journey map covering her morning commute, lunchtime, arriving home, and before bed.",
+        ratio: "16 / 9",
+        src: robinPersona.url,
+        alt: "Persona profile for Samantha alongside an experience journey map",
+      },
+      {
         kind: "list",
         heading: "Recent Graduates",
         items: ["Need guidance, clarity, and confidence when entering the workforce."],
