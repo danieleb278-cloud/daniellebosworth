@@ -1005,12 +1005,14 @@ export const caseStudies: CaseStudy[] = [
 
 import robinLogo from "@/assets/robin/logo.jpg.asset.json";
 import robinSurvey from "@/assets/robin/survey.jpg.asset.json";
-import robinPersona from "@/assets/robin/persona.jpg.asset.json";
+import robinPersona from "@/assets/robin/persona_clean.jpg.asset.json";
+import robinJourneyMap from "@/assets/robin/journey_map.jpg.asset.json";
 import robinHeuristics from "@/assets/robin/heuristics.png.asset.json";
 import robinResumeFlow from "@/assets/robin/resume_flow.png.asset.json";
 import robinResumeLibrary from "@/assets/robin/resume_library.png.asset.json";
 import robinAnalytics from "@/assets/robin/analytics.png.asset.json";
-import robinNotifications from "@/assets/robin/notifications.png.asset.json";
+import robinHomescreen from "@/assets/robin/homescreen.png.asset.json";
+import robinMenu from "@/assets/robin/menu.jpg.asset.json";
 import joomlaLogo from "@/assets/joomla/joomla_logo.png.asset.json";
 import joomlaPersona1 from "@/assets/joomla/1.png.asset.json";
 import joomlaPersona2 from "@/assets/joomla/2.png.asset.json";
