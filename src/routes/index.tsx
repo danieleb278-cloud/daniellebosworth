@@ -62,7 +62,7 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8">
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8">
             <span className="block mb-4">Understanding behavior.</span>
             <span className="block mb-4">Designing systems.</span>
             <span className="block">Bridging gaps<span className="text-teal">.</span></span>
