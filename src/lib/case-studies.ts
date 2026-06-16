@@ -407,6 +407,14 @@ const nextDestinationSections: Section[] = [
     title: "Project Overview",
     blocks: [
       {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Next Destination — clickable prototype welcome screen",
+        ratio: "4 / 5",
+        src: ndClickable.url,
+        alt: "Next Destination welcome screen on Android device",
+      },
+      {
         kind: "p",
         text: "Next Destination is a travel planning platform designed to simplify the vacation planning process by combining trip discovery, budgeting, itinerary creation, group coordination, and personalized recommendations into a single experience.",
       },
