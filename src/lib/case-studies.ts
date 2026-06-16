@@ -65,41 +65,41 @@ export const caseStudies: CaseStudy[] = [
     index: "02",
     title: "Robin",
     subtitle:
-      "A task manager redesigned through usability testing into a calmer, faster daily workflow.",
-    client: "Robin (case study)",
+      "An all-in-one job search app — scoped from an RFP into a feature set, IA, and design system built for the realities of looking for work.",
+    client: "Robin (RFP response)",
     year: "2024",
-    role: "UX Designer",
-    discipline: "Usability · Interaction Design",
+    role: "Product Designer (RFP lead)",
+    discipline: "Product Strategy · UX · Design System",
     duration: "8 weeks",
     summary:
-      "A heuristic teardown and four rounds of usability testing turned a feature-heavy task app into a focused instrument for daily planning.",
-    hero: "A workflow trimmed until only the load-bearing pieces remained.",
+      "A response to an RFP asking what an all-in-one job search app should be: which features earn a place on the home screen, how the experience should flow, and what the design language should feel like.",
+    hero: "One app for the messy middle of a job search — tracking, prepping, and applying in the same place.",
     context:
-      "Robin had grown by accretion. Power users tolerated it; new users bounced within a session. Most friction lived in the gap between capture and triage.",
+      "The RFP described candidates juggling four to six tools — a job board, a tracker spreadsheet, a notes app, a calendar, an email folder, and a resume builder. The brief asked for a single product opinionated enough to replace the stack without losing what each tool did well.",
     challenge:
-      "Redesign the daily flow so a new user could capture, prioritize, and finish a day's plan in under three minutes — without removing what loyalists relied on.",
+      "Define the feature set, information architecture, and visual direction for an all-in-one job search app — and defend every decision with how a real candidate would use it on a Tuesday night.",
     approach: [
       {
-        title: "Heuristic audit",
-        body: "Catalogued forty-one friction points and grouped them by the user state in which they hurt most.",
+        title: "Feature triage from the RFP",
+        body: "Mapped the RFP's wishlist against candidate journeys and cut it to four load-bearing pillars: a unified tracker, tailored applications, interview prep, and a weekly review. Everything else became a setting, not a screen.",
       },
       {
-        title: "Usability rounds",
-        body: "Four rounds of moderated tests, five participants each, with the next prototype shipped within a week.",
+        title: "IA & flows",
+        body: "Designed a two-surface IA — a Today board for active applications and a Library for resumes, cover letters, and prep notes. Specified end-to-end flows for saving a role, tailoring a resume, scheduling prep, and logging an interview.",
       },
       {
-        title: "Two-mode interface",
-        body: "A Today surface for momentum, a System surface for power. Each mode hides the other's complexity by default.",
+        title: "Design language",
+        body: "Proposed a calm, high-contrast visual system: serif headlines, monospaced metadata, and a single accent reserved for state changes. The point was to make the app feel like an instrument, not another inbox.",
       },
     ],
     outcomes: [
-      { metric: "−54%", label: "Time to first completed task" },
-      { metric: "+38%", label: "Day-7 active retention" },
-      { metric: "4.7 / 5", label: "SUS score, final round" },
+      { metric: "4", label: "Core pillars defined from a 22-item RFP wishlist" },
+      { metric: "12", label: "End-to-end flows specified and prototyped" },
+      { metric: "1", label: "Design system shipped with the proposal" },
     ],
     reflections:
-      "Loyal users don't want fewer features. They want the right feature to be louder than the rest.",
-    tags: ["Usability", "Interaction", "Productivity"],
+      "An RFP is a design brief in disguise. The win wasn't adding features — it was naming, out loud, what a job-search app should refuse to do.",
+    tags: ["Product Strategy", "RFP", "Design System"],
   },
   {
     slug: "joomla",
