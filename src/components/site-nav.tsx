@@ -26,11 +26,13 @@ export function SiteNav() {
     };
   }, [open]);
 
+  const isDark = scrolled || open;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open
-          ? "backdrop-blur-md bg-background/85 border-b border-border"
+        isDark
+          ? "backdrop-blur-md bg-charcoal/95 border-b border-background/10 shadow-[0_4px_30px_rgba(0,0,0,0.15)]"
           : "bg-transparent"
       }`}
     >
@@ -40,10 +42,12 @@ export function SiteNav() {
           onClick={() => setOpen(false)}
           className="group flex min-w-0 items-baseline gap-2"
         >
-          <span className="truncate font-display text-lg tracking-tight sm:text-xl">
+          <span className={`truncate font-display text-lg tracking-tight sm:text-xl ${isDark ? 'text-background' : 'text-foreground'}`}>
             Danielle Bosworth
           </span>
-          <span className="eyebrow hidden sm:inline">— portfolio</span>
+          <span className={`eyebrow hidden sm:inline ${isDark ? 'text-background/70' : ''}`}>
+            — portfolio
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -51,7 +55,7 @@ export function SiteNav() {
             <li key={s.id}>
               <a
                 href={`/#${s.id}`}
-                className="eyebrow link-underline text-foreground"
+                className={`eyebrow link-underline ${isDark ? 'text-background' : 'text-foreground'}`}
               >
                 {s.label}
               </a>
@@ -60,7 +64,7 @@ export function SiteNav() {
           <li>
             <a
               href="mailto:Danieleb278@gmail.com"
-              className="eyebrow rounded-full border border-foreground px-4 py-2 text-foreground transition-colors hover:bg-foreground hover:text-background"
+              className="eyebrow rounded-full border border-teal px-4 py-2 text-teal transition-colors hover:bg-teal hover:text-charcoal"
             >
               Open to roles
             </a>
@@ -72,18 +76,14 @@ export function SiteNav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="eyebrow flex shrink-0 items-center gap-2 rounded-full border border-foreground px-3 py-2 md:hidden"
+          className={`eyebrow flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 md:hidden ${isDark ? 'border-background/30 text-background' : 'border-foreground text-foreground'}`}
         >
           <span className="relative block h-3 w-4">
             <span
-              className={`absolute left-0 right-0 h-px bg-foreground transition-transform duration-300 ${
-                open ? "top-1/2 rotate-45" : "top-0"
-              }`}
+              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${isDark ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 rotate-45" : "top-0"}`}
             />
             <span
-              className={`absolute left-0 right-0 h-px bg-foreground transition-transform duration-300 ${
-                open ? "top-1/2 -rotate-45" : "top-full"
-              }`}
+              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${isDark ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 -rotate-45" : "top-full"}`}
             />
           </span>
           {open ? "Close" : "Menu"}
@@ -92,20 +92,20 @@ export function SiteNav() {
 
       {/* Mobile sheet */}
       <div
-        className={`overflow-hidden border-border bg-background md:hidden ${
-          open ? "max-h-[80vh] border-t" : "max-h-0"
+        className={`overflow-hidden md:hidden ${
+          open ? "max-h-[80vh] border-t border-background/20 bg-charcoal text-background" : "max-h-0"
         } transition-[max-height] duration-500 ease-out`}
       >
-        <ul className="flex flex-col divide-y divide-border px-6 py-2">
+        <ul className="flex flex-col divide-y divide-background/20 px-6 py-2">
           {sections.map((s) => (
             <li key={s.id}>
               <a
                 href={`/#${s.id}`}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between py-5 font-display text-2xl tracking-tight"
+                className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-background"
               >
                 <span>{s.label}</span>
-                <span className="eyebrow">→</span>
+                <span className="eyebrow text-background/60">→</span>
               </a>
             </li>
           ))}
@@ -113,10 +113,10 @@ export function SiteNav() {
             <a
               href="mailto:Danieleb278@gmail.com"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-accent"
+              className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-teal"
             >
               <span>Email</span>
-              <span className="eyebrow text-accent">Open to roles ✦</span>
+              <span className="eyebrow text-teal">Open to roles ✦</span>
             </a>
           </li>
         </ul>
