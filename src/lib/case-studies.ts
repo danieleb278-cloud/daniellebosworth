@@ -367,7 +367,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "image",
-        label: "Fig. 05",
+        label: "Fig. 06",
         caption: "Resume Builder — full flow from library to section-by-section editing (Basic Information, Objective, Education, Professional Experience), with an inline 'Write with AI' assist.",
         ratio: "16 / 9",
         src: robinResumeFlow.url,
