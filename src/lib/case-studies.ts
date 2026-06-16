@@ -52,6 +52,14 @@ const robinSections: Section[] = [
     title: "Project Overview",
     blocks: [
       {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Robin — your job search sidekick. Brand identity used throughout the redesign.",
+        ratio: "16 / 9",
+        src: robinLogo.url,
+        alt: "Robin logo with tagline 'Your job search sidekick'",
+      },
+      {
         kind: "p",
         text: "Robin is a job search and career exploration platform designed to help users discover employment opportunities and navigate the job application process.",
       },
