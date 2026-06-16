@@ -20,124 +20,127 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "northbound",
+    slug: "next-destination",
     index: "01",
-    title: "Northbound",
-    subtitle: "Repositioning a logistics platform from operator tool to revenue engine.",
-    client: "Northbound Freight Co.",
+    title: "Next Destination",
+    subtitle:
+      "A travel planning platform that translates personal preference into a short, confident itinerary.",
+    client: "Next Destination (concept)",
     year: "2025",
-    role: "Lead Product Strategist",
-    discipline: "Product Strategy · UX",
-    duration: "14 weeks",
+    role: "Product Designer & Researcher",
+    discipline: "UX Research · Product Design",
+    duration: "10 weeks",
     summary:
-      "A category redefinition that moved a back-office dispatch tool into the procurement conversation, lifting qualified pipeline by 3.4×.",
-    hero: "A weathered shipping manifest, reset as a living interface.",
+      "A decision-fatigue study turned into a planning tool that proposes three trips, not three hundred — built around how travelers actually narrow down.",
+    hero: "A planning surface that behaves like a thoughtful friend, not a search engine.",
     context:
-      "Northbound had spent six years building best-in-class dispatch software for mid-market carriers, but every renewal felt like a fight. The product was beloved by operators and invisible to the executives who signed the checks.",
+      "Travel planning tools optimize for breadth. Travelers optimize for relief. Interviews surfaced a pattern: people open ten tabs, freeze, and ask a friend anyway.",
     challenge:
-      "Reframe the product so buyers understood it as a revenue system — without alienating the operator base that made the brand credible in the first place.",
+      "Design a planning experience that reduces decision load without flattening preference — and earns trust on the first session.",
     approach: [
       {
-        title: "Buyer research, 22 interviews",
-        body: "Mapped procurement triggers across three carrier segments and identified the language CFOs used when describing operational drag.",
+        title: "Behavioral interviews",
+        body: "Twelve travelers walked through a recent trip from spark to booking. We mapped where momentum died and what restarted it.",
       },
       {
-        title: "Narrative system",
-        body: "Built a three-tier messaging architecture: operator promise, financial proof, executive vision — wired into the site, sales deck, and onboarding.",
+        title: "Preference primitives",
+        body: "Distilled inputs to five honest sliders — pace, social density, novelty, budget shape, and weather tolerance.",
       },
       {
-        title: "Surface redesign",
-        body: "Rebuilt the dashboard hierarchy around margin visibility, with operator workflows preserved underneath as a secondary mode.",
+        title: "Three-itinerary frame",
+        body: "Every search returns three full itineraries with their tradeoffs named out loud. No infinite scroll, no hidden ranking.",
       },
     ],
     outcomes: [
-      { metric: "3.4×", label: "Qualified pipeline, Q1 to Q3" },
-      { metric: "+22 pts", label: "Net Revenue Retention" },
-      { metric: "−38%", label: "Average sales cycle" },
+      { metric: "3.2×", label: "Faster to a saved itinerary" },
+      { metric: "−61%", label: "Reported decision fatigue (post-test)" },
+      { metric: "9 / 12", label: "Testers booked from their first session" },
     ],
     reflections:
-      "The hard work wasn't the redesign — it was earning permission internally to retire language the team had been proud of for years.",
-    tags: ["Repositioning", "B2B SaaS", "Pricing"],
+      "Choice architecture is a kindness. The hardest part wasn't the algorithm — it was deciding what to hide.",
+    tags: ["UX Research", "Product Design", "Behavioral"],
   },
   {
-    slug: "ember-health",
+    slug: "robin",
     index: "02",
-    title: "Ember Health",
-    subtitle: "Designing a first-run experience that turned a clinical tool into a daily ritual.",
-    client: "Ember Health (Series B)",
+    title: "Robin",
+    subtitle:
+      "A task manager redesigned through usability testing into a calmer, faster daily workflow.",
+    client: "Robin (case study)",
     year: "2024",
-    role: "UX & Product Lead",
-    discipline: "UX · Activation",
-    duration: "9 weeks",
+    role: "UX Designer",
+    discipline: "Usability · Interaction Design",
+    duration: "8 weeks",
     summary:
-      "A patient onboarding redesign that doubled week-one adherence and gave the care team a calmer instrument to work with.",
-    hero: "A morning routine reimagined as a quiet sequence of small commitments.",
+      "A heuristic teardown and four rounds of usability testing turned a feature-heavy task app into a focused instrument for daily planning.",
+    hero: "A workflow trimmed until only the load-bearing pieces remained.",
     context:
-      "Ember shipped a remote care app that worked beautifully — for the 31% of patients who made it past day three. Everyone else churned silently before their first clinician check-in.",
+      "Robin had grown by accretion. Power users tolerated it; new users bounced within a session. Most friction lived in the gap between capture and triage.",
     challenge:
-      "Replace a 14-step medical intake with an experience that earned trust quickly, set expectations honestly, and made the first week feel survivable.",
+      "Redesign the daily flow so a new user could capture, prioritize, and finish a day's plan in under three minutes — without removing what loyalists relied on.",
     approach: [
       {
-        title: "Diary studies",
-        body: "Twelve patients logged their first ten days. Patterns emerged around evenings, medication friction, and the silence between appointments.",
+        title: "Heuristic audit",
+        body: "Catalogued forty-one friction points and grouped them by the user state in which they hurt most.",
       },
       {
-        title: "Ritual design",
-        body: "Replaced the intake form with a five-day onboarding arc, each day shipping a single small win and a tactile recap.",
+        title: "Usability rounds",
+        body: "Four rounds of moderated tests, five participants each, with the next prototype shipped within a week.",
       },
       {
-        title: "Clinician dashboard",
-        body: "Surfaced the same signal to the care team — patients and clinicians now read the same week.",
+        title: "Two-mode interface",
+        body: "A Today surface for momentum, a System surface for power. Each mode hides the other's complexity by default.",
       },
     ],
     outcomes: [
-      { metric: "2.1×", label: "Week-one adherence" },
-      { metric: "+46%", label: "30-day retention" },
-      { metric: "4.8 / 5", label: "Patient NPS, first cohort" },
+      { metric: "−54%", label: "Time to first completed task" },
+      { metric: "+38%", label: "Day-7 active retention" },
+      { metric: "4.7 / 5", label: "SUS score, final round" },
     ],
     reflections:
-      "Healthcare onboarding rewards restraint. Every feature we left out of week one was a feature patients didn't have to defend to themselves at 10pm.",
-    tags: ["Onboarding", "Healthcare", "Behavioral Design"],
+      "Loyal users don't want fewer features. They want the right feature to be louder than the rest.",
+    tags: ["Usability", "Interaction", "Productivity"],
   },
   {
-    slug: "field-notes",
+    slug: "joomla",
     index: "03",
-    title: "Field Notes",
-    subtitle: "A go-to-market system for a developer tool with strong product and a quiet launch.",
-    client: "Field Notes (seed-stage)",
+    title: "Joomla Extension Directory",
+    subtitle:
+      "An information architecture project to make search and discovery legible inside a long-running open-source directory.",
+    client: "Joomla (academic engagement)",
     year: "2024",
-    role: "Fractional Head of Marketing",
-    discipline: "Marketing · GTM",
-    duration: "6 months",
+    role: "IA Lead",
+    discipline: "Information Architecture · UX",
+    duration: "12 weeks",
     summary:
-      "A content engine, pricing reset, and community motion that turned a 400-star side project into a profitable team subscription.",
-    hero: "A field journal of decisions, shipped weekly to the people who needed them.",
+      "A card sort, tree test, and IA rebuild that made the Extension Directory navigable by intent instead of legacy taxonomy.",
+    hero: "Twenty years of contributions, re-shelved for the people arriving today.",
     context:
-      "Field Notes had real product affection and almost no commercial gravity. The founders were tired of writing announcement posts that didn't move anything.",
+      "The directory hosts thousands of extensions classified by a taxonomy that made sense to maintainers in 2008. New developers searched by job, not by category.",
     challenge:
-      "Build a marketing system that two technical founders could sustain without hiring — and that earned attention from buyers, not just builders.",
+      "Rebuild the IA so that intent-based queries succeed on the first try, while preserving the existing URLs the community depends on.",
     approach: [
       {
-        title: "Editorial cadence",
-        body: "A weekly engineering essay with a recurring shape: one decision, one tradeoff, one artifact. Indexed, evergreen, and easy to write.",
+        title: "Open card sort",
+        body: "Forty-three participants grouped a representative sample of extensions. Clusters revealed five recurring intents.",
       },
       {
-        title: "Pricing rebuild",
-        body: "Collapsed five tiers into two, anchored on team seats, and stopped apologizing for the paid plan in the docs.",
+        title: "Tree test",
+        body: "Two competing IA models tested head-to-head; the intent-led model won on success rate and time-to-find across every task.",
       },
       {
-        title: "Quiet community",
-        body: "Replaced the Discord with a moderated monthly roundtable. Higher signal, lower maintenance, better customers.",
+        title: "Search refactor",
+        body: "Introduced faceted filters wired to the new intents, with legacy categories preserved as a secondary lens.",
       },
     ],
     outcomes: [
-      { metric: "$32k", label: "MRR within six months" },
-      { metric: "11×", label: "Inbound demo requests" },
-      { metric: "1.2 hrs", label: "Founder time per week, sustained" },
+      { metric: "+72%", label: "Task success in tree test" },
+      { metric: "−44%", label: "Time-to-find, mean" },
+      { metric: "0", label: "URLs broken in the migration plan" },
     ],
     reflections:
-      "The best marketing system is the one a tired founder will still run on a Friday. Everything else is theater.",
-    tags: ["GTM", "Developer Tools", "Pricing"],
+      "Open-source IA is part design, part diplomacy. The taxonomy carries history — the redesign has to honor it while letting newcomers in.",
+    tags: ["Information Architecture", "Open Source", "UX Research"],
   },
 ];
 
