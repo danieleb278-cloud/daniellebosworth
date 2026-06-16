@@ -79,6 +79,7 @@ function Hero() {
                 label="Portrait"
                 caption="Danielle Bosworth"
                 ratio="4/5"
+                fit="cover-top"
               />
             </Reveal>
           </div>
