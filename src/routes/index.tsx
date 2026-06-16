@@ -381,9 +381,17 @@ function Resume() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
-          <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-            A path that blends customer-facing leadership, marketing operations,
-            and applied product design.
+          <h2 className="col-span-12 font-display text-3xl tracking-tight md:col-span-10 md:text-5xl">
+            More than a designer, I've spent my career working at the intersection of{" "}
+            <span className="text-teal">customers</span>,{" "}
+            <span className="text-teal">operations</span>,{" "}
+            <span className="text-teal">education</span>, and{" "}
+            <span className="text-teal">product strategy</span>. My background combines{" "}
+            <span className="text-teal">customer-facing leadership</span>,{" "}
+            <span className="text-teal">psychology</span>,{" "}
+            <span className="text-teal">research</span>, and{" "}
+            <span className="text-teal">systems thinking</span>{" "}
+            to solve problems from multiple perspectives.
           </h2>
         </div>
 
