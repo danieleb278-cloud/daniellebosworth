@@ -100,18 +100,6 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {/* Hero image */}
-      <section className="px-6 pb-16 md:px-12 md:pb-24">
-        <div className="mx-auto max-w-[1400px]">
-          <Reveal>
-            <PlaceholderImage
-              label={`${study.title} — cover`}
-              caption={`Fig. 01 — ${study.title}`}
-              ratio="16/9"
-            />
-          </Reveal>
-        </div>
-      </section>
 
       {/* Pull quote */}
       <section className="border-y border-border bg-foreground px-6 py-20 text-background md:px-12 md:py-28">
