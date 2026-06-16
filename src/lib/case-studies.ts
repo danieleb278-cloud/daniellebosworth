@@ -983,7 +983,8 @@ export const caseStudies: CaseStudy[] = [
     index: "02",
     title: "Robin",
     subtitle:
-      "A UX research and usability evaluation of a job search platform — identifying friction points and developing research-driven recommendations to improve discovery, application workflows, and candidate confidence.",
+      "UX research and usability evaluation focused on improving the job seeker experience.",
+
     client: "Robin (academic engagement)",
     year: "2024",
     role: "UX Researcher & Designer",
