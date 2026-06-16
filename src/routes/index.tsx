@@ -493,9 +493,7 @@ function Footer() {
     <footer className="border-t border-border px-6 py-10 md:px-12">
       <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <span className="eyebrow">© {new Date().getFullYear()} Danielle Bosworth</span>
-        <span className="eyebrow">
-          Set in Fraunces &amp; Inter Tight · Designed with intention
-        </span>
+        <span className="eyebrow">Designed with intention</span>
       </div>
     </footer>
   );
