@@ -936,10 +936,11 @@ const nextDestinationSections: Section[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "next-destination",
-    index: "01",
+    index: "03",
     title: "Next Destination",
     subtitle:
-      "An all-in-one travel planning platform that combines discovery, budgeting, group coordination, and personalized recommendations.",
+      "Product strategy and experience design for an all-in-one travel planning platform.",
+
     client: "Cross-functional product team (academic)",
     year: "2025",
     role: "UX Researcher & Product Strategy",
