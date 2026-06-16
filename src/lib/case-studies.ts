@@ -713,8 +713,24 @@ const nextDestinationSections: Section[] = [
         text: "Next Destination combines travel planning, budgeting, personalization, and collaboration into a unified platform.",
       },
       {
+        kind: "image",
+        label: "Fig. 05",
+        caption: "Full Figma prototype — end-to-end user flow from onboarding through personalization, discovery, booking, scheduling, and post-trip review.",
+        ratio: "16 / 10",
+        src: ndFullProto.url,
+        alt: "Full Figma prototype showing connected screens and user flows",
+      },
+      {
         kind: "p",
         text: "The experience begins with a short onboarding questionnaire that captures travel preferences, budget constraints, interests, and group information. The system then generates customized recommendations, accommodations, activities, and itineraries tailored to each traveler.",
+      },
+      {
+        kind: "image",
+        label: "Fig. 06",
+        caption: "All-screens overview — onboarding, profile creation, personalization, search, packages, messaging, scheduling, and budget tracking.",
+        ratio: "16 / 10",
+        src: ndScreens.url,
+        alt: "Grid of every screen in the Next Destination prototype",
       },
       {
         kind: "p",
@@ -727,6 +743,39 @@ const nextDestinationSections: Section[] = [
     number: "10",
     title: "Key Features",
     blocks: [
+      {
+        kind: "gallery",
+        items: [
+          {
+            label: "Fig. 07a",
+            caption: "Personalization — users select preferred destinations during onboarding to seed recommendations.",
+            ratio: "3 / 5",
+            src: ndPersonalization.url,
+            alt: "Personalize your experience screen with destination checklist",
+          },
+          {
+            label: "Fig. 07b",
+            caption: "Dynamic itinerary — calendar-driven schedule with saved places and confirm dates flow.",
+            ratio: "3 / 5",
+            src: ndItinerary.url,
+            alt: "My Schedule itinerary screen with calendar and saved places",
+          },
+          {
+            label: "Fig. 07c",
+            caption: "Local recommendations — nearby spots surfaced contextually around each saved destination.",
+            ratio: "3 / 5",
+            src: ndLocal.url,
+            alt: "Local recommendations view showing nearby hotel and restaurant",
+          },
+          {
+            label: "Fig. 07d",
+            caption: "Vacation Fund — savings goals per trip with target dates and progress tracking.",
+            ratio: "3 / 5",
+            src: ndBudget.url,
+            alt: "Vacation Fund budget screen with multiple savings goals",
+          },
+        ],
+      },
       {
         kind: "list",
         heading: "Personalized Itineraries",
