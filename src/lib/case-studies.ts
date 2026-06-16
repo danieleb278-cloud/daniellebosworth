@@ -663,6 +663,14 @@ const nextDestinationSections: Section[] = [
             ],
           },
           {
+            kind: "image",
+            label: "Fig. 04",
+            caption: "Feature matrix comparing Next Destination against 11 competing travel apps across budgeting, itinerary planning, group features, and personalization.",
+            ratio: "16 / 11",
+            src: ndCompetitive.url,
+            alt: "Competitive analysis matrix table",
+          },
+          {
             kind: "p",
             text: "The analysis revealed opportunities around personalization, budgeting, sustainability, and group travel features.",
           },
