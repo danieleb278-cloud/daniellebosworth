@@ -449,10 +449,7 @@ function Contact() {
           <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
           <div className="col-span-12 md:col-span-10">
             <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-              Let's bridge
-              <br />
-              design, strategy,
-              <br />
+              Let's bridge design, strategy,{" "}
               <span className="italic text-muted-foreground">and experience</span>
               <span className="text-accent">.</span>
             </h2>
@@ -496,9 +493,7 @@ function Footer() {
     <footer className="border-t border-border px-6 py-10 md:px-12">
       <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <span className="eyebrow">© {new Date().getFullYear()} Danielle Bosworth</span>
-        <span className="eyebrow">
-          Set in Fraunces &amp; Inter Tight · Designed with intention
-        </span>
+        <span className="eyebrow">Designed with intention</span>
       </div>
     </footer>
   );
