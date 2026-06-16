@@ -1,7 +1,19 @@
 export type Block =
   | { kind: "p"; text: string }
   | { kind: "list"; heading?: string; items: string[] }
-  | { kind: "group"; heading: string; blocks: Block[] };
+  | { kind: "group"; heading: string; blocks: Block[] }
+  | {
+      kind: "image";
+      label?: string;
+      caption?: string;
+      ratio?: string;
+      src?: string;
+      alt?: string;
+    }
+  | {
+      kind: "gallery";
+      items: { label?: string; caption?: string; ratio?: string; src?: string; alt?: string }[];
+    };
 
 export type Section = {
   id: string;
