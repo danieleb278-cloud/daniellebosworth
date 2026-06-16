@@ -223,10 +223,10 @@ function About() {
   return (
     <section id="about" className="bg-navy px-6 py-28 text-background md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-4">
+        <div className="grid grid-cols-12 gap-6 items-stretch">
+          <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
-            <h2 className="mt-6 font-display text-4xl tracking-tight md:text-5xl">
+            <h2 className="mt-6 font-display text-5xl tracking-tight md:text-6xl">
               One ear on the customer, one eye on the business.
             </h2>
           </div>
