@@ -61,8 +61,8 @@ function Hero() {
           <span className="eyebrow">Customer Experience, Design, and Strategy</span>
         </div>
 
-        <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2rem,5.5vw,4.75rem)] leading-[1.05] tracking-[-0.04em] rise-in md:col-span-8 md:order-2">
+        <div className="grid grid-cols-12 gap-6 md:gap-10 items-stretch">
+          <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8 md:order-2">
             <span className="block">Understanding <span className="italic">behavior</span>.</span>
             <span className="block">Designing <span className="italic">systems</span>.</span>
             <span className="block">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
