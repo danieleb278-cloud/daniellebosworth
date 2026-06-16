@@ -2,7 +2,13 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
-import { caseStudies, getCaseStudy } from "@/lib/case-studies";
+import { caseStudies, getCaseStudy, type Block, type Section } from "@/lib/case-studies";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -116,106 +122,110 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {/* Context & challenge */}
-      <section className="px-6 py-28 md:px-12 md:py-32">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6">
-          <Reveal className="col-span-12 md:col-span-5">
-            <span className="eyebrow">§ Context</span>
-            <p className="mt-6 text-lg leading-relaxed">{study.context}</p>
-          </Reveal>
-          <Reveal delay={120} className="col-span-12 md:col-span-6 md:col-start-7">
-            <span className="eyebrow">§ The challenge</span>
-            <p className="mt-6 font-display text-2xl leading-snug md:text-3xl">
-              {study.challenge}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Approach */}
-      <section className="border-t border-border px-6 py-28 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-16 grid grid-cols-12 gap-6">
-            <span className="eyebrow col-span-12 md:col-span-2">§ Approach</span>
-            <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
-              Three moves, in sequence.
-            </h2>
-          </div>
-          <ol className="divide-y divide-border">
-            {study.approach.map((a, i) => (
-              <Reveal key={a.title} delay={i * 80}>
-                <li className="grid grid-cols-12 gap-6 py-10">
-                  <div className="col-span-2 md:col-span-1">
-                    <span className="font-mono text-sm text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="col-span-10 font-display text-2xl tracking-tight md:col-span-5 md:text-3xl">
-                    {a.title}
-                  </h3>
-                  <p className="col-span-10 col-start-3 text-base leading-relaxed text-muted-foreground md:col-span-5 md:col-start-8">
-                    {a.body}
-                  </p>
-                </li>
+      {study.sections ? (
+        <SectionsAccordion sections={study.sections} />
+      ) : (
+        <>
+          {/* Context & challenge */}
+          <section className="px-6 py-28 md:px-12 md:py-32">
+            <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6">
+              <Reveal className="col-span-12 md:col-span-5">
+                <span className="eyebrow">§ Context</span>
+                <p className="mt-6 text-lg leading-relaxed">{study.context}</p>
               </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
-            <span className="eyebrow">§ Selected Artifacts</span>
-            <span className="eyebrow">Fig. 02 — 04</span>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-            {study.approach.map((a, i) => (
-              <Reveal key={a.title} delay={i * 80}>
-                <PlaceholderImage
-                  label={`0${i + 2}`}
-                  caption={a.title}
-                  ratio={i === 1 ? "1/1" : "4/5"}
-                />
+              <Reveal delay={120} className="col-span-12 md:col-span-6 md:col-start-7">
+                <span className="eyebrow">§ The challenge</span>
+                <p className="mt-6 font-display text-2xl leading-snug md:text-3xl">
+                  {study.challenge}
+                </p>
               </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      {/* Outcomes */}
-      <section className="border-t border-border bg-secondary px-6 py-28 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <span className="eyebrow">§ Outcomes</span>
-          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {study.outcomes.map((o, i) => (
-              <Reveal key={o.label} delay={i * 100}>
-                <div className="border-t border-border pt-6">
-                  <div className="font-display text-[clamp(3rem,7vw,6rem)] leading-none tracking-tight">
-                    {o.metric}
-                  </div>
-                  <div className="eyebrow mt-4">{o.label}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Approach */}
+          <section className="border-t border-border px-6 py-28 md:px-12 md:py-32">
+            <div className="mx-auto max-w-[1400px]">
+              <div className="mb-16 grid grid-cols-12 gap-6">
+                <span className="eyebrow col-span-12 md:col-span-2">§ Approach</span>
+                <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
+                  Three moves, in sequence.
+                </h2>
+              </div>
+              <ol className="divide-y divide-border">
+                {study.approach.map((a, i) => (
+                  <Reveal key={a.title} delay={i * 80}>
+                    <li className="grid grid-cols-12 gap-6 py-10">
+                      <div className="col-span-2 md:col-span-1">
+                        <span className="font-mono text-sm text-muted-foreground">
+                          0{i + 1}
+                        </span>
+                      </div>
+                      <h3 className="col-span-10 font-display text-2xl tracking-tight md:col-span-5 md:text-3xl">
+                        {a.title}
+                      </h3>
+                      <p className="col-span-10 col-start-3 text-base leading-relaxed text-muted-foreground md:col-span-5 md:col-start-8">
+                        {a.body}
+                      </p>
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
+            </div>
+          </section>
 
-      {/* Reflections */}
-      <section className="px-6 py-28 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid grid-cols-12 gap-6">
-            <span className="eyebrow col-span-12 md:col-span-2">§ Reflection</span>
-            <p className="col-span-12 font-display text-3xl leading-snug tracking-tight md:col-span-9 md:text-5xl">
-              {study.reflections}
-            </p>
-          </div>
-        </div>
-      </section>
+          {/* Gallery */}
+          <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
+            <div className="mx-auto max-w-[1400px]">
+              <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
+                <span className="eyebrow">§ Selected Artifacts</span>
+                <span className="eyebrow">Fig. 02 — 04</span>
+              </div>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+                {study.approach.map((a, i) => (
+                  <Reveal key={a.title} delay={i * 80}>
+                    <PlaceholderImage
+                      label={`0${i + 2}`}
+                      caption={a.title}
+                      ratio={i === 1 ? "1/1" : "4/5"}
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
 
-      {/* Next */}
+          {/* Outcomes */}
+          <section className="border-t border-border bg-secondary px-6 py-28 md:px-12 md:py-32">
+            <div className="mx-auto max-w-[1400px]">
+              <span className="eyebrow">§ Outcomes</span>
+              <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+                {study.outcomes.map((o, i) => (
+                  <Reveal key={o.label} delay={i * 100}>
+                    <div className="border-t border-border pt-6">
+                      <div className="font-display text-[clamp(3rem,7vw,6rem)] leading-none tracking-tight">
+                        {o.metric}
+                      </div>
+                      <div className="eyebrow mt-4">{o.label}</div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Reflections */}
+          <section className="px-6 py-28 md:px-12 md:py-32">
+            <div className="mx-auto max-w-[1400px]">
+              <div className="grid grid-cols-12 gap-6">
+                <span className="eyebrow col-span-12 md:col-span-2">§ Reflection</span>
+                <p className="col-span-12 font-display text-3xl leading-snug tracking-tight md:col-span-9 md:text-5xl">
+                  {study.reflections}
+                </p>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
       <section className="border-t border-border">
         <Link
           to="/work/$slug"
@@ -246,6 +256,96 @@ function CaseStudyPage() {
           </Link>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function SectionsAccordion({ sections }: { sections: Section[] }) {
+  return (
+    <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
+          <span className="eyebrow">§ Case Study</span>
+          <span className="eyebrow">Tap a section to expand</span>
+        </div>
+        <Accordion
+          type="multiple"
+          defaultValue={[sections[0]?.id].filter(Boolean) as string[]}
+          className="w-full"
+        >
+          {sections.map((s, i) => (
+            <Reveal key={s.id} delay={Math.min(i * 40, 240)}>
+              <AccordionItem value={s.id} className="border-border">
+                <AccordionTrigger className="group py-8 hover:no-underline">
+                  <div className="flex w-full items-baseline gap-6 text-left">
+                    <span className="font-mono text-sm text-muted-foreground shrink-0 w-8">
+                      {s.number}
+                    </span>
+                    <span className="font-display text-2xl tracking-tight md:text-4xl transition-transform duration-300 group-hover:-translate-y-0.5">
+                      {s.title}
+                      <span className="text-accent">.</span>
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-10">
+                  <div className="grid grid-cols-12 gap-6">
+                    <div className="col-span-12 md:col-span-10 md:col-start-2 space-y-6">
+                      {s.blocks.map((b, bi) => (
+                        <BlockView key={bi} block={b} />
+                      ))}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Reveal>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
+function BlockView({ block }: { block: Block }) {
+  if (block.kind === "p") {
+    return (
+      <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+        {block.text}
+      </p>
+    );
+  }
+  if (block.kind === "list") {
+    return (
+      <div>
+        {block.heading && (
+          <h4 className="font-display text-lg tracking-tight md:text-xl">
+            {block.heading}
+          </h4>
+        )}
+        <ul className="mt-3 space-y-2">
+          {block.items.map((it) => (
+            <li
+              key={it}
+              className="flex gap-3 text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              <span className="text-accent shrink-0 mt-2 block h-px w-4 bg-accent" />
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  // group
+  return (
+    <div className="border-l border-border pl-5">
+      <h4 className="font-display text-xl tracking-tight md:text-2xl">
+        {block.heading}
+      </h4>
+      <div className="mt-4 space-y-4">
+        {block.blocks.map((b, i) => (
+          <BlockView key={i} block={b} />
+        ))}
+      </div>
     </div>
   );
 }

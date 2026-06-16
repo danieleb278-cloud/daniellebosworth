@@ -1,3 +1,15 @@
+export type Block =
+  | { kind: "p"; text: string }
+  | { kind: "list"; heading?: string; items: string[] }
+  | { kind: "group"; heading: string; blocks: Block[] };
+
+export type Section = {
+  id: string;
+  number: string;
+  title: string;
+  blocks: Block[];
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -16,7 +28,379 @@ export type CaseStudy = {
   outcomes: { metric: string; label: string }[];
   reflections: string;
   tags: string[];
+  /** Optional long-form 12-section case study. When present, the work page
+   *  renders these as a collapsible accordion instead of the short layout. */
+  sections?: Section[];
 };
+
+const nextDestinationSections: Section[] = [
+  {
+    id: "overview",
+    number: "01",
+    title: "Project Overview",
+    blocks: [
+      {
+        kind: "p",
+        text: "Next Destination is a travel planning platform designed to simplify the vacation planning process by combining trip discovery, budgeting, itinerary creation, group coordination, and personalized recommendations into a single experience.",
+      },
+      {
+        kind: "p",
+        text: "The project was created to address the fragmented nature of travel planning, where users often rely on multiple websites and apps to research destinations, compare prices, coordinate with travel companions, and organize activities. The goal was to create an all-in-one solution that reduces planning stress while helping travelers discover experiences that align with their interests, budget, and travel style.",
+      },
+    ],
+  },
+  {
+    id: "role",
+    number: "02",
+    title: "My Role & Responsibilities",
+    blocks: [
+      {
+        kind: "p",
+        text: "As part of a cross-functional product development team, I contributed to:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Opportunity identification",
+          "User research",
+          "Survey creation and analysis",
+          "Customer needs analysis",
+          "Affinity diagramming",
+          "Competitive analysis",
+          "Concept generation",
+          "Feature prioritization",
+          "Product strategy",
+          "User experience planning",
+          "Documentation and reporting",
+        ],
+      },
+    ],
+  },
+  {
+    id: "goals",
+    number: "03",
+    title: "Project Goals",
+    blocks: [
+      {
+        kind: "list",
+        heading: "Business Goals",
+        items: [
+          "Create a differentiated travel platform",
+          "Support local businesses",
+          "Promote sustainable travel options",
+          "Increase convenience through an integrated experience",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "User Goals",
+        items: [
+          "Save time planning trips",
+          "Stay within budget",
+          "Coordinate travel with groups",
+          "Discover personalized recommendations",
+          "Access all travel information in one place",
+        ],
+      },
+    ],
+  },
+  {
+    id: "research",
+    number: "04",
+    title: "Research & Discovery",
+    blocks: [
+      {
+        kind: "p",
+        text: "Research included surveys, customer interviews, competitive analysis, affinity mapping, and customer needs analysis.",
+      },
+      {
+        kind: "list",
+        heading: "Research Methods",
+        items: [
+          "User surveys",
+          "Customer interviews",
+          "Competitive analysis",
+          "Gap analysis",
+          "Affinity mapping",
+          "Opportunity assessment",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Key Findings — five major needs emerged",
+        items: [
+          "Users want a centralized travel planning platform.",
+          "Budget management and price comparison are critical.",
+          "Group coordination is a major challenge.",
+          "Personalized recommendations improve confidence and decision making.",
+          "Travelers want to reduce planning time and complexity.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "problem",
+    number: "05",
+    title: "Problem Statement",
+    blocks: [
+      {
+        kind: "p",
+        text: "Travel planning is often fragmented across multiple tools, making it difficult for users to compare options, manage budgets, coordinate with groups, and build personalized itineraries.",
+      },
+      {
+        kind: "p",
+        text: "Users need a simpler way to organize every stage of trip planning in one place while still maintaining control over their travel decisions.",
+      },
+    ],
+  },
+  {
+    id: "personas",
+    number: "06",
+    title: "Personas & User Insights",
+    blocks: [
+      { kind: "p", text: "Research revealed several recurring traveler types:" },
+      {
+        kind: "list",
+        heading: "Budget-Conscious Travelers",
+        items: ["Need affordable accommodations, transportation, and activities."],
+      },
+      {
+        kind: "list",
+        heading: "Group Travelers",
+        items: ["Need collaboration tools and easier coordination."],
+      },
+      {
+        kind: "list",
+        heading: "Independent Planners",
+        items: ["Want control over planning while reducing research time."],
+      },
+      {
+        kind: "list",
+        heading: "Experience Seekers",
+        items: ["Want local recommendations and unique activities."],
+      },
+      {
+        kind: "list",
+        heading: "Eco-Conscious Travelers",
+        items: ["Prefer sustainable travel options when available."],
+      },
+    ],
+  },
+  {
+    id: "ia",
+    number: "07",
+    title: "Information Architecture & Feature Planning",
+    blocks: [
+      {
+        kind: "p",
+        text: "The platform was organized around five core feature categories:",
+      },
+      {
+        kind: "list",
+        heading: "Budgeting Tools",
+        items: [
+          "Vacation savings calculator",
+          "Savings planning",
+          "Price comparison tools",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Personalized Recommendations",
+        items: [
+          "Tailored destinations",
+          "Activity recommendations",
+          "Restaurant suggestions",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Group Travel Coordination",
+        items: [
+          "Shared itineraries",
+          "Group planning",
+          "Collaborative decision making",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Sustainable Travel",
+        items: [
+          "Eco-friendly accommodations",
+          "Sustainable transportation options",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Itinerary Planning",
+        items: ["Custom itineraries", "Scheduling tools", "Travel reminders"],
+      },
+      {
+        kind: "p",
+        text: "These categories were developed from customer research and feature prioritization exercises.",
+      },
+    ],
+  },
+  {
+    id: "design",
+    number: "08",
+    title: "Design Process",
+    blocks: [
+      {
+        kind: "group",
+        heading: "Opportunity Identification",
+        blocks: [
+          {
+            kind: "p",
+            text: "The team evaluated multiple product concepts before selecting travel planning as the strongest opportunity.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Competitive Analysis",
+        blocks: [
+          { kind: "p", text: "Competitors reviewed included:" },
+          {
+            kind: "list",
+            items: [
+              "Airbnb",
+              "TripAdvisor",
+              "Google Travel",
+              "Booking.com",
+              "Expedia",
+            ],
+          },
+          {
+            kind: "p",
+            text: "The analysis revealed opportunities around personalization, budgeting, sustainability, and group travel features.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Concept Development",
+        blocks: [
+          { kind: "p", text: "Several concepts were explored and evaluated through:" },
+          {
+            kind: "list",
+            items: [
+              "Feature matrices",
+              "Concept scoring",
+              "Feasibility analysis",
+              "User value assessments",
+            ],
+          },
+          {
+            kind: "list",
+            heading: "The strongest concepts included",
+            items: [
+              "Personalized itineraries",
+              "Group planning tools",
+              "Budget management features",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "solution",
+    number: "09",
+    title: "Final Solution",
+    blocks: [
+      {
+        kind: "p",
+        text: "Next Destination combines travel planning, budgeting, personalization, and collaboration into a unified platform.",
+      },
+      {
+        kind: "p",
+        text: "The experience begins with a short onboarding questionnaire that captures travel preferences, budget constraints, interests, and group information. The system then generates customized recommendations, accommodations, activities, and itineraries tailored to each traveler.",
+      },
+      {
+        kind: "p",
+        text: "The platform also supports collaborative planning, allowing multiple users to contribute to a shared trip while maintaining individual preferences.",
+      },
+    ],
+  },
+  {
+    id: "features",
+    number: "10",
+    title: "Key Features",
+    blocks: [
+      {
+        kind: "list",
+        heading: "Personalized Itineraries",
+        items: ["AI-assisted recommendations based on preferences and travel goals."],
+      },
+      {
+        kind: "list",
+        heading: "Group Planning Tools",
+        items: ["Shared itineraries, voting, collaboration, and communication features."],
+      },
+      {
+        kind: "list",
+        heading: "Budget Management",
+        items: ["Savings goals, price comparisons, and cost tracking."],
+      },
+      {
+        kind: "list",
+        heading: "Local Experience Discovery",
+        items: ["Recommendations focused on authentic local businesses and attractions."],
+      },
+      {
+        kind: "list",
+        heading: "Sustainable Travel Filters",
+        items: ["Eco-friendly accommodations and transportation options."],
+      },
+      {
+        kind: "list",
+        heading: "Real-Time Updates",
+        items: ["Travel alerts, itinerary adjustments, and planning assistance."],
+      },
+    ],
+  },
+  {
+    id: "outcomes",
+    number: "11",
+    title: "Outcomes & Impact",
+    blocks: [
+      {
+        kind: "p",
+        text: "Next Destination addresses several key travel planning challenges:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Reduces planning complexity",
+          "Improves coordination among travelers",
+          "Supports informed decision making",
+          "Encourages exploration of local businesses",
+          "Makes travel planning more personalized and accessible",
+        ],
+      },
+      {
+        kind: "p",
+        text: "The concept differentiates itself from existing travel platforms through its combination of budgeting, personalization, sustainability, and collaboration features.",
+      },
+    ],
+  },
+  {
+    id: "reflection",
+    number: "12",
+    title: "Reflection & Lessons Learned",
+    blocks: [
+      {
+        kind: "p",
+        text: "This project reinforced the importance of designing from research rather than assumptions. User feedback revealed that group coordination and planning complexity were often larger pain points than destination discovery itself.",
+      },
+      {
+        kind: "p",
+        text: "One of the most valuable lessons was learning how to balance business goals with user needs while evaluating technical feasibility. The project also demonstrated how personalization, collaboration, and thoughtful feature prioritization can transform a fragmented experience into a cohesive product ecosystem.",
+      },
+    ],
+  },
+];
 
 export const caseStudies: CaseStudy[] = [
   {
@@ -24,41 +408,42 @@ export const caseStudies: CaseStudy[] = [
     index: "01",
     title: "Next Destination",
     subtitle:
-      "A travel planning platform that translates personal preference into a short, confident itinerary.",
-    client: "Next Destination (concept)",
+      "An all-in-one travel planning platform that combines discovery, budgeting, group coordination, and personalized recommendations.",
+    client: "Cross-functional product team (academic)",
     year: "2025",
-    role: "Product Designer & Researcher",
-    discipline: "UX Research · Product Design",
-    duration: "10 weeks",
+    role: "UX Researcher & Product Strategy",
+    discipline: "UX Research · Product Strategy",
+    duration: "Semester project",
     summary:
-      "A decision-fatigue study turned into a planning tool that proposes three trips, not three hundred — built around how travelers actually narrow down.",
-    hero: "A planning surface that behaves like a thoughtful friend, not a search engine.",
+      "A travel platform concept built from surveys, interviews, and competitive analysis to address the fragmented nature of modern trip planning.",
+    hero: "Travel planning is fragmented. Next Destination puts discovery, budget, group, and itinerary into one place.",
     context:
-      "Travel planning tools optimize for breadth. Travelers optimize for relief. Interviews surfaced a pattern: people open ten tabs, freeze, and ask a friend anyway.",
+      "Most travelers juggle five-plus tools to plan a single trip. Research surfaced five recurring needs: centralization, budgeting, group coordination, personalization, and lower planning effort.",
     challenge:
-      "Design a planning experience that reduces decision load without flattening preference — and earns trust on the first session.",
+      "Design an all-in-one travel platform that reduces planning complexity without sacrificing personal control over decisions.",
     approach: [
       {
-        title: "Behavioral interviews",
-        body: "Twelve travelers walked through a recent trip from spark to booking. We mapped where momentum died and what restarted it.",
+        title: "Research & discovery",
+        body: "Surveys, interviews, gap analysis, affinity mapping, and competitive review across Airbnb, TripAdvisor, Google Travel, Booking.com, and Expedia.",
       },
       {
-        title: "Preference primitives",
-        body: "Distilled inputs to five honest sliders — pace, social density, novelty, budget shape, and weather tolerance.",
+        title: "Feature prioritization",
+        body: "Organized the platform around five categories: budgeting, personalization, group coordination, sustainability, and itinerary planning.",
       },
       {
-        title: "Three-itinerary frame",
-        body: "Every search returns three full itineraries with their tradeoffs named out loud. No infinite scroll, no hidden ranking.",
+        title: "Concept synthesis",
+        body: "Evaluated concepts through feature matrices, scoring, feasibility, and user value — landing on personalized itineraries, group planning, and budget tools as the load-bearing pillars.",
       },
     ],
     outcomes: [
-      { metric: "3.2×", label: "Faster to a saved itinerary" },
-      { metric: "−61%", label: "Reported decision fatigue (post-test)" },
-      { metric: "9 / 12", label: "Testers booked from their first session" },
+      { metric: "5", label: "Core feature categories defined" },
+      { metric: "5", label: "Recurring traveler personas identified" },
+      { metric: "1", label: "Unified planning experience" },
     ],
     reflections:
-      "Choice architecture is a kindness. The hardest part wasn't the algorithm — it was deciding what to hide.",
-    tags: ["UX Research", "Product Design", "Behavioral"],
+      "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
+    tags: ["UX Research", "Product Strategy", "Travel"],
+    sections: nextDestinationSections,
   },
   {
     slug: "robin",
