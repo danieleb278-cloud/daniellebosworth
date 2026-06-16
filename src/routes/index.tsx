@@ -58,7 +58,7 @@ function Hero() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-2">
           <span className="eyebrow">№ 001 — Portfolio, 2026</span>
-          <span className="eyebrow">Product Design / UX / Strategy</span>
+          <span className="eyebrow">Customer Experience, Design, and Strategy</span>
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
@@ -89,18 +89,13 @@ function Hero() {
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
           <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
             <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
-              People often tell one story — their behavior tells another
-              <span className="text-accent">.</span>{" "}
-              <span className="text-muted-foreground">
-                I design for the gap in between.
-              </span>
+              The most valuable insights rarely come from what people say—they
+              come from what they do<span className="text-accent">.</span>
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              I'm Danielle Bosworth — a marketing, product, and CX professional
-              with a background in psychology, product design, and client-facing
-              leadership. I work across research, content, and operations to
-              translate what customers actually do into strategy, systems, and
-              stories the business can act on.
+              I use research, strategy, and design thinking to uncover those
+              insights and transform them into products, experiences, and
+              systems that create meaningful impact.
             </p>
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
