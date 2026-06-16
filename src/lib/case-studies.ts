@@ -301,7 +301,7 @@ const robinSections: Section[] = [
           },
           {
             kind: "image",
-            label: "Fig. 04",
+            label: "Fig. 05",
             caption: "Heuristic evaluation — 'Consistency and Standards' finding documented alongside the three confirmation screens that violated it, with proposed solutions.",
             ratio: "16 / 9",
             src: robinHeuristics.url,
