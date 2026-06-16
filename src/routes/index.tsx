@@ -93,15 +93,21 @@ function Hero() {
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               Before studying product design, I spent years working directly
               with customers. Those conversations taught me something research
-              continues to confirm: what people say, what they do, and what
-              they actually need are often three different things. My work
-              focuses on understanding those gaps and designing better
+              continues to confirm:
+            </p>
+            <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
+              What people say, what they do, and what they actually need are
+              often three different things.
+            </blockquote>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+              My work focuses on understanding those gaps and designing better
               experiences around them.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Currently completing a Master of Business and Science (MBS) in
-              Product Design &amp; Innovation at Rutgers University.
+              Completing a Master of Business and Science in Product Design
+              &amp; Innovation at Rutgers University.
             </p>
+
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
             <Stat k="175%" label="Revenue growth, branch ops" />
