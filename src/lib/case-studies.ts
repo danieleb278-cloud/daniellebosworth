@@ -150,6 +150,14 @@ const robinSections: Section[] = [
         ],
       },
       {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "Survey results — 80% of respondents rated their current job-search experience at 3 or below on a 0–5 satisfaction scale. Nobody rated it a 5.",
+        ratio: "16 / 9",
+        src: robinSurvey.url,
+        alt: "Bar chart showing satisfaction ratings for current job-application experience",
+      },
+      {
         kind: "list",
         heading: "Key Findings",
         items: [
