@@ -10,6 +10,8 @@ const sections = [
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
@@ -17,19 +19,33 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-md bg-background/75 border-b border-border"
+        scrolled || open
+          ? "backdrop-blur-md bg-background/85 border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-12">
-        <Link to="/" className="group flex items-baseline gap-2">
-          <span className="font-display text-xl tracking-tight">Danielle Bosworth</span>
+      <nav className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-4 md:px-12">
+        <Link
+          to="/"
+          onClick={() => setOpen(false)}
+          className="group flex min-w-0 items-baseline gap-2"
+        >
+          <span className="truncate font-display text-lg tracking-tight sm:text-xl">
+            Danielle Bosworth
+          </span>
           <span className="eyebrow hidden sm:inline">— portfolio</span>
         </Link>
+
         <ul className="hidden items-center gap-8 md:flex">
           {sections.map((s) => (
             <li key={s.id}>
@@ -41,14 +57,70 @@ export function SiteNav() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="mailto:Danieleb278@gmail.com"
+              className="eyebrow rounded-full border border-foreground px-4 py-2 text-foreground transition-colors hover:bg-foreground hover:text-background"
+            >
+              Open to roles
+            </a>
+          </li>
         </ul>
-        <a
-          href="mailto:Danieleb278@gmail.com"
-          className="eyebrow hidden rounded-full border border-foreground px-4 py-2 text-foreground transition-colors hover:bg-foreground hover:text-background md:inline-block"
+
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="eyebrow flex shrink-0 items-center gap-2 rounded-full border border-foreground px-3 py-2 md:hidden"
         >
-          Open to roles
-        </a>
+          <span className="relative block h-3 w-4">
+            <span
+              className={`absolute left-0 right-0 h-px bg-foreground transition-transform duration-300 ${
+                open ? "top-1/2 rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 right-0 h-px bg-foreground transition-transform duration-300 ${
+                open ? "top-1/2 -rotate-45" : "top-full"
+              }`}
+            />
+          </span>
+          {open ? "Close" : "Menu"}
+        </button>
       </nav>
+
+      {/* Mobile sheet */}
+      <div
+        className={`overflow-hidden border-border bg-background md:hidden ${
+          open ? "max-h-[80vh] border-t" : "max-h-0"
+        } transition-[max-height] duration-500 ease-out`}
+      >
+        <ul className="flex flex-col divide-y divide-border px-6 py-2">
+          {sections.map((s) => (
+            <li key={s.id}>
+              <a
+                href={`/#${s.id}`}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between py-5 font-display text-2xl tracking-tight"
+              >
+                <span>{s.label}</span>
+                <span className="eyebrow">→</span>
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href="mailto:Danieleb278@gmail.com"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-accent"
+            >
+              <span>Email</span>
+              <span className="eyebrow text-accent">Open to roles ✦</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 }
