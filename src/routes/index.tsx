@@ -187,7 +187,7 @@ function Work() {
                     </div>
                     <h3 className="mt-3 font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
                       {cs.title}
-                      <span className="text-accent">.</span>
+                      <span className={i === 0 ? "text-accent-yellow" : i === 1 ? "text-accent-purple" : "text-accent-charcoal"}>.</span>
                     </h3>
                     <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
                       {cs.subtitle}
