@@ -197,10 +197,18 @@ const robinSections: Section[] = [
       {
         kind: "image",
         label: "Fig. 03",
-        caption: "Samantha — primary persona and experience journey map covering her morning commute, lunchtime, arriving home, and before bed.",
-        ratio: "16 / 9",
+        caption: "Samantha — primary persona representing the young professional juggling job hunting with wedding planning.",
+        ratio: "16 / 10",
         src: robinPersona.url,
-        alt: "Persona profile for Samantha alongside an experience journey map",
+        alt: "Persona profile for Samantha with demographics, behaviors, and needs",
+      },
+      {
+        kind: "image",
+        label: "Fig. 04",
+        caption: "Journey map — Samantha's day from morning commute to before bed, surfacing pain points and opportunities the Robin app could address.",
+        ratio: "16 / 10",
+        src: robinJourneyMap.url,
+        alt: "Detailed journey map of Samantha's day with actions, needs, feelings, and opportunities",
       },
       {
         kind: "list",
@@ -293,7 +301,7 @@ const robinSections: Section[] = [
           },
           {
             kind: "image",
-            label: "Fig. 04",
+            label: "Fig. 05",
             caption: "Heuristic evaluation — 'Consistency and Standards' finding documented alongside the three confirmation screens that violated it, with proposed solutions.",
             ratio: "16 / 9",
             src: robinHeuristics.url,
@@ -359,7 +367,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "image",
-        label: "Fig. 05",
+        label: "Fig. 06",
         caption: "Resume Builder — full flow from library to section-by-section editing (Basic Information, Objective, Education, Professional Experience), with an inline 'Write with AI' assist.",
         ratio: "16 / 9",
         src: robinResumeFlow.url,
@@ -369,25 +377,32 @@ const robinSections: Section[] = [
         kind: "gallery",
         items: [
           {
-            label: "Fig. 06a",
+            label: "Fig. 07a",
             caption: "Template Gallery and saved Resume Library with metrics per resume.",
             ratio: "3 / 4",
             src: robinResumeLibrary.url,
             alt: "Template gallery and resume library screens",
           },
           {
-            label: "Fig. 06b",
+            label: "Fig. 07b",
             caption: "Analytics — filter applications by date, industry, resume used, response type, and status to surface what's working.",
             ratio: "3 / 4",
             src: robinAnalytics.url,
             alt: "Analytics filter screen and metrics charts",
           },
           {
-            label: "Fig. 06c",
-            caption: "Notifications & reminders — recruiter messages and a prominent next-up interview reminder on the home screen.",
+            label: "Fig. 07c",
+            caption: "Home screen — notifications, recruiter messages, and a prominent next-up interview reminder.",
             ratio: "3 / 5",
-            src: robinNotifications.url,
-            alt: "Robin notifications home screen with recruiter messages and interview reminder",
+            src: robinHomescreen.url,
+            alt: "Robin home screen with notifications and interview reminder",
+          },
+          {
+            label: "Fig. 07d",
+            caption: "Main menu — direct access to Job Board, Application Credentials, Resume Builder, Calendar, and Insights & Metrics.",
+            ratio: "3 / 5",
+            src: robinMenu.url,
+            alt: "Robin main menu with five primary navigation tiles",
           },
         ],
       },
@@ -1005,12 +1020,14 @@ export const caseStudies: CaseStudy[] = [
 
 import robinLogo from "@/assets/robin/logo.jpg.asset.json";
 import robinSurvey from "@/assets/robin/survey.jpg.asset.json";
-import robinPersona from "@/assets/robin/persona.jpg.asset.json";
+import robinPersona from "@/assets/robin/persona_clean.jpg.asset.json";
+import robinJourneyMap from "@/assets/robin/journey_map.jpg.asset.json";
 import robinHeuristics from "@/assets/robin/heuristics.png.asset.json";
 import robinResumeFlow from "@/assets/robin/resume_flow.png.asset.json";
 import robinResumeLibrary from "@/assets/robin/resume_library.png.asset.json";
 import robinAnalytics from "@/assets/robin/analytics.png.asset.json";
-import robinNotifications from "@/assets/robin/notifications.png.asset.json";
+import robinHomescreen from "@/assets/robin/homescreen.png.asset.json";
+import robinMenu from "@/assets/robin/menu.jpg.asset.json";
 import joomlaLogo from "@/assets/joomla/joomla_logo.png.asset.json";
 import joomlaPersona1 from "@/assets/joomla/1.png.asset.json";
 import joomlaPersona2 from "@/assets/joomla/2.png.asset.json";
