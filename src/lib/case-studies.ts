@@ -1044,8 +1044,10 @@ import joomlaAlgolia from "@/assets/joomla/algolia_diagram.png.asset.json";
 import joomlaDetail from "@/assets/joomla/extension_detail_redesign.png.asset.json";
 import joomlaIncentive from "@/assets/joomla/incentive_based_model_clean_up.png.asset.json";
 import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
-import joomlaSitemap1 from "@/assets/joomla/Sitemap_1.jpg.asset.json";
-import joomlaFinalSitemap from "@/assets/joomla/final_site_map.jpg.asset.json";
+import joomlaSubmissionWizard from "@/assets/joomla/submission_wizard.png.asset.json";
+import joomlaHomepageRedesign from "@/assets/joomla/homepage_redesign.png.asset.json";
+import joomlaSearchResults from "@/assets/joomla/search_results_redesign.png.asset.json";
+import joomlaJourneyMap from "@/assets/joomla/customer_journey_map.png.asset.json";
 import ndClickable from "@/assets/nd/clickable.png.asset.json";
 import ndScreens from "@/assets/nd/screens.png.asset.json";
 import ndSurvey from "@/assets/nd/survey.png.asset.json";
@@ -1168,6 +1170,14 @@ const joomlaSections: Section[] = [
         ],
       },
       {
+        kind: "image",
+        label: "Customer journey map",
+        caption: "Fig. 04 · End-to-end journey across entry, search, filter, evaluate, decide, and exit — surfacing pain points and opportunities.",
+        ratio: "16/9",
+        src: joomlaJourneyMap.url,
+        alt: "Customer journey map across six steps with actions, pain points, and opportunities",
+      },
+      {
         kind: "group",
         heading: "Key Findings",
         blocks: [
@@ -1279,12 +1289,11 @@ const joomlaSections: Section[] = [
         ],
       },
       {
-        kind: "image",
-        label: "Final sitemap",
-        caption: "Fig. 05 · Proposed information architecture",
-        ratio: "16/9",
-        src: joomlaFinalSitemap.url,
-        alt: "Final sitemap diagram",
+        kind: "gallery",
+        items: [
+          { label: "Homepage — redesigned", caption: "Fig. 05a · Restructured homepage with goal-based browsing and trending modules.", ratio: "3/5", src: joomlaHomepageRedesign.url, alt: "Redesigned Joomla Extension Directory homepage" },
+          { label: "Search results — redesigned", caption: "Fig. 05b · Search results with structured filters, comparable cards, and clearer metadata.", ratio: "3/5", src: joomlaSearchResults.url, alt: "Redesigned search results page" },
+        ],
       },
     ],
   },
@@ -1348,14 +1357,6 @@ const joomlaSections: Section[] = [
           },
         ],
       },
-      {
-        kind: "image",
-        label: "Initial sitemap exploration",
-        caption: "Fig. 06 · Early sitemap exploration mapping discovery paths",
-        ratio: "16/9",
-        src: joomlaSitemap1.url,
-        alt: "Initial sitemap exploration",
-      },
     ],
   },
   {
@@ -1385,10 +1386,9 @@ const joomlaSections: Section[] = [
       {
         kind: "gallery",
         items: [
-          { label: "Search & discovery system", caption: "Fig. 07 · Proposed search and discovery flow", ratio: "16/9", src: joomlaProposed.url, alt: "Proposed search and discovery system" },
-          { label: "Search + metadata model", caption: "Fig. 08 · Structured metadata model", ratio: "16/9", src: joomlaSearchMeta.url, alt: "Search and metadata model" },
-          { label: "Legacy data gap", caption: "Fig. 08a · Bridging unstructured legacy data into a structured system", ratio: "16/9", src: joomlaLegacy.url, alt: "Legacy data diagram" },
-          { label: "Extension detail — redesigned", caption: "Fig. 08b · Redesigned extension detail page", ratio: "4/5", src: joomlaDetail.url, alt: "Redesigned extension detail page" },
+          { label: "Search + metadata model", caption: "Fig. 07 · Structured metadata model", ratio: "16/9", src: joomlaSearchMeta.url, alt: "Search and metadata model" },
+          { label: "Legacy data gap", caption: "Fig. 07a · Bridging unstructured legacy data into a structured system", ratio: "16/9", src: joomlaLegacy.url, alt: "Legacy data diagram" },
+          { label: "Extension detail — redesigned", caption: "Fig. 07b · Redesigned extension detail page", ratio: "4/5", src: joomlaDetail.url, alt: "Redesigned extension detail page" },
         ],
       },
     ],
@@ -1428,11 +1428,11 @@ const joomlaSections: Section[] = [
           },
           {
             kind: "image",
-            label: "Incentive-based cleanup model",
-            caption: "Fig. 09 · Incentive-based model for legacy listing cleanup",
-            ratio: "16/9",
-            src: joomlaIncentive.url,
-            alt: "Incentive-based cleanup model",
+            label: "Submission wizard",
+            caption: "Fig. 08 · Guided submission wizard with conditional logic — purpose, functions, type, and category-specific detail sections.",
+            ratio: "4/5",
+            src: joomlaSubmissionWizard.url,
+            alt: "Submission wizard flow with conditional sections for e-commerce, payment, subscriptions, components, plugins, and modules",
           },
         ],
       },
