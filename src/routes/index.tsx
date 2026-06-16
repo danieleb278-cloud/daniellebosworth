@@ -233,12 +233,32 @@ function About() {
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-base leading-relaxed text-background/80 md:text-lg">
-                I started in customer-facing leadership, developed a deep
-                curiosity about human behavior, and pursued psychology and
-                product design to better understand people and systems. Today
-                I use research, strategy, and design thinking to uncover
-                insights and build experiences that bridge customer needs
-                and business goals.
+                I started in{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  customer-facing leadership
+                </span>
+                , developed a deep curiosity about{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  human behavior
+                </span>
+                , and pursued{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  psychology
+                </span>{" "}
+                and{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  product design
+                </span>{" "}
+                to better understand people and systems. Today I use{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  research, strategy, and design thinking
+                </span>{" "}
+                to uncover{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">
+                  insights
+                </span>{" "}
+                and build experiences that bridge customer needs and business
+                goals.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
