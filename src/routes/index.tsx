@@ -487,10 +487,16 @@ function Contact() {
               </div>
               <div>
                 <span className="eyebrow">Looking for</span>
-                <p className="mt-2 font-display text-2xl">
-                  Product Design, UX Research, Customer Experience, and Product Strategy opportunities.
-                </p>
+                <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-xl sm:text-2xl">
+                  {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s, i, a) => (
+                    <li key={s} className="flex items-center gap-3">
+                      <span>{s}</span>
+                      {i < a.length - 1 && <span className="text-teal">•</span>}
+                    </li>
+                  ))}
+                </ul>
               </div>
+
             </div>
           </div>
         </div>
