@@ -7,17 +7,17 @@ import { caseStudies } from "@/lib/case-studies";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth — Product Design, UX & Strategy" },
+      { title: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
       {
         name: "description",
         content:
-          "Portfolio of Danielle Bosworth: a product designer bridging behavior, strategy, and customer experience.",
+          "Portfolio of Danielle Bosworth: a cross-functional specialist bridging customer insight, strategy, and business goals across product, CX, and marketing.",
       },
-      { property: "og:title", content: "Danielle Bosworth — Product Design, UX & Strategy" },
+      { property: "og:title", content: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
       {
         property: "og:description",
         content:
-          "Selected case studies in UX research, product design, and information architecture.",
+          "Selected case studies in product strategy, UX research, customer experience, and brand marketing.",
       },
     ],
   }),
@@ -25,14 +25,14 @@ export const Route = createFileRoute("/")({
 });
 
 const marquee = [
-  "Product Design",
-  "UX Research",
-  "Information Architecture",
-  "Behavioral Insight",
-  "Interaction Design",
-  "Strategy",
+  "Product Strategy",
   "Customer Experience",
-  "Systems Thinking",
+  "UX Research",
+  "Content & Marketing",
+  "Voice of Customer",
+  "Service Design",
+  "Information Architecture",
+  "Cross-Functional",
 ];
 
 function Index() {
@@ -60,15 +60,15 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,10vw,9.5rem)] leading-[0.92] tracking-[-0.04em] rise-in md:col-span-8">
-            Designing for
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-[0.95] tracking-[-0.04em] rise-in md:col-span-8">
+            A cross-functional
             <br />
-            <span className="italic text-muted-foreground">how people</span>
-            <span className="text-accent">,</span> not
+            specialist bridging
             <br />
-            just what they
+            <span className="italic text-muted-foreground">customer insight</span>
+            <span className="text-accent">,</span> strategy
             <br />
-            say<span className="text-accent">.</span>
+            &amp; business goals<span className="text-accent">.</span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:pt-2">
@@ -83,17 +83,27 @@ function Hero() {
         </div>
 
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
-          <p className="col-span-12 max-w-xl text-base leading-relaxed md:col-span-7 md:col-start-1 md:text-lg">
-            I'm Danielle Bosworth — a product designer with a background in
-            behavioral observation and client-facing work. I design intuitive,
-            user-centered systems by understanding people beyond what they say.
-            Currently open to cross-functional product roles.
-          </p>
+          <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
+            <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
+              People often tell one story — their behavior tells another
+              <span className="text-accent">.</span>{" "}
+              <span className="text-muted-foreground">
+                I design for the gap in between.
+              </span>
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              I'm Danielle Bosworth — a marketing, product, and CX professional
+              with a background in psychology, product design, and client-facing
+              leadership. I work across research, content, and operations to
+              translate what customers actually do into strategy, systems, and
+              stories the business can act on.
+            </p>
+          </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
+            <Stat k="175%" label="Revenue growth, branch ops" />
+            <Stat k="+32%" label="Client retention" />
             <Stat k="03" label="Featured case studies" />
-            <Stat k="40+" label="Research participants" />
-            <Stat k="08" label="Years reading people" />
-            <Stat k="01" label="Designer, all hours" />
+            <Stat k="MBS" label="Product Design, Rutgers" />
           </div>
         </div>
       </div>
@@ -209,46 +219,44 @@ function About() {
           <div className="col-span-12 md:col-span-4">
             <span className="eyebrow text-background/60">§ About</span>
             <h2 className="mt-6 font-display text-4xl tracking-tight md:text-5xl">
-              An eye for behavior, a hand for systems.
+              One ear on the customer, one eye on the business.
             </h2>
           </div>
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
-                I'm a product designer who started in an environment where
-                <span className="italic"> understanding people </span>
-                mattered just as much as technical skill — and that lens still
-                shapes how I design today.
+                I'm a cross-functional specialist who moves between
+                <span className="italic"> strategy, CX, product, and marketing </span>
+                — translating what customers actually do into work the business
+                can act on.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
-                  My background in cosmetology taught me to read behavior,
-                  recognize unspoken needs, and translate them into outcomes
-                  that felt right for each individual. That work strengthened
-                  both my empathy and my eye for detail — and it still
-                  influences how I think about aesthetics, communication, and
-                  design.
+                  My background blends psychology, product design, and years of
+                  customer-facing leadership — from running a high-volume
+                  branch (~175% revenue growth, +32% retention) to coordinating
+                  marketing, education, and operations for a haircare brand
+                  today.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
-                  Over time, the threads I once thought were scattered —
-                  creativity, psychology, and problem-solving — became the
-                  foundation of how I approach product design. I'm drawn to
-                  patterns in behavior, friction in systems, and solutions that
-                  bring clarity to complex workflows.
+                  I'm currently finishing an MBS in Product Design &amp;
+                  Innovation at Rutgers. I work fluently across research,
+                  content, analytics, and AI-assisted workflows — and I'm at my
+                  best where customer insight, brand, and operations meet.
                 </p>
               </Reveal>
             </div>
 
             <div className="mt-16 grid grid-cols-2 gap-8 border-t border-background/20 pt-8 md:grid-cols-4">
               {[
-                ["Design", "Product, UX, interaction"],
-                ["Research", "Interviews, card sorts, usability"],
-                ["Strategy", "Customer experience, positioning"],
-                ["Systems", "IA, workflows, design tokens"],
+                ["Strategy", "Positioning, roadmap input, VOC"],
+                ["CX", "Journey mapping, service design"],
+                ["Product", "UX research, IA, prototyping"],
+                ["Marketing", "Content, social, brand, SEO"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <div className="font-display text-lg">{k}</div>
@@ -266,38 +274,63 @@ function About() {
 function Resume() {
   const roles = [
     {
-      year: "2024 — Now",
-      role: "Product Designer — Independent",
-      org: "Selected case studies & client projects",
+      year: "May 2025 — Now",
+      role: "Product Specialist & Marketing Coordinator",
+      org: "Magic Sleek · Manalapan, NJ",
       detail:
-        "UX research, product design, and information architecture across travel, productivity, and open-source platforms.",
+        "Cross-functional work across marketing, product, CX, and operations: educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
     },
     {
-      year: "2023 — 2024",
-      role: "Product Design Training",
-      org: "Formal coursework & applied projects",
+      year: "Jan — May 2025",
+      role: "Product Design Extern · MissTeePRO",
+      org: "Rutgers MBS Externship",
       detail:
-        "Wireframing, prototyping, usability testing, and interaction design — paired with real-world client briefs.",
+        "Competitive and ingredient research for professional haircare; built an Airtable research library and synthesized findings into product roadmap recommendations.",
     },
     {
-      year: "2018 — 2023",
-      role: "Cosmetologist & Client Lead",
-      org: "Independent practice",
+      year: "2024 — Present",
+      role: "MBS, Product Design & Innovation",
+      org: "Rutgers University · GPA 3.7",
       detail:
-        "Years of one-on-one client work: reading behavior, surfacing unspoken needs, and translating them into outcomes.",
+        "UX research, prototyping, and service design across Figma, Miro, and Adobe — paired with applied client and academic briefs. Earned UX Design Certificate and Google Analytics Certification.",
+    },
+    {
+      year: "2018 — 2024",
+      role: "Branch Manager → Hairstylist / Cosmetologist",
+      org: "G&C Robins Co. / Supercuts · The Art of Hair",
+      detail:
+        "Led daily operations, staff, and CX in a high-volume retail environment — drove ~175% revenue growth and +32% retention through outreach, CRM, and service-design improvements.",
+    },
+    {
+      year: "2021 — 2023",
+      role: "B.A. Psychology, Minor in Sociology",
+      org: "Rutgers University",
+      detail:
+        "Foundation in human behavior, research methods, and qualitative analysis — the lens behind every project that follows.",
     },
   ];
   const tools = [
-    "Figma", "Adobe XD", "Webflow", "Notion", "Maze", "Dovetail",
-    "Miro", "FigJam", "Whimsical", "Loom",
+    "Figma", "Miro", "Canva", "Adobe Creative Cloud", "CapCut",
+    "Tableau", "GA4", "Search Console", "Salesforce", "Airtable",
+    "Notion", "Shopify", "WordPress", "Webflow", "Meta Business Suite",
+    "ChatGPT", "Gemini", "ElevenLabs",
   ];
   const skills = [
-    "UX Research",
+    "Product Strategy",
+    "Customer Experience (CX)",
+    "Customer Insights & VOC",
+    "Journey Mapping",
+    "Service Design",
+    "Content Strategy",
+    "Educational Content",
+    "Copywriting & Editing",
+    "Social Media & Brand",
+    "SEO & Analytics",
     "Information Architecture",
-    "Wireframing & Prototyping",
-    "Interaction Design",
-    "Communication",
-    "Customer Service & Experience",
+    "Knowledge Management",
+    "Process Improvement",
+    "AI-Assisted Workflows",
+    "Cross-Functional Collaboration",
   ];
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
@@ -305,7 +338,8 @@ function Resume() {
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
           <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-            A path that blends hands-on client work with formal design training.
+            A path that blends customer-facing leadership, marketing operations,
+            and applied product design.
           </h2>
         </div>
 
