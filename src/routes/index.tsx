@@ -436,7 +436,7 @@ function Contact() {
                   <span className="eyebrow">Email</span>
                   <a
                     href="mailto:Danieleb278@gmail.com"
-                    className="mt-2 block font-display text-2xl link-underline"
+                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
                   >
                     Danieleb278@gmail.com
                   </a>
@@ -445,7 +445,7 @@ function Contact() {
                   <span className="eyebrow">LinkedIn</span>
                   <a
                     href="https://linkedin.com/in/daniellelbosworth"
-                    className="mt-2 block font-display text-2xl link-underline"
+                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
                   >
                     /in/daniellelbosworth
                   </a>
