@@ -6,7 +6,7 @@ type Props = {
   alt?: string;
   tone?: "paper" | "ink";
   className?: string;
-  fit?: "cover" | "contain";
+  fit?: "cover" | "contain" | "cover-top";
 };
 
 /**
@@ -38,9 +38,16 @@ export function PlaceholderImage({
           <img
             src={src}
             alt={alt}
-            className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain p-6" : "object-cover"}`}
+            className={`absolute inset-0 h-full w-full ${
+              fit === "contain"
+                ? "object-contain p-6"
+                : fit === "cover-top"
+                ? "object-cover object-top"
+                : "object-cover"
+            }`}
             loading="lazy"
           />
+
         ) : (
           <>
             {/* diagonal hairlines */}
