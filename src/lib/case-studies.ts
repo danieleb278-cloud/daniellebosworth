@@ -489,6 +489,14 @@ const nextDestinationSections: Section[] = [
         text: "Research included surveys, customer interviews, competitive analysis, affinity mapping, and customer needs analysis.",
       },
       {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "Vacation Questionnaire — survey distributed to capture travel habits, budgets, and planning pain points.",
+        ratio: "4 / 5",
+        src: ndSurvey.url,
+        alt: "Screenshot of the Vacation Questionnaire survey",
+      },
+      {
         kind: "list",
         heading: "Research Methods",
         items: [
@@ -499,6 +507,14 @@ const nextDestinationSections: Section[] = [
           "Affinity mapping",
           "Opportunity assessment",
         ],
+      },
+      {
+        kind: "image",
+        label: "Fig. 03",
+        caption: "Customer journey map — mapping awareness through post-travel to surface positive moments, frustrations, and opportunity areas.",
+        ratio: "16 / 9",
+        src: ndJourney.url,
+        alt: "Customer journey map across awareness, consideration, onboarding, planning, booking, traveling, and post-travel",
       },
       {
         kind: "list",
