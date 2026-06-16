@@ -291,6 +291,14 @@ const robinSections: Section[] = [
               "User control concerns",
             ],
           },
+          {
+            kind: "image",
+            label: "Fig. 04",
+            caption: "Heuristic evaluation — 'Consistency and Standards' finding documented alongside the three confirmation screens that violated it, with proposed solutions.",
+            ratio: "16 / 9",
+            src: robinHeuristics.url,
+            alt: "Consistency and Standards heuristic evaluation with three Robin confirmation screens",
+          },
         ],
       },
       {
