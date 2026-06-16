@@ -117,8 +117,8 @@ function Hero() {
 
 function Stat({ k, label }: { k: string; label: string }) {
   return (
-    <div className="border-t border-border pt-3">
-      <div className="font-display text-2xl tracking-tight text-teal sm:text-3xl">{k}</div>
+    <div className="group border-t border-border pt-3 transition-colors duration-300 hover:border-teal">
+      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">{k}</div>
       <div className="eyebrow mt-1 leading-tight">{label}</div>
     </div>
   );
