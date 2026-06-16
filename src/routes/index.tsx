@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
 
 export const Route = createFileRoute("/")({
@@ -51,14 +52,15 @@ function Index() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-40 pb-24 md:px-12 md:pt-56 md:pb-32">
+    <section className="relative px-6 pt-32 pb-20 md:px-12 md:pt-48 md:pb-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 mb-8 flex items-center justify-between md:col-span-12">
-            <span className="eyebrow">№ 001 — Portfolio, 2026</span>
-            <span className="eyebrow hidden md:inline">Product Design / UX / Strategy</span>
-          </div>
-          <h1 className="col-span-12 font-display text-[clamp(3rem,10vw,9.5rem)] leading-[0.92] tracking-[-0.04em] rise-in">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-2">
+          <span className="eyebrow">№ 001 — Portfolio, 2026</span>
+          <span className="eyebrow">Product Design / UX / Strategy</span>
+        </div>
+
+        <div className="grid grid-cols-12 gap-6 md:gap-10">
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,10vw,9.5rem)] leading-[0.92] tracking-[-0.04em] rise-in md:col-span-8">
             Designing for
             <br />
             <span className="italic text-muted-foreground">how people</span>
@@ -68,19 +70,30 @@ function Hero() {
             <br />
             say<span className="text-accent">.</span>
           </h1>
-          <div className="col-span-12 mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8">
-            <p className="col-span-12 max-w-xl text-lg leading-relaxed md:col-span-7 md:col-start-1">
-              I'm Danielle Bosworth — a product designer with a background in
-              behavioral observation and client-facing work. I design intuitive,
-              user-centered systems by understanding people beyond what they say.
-              Currently open to cross-functional product roles.
-            </p>
-            <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
-              <Stat k="03" label="Featured case studies" />
-              <Stat k="40+" label="Research participants" />
-              <Stat k="08" label="Years reading people" />
-              <Stat k="01" label="Designer, all hours" />
-            </div>
+
+          <div className="col-span-12 md:col-span-4 md:pt-2">
+            <Reveal delay={120}>
+              <PlaceholderImage
+                label="Portrait"
+                caption="Danielle Bosworth — upload photo here"
+                ratio="4/5"
+              />
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
+          <p className="col-span-12 max-w-xl text-base leading-relaxed md:col-span-7 md:col-start-1 md:text-lg">
+            I'm Danielle Bosworth — a product designer with a background in
+            behavioral observation and client-facing work. I design intuitive,
+            user-centered systems by understanding people beyond what they say.
+            Currently open to cross-functional product roles.
+          </p>
+          <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
+            <Stat k="03" label="Featured case studies" />
+            <Stat k="40+" label="Research participants" />
+            <Stat k="08" label="Years reading people" />
+            <Stat k="01" label="Designer, all hours" />
           </div>
         </div>
       </div>
