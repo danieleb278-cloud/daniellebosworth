@@ -62,12 +62,10 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-[0.95] tracking-[-0.04em] rise-in md:col-span-8">
-            Understanding behavior.
-            <br />
-            Designing systems.
-            <br />
-            Bridging gaps<span className="text-accent">.</span>
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8">
+            <span className="block mb-4">Understanding behavior.</span>
+            <span className="block mb-4">Designing systems.</span>
+            <span className="block">Bridging gaps<span className="text-teal">.</span></span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:pt-2">
