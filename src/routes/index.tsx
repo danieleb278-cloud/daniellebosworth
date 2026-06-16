@@ -62,22 +62,24 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8 md:order-2 flex h-full flex-col justify-between">
+          <h1 className="col-span-12 font-display text-[clamp(2rem,5.5vw,4.75rem)] leading-[1.05] tracking-[-0.04em] rise-in md:col-span-8 md:order-2">
             <span className="block">Understanding <span className="italic">behavior</span>.</span>
-            <span className="block ml-[10%] md:ml-[15%]">Designing <span className="italic">systems</span>.</span>
-            <span className="block ml-[20%] md:ml-[30%]">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
+            <span className="block">Designing <span className="italic">systems</span>.</span>
+            <span className="block">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
-              <PlaceholderImage
-                src={portrait.url}
-                alt="Portrait of Danielle Bosworth"
-                label="Portrait"
-                caption="Danielle Bosworth"
-                ratio="4/5"
-                fit="cover-top"
-              />
+              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+                <PlaceholderImage
+                  src={portrait.url}
+                  alt="Portrait of Danielle Bosworth"
+                  label="Portrait"
+                  caption="Danielle Bosworth"
+                  ratio="4/5"
+                  fit="cover-top"
+                />
+              </div>
             </Reveal>
           </div>
         </div>
@@ -115,8 +117,8 @@ function Hero() {
 
 function Stat({ k, label }: { k: string; label: string }) {
   return (
-    <div className="border-t border-border pt-3">
-      <div className="font-display text-2xl tracking-tight text-teal sm:text-3xl">{k}</div>
+    <div className="group border-t border-border pt-3 transition-colors duration-300 hover:border-teal">
+      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">{k}</div>
       <div className="eyebrow mt-1 leading-tight">{label}</div>
     </div>
   );
@@ -166,14 +168,14 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className="overflow-hidden border-2 border-teal p-3 transition-transform duration-500 group-hover:-translate-y-1 bg-charcoal">
+                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
                         src={cs.cover?.src}
                         alt={cs.cover?.alt}
                         fit="contain"
-                        className="bg-paper"
+                        className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
                       />
                     </div>
                   </div>
@@ -197,7 +199,7 @@ function Work() {
                       {cs.tags.map((t) => (
                         <span
                           key={t}
-                          className="eyebrow rounded-full border border-border px-3 py-1"
+                          className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                         >
                           {t}
                         </span>
@@ -402,7 +404,7 @@ function Resume() {
                 {skills.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                   >
                     {t}
                   </li>
@@ -415,7 +417,7 @@ function Resume() {
                 {tools.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                   >
                     {t}
                   </li>
