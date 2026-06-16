@@ -6,16 +6,17 @@ import { caseStudies } from "@/lib/case-studies";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "dscript — Product Strategy, UX & Marketing" },
+      { title: "Danielle Bosworth — Product Design, UX & Strategy" },
       {
         name: "description",
         content:
-          "Portfolio of dscript: product strategy, UX, and marketing case studies for early- and growth-stage teams.",
+          "Portfolio of Danielle Bosworth: a product designer bridging behavior, strategy, and customer experience.",
       },
-      { property: "og:title", content: "dscript — Product Strategy, UX & Marketing" },
+      { property: "og:title", content: "Danielle Bosworth — Product Design, UX & Strategy" },
       {
         property: "og:description",
-        content: "Selected case studies in product strategy, UX, and marketing.",
+        content:
+          "Selected case studies in UX research, product design, and information architecture.",
       },
     ],
   }),
@@ -23,14 +24,14 @@ export const Route = createFileRoute("/")({
 });
 
 const marquee = [
-  "Product Strategy",
-  "UX Architecture",
-  "Positioning",
-  "Activation",
-  "Go-to-Market",
-  "Pricing",
-  "Narrative Design",
-  "Research",
+  "Product Design",
+  "UX Research",
+  "Information Architecture",
+  "Behavioral Insight",
+  "Interaction Design",
+  "Strategy",
+  "Customer Experience",
+  "Systems Thinking",
 ];
 
 function Index() {
@@ -54,30 +55,31 @@ function Hero() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 mb-8 flex items-center justify-between md:col-span-12">
-            <span className="eyebrow">№ 001 — Portfolio, Vol. VII</span>
-            <span className="eyebrow hidden md:inline">Brooklyn / Remote</span>
+            <span className="eyebrow">№ 001 — Portfolio, 2026</span>
+            <span className="eyebrow hidden md:inline">Product Design / UX / Strategy</span>
           </div>
           <h1 className="col-span-12 font-display text-[clamp(3rem,10vw,9.5rem)] leading-[0.92] tracking-[-0.04em] rise-in">
-            Strategy,
+            Designing for
             <br />
-            <span className="italic text-muted-foreground">structure</span>
-            <span className="text-accent">,</span> and
+            <span className="italic text-muted-foreground">how people</span>
+            <span className="text-accent">,</span> not
             <br />
-            the words in
+            just what they
             <br />
-            between<span className="text-accent">.</span>
+            say<span className="text-accent">.</span>
           </h1>
           <div className="col-span-12 mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8">
             <p className="col-span-12 max-w-xl text-lg leading-relaxed md:col-span-7 md:col-start-1">
-              I'm a product strategist, UX designer, and marketer helping early- and
-              growth-stage teams turn ambitious products into legible businesses.
-              Currently taking on two engagements this quarter.
+              I'm Danielle Bosworth — a product designer with a background in
+              behavioral observation and client-facing work. I design intuitive,
+              user-centered systems by understanding people beyond what they say.
+              Currently open to cross-functional product roles.
             </p>
             <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
-              <Stat k="08" label="Years shipping" />
-              <Stat k="34" label="Engagements" />
-              <Stat k="11" label="Series A+ launches" />
-              <Stat k="∞" label="Drafts thrown away" />
+              <Stat k="03" label="Featured case studies" />
+              <Stat k="40+" label="Research participants" />
+              <Stat k="08" label="Years reading people" />
+              <Stat k="01" label="Designer, all hours" />
             </div>
           </div>
         </div>
@@ -119,11 +121,11 @@ function Work() {
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
-            <span className="eyebrow col-span-12 md:col-span-2">§ Work</span>
+            <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Three engagements, each chosen because the
-              <span className="italic text-muted-foreground"> hard part </span>
-              wasn't the obvious one.
+              Three projects on UX research, product design, and
+              <span className="italic text-muted-foreground"> system-level thinking</span>
+              <span className="text-accent">.</span>
             </h2>
           </div>
         </Reveal>
@@ -184,46 +186,46 @@ function About() {
           <div className="col-span-12 md:col-span-4">
             <span className="eyebrow text-background/60">§ About</span>
             <h2 className="mt-6 font-display text-4xl tracking-tight md:text-5xl">
-              An operator's eye, an editor's hand.
+              An eye for behavior, a hand for systems.
             </h2>
           </div>
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
-                I built my first product team at twenty-four and have spent the
-                decade since at the seam between
-                <span className="italic"> what a product does </span>
-                and
-                <span className="italic"> what it means </span>
-                to the people paying for it.
+                I'm a product designer who started in an environment where
+                <span className="italic"> understanding people </span>
+                mattered just as much as technical skill — and that lens still
+                shapes how I design today.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
-                  My background is unusual on purpose. I trained as an editor before
-                  moving into product, which means I treat strategy documents,
-                  interfaces, and pricing pages as the same artifact: a piece of
-                  writing that has to argue its case quickly and stay readable for
-                  a long time.
+                  My background in cosmetology taught me to read behavior,
+                  recognize unspoken needs, and translate them into outcomes
+                  that felt right for each individual. That work strengthened
+                  both my empathy and my eye for detail — and it still
+                  influences how I think about aesthetics, communication, and
+                  design.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
-                  I work best with teams in the messy middle — somewhere between
-                  the first ten customers and the first hundred. Past clients
-                  include Series A SaaS, two healthtech companies, a freight
-                  platform, and a handful of indie developer tools.
+                  Over time, the threads I once thought were scattered —
+                  creativity, psychology, and problem-solving — became the
+                  foundation of how I approach product design. I'm drawn to
+                  patterns in behavior, friction in systems, and solutions that
+                  bring clarity to complex workflows.
                 </p>
               </Reveal>
             </div>
 
             <div className="mt-16 grid grid-cols-2 gap-8 border-t border-background/20 pt-8 md:grid-cols-4">
               {[
-                ["Strategy", "Positioning, pricing, narrative"],
-                ["UX", "Onboarding, IA, research"],
-                ["Marketing", "GTM, editorial, lifecycle"],
-                ["Systems", "Design systems, brand voice"],
+                ["Design", "Product, UX, interaction"],
+                ["Research", "Interviews, card sorts, usability"],
+                ["Strategy", "Customer experience, positioning"],
+                ["Systems", "IA, workflows, design tokens"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <div className="font-display text-lg">{k}</div>
@@ -241,37 +243,38 @@ function About() {
 function Resume() {
   const roles = [
     {
-      year: "2023 — Now",
-      role: "Independent — Product & Marketing Strategy",
-      org: "dscript studio",
+      year: "2024 — Now",
+      role: "Product Designer — Independent",
+      org: "Selected case studies & client projects",
       detail:
-        "Engagements with seed to Series B teams across SaaS, healthtech, and devtools.",
+        "UX research, product design, and information architecture across travel, productivity, and open-source platforms.",
     },
     {
-      year: "2021 — 2023",
-      role: "Head of Product Marketing",
-      org: "Compass Systems",
+      year: "2023 — 2024",
+      role: "Product Design Training",
+      org: "Formal coursework & applied projects",
       detail:
-        "Led repositioning during $40M Series B; rebuilt pricing and lifecycle programs.",
+        "Wireframing, prototyping, usability testing, and interaction design — paired with real-world client briefs.",
     },
     {
-      year: "2018 — 2021",
-      role: "Senior UX Designer",
-      org: "Northstar Health",
+      year: "2018 — 2023",
+      role: "Cosmetologist & Client Lead",
+      org: "Independent practice",
       detail:
-        "Owned patient onboarding and clinician dashboards across two product lines.",
-    },
-    {
-      year: "2015 — 2018",
-      role: "Editor & Strategist",
-      org: "Field Quarterly",
-      detail:
-        "Independent magazine on systems, design, and the built environment.",
+        "Years of one-on-one client work: reading behavior, surfacing unspoken needs, and translating them into outcomes.",
     },
   ];
   const tools = [
-    "Figma", "Notion", "Linear", "Webflow", "Mixpanel", "Amplitude",
-    "Maze", "Dovetail", "HubSpot", "GA4", "Framer", "Customer.io",
+    "Figma", "Adobe XD", "Webflow", "Notion", "Maze", "Dovetail",
+    "Miro", "FigJam", "Whimsical", "Loom",
+  ];
+  const skills = [
+    "UX Research",
+    "Information Architecture",
+    "Wireframing & Prototyping",
+    "Interaction Design",
+    "Communication",
+    "Customer Service & Experience",
   ];
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
@@ -279,7 +282,7 @@ function Resume() {
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
           <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-            A decade across product, design, and editorial.
+            A path that blends hands-on client work with formal design training.
           </h2>
         </div>
 
@@ -306,6 +309,19 @@ function Resume() {
           </div>
           <aside className="col-span-12 md:col-span-3 md:col-start-10">
             <div className="rule-top pt-6">
+              <span className="eyebrow">Skills</span>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {skills.map((t) => (
+                  <li
+                    key={t}
+                    className="eyebrow rounded-full border border-border px-3 py-1"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rule-top mt-10 pt-6">
               <span className="eyebrow">Toolkit</span>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {tools.map((t) => (
@@ -318,17 +334,11 @@ function Resume() {
                 ))}
               </ul>
             </div>
-            <div className="rule-top mt-10 pt-6">
-              <span className="eyebrow">Speaking</span>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Config 2024 · UX London 2023 · SaaStr 2022
-              </p>
-            </div>
             <a
-              href="/resume.pdf"
+              href="#contact"
               className="eyebrow mt-10 inline-block link-underline"
             >
-              Download PDF résumé →
+              Request full résumé →
             </a>
           </aside>
         </div>
@@ -348,39 +358,37 @@ function Contact() {
           <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
           <div className="col-span-12 md:col-span-10">
             <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-              Have a hard
+              Let's bridge
               <br />
-              problem worth
+              design, strategy,
               <br />
-              <span className="italic text-muted-foreground">writing down</span>
-              <span className="text-accent">?</span>
+              <span className="italic text-muted-foreground">and experience</span>
+              <span className="text-accent">.</span>
             </h2>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3">
               <div>
                 <span className="eyebrow">Email</span>
                 <a
-                  href="mailto:hello@dscript.studio"
+                  href="mailto:Danieleb278@gmail.com"
                   className="mt-2 block font-display text-2xl link-underline"
                 >
-                  hello@dscript.studio
+                  Danieleb278@gmail.com
                 </a>
               </div>
               <div>
-                <span className="eyebrow">Calendar</span>
+                <span className="eyebrow">LinkedIn</span>
                 <a
-                  href="#"
+                  href="https://linkedin.com/in/daniellelbosworth"
                   className="mt-2 block font-display text-2xl link-underline"
                 >
-                  Book a 30-min intro
+                  /in/daniellelbosworth
                 </a>
               </div>
               <div>
-                <span className="eyebrow">Elsewhere</span>
-                <div className="mt-2 flex flex-col gap-1 font-display text-2xl">
-                  <a href="#" className="link-underline">LinkedIn</a>
-                  <a href="#" className="link-underline">Read.cv</a>
-                  <a href="#" className="link-underline">Substack</a>
-                </div>
+                <span className="eyebrow">Looking for</span>
+                <p className="mt-2 font-display text-2xl">
+                  Cross-functional roles in product, UX, and CX.
+                </p>
               </div>
             </div>
           </div>
@@ -394,9 +402,9 @@ function Footer() {
   return (
     <footer className="border-t border-border px-6 py-10 md:px-12">
       <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-        <span className="eyebrow">© {new Date().getFullYear()} dscript studio</span>
+        <span className="eyebrow">© {new Date().getFullYear()} Danielle Bosworth</span>
         <span className="eyebrow">
-          Set in Fraunces &amp; Inter Tight · Built with intention
+          Set in Fraunces &amp; Inter Tight · Designed with intention
         </span>
       </div>
     </footer>
