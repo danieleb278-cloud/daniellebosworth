@@ -151,23 +151,33 @@ function Work() {
                 params={{ slug: cs.slug }}
                 className="group block py-10 md:py-14"
               >
-                <div className="grid grid-cols-12 items-baseline gap-6">
-                  <div className="col-span-2 md:col-span-1">
-                    <span className="font-mono text-sm text-muted-foreground">
-                      {cs.index}
-                    </span>
+                <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
+                  {/* Image */}
+                  <div className="col-span-12 md:col-span-5 md:order-2">
+                    <div className="overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
+                      <PlaceholderImage
+                        label={`Project ${cs.index}`}
+                        ratio="4/3"
+                      />
+                    </div>
                   </div>
-                  <div className="col-span-10 md:col-span-6">
-                    <h3 className="font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
+
+                  {/* Text */}
+                  <div className="col-span-12 md:col-span-7 md:order-1">
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-mono text-sm text-muted-foreground">
+                        {cs.index}
+                      </span>
+                      <span className="eyebrow">{cs.discipline}</span>
+                    </div>
+                    <h3 className="mt-3 font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
                       {cs.title}
                       <span className="text-accent">.</span>
                     </h3>
                     <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
                       {cs.subtitle}
                     </p>
-                  </div>
-                  <div className="col-span-7 col-start-3 md:col-span-3 md:col-start-8">
-                    <div className="flex flex-wrap gap-2">
+                    <div className="mt-5 flex flex-wrap items-center gap-2">
                       {cs.tags.map((t) => (
                         <span
                           key={t}
@@ -176,10 +186,10 @@ function Work() {
                           {t}
                         </span>
                       ))}
+                      <span className="eyebrow link-underline ml-auto hidden md:inline">
+                        Read case →
+                      </span>
                     </div>
-                  </div>
-                  <div className="col-span-3 col-start-10 hidden text-right md:block md:col-span-2">
-                    <span className="eyebrow link-underline">Read case →</span>
                   </div>
                 </div>
               </Link>
