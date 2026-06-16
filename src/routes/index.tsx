@@ -118,8 +118,8 @@ function Hero() {
 function Stat({ k, label }: { k: string; label: string }) {
   return (
     <div className="border-t border-border pt-3">
-      <div className="font-display text-3xl tracking-tight text-teal">{k}</div>
-      <div className="eyebrow mt-1">{label}</div>
+      <div className="font-display text-2xl tracking-tight text-teal sm:text-3xl">{k}</div>
+      <div className="eyebrow mt-1 leading-tight">{label}</div>
     </div>
   );
 }
@@ -436,7 +436,7 @@ function Contact() {
                   <span className="eyebrow">Email</span>
                   <a
                     href="mailto:Danieleb278@gmail.com"
-                    className="mt-2 block font-display text-2xl link-underline"
+                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
                   >
                     Danieleb278@gmail.com
                   </a>
@@ -445,7 +445,7 @@ function Contact() {
                   <span className="eyebrow">LinkedIn</span>
                   <a
                     href="https://linkedin.com/in/daniellelbosworth"
-                    className="mt-2 block font-display text-2xl link-underline"
+                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
                   >
                     /in/daniellelbosworth
                   </a>
