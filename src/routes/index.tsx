@@ -167,7 +167,7 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className="overflow-hidden border-2 border-ink bg-paper p-3 transition-transform duration-500 group-hover:-translate-y-1">
+                    <div className={"overflow-hidden border-2 border-ink p-3 transition-transform duration-500 group-hover:-translate-y-1 " + (i === 0 ? "bg-accent-yellow" : i === 1 ? "bg-accent-purple" : "bg-accent-charcoal")}>
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
