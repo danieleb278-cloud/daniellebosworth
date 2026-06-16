@@ -854,6 +854,8 @@ export const caseStudies: CaseStudy[] = [
     tags: ["UX Research", "Usability Testing", "Job Search"],
     sections: robinSections,
   },
+];
+
 const joomlaSections: Section[] = [
   {
     id: "overview",
@@ -1323,7 +1325,7 @@ const joomlaSections: Section[] = [
   },
 ];
 
-  {
+caseStudies.push({
     slug: "joomla",
     index: "03",
     title: "Joomla Extension Directory",
@@ -1364,8 +1366,7 @@ const joomlaSections: Section[] = [
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
     tags: ["Information Architecture", "Search Experience", "UX Strategy"],
     sections: joomlaSections,
-  },
-];
+});
 
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);
