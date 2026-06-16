@@ -31,6 +31,9 @@
   --color-paper: var(--paper);
   --color-rule: var(--rule);
   --color-highlight: var(--highlight);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-charcoal: var(--accent-charcoal);
 
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
@@ -44,7 +47,10 @@
   --paper: oklch(0.985 0.005 85);
   --ink: oklch(0.18 0.012 60);
   --rule: oklch(0.82 0.01 70);
-  --highlight: oklch(0.72 0.16 55); /* warm amber accent */
+  --accent-charcoal: oklch(0.38 0.012 70);
+  --accent-yellow: oklch(0.82 0.16 95);
+  --accent-purple: oklch(0.52 0.17 295);
+  --highlight: var(--accent-charcoal);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -71,7 +77,10 @@
   --paper: oklch(0.16 0.01 70);
   --ink: oklch(0.96 0.005 85);
   --rule: oklch(0.32 0.01 70);
-  --highlight: oklch(0.78 0.16 55);
+  --accent-charcoal: oklch(0.72 0.012 70);
+  --accent-yellow: oklch(0.86 0.16 95);
+  --accent-purple: oklch(0.7 0.17 295);
+  --highlight: var(--accent-charcoal);
   --background: var(--paper);
   --foreground: var(--ink);
   --card: oklch(0.2 0.01 70);
