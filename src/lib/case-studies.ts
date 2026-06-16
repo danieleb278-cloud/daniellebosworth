@@ -358,6 +358,40 @@ const robinSections: Section[] = [
     title: "Key Features",
     blocks: [
       {
+        kind: "image",
+        label: "Fig. 05",
+        caption: "Resume Builder — full flow from library to section-by-section editing (Basic Information, Objective, Education, Professional Experience), with an inline 'Write with AI' assist.",
+        ratio: "16 / 9",
+        src: robinResumeFlow.url,
+        alt: "Six connected Robin screens covering the resume builder flow",
+      },
+      {
+        kind: "gallery",
+        items: [
+          {
+            label: "Fig. 06a",
+            caption: "Template Gallery and saved Resume Library with metrics per resume.",
+            ratio: "3 / 4",
+            src: robinResumeLibrary.url,
+            alt: "Template gallery and resume library screens",
+          },
+          {
+            label: "Fig. 06b",
+            caption: "Analytics — filter applications by date, industry, resume used, response type, and status to surface what's working.",
+            ratio: "3 / 4",
+            src: robinAnalytics.url,
+            alt: "Analytics filter screen and metrics charts",
+          },
+          {
+            label: "Fig. 06c",
+            caption: "Notifications & reminders — recruiter messages and a prominent next-up interview reminder on the home screen.",
+            ratio: "3 / 5",
+            src: robinNotifications.url,
+            alt: "Robin notifications home screen with recruiter messages and interview reminder",
+          },
+        ],
+      },
+      {
         kind: "list",
         heading: "Enhanced Search & Filtering",
         items: ["Improved filtering tools help users find opportunities more efficiently."],
