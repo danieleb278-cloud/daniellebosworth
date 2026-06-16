@@ -168,14 +168,14 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className="overflow-hidden border-2 border-teal p-3 transition-transform duration-500 group-hover:-translate-y-1 bg-charcoal">
+                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
                         src={cs.cover?.src}
                         alt={cs.cover?.alt}
                         fit="contain"
-                        className="bg-paper"
+                        className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
                       />
                     </div>
                   </div>
