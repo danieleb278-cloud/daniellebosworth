@@ -197,10 +197,18 @@ const robinSections: Section[] = [
       {
         kind: "image",
         label: "Fig. 03",
-        caption: "Samantha — primary persona and experience journey map covering her morning commute, lunchtime, arriving home, and before bed.",
-        ratio: "16 / 9",
+        caption: "Samantha — primary persona representing the young professional juggling job hunting with wedding planning.",
+        ratio: "16 / 10",
         src: robinPersona.url,
-        alt: "Persona profile for Samantha alongside an experience journey map",
+        alt: "Persona profile for Samantha with demographics, behaviors, and needs",
+      },
+      {
+        kind: "image",
+        label: "Fig. 04",
+        caption: "Journey map — Samantha's day from morning commute to before bed, surfacing pain points and opportunities the Robin app could address.",
+        ratio: "16 / 10",
+        src: robinJourneyMap.url,
+        alt: "Detailed journey map of Samantha's day with actions, needs, feelings, and opportunities",
       },
       {
         kind: "list",
