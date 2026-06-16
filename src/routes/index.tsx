@@ -89,13 +89,14 @@ function Hero() {
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
           <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
             <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
-              The most valuable insights rarely come from what people say—they
-              come from what they do<span className="text-accent">.</span>
+              People often tell one story — their behavior tells another. I
+              design for the gap in between<span className="text-accent">.</span>
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              I use research, strategy, and design thinking to uncover those
-              insights and transform them into products, experiences, and
-              systems that create meaningful impact.
+              The most valuable insights rarely come from what people say—they
+              come from what they do. I use research, strategy, and design
+              thinking to uncover those insights and transform them into
+              products, experiences, and systems that create meaningful impact.
             </p>
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
