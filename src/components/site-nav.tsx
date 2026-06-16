@@ -27,8 +27,8 @@ export function SiteNav() {
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-12">
         <Link to="/" className="group flex items-baseline gap-2">
-          <span className="font-display text-xl tracking-tight">dscript</span>
-          <span className="eyebrow hidden sm:inline">— index</span>
+          <span className="font-display text-xl tracking-tight">Danielle Bosworth</span>
+          <span className="eyebrow hidden sm:inline">— portfolio</span>
         </Link>
         <ul className="hidden items-center gap-8 md:flex">
           {sections.map((s) => (
@@ -43,10 +43,10 @@ export function SiteNav() {
           ))}
         </ul>
         <a
-          href="mailto:hello@dscript.studio"
+          href="mailto:Danieleb278@gmail.com"
           className="eyebrow hidden rounded-full border border-foreground px-4 py-2 text-foreground transition-colors hover:bg-foreground hover:text-background md:inline-block"
         >
-          Available — Q3
+          Open to roles
         </a>
       </nav>
     </header>
