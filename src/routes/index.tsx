@@ -381,7 +381,7 @@ function Resume() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
-          <h2 className="col-span-12 font-display text-3xl tracking-tight md:col-span-10 md:text-5xl">
+          <h2 className="col-span-12 font-display text-2xl tracking-tight md:col-span-10 md:text-4xl">
             More than a designer, I've spent my career working at the intersection of{" "}
             <span className="text-teal">customers</span>,{" "}
             <span className="text-teal">operations</span>,{" "}
