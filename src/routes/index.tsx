@@ -276,38 +276,63 @@ function About() {
 function Resume() {
   const roles = [
     {
-      year: "2024 — Now",
-      role: "Product Designer — Independent",
-      org: "Selected case studies & client projects",
+      year: "May 2025 — Now",
+      role: "Product Specialist & Marketing Coordinator",
+      org: "Magic Sleek · Manalapan, NJ",
       detail:
-        "UX research, product design, and information architecture across travel, productivity, and open-source platforms.",
+        "Cross-functional work across marketing, product, CX, and operations: educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
     },
     {
-      year: "2023 — 2024",
-      role: "Product Design Training",
-      org: "Formal coursework & applied projects",
+      year: "Jan — May 2025",
+      role: "Product Design Extern · MissTeePRO",
+      org: "Rutgers MBS Externship",
       detail:
-        "Wireframing, prototyping, usability testing, and interaction design — paired with real-world client briefs.",
+        "Competitive and ingredient research for professional haircare; built an Airtable research library and synthesized findings into product roadmap recommendations.",
     },
     {
-      year: "2018 — 2023",
-      role: "Cosmetologist & Client Lead",
-      org: "Independent practice",
+      year: "2024 — Present",
+      role: "MBS, Product Design & Innovation",
+      org: "Rutgers University · GPA 3.7",
       detail:
-        "Years of one-on-one client work: reading behavior, surfacing unspoken needs, and translating them into outcomes.",
+        "UX research, prototyping, and service design across Figma, Miro, and Adobe — paired with applied client and academic briefs. Earned UX Design Certificate and Google Analytics Certification.",
+    },
+    {
+      year: "2018 — 2024",
+      role: "Branch Manager → Hairstylist / Cosmetologist",
+      org: "G&C Robins Co. / Supercuts · The Art of Hair",
+      detail:
+        "Led daily operations, staff, and CX in a high-volume retail environment — drove ~175% revenue growth and +32% retention through outreach, CRM, and service-design improvements.",
+    },
+    {
+      year: "2021 — 2023",
+      role: "B.A. Psychology, Minor in Sociology",
+      org: "Rutgers University",
+      detail:
+        "Foundation in human behavior, research methods, and qualitative analysis — the lens behind every project that follows.",
     },
   ];
   const tools = [
-    "Figma", "Adobe XD", "Webflow", "Notion", "Maze", "Dovetail",
-    "Miro", "FigJam", "Whimsical", "Loom",
+    "Figma", "Miro", "Canva", "Adobe Creative Cloud", "CapCut",
+    "Tableau", "GA4", "Search Console", "Salesforce", "Airtable",
+    "Notion", "Shopify", "WordPress", "Webflow", "Meta Business Suite",
+    "ChatGPT", "Gemini", "ElevenLabs",
   ];
   const skills = [
-    "UX Research",
+    "Product Strategy",
+    "Customer Experience (CX)",
+    "Customer Insights & VOC",
+    "Journey Mapping",
+    "Service Design",
+    "Content Strategy",
+    "Educational Content",
+    "Copywriting & Editing",
+    "Social Media & Brand",
+    "SEO & Analytics",
     "Information Architecture",
-    "Wireframing & Prototyping",
-    "Interaction Design",
-    "Communication",
-    "Customer Service & Experience",
+    "Knowledge Management",
+    "Process Improvement",
+    "AI-Assisted Workflows",
+    "Cross-Functional Collaboration",
   ];
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
@@ -315,7 +340,8 @@ function Resume() {
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
           <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-            A path that blends hands-on client work with formal design training.
+            A path that blends customer-facing leadership, marketing operations,
+            and applied product design.
           </h2>
         </div>
 
