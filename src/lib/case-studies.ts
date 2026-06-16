@@ -40,6 +40,8 @@ export type CaseStudy = {
   outcomes: { metric: string; label: string }[];
   reflections: string;
   tags: string[];
+  /** Optional cover image shown in the work list on the home page. */
+  cover?: { src: string; alt: string };
   /** Optional long-form 12-section case study. When present, the work page
    *  renders these as a collapsible accordion instead of the short layout. */
   sections?: Section[];
@@ -972,6 +974,7 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
     tags: ["UX Research", "Product Strategy", "Travel"],
+    cover: { src: ndLogo.url, alt: "Next Destination logo" },
     sections: nextDestinationSections,
   },
   {
@@ -1014,11 +1017,13 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Small usability issues can significantly impact user confidence. Research uncovered opportunities that analytics alone would have missed.",
     tags: ["UX Research", "Usability Testing", "Job Search"],
+    cover: { src: robinLogo.url, alt: "Robin logo — your job search sidekick" },
     sections: robinSections,
   },
 ];
 
 import robinLogo from "@/assets/robin/logo.jpg.asset.json";
+import ndLogo from "@/assets/nd/logo.png.asset.json";
 import robinSurvey from "@/assets/robin/survey.jpg.asset.json";
 import robinPersona from "@/assets/robin/persona_clean.jpg.asset.json";
 import robinJourneyMap from "@/assets/robin/journey_map.jpg.asset.json";
@@ -1577,6 +1582,7 @@ caseStudies.push({
     reflections:
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
     tags: ["Information Architecture", "Search Experience", "UX Strategy"],
+    cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
 });
 

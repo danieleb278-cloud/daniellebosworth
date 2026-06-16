@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
+import portrait from "@/assets/portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,8 +74,10 @@ function Hero() {
           <div className="col-span-12 md:col-span-4 md:pt-2">
             <Reveal delay={120}>
               <PlaceholderImage
+                src={portrait.url}
+                alt="Portrait of Danielle Bosworth"
                 label="Portrait"
-                caption="Danielle Bosworth — upload photo here"
+                caption="Danielle Bosworth"
                 ratio="4/5"
               />
             </Reveal>
@@ -167,6 +170,9 @@ function Work() {
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
+                        src={cs.cover?.src}
+                        alt={cs.cover?.alt}
+                        fit="contain"
                       />
                     </div>
                   </div>
@@ -181,7 +187,7 @@ function Work() {
                     </div>
                     <h3 className="mt-3 font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
                       {cs.title}
-                      <span className="text-accent">.</span>
+                      <span className={i === 0 ? "text-accent-yellow" : i === 1 ? "text-accent-purple" : "text-accent-charcoal"}>.</span>
                     </h3>
                     <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
                       {cs.subtitle}
