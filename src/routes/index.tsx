@@ -444,7 +444,8 @@ function Contact() {
               <div>
                 <span className="eyebrow">Looking for</span>
                 <p className="mt-2 font-display text-2xl">
-                  Cross-functional roles in product, UX, and CX.
+                  Full-time opportunities in Product Design, UX Research,
+                  Customer Experience, and Digital Strategy.
                 </p>
               </div>
             </div>
