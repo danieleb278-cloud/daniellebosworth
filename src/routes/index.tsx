@@ -399,10 +399,11 @@ function Resume() {
               </ul>
             </div>
             <a
-              href="#contact"
-              className="eyebrow mt-10 inline-block link-underline"
+              href={resumePdf.url}
+              download="Danielle_Bosworth_Resume.pdf"
+              className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
             >
-              Request full résumé →
+              ↓ Download résumé (PDF)
             </a>
           </aside>
         </div>
