@@ -407,6 +407,14 @@ const nextDestinationSections: Section[] = [
     title: "Project Overview",
     blocks: [
       {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Next Destination — clickable prototype welcome screen",
+        ratio: "4 / 5",
+        src: ndClickable.url,
+        alt: "Next Destination welcome screen on Android device",
+      },
+      {
         kind: "p",
         text: "Next Destination is a travel planning platform designed to simplify the vacation planning process by combining trip discovery, budgeting, itinerary creation, group coordination, and personalized recommendations into a single experience.",
       },
@@ -481,6 +489,14 @@ const nextDestinationSections: Section[] = [
         text: "Research included surveys, customer interviews, competitive analysis, affinity mapping, and customer needs analysis.",
       },
       {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "Vacation Questionnaire — survey distributed to capture travel habits, budgets, and planning pain points.",
+        ratio: "4 / 5",
+        src: ndSurvey.url,
+        alt: "Screenshot of the Vacation Questionnaire survey",
+      },
+      {
         kind: "list",
         heading: "Research Methods",
         items: [
@@ -491,6 +507,14 @@ const nextDestinationSections: Section[] = [
           "Affinity mapping",
           "Opportunity assessment",
         ],
+      },
+      {
+        kind: "image",
+        label: "Fig. 03",
+        caption: "Customer journey map — mapping awareness through post-travel to surface positive moments, frustrations, and opportunity areas.",
+        ratio: "16 / 9",
+        src: ndJourney.url,
+        alt: "Customer journey map across awareness, consideration, onboarding, planning, booking, traveling, and post-travel",
       },
       {
         kind: "list",
@@ -639,6 +663,14 @@ const nextDestinationSections: Section[] = [
             ],
           },
           {
+            kind: "image",
+            label: "Fig. 04",
+            caption: "Feature matrix comparing Next Destination against 11 competing travel apps across budgeting, itinerary planning, group features, and personalization.",
+            ratio: "16 / 11",
+            src: ndCompetitive.url,
+            alt: "Competitive analysis matrix table",
+          },
+          {
             kind: "p",
             text: "The analysis revealed opportunities around personalization, budgeting, sustainability, and group travel features.",
           },
@@ -681,8 +713,24 @@ const nextDestinationSections: Section[] = [
         text: "Next Destination combines travel planning, budgeting, personalization, and collaboration into a unified platform.",
       },
       {
+        kind: "image",
+        label: "Fig. 05",
+        caption: "Full Figma prototype — end-to-end user flow from onboarding through personalization, discovery, booking, scheduling, and post-trip review.",
+        ratio: "16 / 10",
+        src: ndFullProto.url,
+        alt: "Full Figma prototype showing connected screens and user flows",
+      },
+      {
         kind: "p",
         text: "The experience begins with a short onboarding questionnaire that captures travel preferences, budget constraints, interests, and group information. The system then generates customized recommendations, accommodations, activities, and itineraries tailored to each traveler.",
+      },
+      {
+        kind: "image",
+        label: "Fig. 06",
+        caption: "All-screens overview — onboarding, profile creation, personalization, search, packages, messaging, scheduling, and budget tracking.",
+        ratio: "16 / 10",
+        src: ndScreens.url,
+        alt: "Grid of every screen in the Next Destination prototype",
       },
       {
         kind: "p",
@@ -695,6 +743,39 @@ const nextDestinationSections: Section[] = [
     number: "10",
     title: "Key Features",
     blocks: [
+      {
+        kind: "gallery",
+        items: [
+          {
+            label: "Fig. 07a",
+            caption: "Personalization — users select preferred destinations during onboarding to seed recommendations.",
+            ratio: "3 / 5",
+            src: ndPersonalization.url,
+            alt: "Personalize your experience screen with destination checklist",
+          },
+          {
+            label: "Fig. 07b",
+            caption: "Dynamic itinerary — calendar-driven schedule with saved places and confirm dates flow.",
+            ratio: "3 / 5",
+            src: ndItinerary.url,
+            alt: "My Schedule itinerary screen with calendar and saved places",
+          },
+          {
+            label: "Fig. 07c",
+            caption: "Local recommendations — nearby spots surfaced contextually around each saved destination.",
+            ratio: "3 / 5",
+            src: ndLocal.url,
+            alt: "Local recommendations view showing nearby hotel and restaurant",
+          },
+          {
+            label: "Fig. 07d",
+            caption: "Vacation Fund — savings goals per trip with target dates and progress tracking.",
+            ratio: "3 / 5",
+            src: ndBudget.url,
+            alt: "Vacation Fund budget screen with multiple savings goals",
+          },
+        ],
+      },
       {
         kind: "list",
         heading: "Personalized Itineraries",
@@ -869,6 +950,16 @@ import joomlaIncentive from "@/assets/joomla/incentive_based_model_clean_up.png.
 import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
 import joomlaSitemap1 from "@/assets/joomla/Sitemap_1.jpg.asset.json";
 import joomlaFinalSitemap from "@/assets/joomla/final_site_map.jpg.asset.json";
+import ndClickable from "@/assets/nd/clickable.png.asset.json";
+import ndScreens from "@/assets/nd/screens.png.asset.json";
+import ndSurvey from "@/assets/nd/survey.png.asset.json";
+import ndCompetitive from "@/assets/nd/competitive.png.asset.json";
+import ndJourney from "@/assets/nd/journey.png.asset.json";
+import ndPersonalization from "@/assets/nd/personalization.png.asset.json";
+import ndItinerary from "@/assets/nd/itinerary.png.asset.json";
+import ndLocal from "@/assets/nd/local.png.asset.json";
+import ndBudget from "@/assets/nd/budget.png.asset.json";
+import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 
 const joomlaSections: Section[] = [
   {
