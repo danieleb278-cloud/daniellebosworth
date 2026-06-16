@@ -936,10 +936,11 @@ const nextDestinationSections: Section[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "next-destination",
-    index: "01",
+    index: "03",
     title: "Next Destination",
     subtitle:
-      "An all-in-one travel planning platform that combines discovery, budgeting, group coordination, and personalized recommendations.",
+      "Product strategy and experience design for an all-in-one travel planning platform.",
+
     client: "Cross-functional product team (academic)",
     year: "2025",
     role: "UX Researcher & Product Strategy",
@@ -982,7 +983,8 @@ export const caseStudies: CaseStudy[] = [
     index: "02",
     title: "Robin",
     subtitle:
-      "A UX research and usability evaluation of a job search platform — identifying friction points and developing research-driven recommendations to improve discovery, application workflows, and candidate confidence.",
+      "UX research and usability evaluation focused on improving the job seeker experience.",
+
     client: "Robin (academic engagement)",
     year: "2024",
     role: "UX Researcher & Designer",
@@ -1540,12 +1542,12 @@ const joomlaSections: Section[] = [
   },
 ];
 
-caseStudies.push({
+caseStudies.unshift({
     slug: "joomla",
-    index: "03",
+    index: "01",
     title: "Joomla Extension Directory",
     subtitle:
-      "Information architecture, search experience, and UX strategy for one of the largest open-source extension marketplaces.",
+      "Research, information architecture, and search redesign recommendations for the Joomla Extension Directory.",
     client: "Joomla Extension Directory",
     year: "2024",
     role: "UX Researcher & Designer",
@@ -1583,6 +1585,7 @@ caseStudies.push({
     cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
 });
+
 
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);

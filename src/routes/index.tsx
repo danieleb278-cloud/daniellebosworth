@@ -93,15 +93,21 @@ function Hero() {
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               Before studying product design, I spent years working directly
               with customers. Those conversations taught me something research
-              continues to confirm: what people say, what they do, and what
-              they actually need are often three different things. My work
-              focuses on understanding those gaps and designing better
+              continues to confirm:
+            </p>
+            <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
+              What people say, what they do, and what they actually need are
+              often three different things.
+            </blockquote>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+              My work focuses on understanding those gaps and designing better
               experiences around them.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Currently completing a Master of Business and Science (MBS) in
-              Product Design &amp; Innovation at Rutgers University.
+              Completing a Master of Business and Science in Product Design
+              &amp; Innovation at Rutgers University.
             </p>
+
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
             <Stat k="175%" label="Revenue growth, branch ops" />
@@ -226,10 +232,15 @@ function About() {
         <div className="grid grid-cols-12 gap-6 items-stretch">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
-            <h2 className="mt-6 font-display text-5xl tracking-tight md:text-6xl">
-              One ear on the customer, one eye on the business.
-            </h2>
+            <figure className="mt-6 border-l-2 border-teal pl-5">
+              <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
+              <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
+                One ear on the customer, one eye on the business.
+              </h2>
+              <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
+            </figure>
           </div>
+
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-base leading-relaxed text-background/80 md:text-lg">
@@ -476,10 +487,16 @@ function Contact() {
               </div>
               <div>
                 <span className="eyebrow">Looking for</span>
-                <p className="mt-2 font-display text-2xl">
-                  Product Design, UX Research, Customer Experience, and Product Strategy opportunities.
-                </p>
+                <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-xl sm:text-2xl">
+                  {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s, i, a) => (
+                    <li key={s} className="flex items-center gap-3">
+                      <span>{s}</span>
+                      {i < a.length - 1 && <span className="text-teal">•</span>}
+                    </li>
+                  ))}
+                </ul>
               </div>
+
             </div>
           </div>
         </div>
