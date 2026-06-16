@@ -68,7 +68,7 @@ function Hero() {
             <span className="block ml-[20%] md:ml-[30%]">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
           </h1>
 
-          <div className="col-span-12 md:col-span-4 md:pt-2">
+          <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
               <PlaceholderImage
                 src={portrait.url}
