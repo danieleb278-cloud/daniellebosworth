@@ -65,10 +65,9 @@ function Hero() {
             <br />
             specialist bridging
             <br />
-            <span className="italic text-muted-foreground">customer insight</span>
-            <span className="text-accent">,</span> strategy
+            customer insight, strategy,
             <br />
-            &amp; business goals<span className="text-accent">.</span>
+            & business goals<span className="text-accent">.</span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:pt-2">
