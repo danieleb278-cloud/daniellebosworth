@@ -9,17 +9,17 @@ import resumePdf from "@/assets/resume.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
+      { title: "Danielle Bosworth — Research, Strategy & Customer Experience" },
       {
         name: "description",
         content:
-          "Portfolio of Danielle Bosworth: a cross-functional specialist bridging customer insight, strategy, and business goals across product, CX, and marketing.",
+          "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
       },
-      { property: "og:title", content: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
+      { property: "og:title", content: "Danielle Bosworth — Research, Strategy & Customer Experience" },
       {
         property: "og:description",
         content:
-          "Selected case studies in product strategy, UX research, customer experience, and brand marketing.",
+          "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
       },
     ],
   }),
@@ -63,13 +63,11 @@ function Hero() {
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
           <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-[0.95] tracking-[-0.04em] rise-in md:col-span-8">
-            A cross-functional
+            Understanding behavior.
             <br />
-            specialist bridging
+            Designing systems.
             <br />
-            customer insight, strategy,
-            <br />
-            & business goals<span className="text-accent">.</span>
+            Bridging gaps<span className="text-accent">.</span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:pt-2">
@@ -93,10 +91,16 @@ function Hero() {
               design for the gap in between<span className="text-accent">.</span>
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              The most valuable insights rarely come from what people say—they
-              come from what they do. I use research, strategy, and design
-              thinking to uncover those insights and transform them into
-              products, experiences, and systems that create meaningful impact.
+              Before studying product design, I spent years working directly
+              with customers. Those conversations taught me something research
+              continues to confirm: what people say, what they do, and what
+              they actually need are often three different things. My work
+              focuses on understanding those gaps and designing better
+              experiences around them.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Currently completing a Master of Business and Science (MBS) in
+              Product Design &amp; Innovation at Rutgers University.
             </p>
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
@@ -229,27 +233,33 @@ function About() {
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
-                I'm a cross-functional specialist who moves between
-                <span className="italic"> strategy, CX, product, and marketing </span>
-                — translating customer insights into actionable strategy.
+                I started in customer-facing leadership, developed a deep
+                curiosity about human behavior, and pursued psychology and
+                product design to better understand people and systems. Today
+                I use research, strategy, and design thinking to uncover
+                insights and build experiences that bridge customer needs
+                and business goals.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
                   My background blends psychology, product design, and years of
-                  customer-facing leadership — from running a high-volume
-                  branch (~175% revenue growth, +32% retention) to coordinating
-                  marketing, education, and operations for a haircare brand
-                  today.
+                  customer-facing leadership — from running a high-volume salon
+                  branch to driving measurable growth through outreach, service
+                  design, and CRM improvements. Today I shape education,
+                  brand strategy, and digital operations for a professional
+                  haircare company — always with the customer perspective at
+                  the center.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
                   I'm currently finishing an MBS in Product Design &amp;
-                  Innovation at Rutgers. I work fluently across research,
-                  content, analytics, and AI-assisted workflows — and I'm at my
-                  best where customer insight, brand, and operations meet.
+                  Innovation at Rutgers. I'm at my best where customer insight
+                  meets systems thinking — using research, analytics, and
+                  AI-assisted workflows to turn complex problems into clear,
+                  human-centered solutions.
                 </p>
               </Reveal>
             </div>
@@ -281,7 +291,7 @@ function Resume() {
       role: "Product Specialist & Marketing Coordinator",
       org: "Magic Sleek · Manalapan, NJ",
       detail:
-        "Cross-functional work across marketing, product, CX, and operations: educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
+        "Bridging customer insight, brand strategy, and digital operations: educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
     },
     {
       year: "Jan — May 2025",
@@ -333,7 +343,7 @@ function Resume() {
     "Knowledge Management",
     "Process Improvement",
     "AI-Assisted Workflows",
-    "Cross-Functional Collaboration",
+    "Systems Thinking",
   ];
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
@@ -450,8 +460,7 @@ function Contact() {
               <div>
                 <span className="eyebrow">Looking for</span>
                 <p className="mt-2 font-display text-2xl">
-                  Full-time opportunities in Product Design, UX Research,
-                  Customer Experience, and Digital Strategy.
+                  Product Design, UX Research, Customer Experience, and Product Strategy opportunities.
                 </p>
               </div>
             </div>

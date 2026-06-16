@@ -66,7 +66,7 @@ export function SiteNav() {
               href="mailto:Danieleb278@gmail.com"
               className="eyebrow rounded-full border border-teal px-4 py-2 text-teal transition-colors hover:bg-teal hover:text-charcoal"
             >
-              Open to roles
+              Open to full-time opportunities
             </a>
           </li>
         </ul>
@@ -116,7 +116,7 @@ export function SiteNav() {
               className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-teal"
             >
               <span>Email</span>
-              <span className="eyebrow text-teal">Open to roles ✦</span>
+              <span className="eyebrow text-teal">Open to full-time opportunities ✦</span>
             </a>
           </li>
         </ul>
