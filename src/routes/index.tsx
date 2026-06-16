@@ -7,17 +7,17 @@ import { caseStudies } from "@/lib/case-studies";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth — Product Design, UX & Strategy" },
+      { title: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
       {
         name: "description",
         content:
-          "Portfolio of Danielle Bosworth: a product designer bridging behavior, strategy, and customer experience.",
+          "Portfolio of Danielle Bosworth: a cross-functional specialist bridging customer insight, strategy, and business goals across product, CX, and marketing.",
       },
-      { property: "og:title", content: "Danielle Bosworth — Product Design, UX & Strategy" },
+      { property: "og:title", content: "Danielle Bosworth — Strategy, CX, Product & Marketing" },
       {
         property: "og:description",
         content:
-          "Selected case studies in UX research, product design, and information architecture.",
+          "Selected case studies in product strategy, UX research, customer experience, and brand marketing.",
       },
     ],
   }),
@@ -25,14 +25,14 @@ export const Route = createFileRoute("/")({
 });
 
 const marquee = [
-  "Product Design",
-  "UX Research",
-  "Information Architecture",
-  "Behavioral Insight",
-  "Interaction Design",
-  "Strategy",
+  "Product Strategy",
   "Customer Experience",
-  "Systems Thinking",
+  "UX Research",
+  "Content & Marketing",
+  "Voice of Customer",
+  "Service Design",
+  "Information Architecture",
+  "Cross-Functional",
 ];
 
 function Index() {
