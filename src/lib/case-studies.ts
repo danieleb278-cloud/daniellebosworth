@@ -862,6 +862,9 @@ import joomlaPersona2 from "@/assets/joomla/2.png.asset.json";
 import joomlaLegacy from "@/assets/joomla/legacy_diagram.png.asset.json";
 import joomlaProposed from "@/assets/joomla/proposed_search_discovery_system.png.asset.json";
 import joomlaSearchMeta from "@/assets/joomla/search_and_meta_data.png.asset.json";
+import joomlaProblem from "@/assets/joomla/diagram_comparing_problem.png.asset.json";
+import joomlaAlgolia from "@/assets/joomla/algolia_diagram.png.asset.json";
+import joomlaDetail from "@/assets/joomla/extension_detail_redesign.png.asset.json";
 import joomlaIncentive from "@/assets/joomla/incentive_based_model_clean_up.png.asset.json";
 import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
 import joomlaSitemap1 from "@/assets/joomla/Sitemap_1.jpg.asset.json";
@@ -1015,11 +1018,11 @@ const joomlaSections: Section[] = [
       },
       {
         kind: "image",
-        label: "Legacy data gap",
-        caption: "Fig. 04 · Addressing the legacy data gap — unstructured to structured",
+        label: "Current experience",
+        caption: "Fig. 04 · The current compare-by-memory loop users fall into",
         ratio: "16/9",
-        src: joomlaLegacy.url,
-        alt: "Legacy data diagram",
+        src: joomlaProblem.url,
+        alt: "Diagram of current confusing extension comparison experience",
       },
     ],
   },
@@ -1197,6 +1200,8 @@ const joomlaSections: Section[] = [
         items: [
           { label: "Search & discovery system", caption: "Fig. 07 · Proposed search and discovery flow", ratio: "16/9", src: joomlaProposed.url, alt: "Proposed search and discovery system" },
           { label: "Search + metadata model", caption: "Fig. 08 · Structured metadata model", ratio: "16/9", src: joomlaSearchMeta.url, alt: "Search and metadata model" },
+          { label: "Legacy data gap", caption: "Fig. 08a · Bridging unstructured legacy data into a structured system", ratio: "16/9", src: joomlaLegacy.url, alt: "Legacy data diagram" },
+          { label: "Extension detail — redesigned", caption: "Fig. 08b · Redesigned extension detail page", ratio: "4/5", src: joomlaDetail.url, alt: "Redesigned extension detail page" },
         ],
       },
     ],
@@ -1321,11 +1326,11 @@ const joomlaSections: Section[] = [
       },
       {
         kind: "image",
-        label: "Search and metadata model",
-        caption: "Fig. 11 · Structured metadata powers a better discovery experience",
+        label: "Metadata-driven search with Algolia",
+        caption: "Fig. 11 · End-to-end metadata-driven search system powered by Algolia",
         ratio: "16/9",
-        src: joomlaSearchMeta.url,
-        alt: "Search and metadata model",
+        src: joomlaAlgolia.url,
+        alt: "Metadata-driven search system with Algolia",
       },
     ],
   },
