@@ -117,7 +117,7 @@ function Hero() {
 function Stat({ k, label }: { k: string; label: string }) {
   return (
     <div className="border-t border-border pt-3">
-      <div className="font-display text-3xl tracking-tight">{k}</div>
+      <div className="font-display text-3xl tracking-tight text-teal">{k}</div>
       <div className="eyebrow mt-1">{label}</div>
     </div>
   );
@@ -167,7 +167,7 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className={"overflow-hidden border-2 border-ink p-3 transition-transform duration-500 group-hover:-translate-y-1 " + (i === 0 ? "bg-accent-yellow" : i === 1 ? "bg-accent-purple" : "bg-accent-charcoal")}>
+                    <div className="overflow-hidden border-2 border-teal p-3 transition-transform duration-500 group-hover:-translate-y-1 bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
@@ -189,7 +189,7 @@ function Work() {
                     </div>
                     <h3 className="mt-3 font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
                       {cs.title}
-                      <span className={i === 0 ? "text-accent-yellow" : i === 1 ? "text-accent-purple" : "text-accent-charcoal"}>.</span>
+                      <span className="text-teal">.</span>
                     </h3>
                     <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
                       {cs.subtitle}
@@ -220,7 +220,7 @@ function Work() {
 
 function About() {
   return (
-    <section id="about" className="bg-foreground px-6 py-28 text-background md:px-12 md:py-40">
+    <section id="about" className="bg-navy px-6 py-28 text-background md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-4">
