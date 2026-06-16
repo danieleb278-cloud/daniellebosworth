@@ -805,41 +805,42 @@ export const caseStudies: CaseStudy[] = [
     index: "02",
     title: "Robin",
     subtitle:
-      "An all-in-one job search app — scoped from an RFP into a feature set, IA, and design system built for the realities of looking for work.",
-    client: "Robin (RFP response)",
+      "A UX research and usability evaluation of a job search platform — identifying friction points and developing research-driven recommendations to improve discovery, application workflows, and candidate confidence.",
+    client: "Robin (academic engagement)",
     year: "2024",
-    role: "Product Designer (RFP lead)",
-    discipline: "Product Strategy · UX · Design System",
-    duration: "8 weeks",
+    role: "UX Researcher & Designer",
+    discipline: "UX Research · Usability Evaluation",
+    duration: "Semester project",
     summary:
-      "A response to an RFP asking what an all-in-one job search app should be: which features earn a place on the home screen, how the experience should flow, and what the design language should feel like.",
-    hero: "One app for the messy middle of a job search — tracking, prepping, and applying in the same place.",
+      "A research-driven evaluation of a job search platform's user experience. Through surveys, contextual inquiry, heuristic evaluation, and usability testing, the project identified key friction points in job discovery and application workflows and developed actionable recommendations to improve usability and candidate confidence.",
+    hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
     context:
-      "The RFP described candidates juggling four to six tools — a job board, a tracker spreadsheet, a notes app, a calendar, an email folder, and a resume builder. The brief asked for a single product opinionated enough to replace the stack without losing what each tool did well.",
+      "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
     challenge:
-      "Define the feature set, information architecture, and visual direction for an all-in-one job search app — and defend every decision with how a real candidate would use it on a Tuesday night.",
+      "Evaluate the existing user experience, identify usability issues, and develop recommendations that reduce friction throughout the job search journey while supporting both user success and business objectives.",
     approach: [
       {
-        title: "Feature triage from the RFP",
-        body: "Mapped the RFP's wishlist against candidate journeys and cut it to four load-bearing pillars: a unified tracker, tailored applications, interview prep, and a weekly review. Everything else became a setting, not a screen.",
+        title: "User research & discovery",
+        body: "Surveys, contextual inquiry, competitive analysis, and stakeholder interviews to understand how job seekers search for opportunities and where they experience friction.",
       },
       {
-        title: "IA & flows",
-        body: "Designed a two-surface IA — a Today board for active applications and a Library for resumes, cover letters, and prep notes. Specified end-to-end flows for saving a role, tailoring a resume, scheduling prep, and logging an interview.",
+        title: "Heuristic evaluation & usability testing",
+        body: "Evaluated the platform against established usability principles and conducted task-based usability tests to identify navigation issues, consistency problems, and user control concerns.",
       },
       {
-        title: "Design language",
-        body: "Proposed a calm, high-contrast visual system: serif headlines, monospaced metadata, and a single accent reserved for state changes. The point was to make the app feel like an instrument, not another inbox.",
+        title: "Recommendations & IA planning",
+        body: "Developed recommendations for clearer navigation, improved search, better content hierarchy, streamlined applications, and progress tracking based on research findings.",
       },
     ],
     outcomes: [
-      { metric: "4", label: "Core pillars defined from a 22-item RFP wishlist" },
-      { metric: "12", label: "End-to-end flows specified and prototyped" },
-      { metric: "1", label: "Design system shipped with the proposal" },
+      { metric: "5", label: "Research methods deployed" },
+      { metric: "4", label: "User personas identified" },
+      { metric: "6", label: "Key features recommended" },
     ],
     reflections:
-      "An RFP is a design brief in disguise. The win wasn't adding features — it was naming, out loud, what a job-search app should refuse to do.",
-    tags: ["Product Strategy", "RFP", "Design System"],
+      "Small usability issues can significantly impact user confidence. Research uncovered opportunities that analytics alone would have missed.",
+    tags: ["UX Research", "Usability Testing", "Job Search"],
+    sections: robinSections,
   },
   {
     slug: "joomla",
