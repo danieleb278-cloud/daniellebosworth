@@ -377,28 +377,28 @@ const robinSections: Section[] = [
         kind: "gallery",
         items: [
           {
-            label: "Fig. 06a",
+            label: "Fig. 07a",
             caption: "Template Gallery and saved Resume Library with metrics per resume.",
             ratio: "3 / 4",
             src: robinResumeLibrary.url,
             alt: "Template gallery and resume library screens",
           },
           {
-            label: "Fig. 06b",
+            label: "Fig. 07b",
             caption: "Analytics — filter applications by date, industry, resume used, response type, and status to surface what's working.",
             ratio: "3 / 4",
             src: robinAnalytics.url,
             alt: "Analytics filter screen and metrics charts",
           },
           {
-            label: "Fig. 06c",
+            label: "Fig. 07c",
             caption: "Home screen — notifications, recruiter messages, and a prominent next-up interview reminder.",
             ratio: "3 / 5",
             src: robinHomescreen.url,
             alt: "Robin home screen with notifications and interview reminder",
           },
           {
-            label: "Fig. 06d",
+            label: "Fig. 07d",
             caption: "Main menu — direct access to Job Board, Application Credentials, Resume Builder, Calendar, and Insights & Metrics.",
             ratio: "3 / 5",
             src: robinMenu.url,
