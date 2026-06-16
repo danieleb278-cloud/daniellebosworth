@@ -259,3 +259,93 @@ function CaseStudyPage() {
     </div>
   );
 }
+
+function SectionsAccordion({ sections }: { sections: Section[] }) {
+  return (
+    <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
+          <span className="eyebrow">§ Case Study</span>
+          <span className="eyebrow">Tap a section to expand</span>
+        </div>
+        <Accordion
+          type="multiple"
+          defaultValue={[sections[0]?.id].filter(Boolean) as string[]}
+          className="w-full"
+        >
+          {sections.map((s, i) => (
+            <Reveal key={s.id} delay={Math.min(i * 40, 240)}>
+              <AccordionItem value={s.id} className="border-border">
+                <AccordionTrigger className="group py-8 hover:no-underline">
+                  <div className="flex w-full items-baseline gap-6 text-left">
+                    <span className="font-mono text-sm text-muted-foreground shrink-0 w-8">
+                      {s.number}
+                    </span>
+                    <span className="font-display text-2xl tracking-tight md:text-4xl transition-transform duration-300 group-hover:-translate-y-0.5">
+                      {s.title}
+                      <span className="text-accent">.</span>
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-10">
+                  <div className="grid grid-cols-12 gap-6">
+                    <div className="col-span-12 md:col-span-10 md:col-start-2 space-y-6">
+                      {s.blocks.map((b, bi) => (
+                        <BlockView key={bi} block={b} />
+                      ))}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Reveal>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
+function BlockView({ block }: { block: Block }) {
+  if (block.kind === "p") {
+    return (
+      <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+        {block.text}
+      </p>
+    );
+  }
+  if (block.kind === "list") {
+    return (
+      <div>
+        {block.heading && (
+          <h4 className="font-display text-lg tracking-tight md:text-xl">
+            {block.heading}
+          </h4>
+        )}
+        <ul className="mt-3 space-y-2">
+          {block.items.map((it) => (
+            <li
+              key={it}
+              className="flex gap-3 text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              <span className="text-accent shrink-0 mt-2 block h-px w-4 bg-accent" />
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  // group
+  return (
+    <div className="border-l border-border pl-5">
+      <h4 className="font-display text-xl tracking-tight md:text-2xl">
+        {block.heading}
+      </h4>
+      <div className="mt-4 space-y-4">
+        {block.blocks.map((b, i) => (
+          <BlockView key={i} block={b} />
+        ))}
+      </div>
+    </div>
+  );
+}
