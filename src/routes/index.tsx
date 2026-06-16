@@ -420,24 +420,26 @@ function Contact() {
               <span className="italic text-muted-foreground">and experience</span>
               <span className="text-accent">.</span>
             </h2>
-            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-20">
-              <div>
-                <span className="eyebrow">Email</span>
-                <a
-                  href="mailto:Danieleb278@gmail.com"
-                  className="mt-2 block font-display text-2xl link-underline"
-                >
-                  Danieleb278@gmail.com
-                </a>
-              </div>
-              <div>
-                <span className="eyebrow">LinkedIn</span>
-                <a
-                  href="https://linkedin.com/in/daniellelbosworth"
-                  className="mt-2 block font-display text-2xl link-underline"
-                >
-                  /in/daniellelbosworth
-                </a>
+            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
+              <div className="flex flex-col gap-8">
+                <div>
+                  <span className="eyebrow">Email</span>
+                  <a
+                    href="mailto:Danieleb278@gmail.com"
+                    className="mt-2 block font-display text-2xl link-underline"
+                  >
+                    Danieleb278@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <span className="eyebrow">LinkedIn</span>
+                  <a
+                    href="https://linkedin.com/in/daniellelbosworth"
+                    className="mt-2 block font-display text-2xl link-underline"
+                  >
+                    /in/daniellelbosworth
+                  </a>
+                </div>
               </div>
               <div>
                 <span className="eyebrow">Looking for</span>
