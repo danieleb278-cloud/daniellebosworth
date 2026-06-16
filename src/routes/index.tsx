@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
+import portrait from "@/assets/portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,8 +74,10 @@ function Hero() {
           <div className="col-span-12 md:col-span-4 md:pt-2">
             <Reveal delay={120}>
               <PlaceholderImage
+                src={portrait.url}
+                alt="Portrait of Danielle Bosworth"
                 label="Portrait"
-                caption="Danielle Bosworth — upload photo here"
+                caption="Danielle Bosworth"
                 ratio="4/5"
               />
             </Reveal>
@@ -167,6 +170,9 @@ function Work() {
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
+                        src={cs.cover?.src}
+                        alt={cs.cover?.alt}
+                        fit="contain"
                       />
                     </div>
                   </div>
