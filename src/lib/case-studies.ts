@@ -52,6 +52,14 @@ const robinSections: Section[] = [
     title: "Project Overview",
     blocks: [
       {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Robin — your job search sidekick. Brand identity used throughout the redesign.",
+        ratio: "16 / 9",
+        src: robinLogo.url,
+        alt: "Robin logo with tagline 'Your job search sidekick'",
+      },
+      {
         kind: "p",
         text: "Robin is a job search and career exploration platform designed to help users discover employment opportunities and navigate the job application process.",
       },
@@ -142,6 +150,14 @@ const robinSections: Section[] = [
         ],
       },
       {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "Survey results — 80% of respondents rated their current job-search experience at 3 or below on a 0–5 satisfaction scale. Nobody rated it a 5.",
+        ratio: "16 / 9",
+        src: robinSurvey.url,
+        alt: "Bar chart showing satisfaction ratings for current job-application experience",
+      },
+      {
         kind: "list",
         heading: "Key Findings",
         items: [
@@ -177,6 +193,14 @@ const robinSections: Section[] = [
       {
         kind: "p",
         text: "Research identified several user groups:",
+      },
+      {
+        kind: "image",
+        label: "Fig. 03",
+        caption: "Samantha — primary persona and experience journey map covering her morning commute, lunchtime, arriving home, and before bed.",
+        ratio: "16 / 9",
+        src: robinPersona.url,
+        alt: "Persona profile for Samantha alongside an experience journey map",
       },
       {
         kind: "list",
@@ -267,6 +291,14 @@ const robinSections: Section[] = [
               "User control concerns",
             ],
           },
+          {
+            kind: "image",
+            label: "Fig. 04",
+            caption: "Heuristic evaluation — 'Consistency and Standards' finding documented alongside the three confirmation screens that violated it, with proposed solutions.",
+            ratio: "16 / 9",
+            src: robinHeuristics.url,
+            alt: "Consistency and Standards heuristic evaluation with three Robin confirmation screens",
+          },
         ],
       },
       {
@@ -325,6 +357,40 @@ const robinSections: Section[] = [
     number: "10",
     title: "Key Features",
     blocks: [
+      {
+        kind: "image",
+        label: "Fig. 05",
+        caption: "Resume Builder — full flow from library to section-by-section editing (Basic Information, Objective, Education, Professional Experience), with an inline 'Write with AI' assist.",
+        ratio: "16 / 9",
+        src: robinResumeFlow.url,
+        alt: "Six connected Robin screens covering the resume builder flow",
+      },
+      {
+        kind: "gallery",
+        items: [
+          {
+            label: "Fig. 06a",
+            caption: "Template Gallery and saved Resume Library with metrics per resume.",
+            ratio: "3 / 4",
+            src: robinResumeLibrary.url,
+            alt: "Template gallery and resume library screens",
+          },
+          {
+            label: "Fig. 06b",
+            caption: "Analytics — filter applications by date, industry, resume used, response type, and status to surface what's working.",
+            ratio: "3 / 4",
+            src: robinAnalytics.url,
+            alt: "Analytics filter screen and metrics charts",
+          },
+          {
+            label: "Fig. 06c",
+            caption: "Notifications & reminders — recruiter messages and a prominent next-up interview reminder on the home screen.",
+            ratio: "3 / 5",
+            src: robinNotifications.url,
+            alt: "Robin notifications home screen with recruiter messages and interview reminder",
+          },
+        ],
+      },
       {
         kind: "list",
         heading: "Enhanced Search & Filtering",
@@ -937,6 +1003,14 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+import robinLogo from "@/assets/robin/logo.jpg.asset.json";
+import robinSurvey from "@/assets/robin/survey.jpg.asset.json";
+import robinPersona from "@/assets/robin/persona.jpg.asset.json";
+import robinHeuristics from "@/assets/robin/heuristics.png.asset.json";
+import robinResumeFlow from "@/assets/robin/resume_flow.png.asset.json";
+import robinResumeLibrary from "@/assets/robin/resume_library.png.asset.json";
+import robinAnalytics from "@/assets/robin/analytics.png.asset.json";
+import robinNotifications from "@/assets/robin/notifications.png.asset.json";
 import joomlaLogo from "@/assets/joomla/joomla_logo.png.asset.json";
 import joomlaPersona1 from "@/assets/joomla/1.png.asset.json";
 import joomlaPersona2 from "@/assets/joomla/2.png.asset.json";
