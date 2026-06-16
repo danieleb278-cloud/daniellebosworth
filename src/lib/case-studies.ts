@@ -33,6 +33,361 @@ export type CaseStudy = {
   sections?: Section[];
 };
 
+const robinSections: Section[] = [
+  {
+    id: "overview",
+    number: "01",
+    title: "Project Overview",
+    blocks: [
+      {
+        kind: "p",
+        text: "Robin is a job search and career exploration platform designed to help users discover employment opportunities and navigate the job application process.",
+      },
+      {
+        kind: "p",
+        text: "This project focused on evaluating the existing user experience, identifying usability issues, understanding user needs, and developing recommendations to improve job discovery, application workflows, and overall platform usability. The goal was to create a more intuitive, efficient, and user-centered experience that helps users find relevant opportunities while reducing friction throughout the job search journey.",
+      },
+    ],
+  },
+  {
+    id: "role",
+    number: "02",
+    title: "My Role & Responsibilities",
+    blocks: [
+      {
+        kind: "p",
+        text: "As a UX researcher and designer, I contributed to:",
+      },
+      {
+        kind: "list",
+        items: [
+          "User research",
+          "Survey development",
+          "Contextual inquiry",
+          "Competitive analysis",
+          "Heuristic evaluation",
+          "Usability testing",
+          "Data analysis",
+          "Persona development",
+          "Journey mapping",
+          "Information architecture recommendations",
+          "Design recommendations",
+          "Presentation and reporting",
+        ],
+      },
+    ],
+  },
+  {
+    id: "goals",
+    number: "03",
+    title: "Project Goals",
+    blocks: [
+      {
+        kind: "list",
+        heading: "Business Goals",
+        items: [
+          "Improve user engagement",
+          "Increase job application completion rates",
+          "Reduce user frustration",
+          "Improve platform usability",
+          "Strengthen user retention",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "User Goals",
+        items: [
+          "Easily discover relevant job opportunities",
+          "Understand job requirements quickly",
+          "Complete applications efficiently",
+          "Track opportunities and progress",
+          "Feel confident throughout the application process",
+        ],
+      },
+    ],
+  },
+  {
+    id: "research",
+    number: "04",
+    title: "Research & Discovery",
+    blocks: [
+      {
+        kind: "p",
+        text: "The project began with extensive user research to understand how job seekers currently search for opportunities and where they experience friction.",
+      },
+      {
+        kind: "list",
+        heading: "Research Methods",
+        items: [
+          "User surveys",
+          "Contextual inquiry",
+          "Stakeholder analysis",
+          "Competitive analysis",
+          "Heuristic evaluation",
+          "Usability testing",
+          "Persona creation",
+          "Journey mapping",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Key Findings",
+        items: [
+          "Users struggle to identify relevant job opportunities quickly.",
+          "Job descriptions can be overwhelming and difficult to compare.",
+          "Application processes often require excessive effort.",
+          "Users experience uncertainty about next steps.",
+          "Information is sometimes difficult to scan and prioritize.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "problem",
+    number: "05",
+    title: "Problem Statement",
+    blocks: [
+      {
+        kind: "p",
+        text: "Job seekers need a simpler and more transparent way to discover opportunities, evaluate job fit, and complete applications without unnecessary complexity.",
+      },
+      {
+        kind: "p",
+        text: "The current experience creates friction through information overload, inconsistent workflows, and unclear pathways that slow users down during critical decision-making moments.",
+      },
+    ],
+  },
+  {
+    id: "personas",
+    number: "06",
+    title: "Personas & User Insights",
+    blocks: [
+      {
+        kind: "p",
+        text: "Research identified several user groups:",
+      },
+      {
+        kind: "list",
+        heading: "Recent Graduates",
+        items: ["Need guidance, clarity, and confidence when entering the workforce."],
+      },
+      {
+        kind: "list",
+        heading: "Career Changers",
+        items: ["Need tools that help translate existing skills into new opportunities."],
+      },
+      {
+        kind: "list",
+        heading: "Experienced Professionals",
+        items: ["Need efficient ways to evaluate opportunities without spending excessive time researching."],
+      },
+      {
+        kind: "list",
+        heading: "Passive Job Seekers",
+        items: ["Need personalized recommendations and low-friction engagement opportunities."],
+      },
+    ],
+  },
+  {
+    id: "ia",
+    number: "07",
+    title: "Information Architecture & Feature Planning",
+    blocks: [
+      {
+        kind: "p",
+        text: "The redesign focused on improving content organization and navigation.",
+      },
+      {
+        kind: "list",
+        heading: "Priority Areas",
+        items: [
+          "Job discovery",
+          "Search and filtering",
+          "Application workflows",
+          "Profile management",
+          "Career exploration",
+          "Progress tracking",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Information Architecture Goals",
+        items: [
+          "Reduce cognitive load",
+          "Improve content hierarchy",
+          "Increase discoverability",
+          "Support efficient decision making",
+          "Create clearer user pathways",
+        ],
+      },
+    ],
+  },
+  {
+    id: "design",
+    number: "08",
+    title: "Design Process",
+    blocks: [
+      {
+        kind: "group",
+        heading: "Contextual Inquiry",
+        blocks: [
+          {
+            kind: "p",
+            text: "Observing and understanding how users currently search for jobs revealed significant pain points in navigation, search behavior, and application completion.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Heuristic Evaluation",
+        blocks: [
+          {
+            kind: "p",
+            text: "The platform was evaluated using established usability principles to identify:",
+          },
+          {
+            kind: "list",
+            items: [
+              "Navigation issues",
+              "Consistency problems",
+              "Error prevention opportunities",
+              "Visibility challenges",
+              "User control concerns",
+            ],
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Competitive Analysis",
+        blocks: [
+          {
+            kind: "p",
+            text: "Several competing job platforms were evaluated to identify strengths, weaknesses, and opportunities for differentiation.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Usability Testing",
+        blocks: [
+          {
+            kind: "p",
+            text: "Users completed key tasks while feedback was collected regarding:",
+          },
+          {
+            kind: "list",
+            items: [
+              "Ease of navigation",
+              "Search effectiveness",
+              "Application workflows",
+              "Information clarity",
+              "Overall satisfaction",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "solution",
+    number: "09",
+    title: "Final Solution",
+    blocks: [
+      {
+        kind: "p",
+        text: "The proposed redesign focused on simplifying the job search experience while helping users make informed decisions faster.",
+      },
+      {
+        kind: "p",
+        text: "Recommendations emphasized clearer navigation, improved search functionality, better content organization, stronger visual hierarchy, streamlined application processes, and increased transparency throughout the user journey.",
+      },
+      {
+        kind: "p",
+        text: "The redesign prioritizes usability, efficiency, and user confidence.",
+      },
+    ],
+  },
+  {
+    id: "features",
+    number: "10",
+    title: "Key Features",
+    blocks: [
+      {
+        kind: "list",
+        heading: "Enhanced Search & Filtering",
+        items: ["Improved filtering tools help users find opportunities more efficiently."],
+      },
+      {
+        kind: "list",
+        heading: "Improved Job Cards",
+        items: ["Better information hierarchy allows users to evaluate opportunities quickly."],
+      },
+      {
+        kind: "list",
+        heading: "Streamlined Applications",
+        items: ["Reduced friction throughout the application process."],
+      },
+      {
+        kind: "list",
+        heading: "Personalized Recommendations",
+        items: ["More relevant opportunities based on user interests and qualifications."],
+      },
+      {
+        kind: "list",
+        heading: "Progress Tracking",
+        items: ["Tools that help users monitor applications and next steps."],
+      },
+      {
+        kind: "list",
+        heading: "Improved Content Hierarchy",
+        items: ["Critical information is surfaced earlier to support faster decision making."],
+      },
+    ],
+  },
+  {
+    id: "outcomes",
+    number: "11",
+    title: "Outcomes & Impact",
+    blocks: [
+      {
+        kind: "p",
+        text: "The redesign recommendations aimed to:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Improve task completion rates",
+          "Increase application submissions",
+          "Reduce user frustration",
+          "Improve discoverability",
+          "Increase confidence during job searching",
+          "Create a more efficient user experience",
+        ],
+      },
+      {
+        kind: "p",
+        text: "By focusing on user needs rather than platform assumptions, the recommendations support both user success and business objectives.",
+      },
+    ],
+  },
+  {
+    id: "reflection",
+    number: "12",
+    title: "Reflection & Lessons Learned",
+    blocks: [
+      {
+        kind: "p",
+        text: "This project reinforced the value of research-driven design decisions. Through interviews, usability testing, and contextual inquiry, it became clear that small usability issues can significantly impact user confidence and engagement.",
+      },
+      {
+        kind: "p",
+        text: "The experience strengthened my ability to connect user behavior with actionable design recommendations and demonstrated how research can uncover opportunities that may not be immediately visible through analytics alone.",
+      },
+    ],
+  },
+];
+
 const nextDestinationSections: Section[] = [
   {
     id: "overview",
