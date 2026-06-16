@@ -60,15 +60,15 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,10vw,9.5rem)] leading-[0.92] tracking-[-0.04em] rise-in md:col-span-8">
-            Designing for
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,9.5vw,8.5rem)] leading-[0.95] tracking-[-0.04em] rise-in md:col-span-8">
+            A cross-functional
             <br />
-            <span className="italic text-muted-foreground">how people</span>
-            <span className="text-accent">,</span> not
+            specialist bridging
             <br />
-            just what they
+            <span className="italic text-muted-foreground">customer insight</span>
+            <span className="text-accent">,</span> strategy
             <br />
-            say<span className="text-accent">.</span>
+            &amp; business goals<span className="text-accent">.</span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:pt-2">
@@ -83,17 +83,27 @@ function Hero() {
         </div>
 
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
-          <p className="col-span-12 max-w-xl text-base leading-relaxed md:col-span-7 md:col-start-1 md:text-lg">
-            I'm Danielle Bosworth — a product designer with a background in
-            behavioral observation and client-facing work. I design intuitive,
-            user-centered systems by understanding people beyond what they say.
-            Currently open to cross-functional product roles.
-          </p>
+          <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
+            <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
+              People often tell one story — their behavior tells another
+              <span className="text-accent">.</span>{" "}
+              <span className="text-muted-foreground">
+                I design for the gap in between.
+              </span>
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              I'm Danielle Bosworth — a marketing, product, and CX professional
+              with a background in psychology, product design, and client-facing
+              leadership. I work across research, content, and operations to
+              translate what customers actually do into strategy, systems, and
+              stories the business can act on.
+            </p>
+          </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
+            <Stat k="175%" label="Revenue growth, branch ops" />
+            <Stat k="+32%" label="Client retention" />
             <Stat k="03" label="Featured case studies" />
-            <Stat k="40+" label="Research participants" />
-            <Stat k="08" label="Years reading people" />
-            <Stat k="01" label="Designer, all hours" />
+            <Stat k="MBS" label="Product Design, Rutgers" />
           </div>
         </div>
       </div>
