@@ -335,6 +335,35 @@ function BlockView({ block }: { block: Block }) {
       </div>
     );
   }
+  if (block.kind === "image") {
+    return (
+      <div className="my-2">
+        <PlaceholderImage
+          label={block.label}
+          caption={block.caption}
+          ratio={block.ratio ?? "16/9"}
+          src={block.src}
+          alt={block.alt}
+        />
+      </div>
+    );
+  }
+  if (block.kind === "gallery") {
+    return (
+      <div className="my-2 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {block.items.map((it, i) => (
+          <PlaceholderImage
+            key={i}
+            label={it.label}
+            caption={it.caption}
+            ratio={it.ratio ?? "4/5"}
+            src={it.src}
+            alt={it.alt}
+          />
+        ))}
+      </div>
+    );
+  }
   // group
   return (
     <div className="border-l border-border pl-5">

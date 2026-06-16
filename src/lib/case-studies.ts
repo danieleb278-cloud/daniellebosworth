@@ -1,7 +1,19 @@
 export type Block =
   | { kind: "p"; text: string }
   | { kind: "list"; heading?: string; items: string[] }
-  | { kind: "group"; heading: string; blocks: Block[] };
+  | { kind: "group"; heading: string; blocks: Block[] }
+  | {
+      kind: "image";
+      label?: string;
+      caption?: string;
+      ratio?: string;
+      src?: string;
+      alt?: string;
+    }
+  | {
+      kind: "gallery";
+      items: { label?: string; caption?: string; ratio?: string; src?: string; alt?: string }[];
+    };
 
 export type Section = {
   id: string;
@@ -842,48 +854,519 @@ export const caseStudies: CaseStudy[] = [
     tags: ["UX Research", "Usability Testing", "Job Search"],
     sections: robinSections,
   },
+];
+
+const joomlaSections: Section[] = [
   {
+    id: "overview",
+    number: "01",
+    title: "Project Overview",
+    blocks: [
+      {
+        kind: "p",
+        text: "The Joomla Extension Directory (JED) is the primary marketplace for discovering extensions within the Joomla content management system ecosystem. The directory contains thousands of extensions that help users expand website functionality through tools for e-commerce, forms, security, SEO, content management, and more.",
+      },
+      {
+        kind: "p",
+        text: "This project focused on evaluating the discoverability, search experience, information architecture, and decision-making process within the JED. Through user research, usability evaluation, and competitive analysis, I identified opportunities to improve how users find, evaluate, and select extensions.",
+      },
+      {
+        kind: "p",
+        text: "The goal was to reduce search friction, improve transparency, and help users make more confident decisions while navigating a large and complex information ecosystem.",
+      },
+      {
+        kind: "image",
+        label: "Hero — Current JED",
+        caption: "Fig. 01 · Current Joomla Extension Directory landing experience",
+        ratio: "16/9",
+      },
+    ],
+  },
+  {
+    id: "role",
+    number: "02",
+    title: "My Role & Responsibilities",
+    blocks: [
+      { kind: "p", text: "As the sole UX researcher and designer, I was responsible for:" },
+      {
+        kind: "list",
+        items: [
+          "Project planning",
+          "User research",
+          "Survey creation and analysis",
+          "User interviews",
+          "Heuristic evaluation",
+          "Competitive analysis",
+          "Information architecture analysis",
+          "Search experience evaluation",
+          "Data synthesis",
+          "Recommendation development",
+          "Final reporting and presentation",
+        ],
+      },
+    ],
+  },
+  {
+    id: "goals",
+    number: "03",
+    title: "Project Goals",
+    blocks: [
+      {
+        kind: "list",
+        heading: "Business Goals",
+        items: [
+          "Improve extension discoverability",
+          "Increase user confidence",
+          "Reduce support burden",
+          "Improve extension selection accuracy",
+          "Strengthen community trust",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "User Goals",
+        items: [
+          "Find relevant extensions quickly",
+          "Understand extension compatibility",
+          "Compare alternatives efficiently",
+          "Make informed decisions",
+          "Avoid investing time in unsuitable extensions",
+        ],
+      },
+    ],
+  },
+  {
+    id: "research",
+    number: "04",
+    title: "Research & Discovery",
+    blocks: [
+      {
+        kind: "p",
+        text: "Research focused on understanding how users search for extensions, evaluate options, and make decisions within the directory.",
+      },
+      {
+        kind: "list",
+        heading: "Research Methods",
+        items: [
+          "User surveys",
+          "User interviews",
+          "Heuristic evaluation",
+          "Competitive analysis",
+          "Information architecture review",
+          "Search experience analysis",
+          "Content analysis",
+        ],
+      },
+      {
+        kind: "gallery",
+        items: [
+          { label: "Survey synthesis", caption: "Fig. 02 · Quantitative survey board", ratio: "4/5" },
+          { label: "Interview affinity", caption: "Fig. 03 · Interview affinity clusters", ratio: "4/5" },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Key Findings",
+        blocks: [
+          { kind: "p", text: "Research revealed several recurring challenges:" },
+          {
+            kind: "list",
+            items: [
+              "Users struggled to find relevant extensions.",
+              "Search results were often difficult to interpret.",
+              "Information needed for decision-making was scattered.",
+              "Compatibility information was not always immediately visible.",
+              "Users frequently selected the wrong extension and only discovered issues after investing significant time.",
+            ],
+          },
+          {
+            kind: "p",
+            text: "One survey finding showed that approximately 65% of respondents reported selecting an extension that ultimately failed to meet their needs after spending considerable time evaluating or implementing it.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "problem",
+    number: "05",
+    title: "Problem Statement",
+    blocks: [
+      {
+        kind: "p",
+        text: "Users need a more transparent and intuitive way to discover, evaluate, and compare Joomla extensions.",
+      },
+      {
+        kind: "p",
+        text: "The current experience requires significant effort to gather information, compare alternatives, and determine whether an extension is compatible with their needs — resulting in frustration, wasted time, and reduced confidence.",
+      },
+      {
+        kind: "image",
+        label: "Problem map",
+        caption: "Fig. 04 · Friction points across the discovery-to-decision journey",
+        ratio: "16/9",
+      },
+    ],
+  },
+  {
+    id: "personas",
+    number: "06",
+    title: "Personas & User Insights",
+    blocks: [
+      { kind: "p", text: "Research revealed several distinct user groups:" },
+      {
+        kind: "group",
+        heading: "Website Administrators",
+        blocks: [{ kind: "p", text: "Need reliable solutions that integrate smoothly into existing websites." }],
+      },
+      {
+        kind: "group",
+        heading: "Developers",
+        blocks: [{ kind: "p", text: "Require detailed technical information and compatibility data." }],
+      },
+      {
+        kind: "group",
+        heading: "Small Business Owners",
+        blocks: [{ kind: "p", text: "Need straightforward recommendations without extensive technical expertise." }],
+      },
+      {
+        kind: "group",
+        heading: "New Joomla Users",
+        blocks: [{ kind: "p", text: "Need guidance, explanations, and confidence when selecting extensions." }],
+      },
+      {
+        kind: "gallery",
+        items: [
+          { label: "Persona — Admin", ratio: "4/5" },
+          { label: "Persona — Developer", ratio: "4/5" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ia",
+    number: "07",
+    title: "Information Architecture & Feature Planning",
+    blocks: [
+      { kind: "p", text: "The project focused heavily on information architecture and content organization." },
+      {
+        kind: "list",
+        heading: "Key Areas Evaluated",
+        items: [
+          "Homepage structure",
+          "Search functionality",
+          "Filtering systems",
+          "Category organization",
+          "Extension detail pages",
+          "Metadata structure",
+          "Comparison workflows",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Information Architecture Goals",
+        items: [
+          "Improve findability",
+          "Reduce cognitive load",
+          "Surface important information sooner",
+          "Support faster decision making",
+          "Create clearer navigation pathways",
+        ],
+      },
+      {
+        kind: "image",
+        label: "Sitemap",
+        caption: "Fig. 05 · Proposed information architecture",
+        ratio: "16/9",
+      },
+    ],
+  },
+  {
+    id: "process",
+    number: "08",
+    title: "Design Process",
+    blocks: [
+      {
+        kind: "group",
+        heading: "User Research",
+        blocks: [
+          {
+            kind: "p",
+            text: "Interviews and surveys helped uncover user frustrations and unmet needs throughout the extension discovery process.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Heuristic Evaluation",
+        blocks: [
+          { kind: "p", text: "The directory was evaluated against usability principles including:" },
+          {
+            kind: "list",
+            items: [
+              "Visibility of system status",
+              "Match between system and real-world expectations",
+              "User control and freedom",
+              "Consistency and standards",
+              "Error prevention",
+              "Recognition rather than recall",
+            ],
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Competitive Analysis",
+        blocks: [
+          {
+            kind: "p",
+            text: "Competing software marketplaces and plugin ecosystems were reviewed to identify patterns and opportunities.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Search Experience Analysis",
+        blocks: [
+          { kind: "p", text: "A detailed evaluation of search behavior uncovered challenges related to:" },
+          {
+            kind: "list",
+            items: [
+              "Search relevance",
+              "Result ranking",
+              "Metadata visibility",
+              "Filtering effectiveness",
+              "User trust",
+            ],
+          },
+        ],
+      },
+      {
+        kind: "image",
+        label: "Process artifacts",
+        caption: "Fig. 06 · Heuristic and competitive analysis boards",
+        ratio: "16/9",
+      },
+    ],
+  },
+  {
+    id: "solution",
+    number: "09",
+    title: "Final Solution",
+    blocks: [
+      {
+        kind: "p",
+        text: "The redesign recommendations focused on transforming the JED from a simple extension listing directory into a decision-support platform.",
+      },
+      { kind: "p", text: "The proposed experience helps users understand:" },
+      {
+        kind: "list",
+        items: [
+          "Why results appear",
+          "Which extensions best match their needs",
+          "Compatibility requirements",
+          "Key differences between alternatives",
+          "Potential implementation risks",
+        ],
+      },
+      {
+        kind: "p",
+        text: "The redesign emphasizes transparency, clarity, and confidence throughout the selection process.",
+      },
+      {
+        kind: "gallery",
+        items: [
+          { label: "Search results — redesigned", caption: "Fig. 07 · Redesigned results", ratio: "4/5" },
+          { label: "Extension detail — redesigned", caption: "Fig. 08 · Detail page", ratio: "4/5" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "features",
+    number: "10",
+    title: "Key Features",
+    blocks: [
+      {
+        kind: "group",
+        heading: "Enhanced Search Relevance",
+        blocks: [
+          {
+            kind: "p",
+            text: "Improved search ranking through weighted relevance, compatibility matching, and intent-based recommendations.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Intelligent Metadata Structure",
+        blocks: [
+          {
+            kind: "p",
+            text: "Standardized extension metadata improves consistency and makes critical information easier to discover.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Extension Submission Wizard",
+        blocks: [
+          {
+            kind: "p",
+            text: "A guided submission process ensures developers provide complete and consistent information. This recommendation improves directory quality while creating a stronger foundation for search and filtering.",
+          },
+          {
+            kind: "image",
+            label: "Submission wizard",
+            caption: "Fig. 09 · Step-by-step submission flow",
+            ratio: "16/9",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Comparison Tool",
+        blocks: [
+          { kind: "p", text: "Users can compare multiple extensions side-by-side using key attributes including:" },
+          {
+            kind: "list",
+            items: [
+              "Compatibility",
+              "Features",
+              "Ratings",
+              "Update history",
+              "Support information",
+            ],
+          },
+          {
+            kind: "image",
+            label: "Comparison tool",
+            caption: "Fig. 10 · Side-by-side comparison view",
+            ratio: "16/9",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Search Transparency",
+        blocks: [
+          {
+            kind: "p",
+            text: "Search results explain why an extension appears and highlight matching criteria. This helps users better understand recommendations and increases trust in the platform.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Improved Filtering",
+        blocks: [
+          { kind: "p", text: "More intuitive filters allow users to narrow results based on:" },
+          {
+            kind: "list",
+            items: [
+              "Extension type",
+              "Joomla version compatibility",
+              "Ratings",
+              "Update frequency",
+              "Pricing model",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "outcomes",
+    number: "11",
+    title: "Outcomes & Impact",
+    blocks: [
+      { kind: "p", text: "The recommendations address several high-impact usability challenges:" },
+      {
+        kind: "list",
+        items: [
+          "Improved extension discoverability",
+          "Reduced search frustration",
+          "Better informed decision making",
+          "Increased transparency",
+          "Higher confidence during evaluation",
+          "More efficient extension selection",
+        ],
+      },
+      {
+        kind: "p",
+        text: "By reducing the time required to identify suitable solutions, the redesign creates value for both users and the Joomla community.",
+      },
+      {
+        kind: "image",
+        label: "Impact summary",
+        caption: "Fig. 11 · Before / after of the discovery experience",
+        ratio: "16/9",
+      },
+    ],
+  },
+  {
+    id: "reflection",
+    number: "12",
+    title: "Reflection & Lessons Learned",
+    blocks: [
+      {
+        kind: "p",
+        text: "This project strengthened my understanding of information architecture, search design, and large-scale content ecosystems.",
+      },
+      {
+        kind: "p",
+        text: "One of the most valuable lessons was learning that search is not simply about retrieving results — it is about helping users make decisions. Users were not struggling because information was unavailable; they were struggling because information was difficult to interpret, compare, and trust.",
+      },
+      {
+        kind: "p",
+        text: "The project also reinforced the importance of designing with constraints. Working within the realities of a volunteer-driven platform taught me to view constraints not as limitations, but as valuable design inputs that guide practical and sustainable solutions.",
+      },
+    ],
+  },
+];
+
+caseStudies.push({
     slug: "joomla",
     index: "03",
     title: "Joomla Extension Directory",
     subtitle:
-      "An information architecture project to make search and discovery legible inside a long-running open-source directory.",
-    client: "Joomla (academic engagement)",
+      "Information architecture, search experience, and UX strategy for one of the largest open-source extension marketplaces.",
+    client: "Joomla Extension Directory",
     year: "2024",
-    role: "IA Lead",
-    discipline: "Information Architecture · UX",
+    role: "UX Researcher & Designer",
+    discipline: "Information Architecture · Search Experience · UX Strategy",
     duration: "12 weeks",
     summary:
-      "A card sort, tree test, and IA rebuild that made the Extension Directory navigable by intent instead of legacy taxonomy.",
-    hero: "Twenty years of contributions, re-shelved for the people arriving today.",
+      "Reframing the JED from a listing directory into a decision-support platform — through IA, search transparency, and metadata strategy.",
+    hero: "Helping users decide, not just search.",
     context:
-      "The directory hosts thousands of extensions classified by a taxonomy that made sense to maintainers in 2008. New developers searched by job, not by category.",
+      "The JED hosts thousands of extensions across e-commerce, forms, security, SEO, and more. Users routinely invested significant time only to choose extensions that didn't fit their needs.",
     challenge:
-      "Rebuild the IA so that intent-based queries succeed on the first try, while preserving the existing URLs the community depends on.",
+      "Reduce search friction, surface compatibility, and rebuild the path from discovery to confident selection inside a long-running open-source ecosystem.",
     approach: [
       {
-        title: "Open card sort",
-        body: "Forty-three participants grouped a representative sample of extensions. Clusters revealed five recurring intents.",
+        title: "Research & evaluation",
+        body: "Surveys, interviews, heuristic evaluation, and competitive analysis across plugin marketplaces uncovered where trust and clarity broke down.",
       },
       {
-        title: "Tree test",
-        body: "Two competing IA models tested head-to-head; the intent-led model won on success rate and time-to-find across every task.",
+        title: "IA & metadata",
+        body: "Restructured categories, standardized extension metadata, and proposed a guided submission wizard to feed search and filtering with consistent data.",
       },
       {
-        title: "Search refactor",
-        body: "Introduced faceted filters wired to the new intents, with legacy categories preserved as a secondary lens.",
+        title: "Search as decision support",
+        body: "Designed transparent results, intent-based ranking, intuitive filters, and a side-by-side comparison tool to support real decisions.",
       },
     ],
     outcomes: [
-      { metric: "+72%", label: "Task success in tree test" },
-      { metric: "−44%", label: "Time-to-find, mean" },
-      { metric: "0", label: "URLs broken in the migration plan" },
+      { metric: "65%", label: "Of surveyed users had picked the wrong extension" },
+      { metric: "12", label: "Sections of IA and search recommendations" },
+      { metric: "1", label: "Directory reframed as a decision-support platform" },
     ],
     reflections:
-      "Open-source IA is part design, part diplomacy. The taxonomy carries history — the redesign has to honor it while letting newcomers in.",
-    tags: ["Information Architecture", "Open Source", "UX Research"],
-  },
-];
+      "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
+    tags: ["Information Architecture", "Search Experience", "UX Strategy"],
+    sections: joomlaSections,
+});
 
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);
