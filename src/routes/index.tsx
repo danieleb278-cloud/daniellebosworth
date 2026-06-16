@@ -420,7 +420,7 @@ function Contact() {
               <span className="italic text-muted-foreground">and experience</span>
               <span className="text-accent">.</span>
             </h2>
-            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3">
+            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-20">
               <div>
                 <span className="eyebrow">Email</span>
                 <a
