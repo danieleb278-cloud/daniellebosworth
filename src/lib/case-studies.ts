@@ -40,6 +40,8 @@ export type CaseStudy = {
   outcomes: { metric: string; label: string }[];
   reflections: string;
   tags: string[];
+  /** Optional cover image shown in the work list on the home page. */
+  cover?: { src: string; alt: string };
   /** Optional long-form 12-section case study. When present, the work page
    *  renders these as a collapsible accordion instead of the short layout. */
   sections?: Section[];
