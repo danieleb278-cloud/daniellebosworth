@@ -199,7 +199,7 @@ function Work() {
                       {cs.tags.map((t) => (
                         <span
                           key={t}
-                          className="eyebrow rounded-full border border-border px-3 py-1"
+                          className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                         >
                           {t}
                         </span>
@@ -404,7 +404,7 @@ function Resume() {
                 {skills.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                   >
                     {t}
                   </li>
@@ -417,7 +417,7 @@ function Resume() {
                 {tools.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
                   >
                     {t}
                   </li>
