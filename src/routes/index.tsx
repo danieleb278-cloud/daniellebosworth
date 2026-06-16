@@ -58,7 +58,7 @@ function Hero() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-2">
           <span className="eyebrow">№ 001 — Portfolio, 2026</span>
-          <span className="eyebrow">Product Design / UX / Strategy</span>
+          <span className="eyebrow">Customer Experience, Design, and Strategy</span>
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
