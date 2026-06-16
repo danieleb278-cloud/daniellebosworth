@@ -856,6 +856,17 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+import joomlaLogo from "@/assets/joomla/joomla_logo.png.asset.json";
+import joomlaPersona1 from "@/assets/joomla/1.png.asset.json";
+import joomlaPersona2 from "@/assets/joomla/2.png.asset.json";
+import joomlaLegacy from "@/assets/joomla/legacy_diagram.png.asset.json";
+import joomlaProposed from "@/assets/joomla/proposed_search_discovery_system.png.asset.json";
+import joomlaSearchMeta from "@/assets/joomla/search_and_meta_data.png.asset.json";
+import joomlaIncentive from "@/assets/joomla/incentive_based_model_clean_up.png.asset.json";
+import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
+import joomlaSitemap1 from "@/assets/joomla/Sitemap_1.jpg.asset.json";
+import joomlaFinalSitemap from "@/assets/joomla/final_site_map.jpg.asset.json";
+
 const joomlaSections: Section[] = [
   {
     id: "overview",
