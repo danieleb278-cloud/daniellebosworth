@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export const Route = createFileRoute("/work/$slug")({
@@ -93,10 +94,23 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {/* Hero strip */}
-      <section className="border-y border-border bg-foreground px-6 py-20 text-background md:px-12 md:py-32">
+      {/* Hero image */}
+      <section className="px-6 pb-16 md:px-12 md:pb-24">
         <div className="mx-auto max-w-[1400px]">
-          <p className="max-w-4xl font-display text-3xl leading-snug tracking-tight md:text-5xl">
+          <Reveal>
+            <PlaceholderImage
+              label={`${study.title} — cover`}
+              caption={`Fig. 01 — ${study.title}`}
+              ratio="16/9"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Pull quote */}
+      <section className="border-y border-border bg-foreground px-6 py-20 text-background md:px-12 md:py-28">
+        <div className="mx-auto max-w-[1400px]">
+          <p className="max-w-4xl font-display text-2xl leading-snug tracking-tight md:text-5xl">
             "{study.hero}"
           </p>
         </div>
