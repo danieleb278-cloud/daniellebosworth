@@ -227,8 +227,7 @@ function About() {
               <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
                 I'm a cross-functional specialist who moves between
                 <span className="italic"> strategy, CX, product, and marketing </span>
-                — translating what customers actually do into work the business
-                can act on.
+                — translating customer insights into actionable strategy.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
