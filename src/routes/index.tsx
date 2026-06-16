@@ -232,7 +232,7 @@ function About() {
           </div>
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
-              <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
+              <p className="text-base leading-relaxed text-background/80 md:text-lg">
                 I started in customer-facing leadership, developed a deep
                 curiosity about human behavior, and pursued psychology and
                 product design to better understand people and systems. Today
