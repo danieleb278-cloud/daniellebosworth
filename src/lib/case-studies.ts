@@ -869,6 +869,16 @@ import joomlaIncentive from "@/assets/joomla/incentive_based_model_clean_up.png.
 import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
 import joomlaSitemap1 from "@/assets/joomla/Sitemap_1.jpg.asset.json";
 import joomlaFinalSitemap from "@/assets/joomla/final_site_map.jpg.asset.json";
+import ndClickable from "@/assets/nd/clickable.png.asset.json";
+import ndScreens from "@/assets/nd/screens.png.asset.json";
+import ndSurvey from "@/assets/nd/survey.png.asset.json";
+import ndCompetitive from "@/assets/nd/competitive.png.asset.json";
+import ndJourney from "@/assets/nd/journey.png.asset.json";
+import ndPersonalization from "@/assets/nd/personalization.png.asset.json";
+import ndItinerary from "@/assets/nd/itinerary.png.asset.json";
+import ndLocal from "@/assets/nd/local.png.asset.json";
+import ndBudget from "@/assets/nd/budget.png.asset.json";
+import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 
 const joomlaSections: Section[] = [
   {
