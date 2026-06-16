@@ -219,46 +219,44 @@ function About() {
           <div className="col-span-12 md:col-span-4">
             <span className="eyebrow text-background/60">§ About</span>
             <h2 className="mt-6 font-display text-4xl tracking-tight md:text-5xl">
-              An eye for behavior, a hand for systems.
+              One ear on the customer, one eye on the business.
             </h2>
           </div>
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-2xl leading-snug tracking-tight md:text-4xl">
-                I'm a product designer who started in an environment where
-                <span className="italic"> understanding people </span>
-                mattered just as much as technical skill — and that lens still
-                shapes how I design today.
+                I'm a cross-functional specialist who moves between
+                <span className="italic"> strategy, CX, product, and marketing </span>
+                — translating what customers actually do into work the business
+                can act on.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
-                  My background in cosmetology taught me to read behavior,
-                  recognize unspoken needs, and translate them into outcomes
-                  that felt right for each individual. That work strengthened
-                  both my empathy and my eye for detail — and it still
-                  influences how I think about aesthetics, communication, and
-                  design.
+                  My background blends psychology, product design, and years of
+                  customer-facing leadership — from running a high-volume
+                  branch (~175% revenue growth, +32% retention) to coordinating
+                  marketing, education, and operations for a haircare brand
+                  today.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
-                  Over time, the threads I once thought were scattered —
-                  creativity, psychology, and problem-solving — became the
-                  foundation of how I approach product design. I'm drawn to
-                  patterns in behavior, friction in systems, and solutions that
-                  bring clarity to complex workflows.
+                  I'm currently finishing an MBS in Product Design &amp;
+                  Innovation at Rutgers. I work fluently across research,
+                  content, analytics, and AI-assisted workflows — and I'm at my
+                  best where customer insight, brand, and operations meet.
                 </p>
               </Reveal>
             </div>
 
             <div className="mt-16 grid grid-cols-2 gap-8 border-t border-background/20 pt-8 md:grid-cols-4">
               {[
-                ["Design", "Product, UX, interaction"],
-                ["Research", "Interviews, card sorts, usability"],
-                ["Strategy", "Customer experience, positioning"],
-                ["Systems", "IA, workflows, design tokens"],
+                ["Strategy", "Positioning, roadmap input, VOC"],
+                ["CX", "Journey mapping, service design"],
+                ["Product", "UX research, IA, prototyping"],
+                ["Marketing", "Content, social, brand, SEO"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <div className="font-display text-lg">{k}</div>
