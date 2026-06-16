@@ -62,13 +62,13 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          <h1 className="col-span-12 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8">
-            <span className="block mb-4">Understanding behavior.</span>
-            <span className="block mb-4">Designing systems.</span>
-            <span className="block">Bridging gaps<span className="text-teal">.</span></span>
+          <h1 className="col-span-12 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8 md:order-2 flex h-full flex-col justify-between">
+            <span className="block">Understanding <span className="italic">behavior</span>.</span>
+            <span className="block ml-[10%] md:ml-[15%]">Designing <span className="italic">systems</span>.</span>
+            <span className="block ml-[20%] md:ml-[30%]">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
           </h1>
 
-          <div className="col-span-12 md:col-span-4 md:pt-2">
+          <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
               <PlaceholderImage
                 src={portrait.url}
