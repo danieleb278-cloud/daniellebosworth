@@ -986,6 +986,15 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
     tags: ["UX Research", "Product Strategy", "Travel"],
+    snapshot: {
+      projectType: "Cross-functional Product Development (academic)",
+      duration: "Spring 2025 Semester",
+      teamSize: "Cross-functional team",
+      myRole: "UX Researcher & Product Strategy",
+      methodsUsed: "User Surveys, Customer Interviews, Competitive Analysis, Affinity Mapping, Gap Analysis, Feature Prioritization",
+      deliverables: "Opportunity Assessment, Competitive Analysis, Customer Journey Maps, Feature Matrices, Concept Prototypes, Product Strategy",
+      outcome: "Developed an all-in-one travel planning platform concept that reduces planning complexity through personalization, budgeting, group coordination, and itinerary features.",
+    },
     cover: { src: ndLogo.url, alt: "Next Destination logo" },
     sections: nextDestinationSections,
   },
