@@ -995,6 +995,7 @@ export const caseStudies: CaseStudy[] = [
       teamSize: "4 Team Members",
       myRole: "Product Strategy, Research, and Experience Design, Prototype development",
       methodsUsed: "User Research, Surveys, Affinity Mapping, Competitive Analysis, Opportunity Identification, Feature Prioritization",
+      toolsUsed: "",
       deliverables: "Personas, Journey Maps, Opportunity Analysis, Product Strategy, Feature Roadmap, Experience Design Concepts",
       outcome: "Developed a travel planning platform concept that consolidated trip planning, budgeting, personalization, and collaboration into a unified experience.",
     },
