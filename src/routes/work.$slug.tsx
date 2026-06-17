@@ -100,6 +100,47 @@ function CaseStudyPage() {
         </div>
       </section>
 
+      {/* Project Snapshot */}
+      {study.snapshot && (
+        <section className="border-t border-border px-6 py-16 md:px-12 md:py-20">
+          <div className="mx-auto max-w-[1400px]">
+            <span className="eyebrow mb-10 block">Project Snapshot</span>
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Project Type", study.snapshot.projectType],
+                ["Duration", study.snapshot.duration],
+                ["Team Size", study.snapshot.teamSize],
+                ["My Role", study.snapshot.myRole],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <div className="eyebrow">{label}</div>
+                  <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                    {value}
+                  </div>
+                </div>
+              ))}
+              <div className="sm:col-span-2">
+                <div className="eyebrow">Methods Used</div>
+                <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                  {study.snapshot.methodsUsed}
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <div className="eyebrow">Deliverables</div>
+                <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                  {study.snapshot.deliverables}
+                </div>
+              </div>
+              <div className="sm:col-span-2 lg:col-span-4">
+                <div className="eyebrow">Outcome</div>
+                <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                  {study.snapshot.outcome}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Pull quote */}
       <section className="border-y border-border bg-foreground px-6 py-20 text-background md:px-12 md:py-28">
