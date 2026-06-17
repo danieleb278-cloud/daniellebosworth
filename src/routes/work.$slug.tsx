@@ -111,6 +111,14 @@ function CaseStudyPage() {
                   {study.snapshot.methodsUsed}
                 </div>
               </div>
+              {study.snapshot.toolsUsed && (
+                <div className="sm:col-span-2">
+                  <div className="eyebrow">Tools Used</div>
+                  <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                    {study.snapshot.toolsUsed}
+                  </div>
+                </div>
+              )}
               <div className="sm:col-span-2">
                 <div className="eyebrow">Deliverables</div>
                 <div className="mt-2 font-display text-base leading-snug md:text-lg">
