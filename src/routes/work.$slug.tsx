@@ -19,9 +19,9 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.study.title} — dscript case study` },
+          { title: `${loaderData.study.title} — Danielle Bosworth` },
           { name: "description", content: loaderData.study.summary },
-          { property: "og:title", content: `${loaderData.study.title} — dscript` },
+          { property: "og:title", content: `${loaderData.study.title} — Danielle Bosworth` },
           { property: "og:description", content: loaderData.study.summary },
         ]
       : [],
@@ -279,7 +279,7 @@ function CaseStudyPage() {
 
       <footer className="border-t border-border px-6 py-10 md:px-12">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between">
-          <span className="eyebrow">© {new Date().getFullYear()} dscript studio</span>
+          <span className="eyebrow">© {new Date().getFullYear()} Danielle Bosworth</span>
           <Link to="/" className="eyebrow link-underline">
             Back to index ↑
           </Link>
@@ -366,13 +366,14 @@ function BlockView({ block }: { block: Block }) {
   }
   if (block.kind === "image") {
     return (
-      <div className="my-2">
+    <div className={`my-2 ${block.className ?? ""}`}>
         <PlaceholderImage
           label={block.label}
           caption={block.caption}
           ratio={block.ratio ?? "16/9"}
           src={block.src}
           alt={block.alt}
+          fit={block.fit ?? "cover"}
         />
       </div>
     );

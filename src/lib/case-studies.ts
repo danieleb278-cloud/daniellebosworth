@@ -9,6 +9,8 @@ export type Block =
       ratio?: string;
       src?: string;
       alt?: string;
+      fit?: "cover" | "contain" | "cover-top";
+      className?: string;
     }
   | {
       kind: "gallery";
@@ -1113,6 +1115,8 @@ const joomlaSections: Section[] = [
         ratio: "16/9",
         src: joomlaLogo.url,
         alt: "Joomla logo",
+        fit: "contain",
+        className: "max-w-3xl mx-auto",
       },
     ],
   },
@@ -1612,13 +1616,13 @@ caseStudies.unshift({
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
     tags: ["Information Architecture", "Search Experience", "UX Strategy"],
     snapshot: {
-      projectType: "Academic UX Research & Information Architecture Project",
+      projectType: "Independent UX Research & Information Architecture Consulting Project",
       duration: "Spring 2026 Semester",
       teamSize: "Individual Project",
-      myRole: "Sole UX Researcher, Information Architect, and Experience Strategist",
+      myRole: "UX Researcher, Information Architect, Search Experience Strategist",
       methodsUsed: "User Interviews, Surveys, Heuristic Evaluation, Competitive Analysis, Information Architecture Analysis, Search Experience Evaluation",
-      deliverables: "Research Findings, Journey Analysis, Information Architecture Recommendations, Search Experience Recommendations, Prioritized UX Improvements",
-      outcome: "Developed a comprehensive redesign strategy for the Joomla Extension Directory focused on improving discoverability, search relevance, transparency, and user decision-making. Presented recommendations through weekly progress reviews and stakeholder feedback sessions.",
+      deliverables: "Research Findings, Search Analysis, Information Architecture Recommendations, Prioritized UX Improvements, Stakeholder Presentations",
+      outcome: "Conducted an end-to-end evaluation of the Joomla Extension Directory to identify barriers to extension discovery, search relevance, and decision-making. Developed a comprehensive recommendation framework focused on improving findability, transparency, and user confidence.",
     },
     cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
