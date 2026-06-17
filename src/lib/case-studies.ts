@@ -22,6 +22,16 @@ export type Section = {
   blocks: Block[];
 };
 
+export type Snapshot = {
+  projectType: string;
+  duration: string;
+  teamSize: string;
+  myRole: string;
+  methodsUsed: string;
+  deliverables: string;
+  outcome: string;
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -45,6 +55,7 @@ export type CaseStudy = {
   /** Optional long-form 12-section case study. When present, the work page
    *  renders these as a collapsible accordion instead of the short layout. */
   sections?: Section[];
+  snapshot?: Snapshot;
 };
 
 const robinSections: Section[] = [
@@ -975,6 +986,15 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
     tags: ["UX Research", "Product Strategy", "Travel"],
+    snapshot: {
+      projectType: "Cross-functional Product Development (academic)",
+      duration: "Spring 2025 Semester",
+      teamSize: "Cross-functional team",
+      myRole: "UX Researcher & Product Strategy",
+      methodsUsed: "User Surveys, Customer Interviews, Competitive Analysis, Affinity Mapping, Gap Analysis, Feature Prioritization",
+      deliverables: "Opportunity Assessment, Competitive Analysis, Customer Journey Maps, Feature Matrices, Concept Prototypes, Product Strategy",
+      outcome: "Developed an all-in-one travel planning platform concept that reduces planning complexity through personalization, budgeting, group coordination, and itinerary features.",
+    },
     cover: { src: ndLogo.url, alt: "Next Destination logo" },
     sections: nextDestinationSections,
   },
@@ -1019,6 +1039,15 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Small usability issues can significantly impact user confidence. Research uncovered opportunities that analytics alone would have missed.",
     tags: ["UX Research", "Usability Testing", "Job Search"],
+    snapshot: {
+      projectType: "Academic UX Research & Usability Evaluation",
+      duration: "Fall 2024 Semester",
+      teamSize: "Individual Project",
+      myRole: "Sole UX Researcher & Designer",
+      methodsUsed: "User Surveys, Contextual Inquiry, Heuristic Evaluation, Usability Testing, Competitive Analysis, Persona Development, Journey Mapping",
+      deliverables: "Research Findings, Personas, Journey Maps, Heuristic Evaluation Report, Usability Testing Insights, Design Recommendations",
+      outcome: "Identified key friction points in job discovery and application workflows and developed actionable recommendations to improve usability and candidate confidence.",
+    },
     cover: { src: robinLogo.url, alt: "Robin logo — your job search sidekick" },
     sections: robinSections,
   },
@@ -1582,6 +1611,15 @@ caseStudies.unshift({
     reflections:
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
     tags: ["Information Architecture", "Search Experience", "UX Strategy"],
+    snapshot: {
+      projectType: "Academic UX Research & Information Architecture Project",
+      duration: "Spring 2026 Semester",
+      teamSize: "Individual Project",
+      myRole: "Sole UX Researcher, Information Architect, and Experience Strategist",
+      methodsUsed: "User Interviews, Surveys, Heuristic Evaluation, Competitive Analysis, Information Architecture Analysis, Search Experience Evaluation",
+      deliverables: "Research Findings, Journey Analysis, Information Architecture Recommendations, Search Experience Recommendations, Prioritized UX Improvements",
+      outcome: "Developed a comprehensive redesign strategy for the Joomla Extension Directory focused on improving discoverability, search relevance, transparency, and user decision-making. Presented recommendations through weekly progress reviews and stakeholder feedback sessions.",
+    },
     cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
 });
