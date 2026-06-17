@@ -952,7 +952,7 @@ export const caseStudies: CaseStudy[] = [
     index: "03",
     title: "Next Destination",
     subtitle:
-      "Product strategy and experience design for an all-in-one travel planning platform.",
+      "Designing an all-in-one travel planning application from concept through high-fidelity prototype and go-to-market strategy.",
 
     client: "Cross-functional product team (academic)",
     year: "2025",
@@ -1005,7 +1005,7 @@ export const caseStudies: CaseStudy[] = [
     index: "02",
     title: "Robin",
     subtitle:
-      "UX research and usability evaluation focused on improving the job seeker experience.",
+      "Product discovery and UX research to identify unmet needs and shape the future of a job search platform.",
 
     client: "Robin (academic engagement)",
     year: "2024",
@@ -1580,7 +1580,7 @@ caseStudies.unshift({
     index: "01",
     title: "Joomla Extension Directory",
     subtitle:
-      "Research, information architecture, and search redesign recommendations for the Joomla Extension Directory.",
+      "Information architecture and search strategy redesign for a global open-source software marketplace.",
     client: "Joomla Extension Directory",
     year: "2024",
     role: "UX Researcher & Designer",
