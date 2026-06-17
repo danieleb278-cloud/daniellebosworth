@@ -30,6 +30,7 @@ export type Snapshot = {
   teamSize: string;
   myRole: string;
   methodsUsed: string;
+  toolsUsed: string;
   deliverables: string;
   outcome: string;
 };
