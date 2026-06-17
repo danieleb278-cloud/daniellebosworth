@@ -9,6 +9,8 @@ export type Block =
       ratio?: string;
       src?: string;
       alt?: string;
+      fit?: "cover" | "contain" | "cover-top";
+      className?: string;
     }
   | {
       kind: "gallery";
