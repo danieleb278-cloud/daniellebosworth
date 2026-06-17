@@ -90,7 +90,7 @@ function CaseStudyPage() {
       {study.snapshot && (
         <section className="border-t border-border px-6 py-16 md:px-12 md:py-20">
           <div className="mx-auto max-w-[1400px]">
-            <span className="eyebrow mb-10 block">Project Snapshot</span>
+            <span className="eyebrow text-accent mb-10 block">Project Snapshot</span>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Project Type", study.snapshot.projectType],
@@ -99,34 +99,34 @@ function CaseStudyPage() {
                 ["My Role", study.snapshot.myRole],
               ].map(([label, value]) => (
                 <div key={label}>
-                  <div className="eyebrow">{label}</div>
+                  <div className="eyebrow text-accent">{label}</div>
                   <div className="mt-2 font-display text-base leading-snug md:text-lg">
                     {value}
                   </div>
                 </div>
               ))}
               <div className="sm:col-span-2">
-                <div className="eyebrow">Methods Used</div>
+                <div className="eyebrow text-accent">Methods Used</div>
                 <div className="mt-2 font-display text-base leading-snug md:text-lg">
                   {study.snapshot.methodsUsed}
                 </div>
               </div>
               {study.snapshot.toolsUsed && (
                 <div className="sm:col-span-2">
-                  <div className="eyebrow">Tools Used</div>
+                  <div className="eyebrow text-accent">Tools Used</div>
                   <div className="mt-2 font-display text-base leading-snug md:text-lg">
                     {study.snapshot.toolsUsed}
                   </div>
                 </div>
               )}
               <div className="sm:col-span-2">
-                <div className="eyebrow">Deliverables</div>
+                <div className="eyebrow text-accent">Deliverables</div>
                 <div className="mt-2 font-display text-base leading-snug md:text-lg">
                   {study.snapshot.deliverables}
                 </div>
               </div>
               <div className="sm:col-span-2 lg:col-span-4">
-                <div className="eyebrow">Outcome</div>
+                <div className="eyebrow text-accent">Outcome</div>
                 <div className="mt-2 font-display text-base leading-snug md:text-lg">
                   {study.snapshot.outcome}
                 </div>
