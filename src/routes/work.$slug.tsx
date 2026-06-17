@@ -74,8 +74,7 @@ function CaseStudyPage() {
             </span>
           </div>
           <Reveal>
-            <span className="eyebrow">{study.discipline}</span>
-            <h1 className="mt-6 font-display text-[clamp(2.75rem,8vw,8rem)] leading-[0.95] tracking-[-0.03em]">
+            <h1 className="font-display text-[clamp(2.75rem,8vw,8rem)] leading-[0.95] tracking-[-0.03em]">
               {study.title}
               <span className="text-accent">.</span>
             </h1>
@@ -112,6 +111,14 @@ function CaseStudyPage() {
                   {study.snapshot.methodsUsed}
                 </div>
               </div>
+              {study.snapshot.toolsUsed && (
+                <div className="sm:col-span-2">
+                  <div className="eyebrow">Tools Used</div>
+                  <div className="mt-2 font-display text-base leading-snug md:text-lg">
+                    {study.snapshot.toolsUsed}
+                  </div>
+                </div>
+              )}
               <div className="sm:col-span-2">
                 <div className="eyebrow">Deliverables</div>
                 <div className="mt-2 font-display text-base leading-snug md:text-lg">
