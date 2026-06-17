@@ -22,6 +22,16 @@ export type Section = {
   blocks: Block[];
 };
 
+export type Snapshot = {
+  projectType: string;
+  duration: string;
+  teamSize: string;
+  myRole: string;
+  methodsUsed: string;
+  deliverables: string;
+  outcome: string;
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -45,6 +55,7 @@ export type CaseStudy = {
   /** Optional long-form 12-section case study. When present, the work page
    *  renders these as a collapsible accordion instead of the short layout. */
   sections?: Section[];
+  snapshot?: Snapshot;
 };
 
 const robinSections: Section[] = [
