@@ -366,13 +366,14 @@ function BlockView({ block }: { block: Block }) {
   }
   if (block.kind === "image") {
     return (
-      <div className="my-2">
+    <div className={`my-2 ${block.className ?? ""}`}>
         <PlaceholderImage
           label={block.label}
           caption={block.caption}
           ratio={block.ratio ?? "16/9"}
           src={block.src}
           alt={block.alt}
+          fit={block.fit ?? "cover"}
         />
       </div>
     );
