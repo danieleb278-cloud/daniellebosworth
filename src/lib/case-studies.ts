@@ -1039,6 +1039,15 @@ export const caseStudies: CaseStudy[] = [
     reflections:
       "Small usability issues can significantly impact user confidence. Research uncovered opportunities that analytics alone would have missed.",
     tags: ["UX Research", "Usability Testing", "Job Search"],
+    snapshot: {
+      projectType: "Academic UX Research & Usability Evaluation",
+      duration: "Fall 2024 Semester",
+      teamSize: "Individual Project",
+      myRole: "Sole UX Researcher & Designer",
+      methodsUsed: "User Surveys, Contextual Inquiry, Heuristic Evaluation, Usability Testing, Competitive Analysis, Persona Development, Journey Mapping",
+      deliverables: "Research Findings, Personas, Journey Maps, Heuristic Evaluation Report, Usability Testing Insights, Design Recommendations",
+      outcome: "Identified key friction points in job discovery and application workflows and developed actionable recommendations to improve usability and candidate confidence.",
+    },
     cover: { src: robinLogo.url, alt: "Robin logo — your job search sidekick" },
     sections: robinSections,
   },
