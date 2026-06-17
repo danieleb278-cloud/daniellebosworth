@@ -74,6 +74,7 @@ const robinSections: Section[] = [
         ratio: "16 / 9",
         src: robinLogo.url,
         alt: "Robin logo with tagline 'Your job search sidekick'",
+        className: "max-w-2xl mx-auto",
       },
       {
         kind: "p",
@@ -510,6 +511,7 @@ const nextDestinationSections: Section[] = [
         ratio: "4 / 5",
         src: ndClickable.url,
         alt: "Next Destination welcome screen on Android device",
+        className: "max-w-lg mx-auto",
       },
       {
         kind: "p",
@@ -592,6 +594,7 @@ const nextDestinationSections: Section[] = [
         ratio: "4 / 5",
         src: ndSurvey.url,
         alt: "Screenshot of the Vacation Questionnaire survey",
+        className: "max-w-lg mx-auto",
       },
       {
         kind: "list",
