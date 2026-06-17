@@ -84,19 +84,6 @@ function CaseStudyPage() {
             </p>
           </Reveal>
 
-          <dl className="mt-16 grid grid-cols-2 gap-6 border-t border-border pt-8 md:grid-cols-4">
-            {[
-              ["Client", study.client],
-              ["Year", study.year],
-              ["Role", study.role],
-              ["Duration", study.duration],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <dt className="eyebrow">{k}</dt>
-                <dd className="mt-2 font-display text-lg">{v}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
