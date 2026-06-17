@@ -1202,13 +1202,6 @@ const joomlaSections: Section[] = [
         ],
       },
       {
-        kind: "gallery",
-        items: [
-          { label: "Persona — Elisa", caption: "Fig. 02 · Experienced occasional user", ratio: "16/9", src: joomlaPersona1.url, alt: "Elisa persona" },
-          { label: "Persona — Adrian", caption: "Fig. 03 · Joomla expert / contributor", ratio: "16/9", src: joomlaPersona2.url, alt: "Adrian persona" },
-        ],
-      },
-      {
         kind: "image",
         label: "Customer journey map",
         caption: "Fig. 04 · End-to-end journey across entry, search, filter, evaluate, decide, and exit — surfacing pain points and opportunities.",
