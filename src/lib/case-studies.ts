@@ -1611,6 +1611,15 @@ caseStudies.unshift({
     reflections:
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
     tags: ["Information Architecture", "Search Experience", "UX Strategy"],
+    snapshot: {
+      projectType: "Academic UX Research & Information Architecture Project",
+      duration: "Spring 2026 Semester",
+      teamSize: "Individual Project",
+      myRole: "Sole UX Researcher, Information Architect, and Experience Strategist",
+      methodsUsed: "User Interviews, Surveys, Heuristic Evaluation, Competitive Analysis, Information Architecture Analysis, Search Experience Evaluation",
+      deliverables: "Research Findings, Journey Analysis, Information Architecture Recommendations, Search Experience Recommendations, Prioritized UX Improvements",
+      outcome: "Developed a comprehensive redesign strategy for the Joomla Extension Directory focused on improving discoverability, search relevance, transparency, and user decision-making. Presented recommendations through weekly progress reviews and stakeholder feedback sessions.",
+    },
     cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
     sections: joomlaSections,
 });
