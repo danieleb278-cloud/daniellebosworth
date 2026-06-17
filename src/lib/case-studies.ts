@@ -1115,6 +1115,8 @@ const joomlaSections: Section[] = [
         ratio: "16/9",
         src: joomlaLogo.url,
         alt: "Joomla logo",
+        fit: "contain",
+        className: "max-w-3xl mx-auto",
       },
     ],
   },
