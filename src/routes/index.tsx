@@ -189,7 +189,7 @@ function Work() {
                   {/* Text */}
                   <div className="col-span-12 md:col-span-7 md:order-1">
                     <span className="font-mono text-sm text-muted-foreground">
-                      {cs.index}
+                      {cs.index} / {String(caseStudies.length).padStart(2, "0")}
                     </span>
                     <h3 className="mt-3 font-display text-3xl tracking-tight transition-transform duration-500 group-hover:-translate-y-1 md:text-5xl">
                       {cs.title}

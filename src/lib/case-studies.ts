@@ -1636,11 +1636,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Creating consistent, high-quality content across multiple channels is one of the biggest challenges marketing and educational teams face today. Writing a strong long-form piece is only the first step — turning that single idea into a steady stream of social posts, short-form videos, carousels, and supporting marketing assets is where most workflows break down.",
+        text: "Creating consistent, high-quality content across multiple channels is one of the biggest challenges marketing and content teams face today. Writing a strong long-form piece is only the first step — turning that single idea into a steady stream of social posts, short-form videos, carousels, and supporting marketing assets is where most workflows break down.",
       },
       {
         kind: "p",
-        text: "This project was designed to solve that problem by building a repeatable content workflow that transforms one core educational topic into a full ecosystem of assets, while keeping voice, message, and visual identity consistent across every format and platform.",
+        text: "This project was designed to solve that problem by building a repeatable content workflow that transforms one core topic into a full ecosystem of assets, while keeping voice, message, and visual identity consistent across every format and platform.",
       },
       {
         kind: "list",
@@ -1697,7 +1697,7 @@ const contentStrategySections: Section[] = [
           "Social media carousels designed in Canva with consistent typography, color, and layout",
           "Short-form video concepts scripted and edited in CapCut and Adobe Express",
           "Platform-specific captions optimized for tone, length, and hook structure",
-          "Educational graphics and supporting marketing assets that extend the brand visually",
+          "Branded graphics and supporting marketing assets that extend the brand visually",
         ],
       },
       {
@@ -1739,7 +1739,7 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "This project reinforced that content strategy is less about volume and more about systems. The teams that win on social and educational platforms aren't producing more — they're producing smarter, with every asset working harder by serving multiple channels and audiences.",
+        text: "This project reinforced that content strategy is less about volume and more about systems. The teams that win on social platforms aren't producing more — they're producing smarter, with every asset working harder by serving multiple channels and audiences.",
       },
       {
         kind: "p",
@@ -1758,7 +1758,7 @@ caseStudies.push({
   index: "04",
   title: "Content Strategy",
   subtitle:
-    "Multi-channel content development that turns a single educational topic into a system of assets across formats and platforms.",
+    "Multi-channel content development that turns a single topic into a system of assets across formats and platforms.",
   client: "Independent project",
   year: "2025",
   role: "Content Strategist & Creator",
@@ -1768,7 +1768,7 @@ caseStudies.push({
     "A repeatable content workflow that transforms one core topic into blog articles, carousels, short-form video, and supporting marketing assets — built to scale output without losing message consistency.",
   hero: "One idea, many assets. Strategy is what turns a single topic into a system.",
   context:
-    "Modern marketing and educational teams need to show up consistently across channels, but most workflows treat every post as a new project. This project builds the system that makes that sustainable.",
+    "Modern marketing and content teams need to show up consistently across channels, but most workflows treat every post as a new project. This project builds the system that makes that sustainable.",
   challenge:
     "Design a repeatable content workflow that takes a single long-form topic and produces a full set of channel-native assets without sacrificing voice, design quality, or message clarity.",
   approach: [
@@ -1803,9 +1803,9 @@ caseStudies.push({
     toolsUsed:
       "Canva, CapCut, Adobe Express, ChatGPT, Google Workspace, Social Media Platforms, Analytics & Performance Reporting Tools",
     deliverables:
-      "Blog Articles, Social Media Carousels, Short-Form Video Concepts, Social Media Captions, Educational Content, Marketing Assets, Content Repurposing Frameworks",
+      "Blog Articles, Social Media Carousels, Short-Form Video Concepts, Social Media Captions, Marketing Assets, Content Repurposing Frameworks",
     outcome:
-      "Developed a repeatable content workflow that transformed a single educational topic into multiple assets across formats and platforms. By repurposing long-form content into social media posts, carousels, short-form video concepts, and supporting marketing materials, the project demonstrates how strategic content planning can increase content output, improve efficiency, and maintain message consistency across channels.",
+      "Developed a repeatable content workflow that transformed a single topic into multiple assets across formats and platforms. By repurposing long-form content into social media posts, carousels, short-form video concepts, and supporting marketing materials, the project demonstrates how strategic content planning can increase content output, improve efficiency, and maintain message consistency across channels.",
   },
   sections: contentStrategySections,
 });
