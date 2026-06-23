@@ -1651,22 +1651,15 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Strategy started with the audience, not the asset. I mapped who the content was for, what they were trying to learn, and where they were already spending time — then chose formats and platforms based on how the audience actually consumes information, not what was easiest to produce.",
-      },
-      {
-        kind: "list",
-        heading: "Strategic decisions",
-        items: [
-          "Define one core topic per content cycle to anchor every derivative asset",
-          "Lead with long-form (blog or guide) to establish depth and SEO value",
-          "Identify three to five repurposing angles for each topic before any asset is created",
-          "Match format to platform — carousels for Instagram and LinkedIn, short-form video for Reels and TikTok, captions tuned per channel",
-          "Build a content calendar that staggers releases so a single topic lives across two to three weeks",
-        ],
+        text: "The strategy centered around a simple observation: customers frequently ask the same questions. Those questions often reveal the exact information audiences are already searching for.",
       },
       {
         kind: "p",
-        text: "This upfront planning turned content production from a sprint into a system — every long-form piece became the source of a dozen smaller, channel-native assets.",
+        text: "Rather than starting with content formats, the process began by identifying audience needs and common pain points. Educational content was selected because it provides long-term value, establishes credibility, and can be adapted into multiple formats. Each asset was designed to serve a different stage of engagement, from capturing attention through short-form content to providing deeper value through longer-form educational resources.",
+      },
+      {
+        kind: "p",
+        text: "The goal was not simply to create more content, but to create a connected system where each asset reinforced the same core message while serving a unique purpose.",
       },
     ],
   },
