@@ -1670,7 +1670,7 @@ const contentStrategySections: Section[] = [
   },
   {
     id: "content-strategy",
-    number: "02",
+    number: "03",
     title: "Content Strategy",
     blocks: [
       {
@@ -1689,7 +1689,7 @@ const contentStrategySections: Section[] = [
   },
   {
     id: "asset-development",
-    number: "03",
+    number: "04",
     title: "Asset Development",
     blocks: [
       {
@@ -1717,7 +1717,7 @@ const contentStrategySections: Section[] = [
   },
   {
     id: "content-repurposing",
-    number: "04",
+    number: "05",
     title: "Content Repurposing",
     blocks: [
       {
