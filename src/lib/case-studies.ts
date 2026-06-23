@@ -1673,8 +1673,21 @@ const contentStrategySections: Section[] = [
         text: "The content development process began with a long-form blog article focused on helping service providers create more effective content by leveraging customer questions. From this foundation, key insights, quotes, and takeaways were identified and adapted into additional formats.",
       },
       {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Long-form blog article — source content",
+        ratio: "16/9",
+      },
+      {
         kind: "p",
         text: "Attention was given to creating platform-appropriate hooks, visual hierarchy, and messaging that aligned with audience behavior. Each asset maintained the same core idea while being optimized for its specific channel and format.",
+      },
+      {
+        kind: "gallery",
+        items: [
+          { label: "Fig. 02", caption: "Social media carousel", ratio: "1/1" },
+          { label: "Fig. 03", caption: "Short-form video concept", ratio: "9/16" },
+        ],
       },
     ],
   },
@@ -1688,8 +1701,21 @@ const contentStrategySections: Section[] = [
         text: "One of the primary objectives of the project was demonstrating how a single idea can support an entire content ecosystem. The original blog article was transformed into a social media carousel, short-form video concept, supporting captions, and additional promotional content.",
       },
       {
+        kind: "gallery",
+        items: [
+          { label: "Fig. 04", caption: "Carousel slides", ratio: "1/1" },
+          { label: "Fig. 05", caption: "Captions & platform copy", ratio: "1/1" },
+        ],
+      },
+      {
         kind: "p",
         text: "This approach extended the lifespan of the original content while increasing the number of audience touchpoints. The result was a more efficient content workflow that reduced creation time while maintaining consistency across platforms.",
+      },
+      {
+        kind: "image",
+        label: "Fig. 06",
+        caption: "Repurposing system overview",
+        ratio: "16/9",
       },
     ],
   },
