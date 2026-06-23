@@ -1630,8 +1630,32 @@ caseStudies.unshift({
 
 const contentStrategySections: Section[] = [
   {
-    id: "challenge",
+    id: "overview",
     number: "01",
+    title: "Project Overview",
+    blocks: [
+      {
+        kind: "image",
+        label: "Fig. 01",
+        caption: "Content strategy — turning one idea into a multi-channel system.",
+        ratio: "16 / 9",
+        src: undefined,
+        alt: "Content strategy hero image",
+        className: "max-w-2xl mx-auto",
+      },
+      {
+        kind: "p",
+        text: "This project explores how a single piece of content can be transformed into multiple marketing assets through strategic content repurposing. Rather than creating entirely new content for every platform, the goal was to maximize the value of existing ideas by adapting them to different formats, audiences, and channels.",
+      },
+      {
+        kind: "p",
+        text: "The featured example began as a blog article focused on helping service providers generate content ideas by answering common customer questions. From that single concept, I developed a content ecosystem that included a social media carousel, short-form video concept, supporting captions, and platform-specific messaging. The project demonstrates how content strategy, audience understanding, and communication design can work together to increase efficiency while maintaining a consistent message.",
+      },
+    ],
+  },
+  {
+    id: "challenge",
+    number: "02",
     title: "Challenge",
     blocks: [
       {
