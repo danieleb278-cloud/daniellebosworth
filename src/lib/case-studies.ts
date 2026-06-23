@@ -1745,7 +1745,7 @@ const contentStrategySections: Section[] = [
   },
   {
     id: "reflection",
-    number: "05",
+    number: "06",
     title: "Reflection",
     blocks: [
       {
