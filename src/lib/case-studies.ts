@@ -1636,21 +1636,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Creating consistent, high-quality content across multiple channels is one of the biggest challenges marketing and content teams face today. Writing a strong long-form piece is only the first step — turning that single idea into a steady stream of social posts, short-form videos, carousels, and supporting marketing assets is where most workflows break down.",
+        text: "This project explores how a single piece of educational content can be transformed into multiple marketing assets through strategic content repurposing. Rather than creating entirely new content for every platform, the goal was to maximize the value of existing ideas by adapting them to different formats, audiences, and channels.",
       },
       {
         kind: "p",
-        text: "This project was designed to solve that problem by building a repeatable content workflow that transforms one core topic into a full ecosystem of assets, while keeping voice, message, and visual identity consistent across every format and platform.",
-      },
-      {
-        kind: "list",
-        heading: "The core problem",
-        items: [
-          "Long-form content sits idle after publishing instead of fueling other channels",
-          "Teams lack a clear framework for repurposing across formats",
-          "Voice and message drift across platforms when content is created ad hoc",
-          "Output slows because every asset is treated as a new project rather than a derivative",
-        ],
+        text: "The featured example began as a blog article focused on helping service providers generate content ideas by answering common customer questions. From that single concept, I developed a content ecosystem that included a social media carousel, short-form video concept, supporting captions, and platform-specific messaging. The project demonstrates how content strategy, audience understanding, and communication design can work together to increase efficiency while maintaining a consistent message.",
       },
     ],
   },
