@@ -1670,22 +1670,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "With the strategy in place, I moved into hands-on production — writing, designing, and editing across formats. Every asset was built to stand on its own while still reinforcing the core message of the parent topic.",
-      },
-      {
-        kind: "list",
-        heading: "What I produced",
-        items: [
-          "Long-form blog articles structured for readability, SEO, and easy repurposing",
-          "Social media carousels designed in Canva with consistent typography, color, and layout",
-          "Short-form video concepts scripted and edited in CapCut and Adobe Express",
-          "Platform-specific captions optimized for tone, length, and hook structure",
-          "Branded graphics and supporting marketing assets that extend the brand visually",
-        ],
+        text: "The content development process began with a long-form blog article focused on helping service providers create more effective content by leveraging customer questions. From this foundation, key insights, quotes, and takeaways were identified and adapted into additional formats.",
       },
       {
         kind: "p",
-        text: "Design choices were intentional. Templates were created so future content could be produced faster without losing visual consistency, and every asset followed a defined hierarchy — hook, value, takeaway, call to action — so the audience always knew what to do next.",
+        text: "Attention was given to creating platform-appropriate hooks, visual hierarchy, and messaging that aligned with audience behavior. Each asset maintained the same core idea while being optimized for its specific channel and format.",
       },
     ],
   },
@@ -1696,22 +1685,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Repurposing was the multiplier. Instead of creating new content from scratch, each long-form piece was deconstructed into smaller, channel-native assets — each one tuned to how people actually scroll, watch, and read on that platform.",
-      },
-      {
-        kind: "list",
-        heading: "The repurposing framework",
-        items: [
-          "Extract three to five key insights from the long-form piece",
-          "Translate each insight into a carousel slide, short video, or standalone graphic",
-          "Rewrite captions per platform — LinkedIn long-form, Instagram punchy, TikTok hook-led",
-          "Schedule releases across two to three weeks to extend the topic's lifespan",
-          "Track engagement to identify which angles resonate, then double down in the next cycle",
-        ],
+        text: "One of the primary objectives of the project was demonstrating how a single idea can support an entire content ecosystem. The original blog article was transformed into a social media carousel, short-form video concept, supporting captions, and additional promotional content.",
       },
       {
         kind: "p",
-        text: "The result was a measurable lift in content output and consistency. One topic could now produce eight to twelve assets across three to four platforms — without sacrificing quality or message integrity.",
+        text: "This approach extended the lifespan of the original content while increasing the number of audience touchpoints. The result was a more efficient content workflow that reduced creation time while maintaining consistency across platforms.",
       },
     ],
   },
@@ -1722,15 +1700,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "This project reinforced that content strategy is less about volume and more about systems. The teams that win on social platforms aren't producing more — they're producing smarter, with every asset working harder by serving multiple channels and audiences.",
+        text: "This project reinforced that effective content creation is often less about producing more ideas and more about maximizing the value of existing ones. By understanding audience needs and developing a structured repurposing process, a single concept can generate multiple meaningful interactions across different channels.",
       },
       {
         kind: "p",
-        text: "It also sharpened my hands-on craft. Designing carousels, scripting short-form video, and writing channel-specific copy gave me a working fluency across the tools modern marketing teams rely on — Canva, CapCut, Adobe Express, and analytics platforms — while keeping strategy and audience insight at the center of every decision.",
-      },
-      {
-        kind: "p",
-        text: "Most importantly, it proved that thoughtful repurposing is one of the highest-leverage moves a small team can make. A single well-researched idea, treated as a system rather than a one-off, can carry a brand's voice across weeks of content without burning out the people behind it.",
+        text: "The experience strengthened my skills in content strategy, communication design, audience analysis, and translating complex ideas into accessible, engaging content.",
       },
     ],
   },
