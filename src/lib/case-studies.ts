@@ -1636,11 +1636,11 @@ const contentStrategySections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "This project explores how a single piece of educational content can be transformed into multiple marketing assets through strategic content repurposing. Rather than creating entirely new content for every platform, the goal was to maximize the value of existing ideas by adapting them to different formats, audiences, and channels.",
+        text: "Many businesses and service providers struggle to maintain a consistent content presence because they believe every post requires a completely new idea. This often leads to creative burnout, inconsistent publishing schedules, and missed opportunities to reinforce key messages.",
       },
       {
         kind: "p",
-        text: "The featured example began as a blog article focused on helping service providers generate content ideas by answering common customer questions. From that single concept, I developed a content ecosystem that included a social media carousel, short-form video concept, supporting captions, and platform-specific messaging. The project demonstrates how content strategy, audience understanding, and communication design can work together to increase efficiency while maintaining a consistent message.",
+        text: "The challenge was to develop a more sustainable content approach that reduced the pressure of constantly generating new ideas while still delivering value to the audience. The objective was to create a repeatable workflow that could transform one strong piece of content into multiple assets designed for different platforms and user behaviors.",
       },
     ],
   },
