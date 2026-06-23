@@ -1628,6 +1628,188 @@ caseStudies.unshift({
     sections: joomlaSections,
 });
 
+const contentStrategySections: Section[] = [
+  {
+    id: "challenge",
+    number: "01",
+    title: "Challenge",
+    blocks: [
+      {
+        kind: "p",
+        text: "Creating consistent, high-quality content across multiple channels is one of the biggest challenges marketing and educational teams face today. Writing a strong long-form piece is only the first step — turning that single idea into a steady stream of social posts, short-form videos, carousels, and supporting marketing assets is where most workflows break down.",
+      },
+      {
+        kind: "p",
+        text: "This project was designed to solve that problem by building a repeatable content workflow that transforms one core educational topic into a full ecosystem of assets, while keeping voice, message, and visual identity consistent across every format and platform.",
+      },
+      {
+        kind: "list",
+        heading: "The core problem",
+        items: [
+          "Long-form content sits idle after publishing instead of fueling other channels",
+          "Teams lack a clear framework for repurposing across formats",
+          "Voice and message drift across platforms when content is created ad hoc",
+          "Output slows because every asset is treated as a new project rather than a derivative",
+        ],
+      },
+    ],
+  },
+  {
+    id: "content-strategy",
+    number: "02",
+    title: "Content Strategy",
+    blocks: [
+      {
+        kind: "p",
+        text: "Strategy started with the audience, not the asset. I mapped who the content was for, what they were trying to learn, and where they were already spending time — then chose formats and platforms based on how the audience actually consumes information, not what was easiest to produce.",
+      },
+      {
+        kind: "list",
+        heading: "Strategic decisions",
+        items: [
+          "Define one core topic per content cycle to anchor every derivative asset",
+          "Lead with long-form (blog or guide) to establish depth and SEO value",
+          "Identify three to five repurposing angles for each topic before any asset is created",
+          "Match format to platform — carousels for Instagram and LinkedIn, short-form video for Reels and TikTok, captions tuned per channel",
+          "Build a content calendar that staggers releases so a single topic lives across two to three weeks",
+        ],
+      },
+      {
+        kind: "p",
+        text: "This upfront planning turned content production from a sprint into a system — every long-form piece became the source of a dozen smaller, channel-native assets.",
+      },
+    ],
+  },
+  {
+    id: "asset-development",
+    number: "03",
+    title: "Asset Development",
+    blocks: [
+      {
+        kind: "p",
+        text: "With the strategy in place, I moved into hands-on production — writing, designing, and editing across formats. Every asset was built to stand on its own while still reinforcing the core message of the parent topic.",
+      },
+      {
+        kind: "list",
+        heading: "What I produced",
+        items: [
+          "Long-form blog articles structured for readability, SEO, and easy repurposing",
+          "Social media carousels designed in Canva with consistent typography, color, and layout",
+          "Short-form video concepts scripted and edited in CapCut and Adobe Express",
+          "Platform-specific captions optimized for tone, length, and hook structure",
+          "Educational graphics and supporting marketing assets that extend the brand visually",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Design choices were intentional. Templates were created so future content could be produced faster without losing visual consistency, and every asset followed a defined hierarchy — hook, value, takeaway, call to action — so the audience always knew what to do next.",
+      },
+    ],
+  },
+  {
+    id: "content-repurposing",
+    number: "04",
+    title: "Content Repurposing",
+    blocks: [
+      {
+        kind: "p",
+        text: "Repurposing was the multiplier. Instead of creating new content from scratch, each long-form piece was deconstructed into smaller, channel-native assets — each one tuned to how people actually scroll, watch, and read on that platform.",
+      },
+      {
+        kind: "list",
+        heading: "The repurposing framework",
+        items: [
+          "Extract three to five key insights from the long-form piece",
+          "Translate each insight into a carousel slide, short video, or standalone graphic",
+          "Rewrite captions per platform — LinkedIn long-form, Instagram punchy, TikTok hook-led",
+          "Schedule releases across two to three weeks to extend the topic's lifespan",
+          "Track engagement to identify which angles resonate, then double down in the next cycle",
+        ],
+      },
+      {
+        kind: "p",
+        text: "The result was a measurable lift in content output and consistency. One topic could now produce eight to twelve assets across three to four platforms — without sacrificing quality or message integrity.",
+      },
+    ],
+  },
+  {
+    id: "reflection",
+    number: "05",
+    title: "Reflection",
+    blocks: [
+      {
+        kind: "p",
+        text: "This project reinforced that content strategy is less about volume and more about systems. The teams that win on social and educational platforms aren't producing more — they're producing smarter, with every asset working harder by serving multiple channels and audiences.",
+      },
+      {
+        kind: "p",
+        text: "It also sharpened my hands-on craft. Designing carousels, scripting short-form video, and writing channel-specific copy gave me a working fluency across the tools modern marketing teams rely on — Canva, CapCut, Adobe Express, and analytics platforms — while keeping strategy and audience insight at the center of every decision.",
+      },
+      {
+        kind: "p",
+        text: "Most importantly, it proved that thoughtful repurposing is one of the highest-leverage moves a small team can make. A single well-researched idea, treated as a system rather than a one-off, can carry a brand's voice across weeks of content without burning out the people behind it.",
+      },
+    ],
+  },
+];
+
+caseStudies.push({
+  slug: "content-strategy",
+  index: "04",
+  title: "Content Strategy",
+  subtitle:
+    "Multi-channel content development that turns a single educational topic into a system of assets across formats and platforms.",
+  client: "Independent project",
+  year: "2025",
+  role: "Content Strategist & Creator",
+  discipline: "Content Strategy · Content Design · Marketing Operations",
+  duration: "Ongoing",
+  summary:
+    "A repeatable content workflow that transforms one core topic into blog articles, carousels, short-form video, and supporting marketing assets — built to scale output without losing message consistency.",
+  hero: "One idea, many assets. Strategy is what turns a single topic into a system.",
+  context:
+    "Modern marketing and educational teams need to show up consistently across channels, but most workflows treat every post as a new project. This project builds the system that makes that sustainable.",
+  challenge:
+    "Design a repeatable content workflow that takes a single long-form topic and produces a full set of channel-native assets without sacrificing voice, design quality, or message clarity.",
+  approach: [
+    {
+      title: "Strategy",
+      body: "Define the audience, the core topic, and the repurposing angles before any asset is created.",
+    },
+    {
+      title: "Production",
+      body: "Write, design, and edit across long-form, carousel, short-form video, and supporting marketing assets using a consistent visual system.",
+    },
+    {
+      title: "Repurposing",
+      body: "Deconstruct each long-form piece into channel-native derivatives, scheduled across weeks to extend the topic's lifespan.",
+    },
+  ],
+  outcomes: [
+    { metric: "1→12", label: "Assets produced from a single topic" },
+    { metric: "3–4", label: "Platforms covered per content cycle" },
+    { metric: "2–3", label: "Weeks of content from one long-form piece" },
+  ],
+  reflections:
+    "Content strategy is less about volume and more about systems. Repurposing is the highest-leverage move a small team can make.",
+  tags: ["Content Strategy", "Content Design", "Marketing"],
+  snapshot: {
+    projectType: "Content Strategy & Multi-Channel Content Development",
+    duration: "2025–Present",
+    teamSize: "Individual Project",
+    myRole: "Content Strategist, Content Creator, Marketing Operations Specialist",
+    methodsUsed:
+      "Audience Research, Content Planning, Content Repurposing, Message Development, Customer Insight Analysis, Multi-Channel Content Strategy",
+    toolsUsed:
+      "Canva, CapCut, Adobe Express, ChatGPT, Google Workspace, Social Media Platforms, Analytics & Performance Reporting Tools",
+    deliverables:
+      "Blog Articles, Social Media Carousels, Short-Form Video Concepts, Social Media Captions, Educational Content, Marketing Assets, Content Repurposing Frameworks",
+    outcome:
+      "Developed a repeatable content workflow that transformed a single educational topic into multiple assets across formats and platforms. By repurposing long-form content into social media posts, carousels, short-form video concepts, and supporting marketing materials, the project demonstrates how strategic content planning can increase content output, improve efficiency, and maintain message consistency across channels.",
+  },
+  sections: contentStrategySections,
+});
+
 
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);
