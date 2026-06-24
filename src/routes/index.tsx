@@ -512,6 +512,9 @@ function Contact() {
                       Open to onsite roles in central NJ, or remote anywhere.
                     </span>
                   </p>
+                  <p className="mt-3 inline-block rounded-full border border-teal px-3 py-1 text-xs uppercase tracking-[0.18em] text-teal">
+                    Full-time · Contract · Part-time
+                  </p>
                 </div>
               </div>
 
