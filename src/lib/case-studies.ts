@@ -1097,6 +1097,7 @@ import ndBudget from "@/assets/nd/budget.png.asset.json";
 import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 import contentHero from "@/assets/content/hero.png.asset.json";
 import contentProcess from "@/assets/content/process.jpg.asset.json";
+import contentShortform from "@/assets/content/shortform.png.asset.json";
 
 const joomlaSections: Section[] = [
   {
@@ -1722,7 +1723,14 @@ const contentStrategySections: Section[] = [
         kind: "gallery",
         items: [
           { label: "Fig. 02", caption: "Social media carousel", ratio: "1/1" },
-          { label: "Fig. 03", caption: "Short-form video concept", ratio: "9/16" },
+          {
+            label: "Fig. 03",
+            caption: "Short-form video concept — Instagram Reel storyboard.",
+            ratio: "1/1",
+            src: contentShortform.url,
+            alt: "Short-form video concept storyboard with 7 frames",
+            fit: "contain",
+          },
         ],
       },
     ],
