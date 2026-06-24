@@ -524,6 +524,140 @@ function Contact() {
   );
 }
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z.string().trim().max(40).optional(),
+  message: z.string().trim().min(1, "Message is required").max(2000),
+});
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<"idle" | "sent">("idle");
+
+  function update<K extends keyof typeof form>(key: K, value: string) {
+    setForm((f) => ({ ...f, [key]: value }));
+  }
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const parsed = contactSchema.safeParse(form);
+    if (!parsed.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of parsed.error.issues) {
+        const k = issue.path[0];
+        if (typeof k === "string" && !fieldErrors[k]) fieldErrors[k] = issue.message;
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    const { name, email, phone, message } = parsed.data;
+    const subject = `Portfolio inquiry from ${name}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      "",
+      message,
+    ].filter(Boolean);
+    const href = `mailto:Danieleb278@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = href;
+    setStatus("sent");
+  }
+
+  const inputCls =
+    "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none";
+
+  return (
+    <form onSubmit={onSubmit} className="border-l-0 md:border-l-2 md:border-teal md:pl-8">
+      <span className="eyebrow">Send a message</span>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Fill this out and I'll open your email app with everything ready to send.
+      </p>
+
+      <div className="mt-6 space-y-5">
+        <div>
+          <label className="eyebrow" htmlFor="cf-name">Name</label>
+          <input
+            id="cf-name"
+            type="text"
+            value={form.name}
+            onChange={(e) => update("name", e.target.value)}
+            maxLength={100}
+            className={inputCls}
+            placeholder="Your name"
+          />
+          {errors.name && <p className="mt-1 text-xs text-accent">{errors.name}</p>}
+        </div>
+
+        <div>
+          <label className="eyebrow" htmlFor="cf-email">Email</label>
+          <input
+            id="cf-email"
+            type="email"
+            value={form.email}
+            onChange={(e) => update("email", e.target.value)}
+            maxLength={255}
+            className={inputCls}
+            placeholder="you@example.com"
+          />
+          {errors.email && <p className="mt-1 text-xs text-accent">{errors.email}</p>}
+        </div>
+
+        <div>
+          <label className="eyebrow" htmlFor="cf-phone">Phone <span className="text-muted-foreground/60">(optional)</span></label>
+          <input
+            id="cf-phone"
+            type="tel"
+            value={form.phone}
+            onChange={(e) => update("phone", e.target.value)}
+            maxLength={40}
+            className={inputCls}
+            placeholder="(555) 555-5555"
+          />
+        </div>
+
+        <div>
+          <label className="eyebrow" htmlFor="cf-message">Message</label>
+          <textarea
+            id="cf-message"
+            value={form.message}
+            onChange={(e) => update("message", e.target.value)}
+            maxLength={2000}
+            rows={4}
+            className={inputCls + " resize-y"}
+            placeholder="Tell me a bit about the role or project…"
+          />
+          {errors.message && <p className="mt-1 text-xs text-accent">{errors.message}</p>}
+        </div>
+
+        <button
+          type="submit"
+          className="eyebrow inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
+        >
+          Send message →
+        </button>
+
+        {status === "sent" && (
+          <p className="text-xs text-muted-foreground">
+            Opening your email app… if nothing happens, write me at{" "}
+            <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
+              Danieleb278@gmail.com
+            </a>
+            .
+          </p>
+        )}
+      </div>
+    </form>
+  );
+}
+
+
+
 function Footer() {
   return (
     <footer className="border-t border-border px-6 py-10 md:px-12">
