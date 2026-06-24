@@ -387,6 +387,7 @@ function BlockView({ block }: { block: Block }) {
         ))}
       </div>
     );
+  }
   if (block.kind === "carousel") {
     return <CarouselBlock block={block} />;
   }
