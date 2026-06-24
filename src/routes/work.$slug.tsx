@@ -387,7 +387,10 @@ function BlockView({ block }: { block: Block }) {
         ))}
       </div>
     );
+  if (block.kind === "carousel") {
+    return <CarouselBlock block={block} />;
   }
+
   // group
   return (
     <div className="border-l border-border pl-5">
