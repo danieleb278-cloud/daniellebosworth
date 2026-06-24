@@ -500,6 +500,15 @@ function Contact() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-8">
+                  <span className="eyebrow">Based in</span>
+                  <p className="mt-2 font-display text-xl sm:text-2xl">
+                    New Jersey<span className="text-teal">.</span>{" "}
+                    <span className="text-muted-foreground">
+                      Open to onsite roles in central NJ, or remote anywhere.
+                    </span>
+                  </p>
+                </div>
               </div>
 
             </div>
