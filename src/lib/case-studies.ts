@@ -15,6 +15,13 @@ export type Block =
   | {
       kind: "gallery";
       items: { label?: string; caption?: string; ratio?: string; src?: string; alt?: string }[];
+    }
+  | {
+      kind: "carousel";
+      label?: string;
+      caption?: string;
+      ratio?: string;
+      slides: { src: string; alt?: string }[];
     };
 
 export type Section = {
