@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png.asset.json";
 
 const sections = [
   { id: "work", label: "Work" },
