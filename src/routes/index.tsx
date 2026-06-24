@@ -486,25 +486,27 @@ function Contact() {
                   <span className="eyebrow">LinkedIn</span>
                   <a
                     href="https://linkedin.com/in/daniellelbosworth"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
                   >
                     /in/daniellelbosworth
                   </a>
                 </div>
-              </div>
-              <div>
-                <span className="eyebrow">Looking for</span>
-                <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-xl sm:text-2xl">
-                  {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
-                    <li key={s} className="flex items-center gap-3">
-                      <span className="text-teal">•</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
+                <div>
+                  <span className="eyebrow">Looking for</span>
+                  <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl">
+                    {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
+                      <li key={s} className="flex items-center gap-3">
+                        <span className="text-teal">•</span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
                   <span className="eyebrow">Based in</span>
-                  <p className="mt-2 font-display text-xl sm:text-2xl">
+                  <p className="mt-2 font-display text-lg sm:text-xl">
                     New Jersey<span className="text-teal">.</span>{" "}
                     <span className="text-muted-foreground">
                       Open to onsite roles in central NJ, or remote anywhere.
@@ -513,6 +515,7 @@ function Contact() {
                 </div>
               </div>
 
+              <ContactForm />
             </div>
           </div>
         </div>
