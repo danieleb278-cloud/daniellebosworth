@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png.asset.json";
 
 const sections = [
   { id: "work", label: "Work" },
@@ -40,13 +41,16 @@ export function SiteNav() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="group flex min-w-0 items-baseline gap-2"
+          className="group flex min-w-0 items-center gap-3"
+          aria-label="Danielle Bosworth — home"
         >
+          <img
+            src={logo.url}
+            alt=""
+            className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"
+          />
           <span className={`truncate font-display text-lg tracking-tight sm:text-xl ${isDark ? 'text-background' : 'text-foreground'}`}>
             Danielle Bosworth
-          </span>
-          <span className={`eyebrow hidden sm:inline ${isDark ? 'text-background/70' : ''}`}>
-            — portfolio
           </span>
         </Link>
 
@@ -61,14 +65,6 @@ export function SiteNav() {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="mailto:Danieleb278@gmail.com"
-              className="eyebrow rounded-full border border-teal px-4 py-2 text-teal transition-colors hover:bg-teal hover:text-charcoal"
-            >
-              Open to full-time, contract, or part-time roles
-            </a>
-          </li>
         </ul>
 
         <button
@@ -116,7 +112,7 @@ export function SiteNav() {
               className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-teal"
             >
               <span>Email</span>
-              <span className="eyebrow text-teal">Open to full-time, contract, or part-time roles ✦</span>
+              <span className="eyebrow text-teal">Available for new roles ✦</span>
             </a>
           </li>
         </ul>
