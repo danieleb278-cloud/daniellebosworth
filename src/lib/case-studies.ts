@@ -1729,7 +1729,6 @@ const contentStrategySections: Section[] = [
             ratio: "1/1",
             src: contentShortform.url,
             alt: "Short-form video concept storyboard with 7 frames",
-            fit: "contain",
           },
         ],
       },
