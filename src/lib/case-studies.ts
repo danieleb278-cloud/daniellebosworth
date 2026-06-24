@@ -1095,6 +1095,8 @@ import ndItinerary from "@/assets/nd/itinerary.png.asset.json";
 import ndLocal from "@/assets/nd/local.png.asset.json";
 import ndBudget from "@/assets/nd/budget.png.asset.json";
 import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
+import contentHero from "@/assets/content/hero.png.asset.json";
+import contentProcess from "@/assets/content/process.jpg.asset.json";
 
 const joomlaSections: Section[] = [
   {
@@ -1637,10 +1639,10 @@ const contentStrategySections: Section[] = [
       {
         kind: "image",
         label: "Fig. 01",
-        caption: "Content strategy — turning one idea into a multi-channel system.",
+        caption: "5 Ways Hairstylists Can Use Social Media to Attract More Clients — source blog article.",
         ratio: "16 / 9",
-        src: undefined,
-        alt: "Content strategy hero image",
+        src: contentHero.url,
+        alt: "Blog hero: 5 Ways Hairstylists Can Use Social Media to Attract More Clients",
         className: "max-w-2xl mx-auto",
       },
       {
@@ -1684,6 +1686,16 @@ const contentStrategySections: Section[] = [
       {
         kind: "p",
         text: "The goal was not simply to create more content, but to create a connected system where each asset reinforced the same core message while serving a unique purpose.",
+      },
+      {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "From research to results — my content marketing process.",
+        ratio: "3 / 4",
+        src: contentProcess.url,
+        alt: "Content marketing process diagram: research, strategy, creation, optimization, measurement.",
+        fit: "contain",
+        className: "max-w-md mx-auto",
       },
     ],
   },
