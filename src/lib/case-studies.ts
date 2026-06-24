@@ -1113,6 +1113,8 @@ import contentCarousel4 from "@/assets/content/carousel4.png.asset.json";
 import contentCarousel5 from "@/assets/content/carousel5.png.asset.json";
 import contentCarousel6 from "@/assets/content/carousel6.png.asset.json";
 import contentCarousel7 from "@/assets/content/carousel7.png.asset.json";
+import contentBlogPost from "@/assets/content/blogpost.png.asset.json";
+import contentCover from "@/assets/content/cover.png.asset.json";
 
 const contentCarouselSlides = [
   { src: contentCarousel1.url, alt: "Carousel slide 1 — title" },
@@ -1738,7 +1740,11 @@ const contentStrategySections: Section[] = [
         kind: "image",
         label: "Fig. 01",
         caption: "Long-form blog article — source content",
-        ratio: "16/9",
+        ratio: "4/5",
+        src: contentBlogPost.url,
+        alt: "5 Ways Hairstylists Can Use Social Media to Attract More Clients — blog article",
+        className: "max-w-md mx-auto",
+        fit: "contain",
       },
       {
         kind: "p",
@@ -1860,6 +1866,10 @@ caseStudies.push({
       "Developed a repeatable content workflow that transformed a single topic into multiple assets across formats and platforms. By repurposing long-form content into social media posts, carousels, short-form video concepts, and supporting marketing materials, the project demonstrates how strategic content planning can increase content output, improve efficiency, and maintain message consistency across channels.",
   },
   sections: contentStrategySections,
+  cover: {
+    src: contentCover.url,
+    alt: "Content strategy collage — blog, email, short-form video, and hero composition",
+  },
 });
 
 
