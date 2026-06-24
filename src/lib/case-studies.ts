@@ -1105,6 +1105,24 @@ import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 import contentHero from "@/assets/content/hero.png.asset.json";
 import contentProcess from "@/assets/content/process.jpg.asset.json";
 import contentShortform from "@/assets/content/shortform.png.asset.json";
+import contentEmail from "@/assets/content/email.png.asset.json";
+import contentCarousel1 from "@/assets/content/carousel1.png.asset.json";
+import contentCarousel2 from "@/assets/content/carousel2.png.asset.json";
+import contentCarousel3 from "@/assets/content/carousel3.png.asset.json";
+import contentCarousel4 from "@/assets/content/carousel4.png.asset.json";
+import contentCarousel5 from "@/assets/content/carousel5.png.asset.json";
+import contentCarousel6 from "@/assets/content/carousel6.png.asset.json";
+import contentCarousel7 from "@/assets/content/carousel7.png.asset.json";
+
+const contentCarouselSlides = [
+  { src: contentCarousel1.url, alt: "Carousel slide 1 — title" },
+  { src: contentCarousel2.url, alt: "Carousel slide 2 — show transformations" },
+  { src: contentCarousel3.url, alt: "Carousel slide 3 — answer common questions" },
+  { src: contentCarousel4.url, alt: "Carousel slide 4 — show your personality" },
+  { src: contentCarousel5.url, alt: "Carousel slide 5 — call to action" },
+  { src: contentCarousel6.url, alt: "Carousel slide 6 — consistency" },
+  { src: contentCarousel7.url, alt: "Carousel slide 7 — closing" },
+];
 
 const joomlaSections: Section[] = [
   {
