@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
@@ -404,5 +405,77 @@ function BlockView({ block }: { block: Block }) {
         ))}
       </div>
     </div>
+  );
+}
+
+function CarouselBlock({
+  block,
+}: {
+  block: Extract<Block, { kind: "carousel" }>;
+}) {
+  const [i, setI] = useState(0);
+  const total = block.slides.length;
+  const go = (n: number) => setI(((n % total) + total) % total);
+  return (
+    <figure className="w-full">
+      <div className="relative mx-auto max-w-md">
+        <div
+          style={{ aspectRatio: block.ratio ?? "4/5" }}
+          className="relative w-full overflow-hidden border border-border bg-secondary"
+        >
+          {block.slides.map((s, idx) => (
+            <img
+              key={idx}
+              src={s.src}
+              alt={s.alt ?? ""}
+              loading="lazy"
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                idx === i ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
+            <button
+              type="button"
+              onClick={() => go(i - 1)}
+              aria-label="Previous slide"
+              className="eyebrow rounded-full bg-background/85 px-3 py-1.5 backdrop-blur-sm hover:bg-background"
+            >
+              ←
+            </button>
+            <span className="eyebrow rounded-full bg-background/85 px-3 py-1.5 backdrop-blur-sm">
+              {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </span>
+            <button
+              type="button"
+              onClick={() => go(i + 1)}
+              aria-label="Next slide"
+              className="eyebrow rounded-full bg-background/85 px-3 py-1.5 backdrop-blur-sm hover:bg-background"
+            >
+              →
+            </button>
+          </div>
+        </div>
+        <div className="mt-3 flex justify-center gap-1.5">
+          {block.slides.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => go(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-1.5 w-6 transition-colors ${
+                idx === i ? "bg-foreground" : "bg-border"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+      {block.caption ? (
+        <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
+          <span>{block.caption}</span>
+          <span aria-hidden>✦</span>
+        </figcaption>
+      ) : null}
+    </figure>
   );
 }
