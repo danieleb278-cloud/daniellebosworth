@@ -112,7 +112,7 @@ function Hero() {
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
             <Stat k="175%" label="Revenue growth, branch ops" />
             <Stat k="+32%" label="Client retention" />
-            <Stat k="03" label="Featured case studies" />
+            <Stat k="04" label="Featured case studies" />
             <Stat k="MBS" label="Product Design, Rutgers" />
           </div>
         </div>
@@ -156,7 +156,7 @@ function Work() {
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
             <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Three projects on UX research, product design, and
+              Four projects on UX research, product design, and
               <span className="italic text-muted-foreground"> system-level thinking</span>
               <span className="text-accent">.</span>
             </h2>

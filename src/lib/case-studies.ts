@@ -15,6 +15,13 @@ export type Block =
   | {
       kind: "gallery";
       items: { label?: string; caption?: string; ratio?: string; src?: string; alt?: string }[];
+    }
+  | {
+      kind: "carousel";
+      label?: string;
+      caption?: string;
+      ratio?: string;
+      slides: { src: string; alt?: string }[];
     };
 
 export type Section = {
@@ -1098,6 +1105,24 @@ import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 import contentHero from "@/assets/content/hero.png.asset.json";
 import contentProcess from "@/assets/content/process.jpg.asset.json";
 import contentShortform from "@/assets/content/shortform.png.asset.json";
+import contentEmail from "@/assets/content/email.png.asset.json";
+import contentCarousel1 from "@/assets/content/carousel1.png.asset.json";
+import contentCarousel2 from "@/assets/content/carousel2.png.asset.json";
+import contentCarousel3 from "@/assets/content/carousel3.png.asset.json";
+import contentCarousel4 from "@/assets/content/carousel4.png.asset.json";
+import contentCarousel5 from "@/assets/content/carousel5.png.asset.json";
+import contentCarousel6 from "@/assets/content/carousel6.png.asset.json";
+import contentCarousel7 from "@/assets/content/carousel7.png.asset.json";
+
+const contentCarouselSlides = [
+  { src: contentCarousel1.url, alt: "Carousel slide 1 — title" },
+  { src: contentCarousel2.url, alt: "Carousel slide 2 — show transformations" },
+  { src: contentCarousel3.url, alt: "Carousel slide 3 — answer common questions" },
+  { src: contentCarousel4.url, alt: "Carousel slide 4 — show your personality" },
+  { src: contentCarousel5.url, alt: "Carousel slide 5 — call to action" },
+  { src: contentCarousel6.url, alt: "Carousel slide 6 — consistency" },
+  { src: contentCarousel7.url, alt: "Carousel slide 7 — closing" },
+];
 
 const joomlaSections: Section[] = [
   {
@@ -1720,17 +1745,21 @@ const contentStrategySections: Section[] = [
         text: "Attention was given to creating platform-appropriate hooks, visual hierarchy, and messaging that aligned with audience behavior. Each asset maintained the same core idea while being optimized for its specific channel and format.",
       },
       {
-        kind: "gallery",
-        items: [
-          { label: "Fig. 02", caption: "Social media carousel", ratio: "1/1" },
-          {
-            label: "Fig. 03",
-            caption: "Short-form video concept — Instagram Reel storyboard.",
-            ratio: "1/1",
-            src: contentShortform.url,
-            alt: "Short-form video concept storyboard with 7 frames",
-          },
-        ],
+        kind: "carousel",
+        label: "Fig. 02",
+        caption: "Social media carousel — 7 slides. Click through to flip.",
+        ratio: "4/5",
+        slides: contentCarouselSlides,
+      },
+      {
+        kind: "image",
+        label: "Fig. 03",
+        caption: "Short-form video concept — Instagram Reel storyboard.",
+        ratio: "1/1",
+        src: contentShortform.url,
+        alt: "Short-form video concept storyboard with 7 frames",
+        className: "max-w-2xl mx-auto",
+        fit: "contain",
       },
     ],
   },
@@ -1744,21 +1773,18 @@ const contentStrategySections: Section[] = [
         text: "One of the primary objectives of the project was demonstrating how a single idea can support an entire content ecosystem. The original blog article was transformed into a social media carousel, short-form video concept, supporting captions, and additional promotional content.",
       },
       {
-        kind: "gallery",
-        items: [
-          { label: "Fig. 04", caption: "Carousel slides", ratio: "1/1" },
-          { label: "Fig. 05", caption: "Captions & platform copy", ratio: "1/1" },
-        ],
+        kind: "image",
+        label: "Fig. 04",
+        caption: "Email newsletter — repurposing the blog into a featured-article send with quick tips and CTA.",
+        ratio: "3/4",
+        src: contentEmail.url,
+        alt: "Email newsletter featuring the blog article with quick tips and a Read the Full Article CTA",
+        className: "max-w-md mx-auto",
+        fit: "contain",
       },
       {
         kind: "p",
         text: "This approach extended the lifespan of the original content while increasing the number of audience touchpoints. The result was a more efficient content workflow that reduced creation time while maintaining consistency across platforms.",
-      },
-      {
-        kind: "image",
-        label: "Fig. 06",
-        caption: "Repurposing system overview",
-        ratio: "16/9",
       },
     ],
   },
