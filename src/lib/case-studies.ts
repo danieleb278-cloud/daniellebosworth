@@ -1637,10 +1637,10 @@ const contentStrategySections: Section[] = [
       {
         kind: "image",
         label: "Fig. 01",
-        caption: "Content strategy — turning one idea into a multi-channel system.",
+        caption: "5 Ways Hairstylists Can Use Social Media to Attract More Clients — source blog article.",
         ratio: "16 / 9",
-        src: undefined,
-        alt: "Content strategy hero image",
+        src: contentHero.url,
+        alt: "Blog hero: 5 Ways Hairstylists Can Use Social Media to Attract More Clients",
         className: "max-w-2xl mx-auto",
       },
       {
