@@ -1095,6 +1095,8 @@ import ndItinerary from "@/assets/nd/itinerary.png.asset.json";
 import ndLocal from "@/assets/nd/local.png.asset.json";
 import ndBudget from "@/assets/nd/budget.png.asset.json";
 import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
+import contentHero from "@/assets/content/hero.png.asset.json";
+import contentProcess from "@/assets/content/process.jpg.asset.json";
 
 const joomlaSections: Section[] = [
   {
