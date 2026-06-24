@@ -112,7 +112,7 @@ export function SiteNav() {
               className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-teal"
             >
               <span>Email</span>
-              <span className="eyebrow text-teal">Open to full-time, contract, or part-time roles ✦</span>
+              <span className="eyebrow text-teal">Available for new roles ✦</span>
             </a>
           </li>
         </ul>
