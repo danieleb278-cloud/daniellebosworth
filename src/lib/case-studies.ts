@@ -1687,6 +1687,16 @@ const contentStrategySections: Section[] = [
         kind: "p",
         text: "The goal was not simply to create more content, but to create a connected system where each asset reinforced the same core message while serving a unique purpose.",
       },
+      {
+        kind: "image",
+        label: "Fig. 02",
+        caption: "From research to results — my content marketing process.",
+        ratio: "3 / 4",
+        src: contentProcess.url,
+        alt: "Content marketing process diagram: research, strategy, creation, optimization, measurement.",
+        fit: "contain",
+        className: "max-w-md mx-auto",
+      },
     ],
   },
   {
