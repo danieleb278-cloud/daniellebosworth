@@ -1786,8 +1786,6 @@ const contentStrategySections: Section[] = [
         kind: "p",
         text: "This approach extended the lifespan of the original content while increasing the number of audience touchpoints. The result was a more efficient content workflow that reduced creation time while maintaining consistency across platforms.",
       },
-        ratio: "16/9",
-      },
     ],
   },
   {
