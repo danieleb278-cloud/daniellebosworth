@@ -466,11 +466,13 @@ function Contact() {
         <div className="grid grid-cols-12 gap-6">
           <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
           <div className="col-span-12 md:col-span-10">
-            <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-              Let's bridge design, strategy,{" "}
-              <span className="italic text-muted-foreground">and experience</span>
-              <span className="text-accent">.</span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
+                Let's bridge design, strategy,{" "}
+                <span className="italic text-muted-foreground">and experience</span>
+                <span className="text-accent">.</span>
+              </h2>
+            </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
               <div className="flex flex-col gap-8">
                 <div>
