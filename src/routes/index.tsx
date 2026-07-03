@@ -397,21 +397,23 @@ function Resume() {
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-8">
             <ol className="divide-y divide-border">
-              {roles.map((r) => (
-                <li key={r.role} className="grid grid-cols-12 gap-6 py-8">
-                  <div className="col-span-12 md:col-span-3">
-                    <span className="eyebrow">{r.year}</span>
-                  </div>
-                  <div className="col-span-12 md:col-span-9">
-                    <h3 className="font-display text-2xl tracking-tight md:text-3xl">
-                      {r.role}
-                    </h3>
-                    <div className="eyebrow mt-1">{r.org}</div>
-                    <p className="mt-3 max-w-lg text-base text-muted-foreground">
-                      {r.detail}
-                    </p>
-                  </div>
-                </li>
+              {roles.map((r, i) => (
+                <Reveal key={r.role} delay={i * 80}>
+                  <li className="grid grid-cols-12 gap-6 py-8">
+                    <div className="col-span-12 md:col-span-3">
+                      <span className="eyebrow">{r.year}</span>
+                    </div>
+                    <div className="col-span-12 md:col-span-9">
+                      <h3 className="font-display text-2xl tracking-tight md:text-3xl">
+                        {r.role}
+                      </h3>
+                      <div className="eyebrow mt-1">{r.org}</div>
+                      <p className="mt-3 max-w-lg text-base text-muted-foreground">
+                        {r.detail}
+                      </p>
+                    </div>
+                  </li>
+                </Reveal>
               ))}
             </ol>
           </div>
