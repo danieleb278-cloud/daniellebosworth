@@ -497,7 +497,7 @@ function Contact() {
                   <span className="eyebrow">Looking for</span>
                   <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl">
                     {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
-                      <li key={s} className="flex items-center gap-3">
+                      <li key={s} className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
                         <span className="text-teal">•</span>
                         <span>{s}</span>
                       </li>
