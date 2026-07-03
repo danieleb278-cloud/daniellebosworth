@@ -72,7 +72,7 @@ function Hero() {
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
-              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-700 hover:-translate-y-1 hover:shadow-2xl float-slow">
                 <PlaceholderImage
                   src={portrait.url}
                   alt="Portrait of Danielle Bosworth"
