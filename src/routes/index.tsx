@@ -72,7 +72,7 @@ function Hero() {
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
-              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-700 hover:-translate-y-1 hover:shadow-2xl float-slow">
                 <PlaceholderImage
                   src={portrait.url}
                   alt="Portrait of Danielle Bosworth"
@@ -142,7 +142,7 @@ function Marquee() {
             key={i}
             className="font-display text-2xl tracking-tight md:text-3xl"
           >
-            {t} <span className="text-accent">✦</span>
+            {t} <span className="text-accent soft-pulse">✦</span>
           </span>
         ))}
       </div>
@@ -204,7 +204,7 @@ function Work() {
                       {cs.tags.map((t) => (
                         <span
                           key={t}
-                          className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
+                          className="eyebrow rounded-full border border-border px-3 py-1 transition-all duration-300 hover:border-teal hover:text-teal hover:-translate-y-0.5"
                         >
                           {t}
                         </span>
@@ -397,21 +397,23 @@ function Resume() {
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-8">
             <ol className="divide-y divide-border">
-              {roles.map((r) => (
-                <li key={r.role} className="grid grid-cols-12 gap-6 py-8">
-                  <div className="col-span-12 md:col-span-3">
-                    <span className="eyebrow">{r.year}</span>
-                  </div>
-                  <div className="col-span-12 md:col-span-9">
-                    <h3 className="font-display text-2xl tracking-tight md:text-3xl">
-                      {r.role}
-                    </h3>
-                    <div className="eyebrow mt-1">{r.org}</div>
-                    <p className="mt-3 max-w-lg text-base text-muted-foreground">
-                      {r.detail}
-                    </p>
-                  </div>
-                </li>
+              {roles.map((r, i) => (
+                <Reveal key={r.role} delay={i * 80}>
+                  <li className="grid grid-cols-12 gap-6 py-8">
+                    <div className="col-span-12 md:col-span-3">
+                      <span className="eyebrow">{r.year}</span>
+                    </div>
+                    <div className="col-span-12 md:col-span-9">
+                      <h3 className="font-display text-2xl tracking-tight md:text-3xl">
+                        {r.role}
+                      </h3>
+                      <div className="eyebrow mt-1">{r.org}</div>
+                      <p className="mt-3 max-w-lg text-base text-muted-foreground">
+                        {r.detail}
+                      </p>
+                    </div>
+                  </li>
+                </Reveal>
               ))}
             </ol>
           </div>
@@ -422,7 +424,7 @@ function Resume() {
                 {skills.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-all duration-300 hover:border-teal hover:text-teal hover:-translate-y-0.5"
                   >
                     {t}
                   </li>
@@ -435,7 +437,7 @@ function Resume() {
                 {tools.map((t) => (
                   <li
                     key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1 transition-colors duration-300 hover:border-teal hover:text-teal"
+                    className="eyebrow rounded-full border border-border px-3 py-1 transition-all duration-300 hover:border-teal hover:text-teal hover:-translate-y-0.5"
                   >
                     {t}
                   </li>
@@ -466,11 +468,13 @@ function Contact() {
         <div className="grid grid-cols-12 gap-6">
           <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
           <div className="col-span-12 md:col-span-10">
-            <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-              Let's bridge design, strategy,{" "}
-              <span className="italic text-muted-foreground">and experience</span>
-              <span className="text-accent">.</span>
-            </h2>
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
+                Let's bridge design, strategy,{" "}
+                <span className="italic text-muted-foreground">and experience</span>
+                <span className="text-accent">.</span>
+              </h2>
+            </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
               <div className="flex flex-col gap-8">
                 <div>
@@ -497,7 +501,7 @@ function Contact() {
                   <span className="eyebrow">Looking for</span>
                   <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl">
                     {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
-                      <li key={s} className="flex items-center gap-3">
+                      <li key={s} className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
                         <span className="text-teal">•</span>
                         <span>{s}</span>
                       </li>

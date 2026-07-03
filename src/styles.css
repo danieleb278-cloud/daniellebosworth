@@ -178,3 +178,38 @@
     background-size: 100% 1px;
   }
 }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@utility float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.92); }
+}
+
+@utility soft-pulse {
+  animation: soft-pulse 3.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes shimmer-in {
+  0% { opacity: 0; letter-spacing: 0.04em; }
+  100% { opacity: 1; letter-spacing: normal; }
+}
+
+@utility shimmer-in {
+  animation: shimmer-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-slow, .soft-pulse, .marquee-track, .rise-in, .shimmer-in {
+    animation: none !important;
+  }
+}
+
