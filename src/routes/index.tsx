@@ -142,7 +142,7 @@ function Marquee() {
             key={i}
             className="font-display text-2xl tracking-tight md:text-3xl"
           >
-            {t} <span className="text-accent">✦</span>
+            {t} <span className="text-accent soft-pulse">✦</span>
           </span>
         ))}
       </div>
