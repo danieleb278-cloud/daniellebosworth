@@ -210,7 +210,7 @@ function HeroBackdrop() {
         <svg
           className="absolute inset-0 h-full w-full"
           viewBox="0 0 1600 1000"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="xMidYMid meet"
           fill="none"
           stroke="currentColor"
           strokeLinecap="round"
@@ -218,7 +218,7 @@ function HeroBackdrop() {
           style={{ color: "var(--foreground)" }}
         >
           {/* handwritten note squiggles (top-left) */}
-          <g style={{ opacity: 0.05 }} strokeWidth="1.4">
+          <g style={{ opacity: 0.13 }} strokeWidth="1.6">
             <path d="M80 140 q30 -14 60 -2 t60 -2 t60 4 t60 -6" />
             <path d="M80 168 q28 -10 56 0 t56 4 t56 -6 t56 2" />
             <path d="M80 196 q34 -8 68 4 t68 -4 t68 6" />
@@ -227,7 +227,7 @@ function HeroBackdrop() {
           </g>
 
           {/* wireframe fragment (top-right) */}
-          <g style={{ opacity: 0.05 }} strokeWidth="1.2">
+          <g style={{ opacity: 0.14 }} strokeWidth="1.4">
             <rect x="1240" y="120" width="260" height="170" rx="4" />
             <rect x="1260" y="140" width="80" height="12" rx="2" />
             <rect x="1260" y="164" width="220" height="8" rx="2" />
@@ -238,7 +238,7 @@ function HeroBackdrop() {
           </g>
 
           {/* journey map dashed line + nodes (mid) */}
-          <g style={{ opacity: 0.06 }} strokeWidth="1.4">
+          <g style={{ opacity: 0.16 }} strokeWidth="1.6">
             <path d="M120 560 C 320 500, 520 640, 720 560 S 1120 480, 1480 580" strokeDasharray="6 8" />
             <circle cx="120" cy="560" r="6" fill="currentColor" stroke="none" />
             <circle cx="420" cy="558" r="5" />
@@ -248,14 +248,14 @@ function HeroBackdrop() {
           </g>
 
           {/* sticky note silhouettes (bottom-left cluster) */}
-          <g style={{ opacity: 0.045 }} strokeWidth="1.2">
+          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
             <rect x="150" y="720" width="90" height="90" transform="rotate(-4 195 765)" />
             <rect x="220" y="740" width="90" height="90" transform="rotate(3 265 785)" />
             <rect x="290" y="720" width="90" height="90" transform="rotate(-2 335 765)" />
           </g>
 
           {/* affinity map dots cluster (mid-right) */}
-          <g style={{ opacity: 0.06 }} fill="currentColor" stroke="none">
+          <g style={{ opacity: 0.16 }} fill="currentColor" stroke="none">
             <circle cx="1180" cy="720" r="4" />
             <circle cx="1210" cy="710" r="4" />
             <circle cx="1240" cy="726" r="4" />
@@ -265,12 +265,12 @@ function HeroBackdrop() {
             <circle cx="1290" cy="722" r="4" />
             <circle cx="1268" cy="748" r="4" />
           </g>
-          <g style={{ opacity: 0.04 }} strokeWidth="1">
+          <g style={{ opacity: 0.11 }} strokeWidth="1.1">
             <rect x="1150" y="680" width="180" height="100" rx="6" strokeDasharray="4 5" />
           </g>
 
           {/* flow arrow (bottom-center) */}
-          <g style={{ opacity: 0.06 }} strokeWidth="1.4">
+          <g style={{ opacity: 0.15 }} strokeWidth="1.5">
             <path d="M540 880 h240" />
             <path d="M770 870 l14 10 l-14 10" />
             <path d="M840 880 h180" />
@@ -278,7 +278,7 @@ function HeroBackdrop() {
           </g>
 
           {/* mini bar chart (top-mid) */}
-          <g style={{ opacity: 0.05 }} strokeWidth="1.2">
+          <g style={{ opacity: 0.13 }} strokeWidth="1.3">
             <line x1="640" y1="220" x2="640" y2="120" />
             <line x1="640" y1="220" x2="820" y2="220" />
             <rect x="650" y="180" width="18" height="40" fill="currentColor" stroke="none" />
@@ -289,20 +289,100 @@ function HeroBackdrop() {
           </g>
 
           {/* small sketch — light bulb outline (bottom-right) */}
-          <g style={{ opacity: 0.05 }} strokeWidth="1.3">
+          <g style={{ opacity: 0.14 }} strokeWidth="1.4">
             <path d="M1420 820 a28 28 0 1 1 40 24 v14 h-40 v-14 a28 28 0 0 1 0 -24 z" />
             <line x1="1428" y1="866" x2="1452" y2="866" />
             <line x1="1432" y1="878" x2="1448" y2="878" />
           </g>
 
+          {/* persona card (mid-left) */}
+          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
+            <rect x="90" y="420" width="220" height="120" rx="4" />
+            <circle cx="130" cy="460" r="18" />
+            <line x1="160" y1="446" x2="290" y2="446" />
+            <line x1="160" y1="462" x2="270" y2="462" />
+            <line x1="160" y1="478" x2="280" y2="478" />
+            <line x1="110" y1="510" x2="290" y2="510" strokeDasharray="3 4" />
+          </g>
+
+          {/* scatter plot (mid-mid) */}
+          <g style={{ opacity: 0.14 }} strokeWidth="1.2">
+            <line x1="900" y1="440" x2="900" y2="330" />
+            <line x1="900" y1="440" x2="1060" y2="440" />
+          </g>
+          <g style={{ opacity: 0.16 }} fill="currentColor" stroke="none">
+            <circle cx="920" cy="420" r="2.5" />
+            <circle cx="940" cy="400" r="2.5" />
+            <circle cx="950" cy="410" r="2.5" />
+            <circle cx="970" cy="380" r="2.5" />
+            <circle cx="985" cy="370" r="2.5" />
+            <circle cx="1000" cy="360" r="2.5" />
+            <circle cx="1015" cy="355" r="2.5" />
+            <circle cx="1030" cy="345" r="2.5" />
+            <circle cx="1045" cy="340" r="2.5" />
+            <circle cx="960" cy="392" r="2.5" />
+            <circle cx="998" cy="378" r="2.5" />
+            <circle cx="1020" cy="368" r="2.5" />
+          </g>
+
+          {/* pie / donut chart (top-right of mid) */}
+          <g style={{ opacity: 0.13 }} strokeWidth="1.4">
+            <circle cx="500" cy="400" r="46" />
+            <path d="M500 354 A46 46 0 0 1 540 424 L500 400 Z" fill="currentColor" stroke="none" opacity="0.6" />
+          </g>
+
+          {/* kanban / task columns (bottom-mid-left) */}
+          <g style={{ opacity: 0.11 }} strokeWidth="1.2">
+            <rect x="440" y="700" width="70" height="110" rx="3" />
+            <rect x="450" y="712" width="50" height="10" rx="1" />
+            <rect x="450" y="728" width="50" height="10" rx="1" />
+            <rect x="450" y="744" width="50" height="10" rx="1" />
+            <rect x="520" y="700" width="70" height="110" rx="3" />
+            <rect x="530" y="712" width="50" height="10" rx="1" />
+            <rect x="530" y="728" width="50" height="10" rx="1" />
+          </g>
+
+          {/* checklist (top-right area) */}
+          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
+            <rect x="1050" y="130" width="14" height="14" rx="2" />
+            <path d="M1053 137 l4 4 l7 -8" />
+            <line x1="1074" y1="141" x2="1180" y2="141" />
+            <rect x="1050" y="158" width="14" height="14" rx="2" />
+            <path d="M1053 165 l4 4 l7 -8" />
+            <line x1="1074" y1="169" x2="1200" y2="169" />
+            <rect x="1050" y="186" width="14" height="14" rx="2" />
+            <line x1="1074" y1="197" x2="1170" y2="197" />
+            <rect x="1050" y="214" width="14" height="14" rx="2" />
+            <line x1="1074" y1="225" x2="1160" y2="225" />
+          </g>
+
+          {/* line graph (bottom-right of mid) */}
+          <g style={{ opacity: 0.13 }} strokeWidth="1.3">
+            <line x1="330" y1="880" x2="330" y2="790" />
+            <line x1="330" y1="880" x2="490" y2="880" />
+            <path d="M336 862 L360 848 L384 856 L408 830 L432 820 L456 800 L482 795" />
+          </g>
+
+          {/* handwritten arrow annotations (scattered) */}
+          <g style={{ opacity: 0.11 }} strokeWidth="1.3">
+            <path d="M360 380 q40 20 90 -6" />
+            <path d="M446 372 l6 6 l-8 4" />
+            <path d="M820 640 q30 -30 80 -20" />
+            <path d="M896 617 l4 8 l-9 1" />
+          </g>
+
           {/* teal annotation marks — the only accent color */}
-          <g style={{ color: "var(--teal)", opacity: 0.28 }} stroke="currentColor" strokeWidth="1.4">
+          <g style={{ color: "var(--teal)", opacity: 0.5 }} stroke="currentColor" strokeWidth="1.6">
             <circle cx="720" cy="560" r="14" fill="none" strokeDasharray="3 4" />
             <path d="M240 300 l24 -22" />
             <path d="M264 278 l-8 2 l2 -8" fill="currentColor" stroke="none" />
             <path d="M1180 200 q40 -30 80 -10" fill="none" />
+            <circle cx="985" cy="370" r="8" fill="none" />
             <text x="748" y="556" fontFamily="ui-monospace, monospace" fontSize="11" fill="currentColor" stroke="none">
               gap
+            </text>
+            <text x="998" y="345" fontFamily="ui-monospace, monospace" fontSize="10" fill="currentColor" stroke="none">
+              signal
             </text>
           </g>
         </svg>
