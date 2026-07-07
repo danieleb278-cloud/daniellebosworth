@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
@@ -153,9 +153,65 @@ function Hero() {
   );
 }
 
+// Deterministic pseudo-random for a stable node layout across renders.
+function mulberry32(seed: number) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+type Node = { x: number; y: number; r: number };
+
+function buildNeuralField(width: number, height: number) {
+  const rand = mulberry32(20260707);
+  const cols = 14;
+  const rows = 9;
+  const cellW = width / cols;
+  const cellH = height / rows;
+  const nodes: Node[] = [];
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      // skip a few cells for organic negative space
+      if (rand() < 0.14) continue;
+      const jitterX = (rand() - 0.5) * cellW * 0.75;
+      const jitterY = (rand() - 0.5) * cellH * 0.75;
+      const x = i * cellW + cellW / 2 + jitterX;
+      const y = j * cellH + cellH / 2 + jitterY;
+      const r = 1.6 + rand() * 1.6;
+      nodes.push({ x, y, r });
+    }
+  }
+  // Connect each node to its 2 nearest neighbors within a threshold.
+  const maxDist = Math.min(cellW, cellH) * 1.9;
+  const edges: [Node, Node][] = [];
+  const seen = new Set<string>();
+  for (let i = 0; i < nodes.length; i++) {
+    const a = nodes[i];
+    const dists = nodes
+      .map((b, k) => ({ k, d: k === i ? Infinity : Math.hypot(a.x - b.x, a.y - b.y) }))
+      .sort((p, q) => p.d - q.d)
+      .slice(0, 2);
+    for (const { k, d } of dists) {
+      if (d > maxDist) continue;
+      const key = i < k ? `${i}-${k}` : `${k}-${i}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      edges.push([a, nodes[k]]);
+    }
+  }
+  return { nodes, edges };
+}
+
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
+  const field = useMemo(() => buildNeuralField(1600, 1000), []);
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -173,8 +229,9 @@ function HeroBackdrop() {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      tx = ((e.clientX - cx) / rect.width) * -14;
-      ty = ((e.clientY - cy) / rect.height) * -10;
+      // very slight drift — texture should feel alive, not moving
+      tx = ((e.clientX - cx) / rect.width) * -5;
+      ty = ((e.clientY - cy) / rect.height) * -4;
       if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
@@ -202,194 +259,51 @@ function HeroBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 6%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 5%, transparent) 0%, transparent 65%)",
+            "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 5%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 4%, transparent) 0%, transparent 65%)",
         }}
       />
-      {/* parallax layer — notebook fragments */}
+      {/* parallax layer — neural network field */}
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
         <svg
           className="absolute inset-0 h-full w-full"
           viewBox="0 0 1600 1000"
-          preserveAspectRatio="xMidYMid meet"
+          preserveAspectRatio="xMidYMid slice"
           fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
           style={{ color: "var(--foreground)" }}
         >
-          {/* handwritten note squiggles (top-left) */}
-          <g style={{ opacity: 0.13 }} strokeWidth="1.6">
-            <path d="M80 140 q30 -14 60 -2 t60 -2 t60 4 t60 -6" />
-            <path d="M80 168 q28 -10 56 0 t56 4 t56 -6 t56 2" />
-            <path d="M80 196 q34 -8 68 4 t68 -4 t68 6" />
-            <path d="M80 224 q26 -6 52 2 t52 -4 t52 6 t52 -2" />
-            <path d="M80 252 q30 -10 60 0 t60 4 t60 -8" />
-          </g>
+          {/* soft radial mask so the field fades toward the edges */}
+          <defs>
+            <radialGradient id="hero-field-mask" cx="50%" cy="50%" r="65%">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="70%" stopColor="white" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </radialGradient>
+            <mask id="hero-field-fade">
+              <rect width="1600" height="1000" fill="url(#hero-field-mask)" />
+            </mask>
+          </defs>
 
-          {/* wireframe fragment (top-right) */}
-          <g style={{ opacity: 0.14 }} strokeWidth="1.4">
-            <rect x="1240" y="120" width="260" height="170" rx="4" />
-            <rect x="1260" y="140" width="80" height="12" rx="2" />
-            <rect x="1260" y="164" width="220" height="8" rx="2" />
-            <rect x="1260" y="182" width="200" height="8" rx="2" />
-            <rect x="1260" y="200" width="180" height="8" rx="2" />
-            <rect x="1260" y="230" width="90" height="40" rx="3" />
-            <rect x="1360" y="230" width="90" height="40" rx="3" />
-          </g>
-
-          {/* journey map dashed line + nodes (mid) */}
-          <g style={{ opacity: 0.16 }} strokeWidth="1.6">
-            <path d="M120 560 C 320 500, 520 640, 720 560 S 1120 480, 1480 580" strokeDasharray="6 8" />
-            <circle cx="120" cy="560" r="6" fill="currentColor" stroke="none" />
-            <circle cx="420" cy="558" r="5" />
-            <circle cx="720" cy="560" r="6" />
-            <circle cx="1020" cy="536" r="5" />
-            <circle cx="1480" cy="580" r="6" fill="currentColor" stroke="none" />
-          </g>
-
-          {/* sticky note silhouettes (bottom-left cluster) */}
-          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
-            <rect x="150" y="720" width="90" height="90" transform="rotate(-4 195 765)" />
-            <rect x="220" y="740" width="90" height="90" transform="rotate(3 265 785)" />
-            <rect x="290" y="720" width="90" height="90" transform="rotate(-2 335 765)" />
-          </g>
-
-          {/* affinity map dots cluster (mid-right) */}
-          <g style={{ opacity: 0.16 }} fill="currentColor" stroke="none">
-            <circle cx="1180" cy="720" r="4" />
-            <circle cx="1210" cy="710" r="4" />
-            <circle cx="1240" cy="726" r="4" />
-            <circle cx="1200" cy="740" r="4" />
-            <circle cx="1234" cy="748" r="4" />
-            <circle cx="1260" cy="700" r="4" />
-            <circle cx="1290" cy="722" r="4" />
-            <circle cx="1268" cy="748" r="4" />
-          </g>
-          <g style={{ opacity: 0.11 }} strokeWidth="1.1">
-            <rect x="1150" y="680" width="180" height="100" rx="6" strokeDasharray="4 5" />
-          </g>
-
-          {/* flow arrow (bottom-center) */}
-          <g style={{ opacity: 0.15 }} strokeWidth="1.5">
-            <path d="M540 880 h240" />
-            <path d="M770 870 l14 10 l-14 10" />
-            <path d="M840 880 h180" />
-            <path d="M1010 870 l14 10 l-14 10" />
-          </g>
-
-          {/* mini bar chart (top-mid) */}
-          <g style={{ opacity: 0.13 }} strokeWidth="1.3">
-            <line x1="640" y1="220" x2="640" y2="120" />
-            <line x1="640" y1="220" x2="820" y2="220" />
-            <rect x="650" y="180" width="18" height="40" fill="currentColor" stroke="none" />
-            <rect x="678" y="160" width="18" height="60" fill="currentColor" stroke="none" />
-            <rect x="706" y="140" width="18" height="80" fill="currentColor" stroke="none" />
-            <rect x="734" y="170" width="18" height="50" fill="currentColor" stroke="none" />
-            <rect x="762" y="150" width="18" height="70" fill="currentColor" stroke="none" />
-          </g>
-
-          {/* small sketch — light bulb outline (bottom-right) */}
-          <g style={{ opacity: 0.14 }} strokeWidth="1.4">
-            <path d="M1420 820 a28 28 0 1 1 40 24 v14 h-40 v-14 a28 28 0 0 1 0 -24 z" />
-            <line x1="1428" y1="866" x2="1452" y2="866" />
-            <line x1="1432" y1="878" x2="1448" y2="878" />
-          </g>
-
-          {/* persona card (mid-left) */}
-          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
-            <rect x="90" y="420" width="220" height="120" rx="4" />
-            <circle cx="130" cy="460" r="18" />
-            <line x1="160" y1="446" x2="290" y2="446" />
-            <line x1="160" y1="462" x2="270" y2="462" />
-            <line x1="160" y1="478" x2="280" y2="478" />
-            <line x1="110" y1="510" x2="290" y2="510" strokeDasharray="3 4" />
-          </g>
-
-          {/* scatter plot (mid-mid) */}
-          <g style={{ opacity: 0.14 }} strokeWidth="1.2">
-            <line x1="900" y1="440" x2="900" y2="330" />
-            <line x1="900" y1="440" x2="1060" y2="440" />
-          </g>
-          <g style={{ opacity: 0.16 }} fill="currentColor" stroke="none">
-            <circle cx="920" cy="420" r="2.5" />
-            <circle cx="940" cy="400" r="2.5" />
-            <circle cx="950" cy="410" r="2.5" />
-            <circle cx="970" cy="380" r="2.5" />
-            <circle cx="985" cy="370" r="2.5" />
-            <circle cx="1000" cy="360" r="2.5" />
-            <circle cx="1015" cy="355" r="2.5" />
-            <circle cx="1030" cy="345" r="2.5" />
-            <circle cx="1045" cy="340" r="2.5" />
-            <circle cx="960" cy="392" r="2.5" />
-            <circle cx="998" cy="378" r="2.5" />
-            <circle cx="1020" cy="368" r="2.5" />
-          </g>
-
-          {/* pie / donut chart (top-right of mid) */}
-          <g style={{ opacity: 0.13 }} strokeWidth="1.4">
-            <circle cx="500" cy="400" r="46" />
-            <path d="M500 354 A46 46 0 0 1 540 424 L500 400 Z" fill="currentColor" stroke="none" opacity="0.6" />
-          </g>
-
-          {/* kanban / task columns (bottom-mid-left) */}
-          <g style={{ opacity: 0.11 }} strokeWidth="1.2">
-            <rect x="440" y="700" width="70" height="110" rx="3" />
-            <rect x="450" y="712" width="50" height="10" rx="1" />
-            <rect x="450" y="728" width="50" height="10" rx="1" />
-            <rect x="450" y="744" width="50" height="10" rx="1" />
-            <rect x="520" y="700" width="70" height="110" rx="3" />
-            <rect x="530" y="712" width="50" height="10" rx="1" />
-            <rect x="530" y="728" width="50" height="10" rx="1" />
-          </g>
-
-          {/* checklist (top-right area) */}
-          <g style={{ opacity: 0.12 }} strokeWidth="1.3">
-            <rect x="1050" y="130" width="14" height="14" rx="2" />
-            <path d="M1053 137 l4 4 l7 -8" />
-            <line x1="1074" y1="141" x2="1180" y2="141" />
-            <rect x="1050" y="158" width="14" height="14" rx="2" />
-            <path d="M1053 165 l4 4 l7 -8" />
-            <line x1="1074" y1="169" x2="1200" y2="169" />
-            <rect x="1050" y="186" width="14" height="14" rx="2" />
-            <line x1="1074" y1="197" x2="1170" y2="197" />
-            <rect x="1050" y="214" width="14" height="14" rx="2" />
-            <line x1="1074" y1="225" x2="1160" y2="225" />
-          </g>
-
-          {/* line graph (bottom-right of mid) */}
-          <g style={{ opacity: 0.13 }} strokeWidth="1.3">
-            <line x1="330" y1="880" x2="330" y2="790" />
-            <line x1="330" y1="880" x2="490" y2="880" />
-            <path d="M336 862 L360 848 L384 856 L408 830 L432 820 L456 800 L482 795" />
-          </g>
-
-          {/* handwritten arrow annotations (scattered) */}
-          <g style={{ opacity: 0.11 }} strokeWidth="1.3">
-            <path d="M360 380 q40 20 90 -6" />
-            <path d="M446 372 l6 6 l-8 4" />
-            <path d="M820 640 q30 -30 80 -20" />
-            <path d="M896 617 l4 8 l-9 1" />
-          </g>
-
-          {/* teal annotation marks — the only accent color */}
-          <g style={{ color: "var(--teal)", opacity: 0.5 }} stroke="currentColor" strokeWidth="1.6">
-            <circle cx="720" cy="560" r="14" fill="none" strokeDasharray="3 4" />
-            <path d="M240 300 l24 -22" />
-            <path d="M264 278 l-8 2 l2 -8" fill="currentColor" stroke="none" />
-            <path d="M1180 200 q40 -30 80 -10" fill="none" />
-            <circle cx="985" cy="370" r="8" fill="none" />
-            <text x="748" y="556" fontFamily="ui-monospace, monospace" fontSize="11" fill="currentColor" stroke="none">
-              gap
-            </text>
-            <text x="998" y="345" fontFamily="ui-monospace, monospace" fontSize="10" fill="currentColor" stroke="none">
-              signal
-            </text>
+          <g mask="url(#hero-field-fade)">
+            {/* connective filaments */}
+            <g stroke="currentColor" strokeWidth="0.6" style={{ opacity: 0.22 }}>
+              {field.edges.map(([a, b], i) => (
+                <line key={`e${i}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />
+              ))}
+            </g>
+            {/* nodes */}
+            <g fill="currentColor" style={{ opacity: 0.35 }}>
+              {field.nodes.map((n, i) => (
+                <circle key={`n${i}`} cx={n.x} cy={n.y} r={n.r} />
+              ))}
+            </g>
           </g>
         </svg>
       </div>
     </div>
   );
 }
+
+
 
 
 
