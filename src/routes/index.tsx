@@ -442,38 +442,40 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — enormous, partially cropped so most stays in view. Barely-there so it's felt, not seen. */}
+      {/* Ear — spans top of section down past the quote, mostly cropped left. Barely-there ghost. */}
       <img
         src={earSketch}
         alt=""
         loading="lazy"
         width={1024}
         height={1024}
+        className="sketch-breathe-ear"
         style={{
           ...baseImg,
-          top: "clamp(-320px, -20vw, -180px)",
-          left: "clamp(-360px, -22vw, -200px)",
-          width: "clamp(1100px, 120vw, 1700px)",
-          transition: "opacity 5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "2200ms",
-          opacity: visible ? 0.07 : 0,
+          top: "clamp(-120px, -6vw, -40px)",
+          left: "clamp(-520px, -30vw, -260px)",
+          width: "clamp(1400px, 95vw, 2000px)",
+          transition: "opacity 6s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "1800ms",
+          opacity: visible ? 0.11 : 0,
         }}
       />
-      {/* Eye — enormous, lower-right, even more subtle. */}
+      {/* Eye — nearly full-width across the strategy area, lower-right, slightly more visible. */}
       <img
         src={eyeSketch}
         alt=""
         loading="lazy"
         width={1024}
         height={1024}
+        className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-520px, -30vw, -280px)",
-          right: "clamp(-480px, -28vw, -260px)",
-          width: "clamp(1200px, 130vw, 1800px)",
-          transition: "opacity 5.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "3800ms",
-          opacity: visible ? 0.05 : 0,
+          bottom: "clamp(-360px, -22vw, -200px)",
+          right: "clamp(-420px, -22vw, -220px)",
+          width: "clamp(1500px, 105vw, 2200px)",
+          transition: "opacity 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "3200ms",
+          opacity: visible ? 0.09 : 0,
         }}
       />
 
