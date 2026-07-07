@@ -1,13 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 import portrait from "@/assets/portrait.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
