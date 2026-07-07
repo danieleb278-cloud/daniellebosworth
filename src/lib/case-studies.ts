@@ -960,7 +960,7 @@ const nextDestinationSections: Section[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "next-destination",
-    index: "03",
+    index: "02",
     title: "Next Destination",
     subtitle:
       "Designing an all-in-one travel planning application from concept through high-fidelity prototype and go-to-market strategy.",
@@ -1014,7 +1014,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "robin",
-    index: "02",
+    index: "03",
     title: "Robin",
     subtitle:
       "Product discovery and UX research to identify unmet needs and shape the future of a job search platform.",
