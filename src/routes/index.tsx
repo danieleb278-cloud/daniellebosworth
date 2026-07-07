@@ -14,7 +14,6 @@ import eyeSketch from "@/assets/editorial/eye-sketch.png";
 import fingerprintImg from "@/assets/fingerprint-light.png.asset.json";
 import neuralImg from "@/assets/neural-light.png.asset.json";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -74,9 +73,18 @@ function Hero() {
 
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-stretch">
           <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] md:col-span-8 md:order-2">
-            <span className="block rise-in" style={{ animationDelay: "80ms" }}>Understanding <span className="italic">behavior</span><span className="text-teal">.</span></span>
-            <span className="block rise-in" style={{ animationDelay: "220ms" }}>Designing <span className="italic">systems</span><span className="text-teal">.</span></span>
-            <span className="block rise-in" style={{ animationDelay: "360ms" }}>Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
+            <span className="block rise-in" style={{ animationDelay: "80ms" }}>
+              Understanding <span className="italic">behavior</span>
+              <span className="text-teal">.</span>
+            </span>
+            <span className="block rise-in" style={{ animationDelay: "220ms" }}>
+              Designing <span className="italic">systems</span>
+              <span className="text-teal">.</span>
+            </span>
+            <span className="block rise-in" style={{ animationDelay: "360ms" }}>
+              Bridging <span className="italic">gaps</span>
+              <span className="text-teal">.</span>
+            </span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
@@ -107,41 +115,35 @@ function Hero() {
               </ParallaxWrap>
             </Reveal>
           </div>
-
         </div>
 
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
           <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
             <Reveal delay={480}>
               <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
-                People often tell one story — their behavior tells another. I
-                design for the gap in between<span className="text-accent">.</span>
+                People often tell one story — their behavior tells another. I design for the gap in between
+                <span className="text-accent">.</span>
               </p>
             </Reveal>
             <Reveal delay={560}>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Before studying product design, I spent years working directly
-                with customers. Those conversations taught me something research
-                continues to confirm:
+                Before studying product design, I spent years working directly with customers. Those conversations
+                taught me something research continues to confirm:
               </p>
             </Reveal>
             <Reveal delay={640}>
               <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
-                What people say, what they do, and what they actually need are
-                often three different things.
+                What people say, what they do, and what they actually need are often three different things.
               </blockquote>
             </Reveal>
             <Reveal delay={720}>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-                My work focuses on understanding those gaps and designing better
-                experiences around them.
+                My work focuses on understanding those gaps and designing better experiences around them.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Completing a Master of Business and Science in Product Design
-                &amp; Innovation at Rutgers University.
+                Completing a Master of Business and Science in Product Design &amp; Innovation at Rutgers University.
               </p>
             </Reveal>
-
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
             <Stat k="175%" label="Revenue growth, branch ops" />
@@ -154,8 +156,6 @@ function Hero() {
     </section>
   );
 }
-
-
 
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
@@ -178,7 +178,8 @@ function HeroBackdrop() {
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
     let raf = 0;
-    let tx = 0, ty = 0;
+    let tx = 0,
+      ty = 0;
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
@@ -226,8 +227,7 @@ function HeroBackdrop() {
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
-            maskImage:
-              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
+            maskImage: "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
             filter: "contrast(1.05)",
           }}
         />
@@ -248,8 +248,7 @@ function HeroBackdrop() {
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
-            maskImage:
-              "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
+            maskImage: "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
             filter: "contrast(1.08)",
           }}
         />
@@ -257,11 +256,6 @@ function HeroBackdrop() {
     </div>
   );
 }
-
-
-
-
-
 
 function Stat({ k, label }: { k: string; label: string }) {
   return (
@@ -310,14 +304,10 @@ function ParallaxWrap({ children }: { children: React.ReactNode }) {
 function Marquee() {
   const items = [...marquee, ...marquee];
   return (
-
     <section className="overflow-hidden border-y border-border bg-foreground py-5 text-background">
       <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
         {items.map((t, i) => (
-          <span
-            key={i}
-            className="font-display text-2xl tracking-tight md:text-3xl"
-          >
+          <span key={i} className="font-display text-2xl tracking-tight md:text-3xl">
             {t} <span className="text-accent soft-pulse">✦</span>
           </span>
         ))}
@@ -344,11 +334,7 @@ function Work() {
         <div className="divide-y divide-border">
           {caseStudies.map((cs, i) => (
             <Reveal key={cs.slug} delay={i * 100}>
-              <Link
-                to="/work/$slug"
-                params={{ slug: cs.slug }}
-                className="group block py-10 md:py-14"
-              >
+              <Link to="/work/$slug" params={{ slug: cs.slug }} className="group block py-10 md:py-14">
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
@@ -373,9 +359,7 @@ function Work() {
                       {cs.title}
                       <span className="text-teal">.</span>
                     </h3>
-                    <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">
-                      {cs.subtitle}
-                    </p>
+                    <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">{cs.subtitle}</p>
                     <div className="mt-5 flex flex-wrap items-center gap-2">
                       {cs.tags.map((t) => (
                         <span
@@ -386,9 +370,11 @@ function Work() {
                         </span>
                       ))}
                       <span className="eyebrow arrow-slide link-underline ml-auto hidden md:inline">
-                        Read case <span className="arrow" aria-hidden>→</span>
+                        Read case{" "}
+                        <span className="arrow" aria-hidden>
+                          →
+                        </span>
                       </span>
-
                     </div>
                   </div>
                 </div>
@@ -439,12 +425,7 @@ function EditorialSketches() {
   };
 
   return (
-    <div
-      ref={ref}
-      aria-hidden
-      className="pointer-events-none absolute inset-0"
-      style={{ zIndex: 0 }}
-    >
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
       {/* Ear — spans top of section down past the quote, mostly cropped left. Watermark. */}
       <img
         src={earSketch}
@@ -460,11 +441,12 @@ function EditorialSketches() {
           width: "clamp(1400px, 95vw, 2000px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2800ms",
-          opacity: visible ? 0.5 : 0,
+          opacity: visible ? 0.025 : 0,
+          mixBlendMode: "multiply",
+          filter: "contrast(0.8) brightness(1.15)",
           WebkitMaskImage:
             "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
-          maskImage:
-            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
+          maskImage: "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
         }}
       />
       {/* Eye — nearly full-width across the strategy area, lower-right. Watermark. */}
@@ -482,23 +464,19 @@ function EditorialSketches() {
           width: "clamp(1500px, 105vw, 2200px)",
           transition: "opacity 9s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "4500ms",
-          opacity: visible ? 0.42 : 0,
+          opacity: visible ? 0.025 : 0,
+          mixBlendMode: "multiply",
+          filter: "contrast(0.8) brightness(1.15)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 58% 60% at 55% 55%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
-          maskImage:
-            "radial-gradient(ellipse 58% 60% at 55% 55%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
+            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
+          maskImage: "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
         }}
       />
-
-
-
     </div>
   );
 }
 
-
 function About() {
-
   return (
     <section id="about" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
       {/* warm editorial tint — subtle separation from surrounding sections */}
@@ -518,67 +496,49 @@ function About() {
             <span className="eyebrow text-background/60">§ About</span>
             <div className="relative mt-6">
               <figure className="relative border-l-2 border-teal pl-5">
-                <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
+                <span aria-hidden className="font-display text-5xl leading-none text-teal">
+                  “
+                </span>
                 <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
-                  One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span> on the business.
+                  One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span>{" "}
+                  on the business.
                 </h2>
                 <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
               </figure>
             </div>
           </div>
 
-
-
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-base leading-relaxed text-background/80 md:text-lg">
                 I started in{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  customer-facing leadership
-                </span>
-                , developed a deep curiosity about{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  human behavior
-                </span>
-                , and pursued{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  psychology
-                </span>{" "}
-                and{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  product design
-                </span>{" "}
-                to better understand people and systems. Today I use{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">customer-facing leadership</span>,
+                developed a deep curiosity about{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">human behavior</span>, and pursued{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">psychology</span> and{" "}
+                <span className="text-lg text-teal tracking-wide md:text-xl">product design</span> to better understand
+                people and systems. Today I use{" "}
                 <span className="text-lg text-teal tracking-wide md:text-xl">
                   research, strategy, and design thinking
                 </span>{" "}
-                to uncover{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  insights
-                </span>{" "}
-                and build experiences that bridge customer needs and business
-                goals.
+                to uncover <span className="text-lg text-teal tracking-wide md:text-xl">insights</span> and build
+                experiences that bridge customer needs and business goals.
               </p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
-                  My background blends psychology, product design, and years of
-                  customer-facing leadership — from running a high-volume salon
-                  branch to driving measurable growth through outreach, service
-                  design, and CRM improvements. Today I shape education,
-                  brand strategy, and digital operations for a professional
-                  haircare company — always with the customer perspective at
-                  the center.
+                  My background blends psychology, product design, and years of customer-facing leadership — from
+                  running a high-volume salon branch to driving measurable growth through outreach, service design, and
+                  CRM improvements. Today I shape education, brand strategy, and digital operations for a professional
+                  haircare company — always with the customer perspective at the center.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
-                  I'm currently finishing an MBS in Product Design &amp;
-                  Innovation at Rutgers. I'm at my best where customer insight
-                  meets systems thinking — using research, analytics, and
-                  AI-assisted workflows to turn complex problems into clear,
-                  human-centered solutions.
+                  I'm currently finishing an MBS in Product Design &amp; Innovation at Rutgers. I'm at my best where
+                  customer insight meets systems thinking — using research, analytics, and AI-assisted workflows to turn
+                  complex problems into clear, human-centered solutions.
                 </p>
               </Reveal>
             </div>
@@ -642,10 +602,24 @@ function Resume() {
     },
   ];
   const tools = [
-    "Figma", "Miro", "Canva", "Adobe Creative Cloud", "CapCut",
-    "Tableau", "GA4", "Search Console", "Salesforce", "Airtable",
-    "Notion", "Shopify", "WordPress", "Webflow", "Meta Business Suite",
-    "ChatGPT", "Gemini", "ElevenLabs",
+    "Figma",
+    "Miro",
+    "Canva",
+    "Adobe Creative Cloud",
+    "CapCut",
+    "Tableau",
+    "GA4",
+    "Search Console",
+    "Salesforce",
+    "Airtable",
+    "Notion",
+    "Shopify",
+    "WordPress",
+    "Webflow",
+    "Meta Business Suite",
+    "ChatGPT",
+    "Gemini",
+    "ElevenLabs",
   ];
   const skills = [
     "Product Strategy",
@@ -671,15 +645,11 @@ function Resume() {
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
           <h2 className="col-span-12 font-display text-2xl tracking-tight md:col-span-10 md:text-4xl">
             More than a designer, I've spent my career working at the intersection of{" "}
-            <span className="text-teal">customers</span>,{" "}
-            <span className="text-teal">operations</span>,{" "}
-            <span className="text-teal">education</span>, and{" "}
-            <span className="text-teal">product strategy</span>. My background combines{" "}
-            <span className="text-teal">customer-facing leadership</span>,{" "}
-            <span className="text-teal">psychology</span>,{" "}
-            <span className="text-teal">research</span>, and{" "}
-            <span className="text-teal">systems thinking</span>{" "}
-            to solve problems from multiple perspectives.
+            <span className="text-teal">customers</span>, <span className="text-teal">operations</span>,{" "}
+            <span className="text-teal">education</span>, and <span className="text-teal">product strategy</span>. My
+            background combines <span className="text-teal">customer-facing leadership</span>,{" "}
+            <span className="text-teal">psychology</span>, <span className="text-teal">research</span>, and{" "}
+            <span className="text-teal">systems thinking</span> to solve problems from multiple perspectives.
           </h2>
         </div>
 
@@ -693,13 +663,9 @@ function Resume() {
                       <span className="eyebrow">{r.year}</span>
                     </div>
                     <div className="col-span-12 md:col-span-9">
-                      <h3 className="font-display text-2xl tracking-tight md:text-3xl">
-                        {r.role}
-                      </h3>
+                      <h3 className="font-display text-2xl tracking-tight md:text-3xl">{r.role}</h3>
                       <div className="eyebrow mt-1">{r.org}</div>
-                      <p className="mt-3 max-w-lg text-base text-muted-foreground">
-                        {r.detail}
-                      </p>
+                      <p className="mt-3 max-w-lg text-base text-muted-foreground">{r.detail}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -749,18 +715,14 @@ function Resume() {
 
 function Contact() {
   return (
-    <section
-      id="contact"
-      className="border-t border-border px-6 py-28 md:px-12 md:py-40"
-    >
+    <section id="contact" className="border-t border-border px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6">
           <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
           <div className="col-span-12 md:col-span-10">
             <Reveal>
               <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-                Let's bridge design, strategy,{" "}
-                <span className="italic text-muted-foreground">and experience</span>
+                Let's bridge design, strategy, <span className="italic text-muted-foreground">and experience</span>
                 <span className="text-accent">.</span>
               </h2>
             </Reveal>
@@ -790,7 +752,10 @@ function Contact() {
                   <span className="eyebrow">Looking for</span>
                   <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl">
                     {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
-                      <li key={s} className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
+                      <li
+                        key={s}
+                        className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
+                      >
                         <span className="text-teal">•</span>
                         <span>{s}</span>
                       </li>
@@ -863,8 +828,7 @@ function ContactForm() {
         email,
         phone: phone && phone.length > 0 ? phone : null,
         message,
-        user_agent:
-          typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+        user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
       });
       if (error) throw error;
       setStatus("sent");
@@ -872,9 +836,7 @@ function ContactForm() {
     } catch (err) {
       console.error("contact_messages insert failed", err);
       setStatus("error");
-      setErrorMsg(
-        "Something went wrong sending your message. You can email me directly instead.",
-      );
+      setErrorMsg("Something went wrong sending your message. You can email me directly instead.");
     }
   }
 
@@ -884,9 +846,7 @@ function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="border-l-0 md:border-l-2 md:border-teal md:pl-8">
       <span className="eyebrow">Send a message</span>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Drop me a line here — messages land straight in my inbox.
-      </p>
+      <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
 
       {/* honeypot: hidden from users, catches bots */}
       <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden" tabIndex={-1}>
@@ -904,7 +864,9 @@ function ContactForm() {
 
       <div className="mt-6 space-y-5">
         <div>
-          <label className="eyebrow" htmlFor="cf-name">Name</label>
+          <label className="eyebrow" htmlFor="cf-name">
+            Name
+          </label>
           <input
             id="cf-name"
             type="text"
@@ -918,7 +880,9 @@ function ContactForm() {
         </div>
 
         <div>
-          <label className="eyebrow" htmlFor="cf-email">Email</label>
+          <label className="eyebrow" htmlFor="cf-email">
+            Email
+          </label>
           <input
             id="cf-email"
             type="email"
@@ -932,7 +896,9 @@ function ContactForm() {
         </div>
 
         <div>
-          <label className="eyebrow" htmlFor="cf-phone">Phone <span className="text-muted-foreground/60">(optional)</span></label>
+          <label className="eyebrow" htmlFor="cf-phone">
+            Phone <span className="text-muted-foreground/60">(optional)</span>
+          </label>
           <input
             id="cf-phone"
             type="tel"
@@ -945,7 +911,9 @@ function ContactForm() {
         </div>
 
         <div>
-          <label className="eyebrow" htmlFor="cf-message">Message</label>
+          <label className="eyebrow" htmlFor="cf-message">
+            Message
+          </label>
           <textarea
             id="cf-message"
             value={form.message}
@@ -967,9 +935,7 @@ function ContactForm() {
         </button>
 
         {status === "sent" && (
-          <p className="rise-in text-sm text-teal">
-            Thanks — your message is on its way. I'll get back to you soon.
-          </p>
+          <p className="rise-in text-sm text-teal">Thanks — your message is on its way. I'll get back to you soon.</p>
         )}
         {status === "error" && errorMsg && (
           <p className="text-sm text-accent">
@@ -1012,8 +978,9 @@ function BackToTop() {
         show ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-3 pointer-events-none"
       }`}
     >
-      <span aria-hidden className="font-display text-xl leading-none">↑</span>
+      <span aria-hidden className="font-display text-xl leading-none">
+        ↑
+      </span>
     </button>
   );
 }
-
