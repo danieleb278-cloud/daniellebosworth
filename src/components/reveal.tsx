@@ -18,7 +18,7 @@ export function Reveal({
     // If already in/near viewport at mount, reveal immediately.
     const rect = el.getBoundingClientRect();
     const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh + 200) {
+    if (rect.top < vh + 400) {
       setShown(true);
       return;
     }
