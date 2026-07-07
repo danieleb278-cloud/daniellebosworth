@@ -278,3 +278,26 @@
 }
 
 
+
+@keyframes hero-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.hero-breathe-fp {
+  animation: hero-breathe 18s ease-in-out 5s infinite;
+}
+.hero-breathe-nn {
+  animation: hero-breathe 22s ease-in-out 6s infinite;
+}
+@keyframes sketch-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+.sketch-breathe-ear {
+  animation: sketch-breathe 24s ease-in-out 4s infinite;
+  transform-origin: 20% 30%;
+}
+.sketch-breathe-eye {
+  animation: sketch-breathe 28s ease-in-out 5s infinite;
+  transform-origin: 80% 70%;
+}
