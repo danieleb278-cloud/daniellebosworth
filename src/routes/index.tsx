@@ -272,19 +272,31 @@ function Work() {
 
 function About() {
   return (
-    <section id="about" className="bg-navy px-6 py-28 text-background md:px-12 md:py-40">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="about" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
+      {/* warm editorial tint — subtle separation from surrounding sections */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 15% 20%, color-mix(in oklab, var(--accent-yellow) 10%, transparent) 0%, transparent 55%), radial-gradient(90% 70% at 85% 90%, color-mix(in oklab, var(--accent-purple) 8%, transparent) 0%, transparent 60%)",
+        }}
+      />
+      {/* graphite anatomical sketches — discovered, not announced */}
+      <EditorialSketches />
+      <div className="relative mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6 items-stretch">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
             <figure className="mt-6 border-l-2 border-teal pl-5">
               <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
               <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
-                One ear on the customer, one eye on the business.
+                One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span> on the business.
               </h2>
               <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
             </figure>
           </div>
+
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
