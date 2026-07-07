@@ -299,14 +299,19 @@ function EditorialSketches() {
     position: "absolute",
     filter: "invert(1) grayscale(1) contrast(0.9)",
     mixBlendMode: "screen",
-    opacity: visible ? undefined : 0,
-    transition: "opacity 1.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+    transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
     userSelect: "none",
     pointerEvents: "none",
   };
 
   return (
-    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
+      ref={ref}
+      aria-hidden
+      className="pointer-events-none absolute inset-0"
+      style={{ zIndex: 0 }}
+    >
+      {/* Ear — hovering just above the top-left corner of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -315,13 +320,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "4%",
-          left: "-6%",
-          width: "clamp(320px, 38vw, 620px)",
-          transitionDelay: "0ms",
-          opacity: visible ? 0.07 : 0,
+          top: "clamp(-180px, -14vw, -110px)",
+          left: "clamp(-140px, -10vw, -80px)",
+          width: "clamp(180px, 22vw, 300px)",
+          transitionDelay: "200ms",
+          opacity: visible ? 0.055 : 0,
         }}
       />
+      {/* Eye — off the bottom-right corner of the quote */}
       <img
         src={eyeSketch}
         alt=""
@@ -330,16 +336,17 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "-6%",
-          right: "-4%",
-          width: "clamp(340px, 42vw, 680px)",
-          transitionDelay: "450ms",
-          opacity: visible ? 0.06 : 0,
+          bottom: "clamp(-200px, -14vw, -120px)",
+          right: "clamp(-180px, -14vw, -110px)",
+          width: "clamp(210px, 26vw, 340px)",
+          transitionDelay: "1400ms",
+          opacity: visible ? 0.05 : 0,
         }}
       />
     </div>
   );
 }
+
 
 function About() {
 
@@ -354,20 +361,23 @@ function About() {
             "radial-gradient(120% 80% at 15% 20%, color-mix(in oklab, var(--accent-yellow) 10%, transparent) 0%, transparent 55%), radial-gradient(90% 70% at 85% 90%, color-mix(in oklab, var(--accent-purple) 8%, transparent) 0%, transparent 60%)",
         }}
       />
-      {/* graphite anatomical sketches — discovered, not announced */}
-      <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6 items-stretch">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
-            <figure className="mt-6 border-l-2 border-teal pl-5">
-              <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
-              <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
-                One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span> on the business.
-              </h2>
-              <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
-            </figure>
+            <div className="relative mt-6">
+              {/* graphite anatomical sketches — anchored to the quote */}
+              <EditorialSketches />
+              <figure className="relative border-l-2 border-teal pl-5">
+                <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
+                <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
+                  One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span> on the business.
+                </h2>
+                <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
+              </figure>
+            </div>
           </div>
+
 
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
