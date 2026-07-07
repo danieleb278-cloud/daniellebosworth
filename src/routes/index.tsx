@@ -441,7 +441,7 @@ function EditorialSketches() {
           width: "clamp(1400px, 95vw, 2000px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2800ms",
-          opacity: visible ? 0.025 : 0,
+          opacity: visible ? 0.015 : 0,
           mixBlendMode: "multiply",
           filter: "contrast(0.8) brightness(1.15)",
           WebkitMaskImage:
@@ -464,7 +464,7 @@ function EditorialSketches() {
           width: "clamp(1500px, 105vw, 2200px)",
           transition: "opacity 9s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "4500ms",
-          opacity: visible ? 0.025 : 0,
+          opacity: visible ? 0.015 : 0,
           mixBlendMode: "multiply",
           filter: "contrast(0.8) brightness(1.15)",
           WebkitMaskImage:
