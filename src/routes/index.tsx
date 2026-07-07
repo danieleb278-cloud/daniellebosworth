@@ -207,22 +207,25 @@ function buildNeuralField(width: number, height: number) {
   return { nodes, edges };
 }
 
-// Fingerprint — nested distorted arcs radiating from a whorl center.
+// Fingerprint — smooth nested loops radiating from an off-center whorl.
 function buildFingerprint(cx: number, cy: number, seed: number) {
   const rand = mulberry32(seed);
   const rings: string[] = [];
-  const count = 34;
+  const count = 46;
   for (let i = 0; i < count; i++) {
-    const rBase = 14 + i * 11;
+    const rBase = 8 + i * 7.5;
     const points: string[] = [];
-    const steps = 96;
+    const steps = 120;
     const phase = rand() * Math.PI * 2;
-    const wobbleAmp = 3 + rand() * 5;
-    const wobbleFreq = 2 + Math.floor(rand() * 3);
-    const skew = 1 + rand() * 0.15; // slight vertical stretch per ring
-    // leave a small "opening" on one side for a few outer rings so ridges look natural
-    const openStart = i > count * 0.55 && rand() < 0.35 ? rand() * Math.PI * 2 : null;
-    const openWidth = 0.35 + rand() * 0.4;
+    const wobbleAmp = 0.6 + rand() * 1.4; // gentle, keeps loops readable
+    const wobbleFreq = 2;
+    const skewY = 1.05 + rand() * 0.08;
+    // slight drift of each ring's center — creates the loop/whorl bias
+    const driftX = i * 0.9 + (rand() - 0.5) * 1.2;
+    const driftY = i * -0.4 + (rand() - 0.5) * 1.2;
+    // occasional ridge ending on outer rings
+    const openStart = i > count * 0.5 && rand() < 0.32 ? rand() * Math.PI * 2 : null;
+    const openWidth = 0.25 + rand() * 0.35;
     for (let s = 0; s <= steps; s++) {
       const t = (s / steps) * Math.PI * 2;
       if (openStart !== null) {
@@ -236,14 +239,15 @@ function buildFingerprint(cx: number, cy: number, seed: number) {
         }
       }
       const r = rBase + Math.sin(t * wobbleFreq + phase) * wobbleAmp;
-      const x = cx + Math.cos(t) * r;
-      const y = cy + Math.sin(t) * r * skew;
+      const x = cx + driftX + Math.cos(t) * r;
+      const y = cy + driftY + Math.sin(t) * r * skewY;
       points.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
     }
     if (points.length) rings.push("M " + points.join(" L "));
   }
   return rings;
 }
+
 
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
@@ -546,7 +550,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — oversized, cropped by top-left corner of the quote */}
+      {/* Ear — behind the top of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -555,14 +559,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-320px, -22vw, -180px)",
-          left: "clamp(-260px, -18vw, -140px)",
-          width: "clamp(520px, 60vw, 820px)",
+          top: "clamp(-140px, -10vw, -70px)",
+          left: "clamp(-90px, -6vw, -40px)",
+          width: "clamp(260px, 32vw, 440px)",
           transitionDelay: "200ms",
           opacity: visible ? 0.09 : 0,
         }}
       />
-      {/* Eye — oversized, cropped by bottom-right corner of the quote */}
+      {/* Eye — off the bottom-right corner of the quote */}
       <img
         src={eyeSketch}
         alt=""
@@ -571,13 +575,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-380px, -26vw, -220px)",
-          right: "clamp(-300px, -22vw, -170px)",
-          width: "clamp(560px, 68vw, 900px)",
+          bottom: "clamp(-220px, -16vw, -140px)",
+          right: "clamp(-160px, -12vw, -90px)",
+          width: "clamp(300px, 36vw, 480px)",
           transitionDelay: "1400ms",
           opacity: visible ? 0.085 : 0,
         }}
       />
+
 
 
     </div>
