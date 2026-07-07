@@ -163,8 +163,9 @@ function HeroBackdrop() {
   const [nnVisible, setNnVisible] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setFpVisible(true), 120);
-    const t2 = setTimeout(() => setNnVisible(true), 900);
+    // Delayed appearance — the viewer is reading, then slowly notices something is there.
+    const t1 = setTimeout(() => setFpVisible(true), 1400);
+    const t2 = setTimeout(() => setNnVisible(true), 2600);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -208,18 +209,20 @@ function HeroBackdrop() {
         }}
       />
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
-        {/* Fingerprint — staggered behind portrait / upper-left. Fades before reaching the quote text. */}
+        {/* Fingerprint — staggered behind portrait / upper-left. Fades in slowly then breathes. */}
         <img
           src={fingerprintImg.url}
           alt=""
-          className="absolute select-none"
+          className="absolute select-none hero-breathe-fp"
           style={{
             top: "clamp(-160px, -10vw, -60px)",
             left: "clamp(-220px, -14vw, -100px)",
             width: "clamp(620px, 68vw, 1060px)",
             height: "auto",
             opacity: fpVisible ? 0.28 : 0,
-            transition: "opacity 3s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: fpVisible ? undefined : "scale(0.94)",
+            transformOrigin: "38% 42%",
+            transition: "opacity 4.5s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.4, 0, 0.2, 1)",
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
@@ -228,18 +231,20 @@ function HeroBackdrop() {
             filter: "contrast(1.05)",
           }}
         />
-        {/* Neural network — starts up near "Designing systems" upper-right and drifts down, fading under the 175 / 32 metrics. */}
+        {/* Neural network — starts up near "Designing systems" upper-right and drifts down. */}
         <img
           src={neuralImg.url}
           alt=""
-          className="absolute select-none"
+          className="absolute select-none hero-breathe-nn"
           style={{
             top: "clamp(40px, 8vw, 140px)",
             right: "clamp(-200px, -12vw, -80px)",
             width: "clamp(620px, 66vw, 1000px)",
             height: "auto",
             opacity: nnVisible ? 0.34 : 0,
-            transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: nnVisible ? undefined : "scale(0.94)",
+            transformOrigin: "52% 38%",
+            transition: "opacity 4.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
