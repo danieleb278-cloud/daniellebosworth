@@ -413,21 +413,22 @@ function EditorialSketches() {
     return () => obs.disconnect();
   }, []);
 
-  // Match the fingerprint's rendering: multiply blend, gentle contrast, radial mask.
-  // This lets the sketch's white paper drop out entirely into the navy background
-  // (no gray box), leaving only the strokes pressed into the page like a letterpress.
+  // Ghost-print treatment: invert the dark-line sketches so strokes become
+  // light, then use `screen` so the white paper drops out into the navy
+  // background entirely. What remains is a faint lifted texture — no gray
+  // rectangle, no photographic image, just the barest hint of a shape that
+  // reveals itself once the eye adjusts.
   const baseImg: React.CSSProperties = {
     position: "absolute",
-    mixBlendMode: "multiply",
-    filter: "contrast(1.05)",
-    transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    mixBlendMode: "screen",
+    filter: "invert(1) grayscale(1) contrast(0.85) brightness(0.9)",
     userSelect: "none",
     pointerEvents: "none",
   };
 
   return (
     <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
-      {/* Ear — spans top of section down past the quote, mostly cropped left. Watermark. */}
+      {/* Ear — spans top of section down past the quote, mostly cropped left. */}
       <img
         src={earSketch}
         alt=""
@@ -440,17 +441,16 @@ function EditorialSketches() {
           top: "clamp(-120px, -6vw, -40px)",
           left: "clamp(-520px, -30vw, -260px)",
           width: "clamp(1400px, 95vw, 2000px)",
-          transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "2800ms",
-          opacity: visible ? 0.015 : 0,
-          mixBlendMode: "multiply",
-          filter: "contrast(0.8) brightness(1.15)",
+          transition: "opacity 7s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "2400ms",
+          opacity: visible ? 0.05 : 0,
           WebkitMaskImage:
-            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
-          maskImage: "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
+            "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
+          maskImage:
+            "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
         }}
       />
-      {/* Eye — nearly full-width across the strategy area, lower-right. Watermark. */}
+      {/* Eye — wide across the strategy area, lower-right. */}
       <img
         src={eyeSketch}
         alt=""
@@ -463,14 +463,13 @@ function EditorialSketches() {
           bottom: "clamp(-360px, -22vw, -200px)",
           right: "clamp(-420px, -22vw, -220px)",
           width: "clamp(1500px, 105vw, 2200px)",
-          transition: "opacity 9s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "4500ms",
-          opacity: visible ? 0.015 : 0,
-          mixBlendMode: "multiply",
-          filter: "contrast(0.8) brightness(1.15)",
+          transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "3800ms",
+          opacity: visible ? 0.04 : 0,
           WebkitMaskImage:
-            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
-          maskImage: "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
+            "radial-gradient(ellipse 58% 60% at 55% 55%, black 20%, rgba(0,0,0,0.55) 58%, transparent 92%)",
+          maskImage:
+            "radial-gradient(ellipse 58% 60% at 55% 55%, black 20%, rgba(0,0,0,0.55) 58%, transparent 92%)",
         }}
       />
     </div>
