@@ -227,6 +227,19 @@
   animation: shimmer-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+@keyframes soft-fade {
+  from { opacity: 0; }
+  to { opacity: var(--soft-fade-to, 1); }
+}
+
+@utility soft-fade-in {
+  animation: soft-fade 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-fade-in { animation: none !important; opacity: var(--soft-fade-to, 1) !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .float-slow, .soft-pulse, .marquee-track, .rise-in, .shimmer-in, .page-fade, .card-lift, .arrow-slide {
     animation: none !important;
