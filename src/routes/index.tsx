@@ -133,14 +133,47 @@ function Hero() {
 function Stat({ k, label }: { k: string; label: string }) {
   return (
     <div className="group border-t border-border pt-3 transition-colors duration-300 hover:border-teal">
-      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">{k}</div>
+      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">
+        <AnimatedCounter value={k} />
+      </div>
       <div className="eyebrow mt-1 leading-tight">{label}</div>
     </div>
   );
 }
 
-function Marquee() {
-  const items = [...marquee, ...marquee];
+function ParallaxWrap({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+        const offset = Math.max(-16, Math.min(16, -progress * 24));
+        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+  return (
+    <div ref={ref} style={{ willChange: "transform" }}>
+      {children}
+    </div>
+  );
+}
+
   return (
     <section className="overflow-hidden border-y border-border bg-foreground py-5 text-background">
       <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
