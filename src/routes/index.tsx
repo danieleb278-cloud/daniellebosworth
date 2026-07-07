@@ -443,14 +443,14 @@ function EditorialSketches() {
           width: "clamp(1400px, 95vw, 2000px)",
           transition: "opacity 7s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2400ms",
-          opacity: visible ? 0.05 : 0,
+          opacity: visible ? 0.065 : 0,
           WebkitMaskImage:
             "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
           maskImage:
             "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
         }}
       />
-      {/* Eye — wide across the strategy area, lower-right. */}
+      {/* Eye — pupil/iris sit in the dark quote area, mid-right. */}
       <img
         src={eyeSketch}
         alt=""
@@ -460,12 +460,12 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-360px, -22vw, -200px)",
+          top: "clamp(-200px, -10vw, -80px)",
           right: "clamp(-420px, -22vw, -220px)",
           width: "clamp(1500px, 105vw, 2200px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
-          opacity: visible ? 0.04 : 0,
+          opacity: visible ? 0.07 : 0,
           WebkitMaskImage:
             "radial-gradient(ellipse 58% 60% at 55% 55%, black 20%, rgba(0,0,0,0.55) 58%, transparent 92%)",
           maskImage:
