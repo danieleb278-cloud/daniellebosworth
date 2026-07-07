@@ -1,13 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 import portrait from "@/assets/portrait.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,18 +76,21 @@ function Hero() {
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
-              <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl transition-all duration-700 hover:-translate-y-1 hover:shadow-2xl float-slow">
-                <PlaceholderImage
-                  src={portrait.url}
-                  alt="Portrait of Danielle Bosworth"
-                  label="Portrait"
-                  caption="Danielle Bosworth"
-                  ratio="4/5"
-                  fit="cover-top"
-                />
-              </div>
+              <ParallaxWrap>
+                <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl card-lift">
+                  <PlaceholderImage
+                    src={portrait.url}
+                    alt="Portrait of Danielle Bosworth"
+                    label="Portrait"
+                    caption="Danielle Bosworth"
+                    ratio="4/5"
+                    fit="cover-top"
+                  />
+                </div>
+              </ParallaxWrap>
             </Reveal>
           </div>
+
         </div>
 
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
@@ -128,8 +133,43 @@ function Hero() {
 function Stat({ k, label }: { k: string; label: string }) {
   return (
     <div className="group border-t border-border pt-3 transition-colors duration-300 hover:border-teal">
-      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">{k}</div>
+      <div className="font-display text-2xl tracking-tight text-teal transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-3xl">
+        <AnimatedCounter value={k} />
+      </div>
       <div className="eyebrow mt-1 leading-tight">{label}</div>
+    </div>
+  );
+}
+
+function ParallaxWrap({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+        const offset = Math.max(-16, Math.min(16, -progress * 24));
+        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+  return (
+    <div ref={ref} style={{ willChange: "transform" }}>
+      {children}
     </div>
   );
 }
@@ -137,6 +177,7 @@ function Stat({ k, label }: { k: string; label: string }) {
 function Marquee() {
   const items = [...marquee, ...marquee];
   return (
+
     <section className="overflow-hidden border-y border-border bg-foreground py-5 text-background">
       <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
         {items.map((t, i) => (
@@ -178,7 +219,7 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl bg-charcoal">
+                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg card-lift bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
@@ -211,9 +252,10 @@ function Work() {
                           {t}
                         </span>
                       ))}
-                      <span className="eyebrow link-underline ml-auto hidden md:inline">
-                        Read case →
+                      <span className="eyebrow arrow-slide link-underline ml-auto hidden md:inline">
+                        Read case <span className="arrow" aria-hidden>→</span>
                       </span>
+
                     </div>
                   </div>
                 </div>
