@@ -109,7 +109,8 @@ function Hero() {
                       caption="Danielle Bosworth"
                       ratio="4/5"
                       fit="cover-top"
-                    />
+                      priority
+                    />)
                   </div>
                 </div>
               </ParallaxWrap>
