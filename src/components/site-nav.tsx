@@ -12,12 +12,31 @@ const sections = [
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const els = sections
+      .map((s) => document.getElementById(s.id))
+      .filter((el): el is HTMLElement => !!el);
+    if (els.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
@@ -55,16 +74,23 @@ export function SiteNav() {
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`/#${s.id}`}
-                className={`eyebrow link-underline ${isDark ? 'text-background' : 'text-foreground'}`}
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
+          {sections.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`/#${s.id}`}
+                  className={`eyebrow link-underline flex items-center gap-2 transition-colors duration-300 ${isDark ? 'text-background' : 'text-foreground'} ${isActive ? '!text-teal' : ''}`}
+                >
+                  <span
+                    aria-hidden
+                    className={`h-1 w-1 rounded-full bg-teal transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+                  />
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <button
