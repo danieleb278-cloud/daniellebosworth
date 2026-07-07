@@ -74,8 +74,8 @@ function Hero() {
 
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-stretch">
           <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] md:col-span-8 md:order-2">
-            <span className="block rise-in" style={{ animationDelay: "80ms" }}>Understanding <span className="italic">behavior</span>.</span>
-            <span className="block rise-in" style={{ animationDelay: "220ms" }}>Designing <span className="italic">systems</span>.</span>
+            <span className="block rise-in" style={{ animationDelay: "80ms" }}>Understanding <span className="italic">behavior</span><span className="text-teal">.</span></span>
+            <span className="block rise-in" style={{ animationDelay: "220ms" }}>Designing <span className="italic">systems</span><span className="text-teal">.</span></span>
             <span className="block rise-in" style={{ animationDelay: "360ms" }}>Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
           </h1>
 
