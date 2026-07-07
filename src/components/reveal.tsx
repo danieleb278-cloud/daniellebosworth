@@ -15,6 +15,13 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // If already in/near viewport at mount, reveal immediately.
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh + 200) {
+      setShown(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,7 +29,7 @@ export function Reveal({
           obs.disconnect();
         }
       },
-      { rootMargin: "-10% 0px" },
+      { rootMargin: "0px 0px -5% 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();
