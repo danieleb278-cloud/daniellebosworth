@@ -428,7 +428,7 @@ function EditorialSketches() {
 
   return (
     <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
-      {/* Ear — spans top of section down past the quote, mostly cropped left. */}
+      {/* Ear — large but reduced/staggered so desktop does not collide with the eye. */}
       <img
         src={earSketch}
         alt=""
@@ -438,9 +438,9 @@ function EditorialSketches() {
         
         style={{
           ...baseImg,
-          top: "clamp(-120px, -6vw, -40px)",
-          left: "clamp(-520px, -30vw, -260px)",
-          width: "clamp(1400px, 95vw, 2000px)",
+          top: "clamp(-90px, -4vw, -32px)",
+          left: "clamp(-360px, -18vw, -160px)",
+          width: "clamp(680px, 52vw, 1050px)",
           transition: "opacity 7s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2400ms",
           opacity: visible ? 0.11 : 0,
@@ -455,7 +455,7 @@ function EditorialSketches() {
             "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — smaller and tucked near the bottom so it does not overlap the ear. */}
+      {/* Eye — staggered lower/right from the ear; text can pass over it. */}
       <img
         src={eyeSketch}
         alt=""
@@ -465,9 +465,9 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-260px, -18vw, -150px)",
-          left: "clamp(-80px, -3vw, 20px)",
-          width: "clamp(560px, 42vw, 900px)",
+          bottom: "clamp(-300px, -16vw, -150px)",
+          right: "clamp(-320px, -18vw, -150px)",
+          width: "clamp(560px, 44vw, 920px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
           opacity: visible ? 0.14 : 0,
