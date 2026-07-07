@@ -89,7 +89,7 @@
   --accent-purple: oklch(0.6 0.14 25);      /* burgundy lifted */
   --teal: oklch(0.72 0.12 194);
   --navy: oklch(0.28 0.04 257);
-  --charcoal: oklch(0.35 0.04 257);
+  --charcoal: oklch(0.22 0.002 0);          /* near-black neutral */
   --highlight: var(--teal);
   --background: var(--paper);
   --foreground: var(--ink);
