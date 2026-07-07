@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
@@ -11,6 +11,8 @@ import portrait from "@/assets/portrait.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 import earSketch from "@/assets/editorial/ear-sketch.png";
 import eyeSketch from "@/assets/editorial/eye-sketch.png";
+import fingerprintImg from "@/assets/fingerprint-light.png.asset.json";
+import neuralImg from "@/assets/neural-light.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -153,112 +155,20 @@ function Hero() {
   );
 }
 
-// Deterministic pseudo-random for a stable node layout across renders.
-function mulberry32(seed: number) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-type Node = { x: number; y: number; r: number };
-
-function buildNeuralField(width: number, height: number) {
-  const rand = mulberry32(20260707);
-  const cols = 14;
-  const rows = 9;
-  const cellW = width / cols;
-  const cellH = height / rows;
-  const nodes: Node[] = [];
-  for (let j = 0; j < rows; j++) {
-    for (let i = 0; i < cols; i++) {
-      // skip a few cells for organic negative space
-      if (rand() < 0.14) continue;
-      const jitterX = (rand() - 0.5) * cellW * 0.75;
-      const jitterY = (rand() - 0.5) * cellH * 0.75;
-      const x = i * cellW + cellW / 2 + jitterX;
-      const y = j * cellH + cellH / 2 + jitterY;
-      const r = 1.6 + rand() * 1.6;
-      nodes.push({ x, y, r });
-    }
-  }
-  // Connect each node to its 2 nearest neighbors within a threshold.
-  const maxDist = Math.min(cellW, cellH) * 1.9;
-  const edges: [Node, Node][] = [];
-  const seen = new Set<string>();
-  for (let i = 0; i < nodes.length; i++) {
-    const a = nodes[i];
-    const dists = nodes
-      .map((b, k) => ({ k, d: k === i ? Infinity : Math.hypot(a.x - b.x, a.y - b.y) }))
-      .sort((p, q) => p.d - q.d)
-      .slice(0, 2);
-    for (const { k, d } of dists) {
-      if (d > maxDist) continue;
-      const key = i < k ? `${i}-${k}` : `${k}-${i}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      edges.push([a, nodes[k]]);
-    }
-  }
-  return { nodes, edges };
-}
-
-// Fingerprint — smooth nested loops radiating from an off-center whorl.
-function buildFingerprint(cx: number, cy: number, seed: number) {
-  const rand = mulberry32(seed);
-  const rings: string[] = [];
-  const count = 46;
-  for (let i = 0; i < count; i++) {
-    const rBase = 8 + i * 7.5;
-    const points: string[] = [];
-    const steps = 120;
-    const phase = rand() * Math.PI * 2;
-    const wobbleAmp = 0.6 + rand() * 1.4; // gentle, keeps loops readable
-    const wobbleFreq = 2;
-    const skewY = 1.05 + rand() * 0.08;
-    // slight drift of each ring's center — creates the loop/whorl bias
-    const driftX = i * 0.9 + (rand() - 0.5) * 1.2;
-    const driftY = i * -0.4 + (rand() - 0.5) * 1.2;
-    // occasional ridge ending on outer rings
-    const openStart = i > count * 0.5 && rand() < 0.32 ? rand() * Math.PI * 2 : null;
-    const openWidth = 0.25 + rand() * 0.35;
-    for (let s = 0; s <= steps; s++) {
-      const t = (s / steps) * Math.PI * 2;
-      if (openStart !== null) {
-        const diff = Math.abs(((t - openStart + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
-        if (Math.PI - diff < openWidth) {
-          if (points.length) {
-            rings.push("M " + points.join(" L "));
-            points.length = 0;
-          }
-          continue;
-        }
-      }
-      const r = rBase + Math.sin(t * wobbleFreq + phase) * wobbleAmp;
-      const x = cx + driftX + Math.cos(t) * r;
-      const y = cy + driftY + Math.sin(t) * r * skewY;
-      points.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
-    }
-    if (points.length) rings.push("M " + points.join(" L "));
-  }
-  return rings;
-}
 
 
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  const field = useMemo(() => buildNeuralField(1600, 1000), []);
-  const fingerprint = useMemo(() => buildFingerprint(430, 470, 20260707), []);
+  const [fpVisible, setFpVisible] = useState(false);
+  const [nnVisible, setNnVisible] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 60);
-    return () => clearTimeout(t);
+    const t1 = setTimeout(() => setFpVisible(true), 120);
+    const t2 = setTimeout(() => setNnVisible(true), 900);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   useEffect(() => {
@@ -272,8 +182,8 @@ function HeroBackdrop() {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      tx = ((e.clientX - cx) / rect.width) * -5;
-      ty = ((e.clientY - cy) / rect.height) * -4;
+      tx = ((e.clientX - cx) / rect.width) * -6;
+      ty = ((e.clientY - cy) / rect.height) * -5;
       if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
@@ -288,15 +198,8 @@ function HeroBackdrop() {
   }, []);
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0"
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: "opacity 2.4s cubic-bezier(0.4, 0, 0.2, 1)",
-      }}
-    >
-      {/* warm paper wash behind everything */}
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* warm paper wash */}
       <div
         className="absolute inset-0"
         style={{
@@ -304,63 +207,47 @@ function HeroBackdrop() {
             "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 5%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 4%, transparent) 0%, transparent 65%)",
         }}
       />
-      {/* parallax layer — fingerprint (upper-left, behind portrait & first line) + neural (lower-right, behind lower lines) */}
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
-        <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 1600 1000"
-          preserveAspectRatio="xMidYMid slice"
-          fill="none"
-          style={{ color: "var(--foreground)" }}
-        >
-          <defs>
-            {/* Fingerprint fade — anchored top-left, softens toward center */}
-            <radialGradient id="hero-print-mask" cx="27%" cy="46%" r="46%">
-              <stop offset="0%" stopColor="white" stopOpacity="1" />
-              <stop offset="70%" stopColor="white" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </radialGradient>
-            <mask id="hero-print-fade">
-              <rect width="1600" height="1000" fill="url(#hero-print-mask)" />
-            </mask>
-            {/* Neural fade — anchored lower-right, behind Designing/Bridging */}
-            <radialGradient id="hero-neural-mask" cx="72%" cy="70%" r="52%">
-              <stop offset="0%" stopColor="white" stopOpacity="1" />
-              <stop offset="72%" stopColor="white" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </radialGradient>
-            <mask id="hero-neural-fade">
-              <rect width="1600" height="1000" fill="url(#hero-neural-mask)" />
-            </mask>
-          </defs>
-
-          {/* Fingerprint ridges */}
-          <g
-            mask="url(#hero-print-fade)"
-            stroke="currentColor"
-            strokeWidth="0.7"
-            strokeLinecap="round"
-            style={{ opacity: 0.32 }}
-          >
-            {fingerprint.map((d, i) => (
-              <path key={`fp${i}`} d={d} />
-            ))}
-          </g>
-
-          {/* Neural pathways */}
-          <g mask="url(#hero-neural-fade)">
-            <g stroke="currentColor" strokeWidth="0.6" style={{ opacity: 0.24 }}>
-              {field.edges.map(([a, b], i) => (
-                <line key={`e${i}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />
-              ))}
-            </g>
-            <g fill="currentColor" style={{ opacity: 0.38 }}>
-              {field.nodes.map((n, i) => (
-                <circle key={`n${i}`} cx={n.x} cy={n.y} r={n.r} />
-              ))}
-            </g>
-          </g>
-        </svg>
+        {/* Fingerprint — staggered behind portrait / upper-left. Fades before reaching the quote text. */}
+        <img
+          src={fingerprintImg.url}
+          alt=""
+          className="absolute select-none"
+          style={{
+            top: "clamp(-120px, -8vw, -40px)",
+            left: "clamp(-180px, -12vw, -80px)",
+            width: "clamp(540px, 58vw, 900px)",
+            height: "auto",
+            opacity: fpVisible ? 0.28 : 0,
+            transition: "opacity 3s cubic-bezier(0.4, 0, 0.2, 1)",
+            mixBlendMode: "multiply",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
+            maskImage:
+              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
+            filter: "contrast(1.05)",
+          }}
+        />
+        {/* Neural network — lower-right, allowed to drop softly into the metrics band as it fades out. */}
+        <img
+          src={neuralImg.url}
+          alt=""
+          className="absolute select-none"
+          style={{
+            bottom: "clamp(-220px, -14vw, -120px)",
+            right: "clamp(-140px, -8vw, -40px)",
+            width: "clamp(520px, 54vw, 820px)",
+            height: "auto",
+            opacity: nnVisible ? 0.32 : 0,
+            transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            mixBlendMode: "multiply",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+            maskImage:
+              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+            filter: "contrast(1.08)",
+          }}
+        />
       </div>
     </div>
   );
