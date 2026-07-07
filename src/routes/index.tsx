@@ -253,14 +253,16 @@ function buildFingerprint(cx: number, cy: number, seed: number) {
 
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  const field = useMemo(() => buildNeuralField(1600, 1000), []);
-  const fingerprint = useMemo(() => buildFingerprint(430, 470, 20260707), []);
+  const [fpVisible, setFpVisible] = useState(false);
+  const [nnVisible, setNnVisible] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 60);
-    return () => clearTimeout(t);
+    const t1 = setTimeout(() => setFpVisible(true), 120);
+    const t2 = setTimeout(() => setNnVisible(true), 900);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   useEffect(() => {
@@ -274,8 +276,8 @@ function HeroBackdrop() {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      tx = ((e.clientX - cx) / rect.width) * -5;
-      ty = ((e.clientY - cy) / rect.height) * -4;
+      tx = ((e.clientX - cx) / rect.width) * -6;
+      ty = ((e.clientY - cy) / rect.height) * -5;
       if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
@@ -290,15 +292,8 @@ function HeroBackdrop() {
   }, []);
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0"
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: "opacity 2.4s cubic-bezier(0.4, 0, 0.2, 1)",
-      }}
-    >
-      {/* warm paper wash behind everything */}
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* warm paper wash */}
       <div
         className="absolute inset-0"
         style={{
@@ -306,63 +301,47 @@ function HeroBackdrop() {
             "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 5%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 4%, transparent) 0%, transparent 65%)",
         }}
       />
-      {/* parallax layer — fingerprint (upper-left, behind portrait & first line) + neural (lower-right, behind lower lines) */}
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
-        <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 1600 1000"
-          preserveAspectRatio="xMidYMid slice"
-          fill="none"
-          style={{ color: "var(--foreground)" }}
-        >
-          <defs>
-            {/* Fingerprint fade — anchored top-left, softens toward center */}
-            <radialGradient id="hero-print-mask" cx="27%" cy="46%" r="46%">
-              <stop offset="0%" stopColor="white" stopOpacity="1" />
-              <stop offset="70%" stopColor="white" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </radialGradient>
-            <mask id="hero-print-fade">
-              <rect width="1600" height="1000" fill="url(#hero-print-mask)" />
-            </mask>
-            {/* Neural fade — anchored lower-right, behind Designing/Bridging */}
-            <radialGradient id="hero-neural-mask" cx="72%" cy="70%" r="52%">
-              <stop offset="0%" stopColor="white" stopOpacity="1" />
-              <stop offset="72%" stopColor="white" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </radialGradient>
-            <mask id="hero-neural-fade">
-              <rect width="1600" height="1000" fill="url(#hero-neural-mask)" />
-            </mask>
-          </defs>
-
-          {/* Fingerprint ridges */}
-          <g
-            mask="url(#hero-print-fade)"
-            stroke="currentColor"
-            strokeWidth="0.7"
-            strokeLinecap="round"
-            style={{ opacity: 0.32 }}
-          >
-            {fingerprint.map((d, i) => (
-              <path key={`fp${i}`} d={d} />
-            ))}
-          </g>
-
-          {/* Neural pathways */}
-          <g mask="url(#hero-neural-fade)">
-            <g stroke="currentColor" strokeWidth="0.6" style={{ opacity: 0.24 }}>
-              {field.edges.map(([a, b], i) => (
-                <line key={`e${i}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />
-              ))}
-            </g>
-            <g fill="currentColor" style={{ opacity: 0.38 }}>
-              {field.nodes.map((n, i) => (
-                <circle key={`n${i}`} cx={n.x} cy={n.y} r={n.r} />
-              ))}
-            </g>
-          </g>
-        </svg>
+        {/* Fingerprint — staggered behind portrait / upper-left. Fades before reaching the quote text. */}
+        <img
+          src={fingerprintImg.url}
+          alt=""
+          className="absolute select-none"
+          style={{
+            top: "clamp(-120px, -8vw, -40px)",
+            left: "clamp(-180px, -12vw, -80px)",
+            width: "clamp(540px, 58vw, 900px)",
+            height: "auto",
+            opacity: fpVisible ? 0.28 : 0,
+            transition: "opacity 3s cubic-bezier(0.4, 0, 0.2, 1)",
+            mixBlendMode: "multiply",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
+            maskImage:
+              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
+            filter: "contrast(1.05)",
+          }}
+        />
+        {/* Neural network — lower-right, allowed to drop softly into the metrics band as it fades out. */}
+        <img
+          src={neuralImg.url}
+          alt=""
+          className="absolute select-none"
+          style={{
+            bottom: "clamp(-220px, -14vw, -120px)",
+            right: "clamp(-140px, -8vw, -40px)",
+            width: "clamp(520px, 54vw, 820px)",
+            height: "auto",
+            opacity: nnVisible ? 0.32 : 0,
+            transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            mixBlendMode: "multiply",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+            maskImage:
+              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+            filter: "contrast(1.08)",
+          }}
+        />
       </div>
     </div>
   );
