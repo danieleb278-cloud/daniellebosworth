@@ -51,6 +51,7 @@ function Index() {
       <Resume />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
