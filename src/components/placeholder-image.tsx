@@ -7,6 +7,7 @@ type Props = {
   tone?: "paper" | "ink";
   className?: string;
   fit?: "cover" | "contain" | "cover-top";
+  priority?: boolean;
 };
 
 /**
@@ -22,6 +23,7 @@ export function PlaceholderImage({
   tone = "paper",
   className = "",
   fit = "cover",
+  priority = false,
 }: Props) {
   const isInk = tone === "ink";
   return (
@@ -45,7 +47,9 @@ export function PlaceholderImage({
                 ? "object-cover object-top"
                 : "object-cover"
             }`}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding={priority ? "sync" : "async"}
           />
 
         ) : (
