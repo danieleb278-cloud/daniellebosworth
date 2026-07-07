@@ -252,9 +252,10 @@ function Work() {
                           {t}
                         </span>
                       ))}
-                      <span className="eyebrow link-underline ml-auto hidden md:inline">
-                        Read case →
+                      <span className="eyebrow arrow-slide link-underline ml-auto hidden md:inline">
+                        Read case <span className="arrow" aria-hidden>→</span>
                       </span>
+
                     </div>
                   </div>
                 </div>
