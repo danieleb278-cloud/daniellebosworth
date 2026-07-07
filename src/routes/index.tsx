@@ -270,7 +270,79 @@ function Work() {
   );
 }
 
+function EditorialSketches() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh + 200) {
+      setVisible(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px" },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const baseImg: React.CSSProperties = {
+    position: "absolute",
+    filter: "invert(1) grayscale(1) contrast(0.9)",
+    mixBlendMode: "screen",
+    opacity: visible ? undefined : 0,
+    transition: "opacity 1.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+    userSelect: "none",
+    pointerEvents: "none",
+  };
+
+  return (
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <img
+        src={earSketch}
+        alt=""
+        loading="lazy"
+        width={1024}
+        height={1024}
+        style={{
+          ...baseImg,
+          top: "4%",
+          left: "-6%",
+          width: "clamp(320px, 38vw, 620px)",
+          transitionDelay: "0ms",
+          opacity: visible ? 0.07 : 0,
+        }}
+      />
+      <img
+        src={eyeSketch}
+        alt=""
+        loading="lazy"
+        width={1024}
+        height={1024}
+        style={{
+          ...baseImg,
+          bottom: "-6%",
+          right: "-4%",
+          width: "clamp(340px, 42vw, 680px)",
+          transitionDelay: "450ms",
+          opacity: visible ? 0.06 : 0,
+        }}
+      />
+    </div>
+  );
+}
+
 function About() {
+
   return (
     <section id="about" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
       {/* warm editorial tint — subtle separation from surrounding sections */}
