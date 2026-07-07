@@ -311,7 +311,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — hovering just above the top-left corner of the quote */}
+      {/* Ear — behind the top of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -320,11 +320,11 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-180px, -14vw, -110px)",
-          left: "clamp(-140px, -10vw, -80px)",
-          width: "clamp(180px, 22vw, 300px)",
+          top: "clamp(-140px, -10vw, -70px)",
+          left: "clamp(-90px, -6vw, -40px)",
+          width: "clamp(260px, 32vw, 440px)",
           transitionDelay: "200ms",
-          opacity: visible ? 0.055 : 0,
+          opacity: visible ? 0.09 : 0,
         }}
       />
       {/* Eye — off the bottom-right corner of the quote */}
@@ -336,13 +336,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-200px, -14vw, -120px)",
-          right: "clamp(-180px, -14vw, -110px)",
-          width: "clamp(210px, 26vw, 340px)",
+          bottom: "clamp(-220px, -16vw, -140px)",
+          right: "clamp(-160px, -12vw, -90px)",
+          width: "clamp(300px, 36vw, 480px)",
           transitionDelay: "1400ms",
-          opacity: visible ? 0.05 : 0,
+          opacity: visible ? 0.085 : 0,
         }}
       />
+
     </div>
   );
 }
