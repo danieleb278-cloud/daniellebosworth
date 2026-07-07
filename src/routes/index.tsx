@@ -163,8 +163,9 @@ function HeroBackdrop() {
   const [nnVisible, setNnVisible] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setFpVisible(true), 120);
-    const t2 = setTimeout(() => setNnVisible(true), 900);
+    // Delayed appearance — the viewer is reading, then slowly notices something is there.
+    const t1 = setTimeout(() => setFpVisible(true), 1400);
+    const t2 = setTimeout(() => setNnVisible(true), 2600);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -208,18 +209,20 @@ function HeroBackdrop() {
         }}
       />
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
-        {/* Fingerprint — staggered behind portrait / upper-left. Fades before reaching the quote text. */}
+        {/* Fingerprint — staggered behind portrait / upper-left. Fades in slowly then breathes. */}
         <img
           src={fingerprintImg.url}
           alt=""
-          className="absolute select-none"
+          className="absolute select-none hero-breathe-fp"
           style={{
             top: "clamp(-160px, -10vw, -60px)",
             left: "clamp(-220px, -14vw, -100px)",
             width: "clamp(620px, 68vw, 1060px)",
             height: "auto",
             opacity: fpVisible ? 0.28 : 0,
-            transition: "opacity 3s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: fpVisible ? undefined : "scale(0.94)",
+            transformOrigin: "38% 42%",
+            transition: "opacity 4.5s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.4, 0, 0.2, 1)",
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
@@ -228,18 +231,20 @@ function HeroBackdrop() {
             filter: "contrast(1.05)",
           }}
         />
-        {/* Neural network — starts up near "Designing systems" upper-right and drifts down, fading under the 175 / 32 metrics. */}
+        {/* Neural network — starts up near "Designing systems" upper-right and drifts down. */}
         <img
           src={neuralImg.url}
           alt=""
-          className="absolute select-none"
+          className="absolute select-none hero-breathe-nn"
           style={{
             top: "clamp(40px, 8vw, 140px)",
             right: "clamp(-200px, -12vw, -80px)",
             width: "clamp(620px, 66vw, 1000px)",
             height: "auto",
             opacity: nnVisible ? 0.34 : 0,
-            transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: nnVisible ? undefined : "scale(0.94)",
+            transformOrigin: "52% 38%",
+            transition: "opacity 4.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
             mixBlendMode: "multiply",
             WebkitMaskImage:
               "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
@@ -437,38 +442,40 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — enormous, partially cropped so most stays in view. Barely-there so it's felt, not seen. */}
+      {/* Ear — spans top of section down past the quote, mostly cropped left. Barely-there ghost. */}
       <img
         src={earSketch}
         alt=""
         loading="lazy"
         width={1024}
         height={1024}
+        className="sketch-breathe-ear"
         style={{
           ...baseImg,
-          top: "clamp(-320px, -20vw, -180px)",
-          left: "clamp(-360px, -22vw, -200px)",
-          width: "clamp(1100px, 120vw, 1700px)",
-          transition: "opacity 5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "2200ms",
-          opacity: visible ? 0.07 : 0,
+          top: "clamp(-120px, -6vw, -40px)",
+          left: "clamp(-520px, -30vw, -260px)",
+          width: "clamp(1400px, 95vw, 2000px)",
+          transition: "opacity 6s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "1800ms",
+          opacity: visible ? 0.11 : 0,
         }}
       />
-      {/* Eye — enormous, lower-right, even more subtle. */}
+      {/* Eye — nearly full-width across the strategy area, lower-right, slightly more visible. */}
       <img
         src={eyeSketch}
         alt=""
         loading="lazy"
         width={1024}
         height={1024}
+        className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-520px, -30vw, -280px)",
-          right: "clamp(-480px, -28vw, -260px)",
-          width: "clamp(1200px, 130vw, 1800px)",
-          transition: "opacity 5.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "3800ms",
-          opacity: visible ? 0.05 : 0,
+          bottom: "clamp(-360px, -22vw, -200px)",
+          right: "clamp(-420px, -22vw, -220px)",
+          width: "clamp(1500px, 105vw, 2200px)",
+          transition: "opacity 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "3200ms",
+          opacity: visible ? 0.09 : 0,
         }}
       />
 
@@ -492,13 +499,13 @@ function About() {
             "radial-gradient(120% 80% at 15% 20%, color-mix(in oklab, var(--accent-yellow) 10%, transparent) 0%, transparent 55%), radial-gradient(90% 70% at 85% 90%, color-mix(in oklab, var(--accent-purple) 8%, transparent) 0%, transparent 60%)",
         }}
       />
+      {/* graphite anatomical sketches — anchored to the whole section so they can go huge */}
+      <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6 items-stretch">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
             <div className="relative mt-6">
-              {/* graphite anatomical sketches — anchored to the quote */}
-              <EditorialSketches />
               <figure className="relative border-l-2 border-teal pl-5">
                 <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
                 <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
