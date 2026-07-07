@@ -497,13 +497,13 @@ function About() {
             "radial-gradient(120% 80% at 15% 20%, color-mix(in oklab, var(--accent-yellow) 10%, transparent) 0%, transparent 55%), radial-gradient(90% 70% at 85% 90%, color-mix(in oklab, var(--accent-purple) 8%, transparent) 0%, transparent 60%)",
         }}
       />
+      {/* graphite anatomical sketches — anchored to the whole section so they can go huge */}
+      <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-6 items-stretch">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
             <span className="eyebrow text-background/60">§ About</span>
             <div className="relative mt-6">
-              {/* graphite anatomical sketches — anchored to the quote */}
-              <EditorialSketches />
               <figure className="relative border-l-2 border-teal pl-5">
                 <span aria-hidden className="font-display text-5xl leading-none text-teal">“</span>
                 <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
