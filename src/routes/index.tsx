@@ -299,14 +299,19 @@ function EditorialSketches() {
     position: "absolute",
     filter: "invert(1) grayscale(1) contrast(0.9)",
     mixBlendMode: "screen",
-    opacity: visible ? undefined : 0,
-    transition: "opacity 1.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+    transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
     userSelect: "none",
     pointerEvents: "none",
   };
 
   return (
-    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
+      ref={ref}
+      aria-hidden
+      className="pointer-events-none absolute inset-0"
+      style={{ zIndex: 0 }}
+    >
+      {/* Ear — hovering just above the top-left corner of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -315,13 +320,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "4%",
-          left: "-6%",
-          width: "clamp(320px, 38vw, 620px)",
-          transitionDelay: "0ms",
-          opacity: visible ? 0.07 : 0,
+          top: "clamp(-180px, -14vw, -110px)",
+          left: "clamp(-140px, -10vw, -80px)",
+          width: "clamp(180px, 22vw, 300px)",
+          transitionDelay: "200ms",
+          opacity: visible ? 0.055 : 0,
         }}
       />
+      {/* Eye — off the bottom-right corner of the quote */}
       <img
         src={eyeSketch}
         alt=""
@@ -330,16 +336,17 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "-6%",
-          right: "-4%",
-          width: "clamp(340px, 42vw, 680px)",
-          transitionDelay: "450ms",
-          opacity: visible ? 0.06 : 0,
+          bottom: "clamp(-200px, -14vw, -120px)",
+          right: "clamp(-180px, -14vw, -110px)",
+          width: "clamp(210px, 26vw, 340px)",
+          transitionDelay: "1400ms",
+          opacity: visible ? 0.05 : 0,
         }}
       />
     </div>
   );
 }
+
 
 function About() {
 
