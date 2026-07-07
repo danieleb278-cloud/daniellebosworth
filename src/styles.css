@@ -228,8 +228,40 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .float-slow, .soft-pulse, .marquee-track, .rise-in, .shimmer-in, .page-fade {
+  .float-slow, .soft-pulse, .marquee-track, .rise-in, .shimmer-in, .page-fade, .card-lift, .arrow-slide {
     animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
+
+@utility card-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.4s ease;
+  will-change: transform;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 40px -20px color-mix(in oklab, var(--ink) 35%, transparent),
+      0 4px 12px -6px color-mix(in oklab, var(--teal) 25%, transparent);
+  }
+}
+
+@utility arrow-slide {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  & > .arrow {
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .group:hover & {
+    gap: 0.7rem;
+  }
+  .group:hover & > .arrow {
+    transform: translateX(4px);
+  }
+}
+
 
