@@ -47,7 +47,9 @@ export function PlaceholderImage({
                 ? "object-cover object-top"
                 : "object-cover"
             }`}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding={priority ? "sync" : "async"}
           />
 
         ) : (
