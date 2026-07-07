@@ -214,9 +214,9 @@ function HeroBackdrop() {
           alt=""
           className="absolute select-none"
           style={{
-            top: "clamp(-120px, -8vw, -40px)",
-            left: "clamp(-180px, -12vw, -80px)",
-            width: "clamp(540px, 58vw, 900px)",
+            top: "clamp(-160px, -10vw, -60px)",
+            left: "clamp(-220px, -14vw, -100px)",
+            width: "clamp(620px, 68vw, 1060px)",
             height: "auto",
             opacity: fpVisible ? 0.28 : 0,
             transition: "opacity 3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -228,23 +228,23 @@ function HeroBackdrop() {
             filter: "contrast(1.05)",
           }}
         />
-        {/* Neural network — lower-right, allowed to drop softly into the metrics band as it fades out. */}
+        {/* Neural network — starts up near "Designing systems" upper-right and drifts down, fading under the 175 / 32 metrics. */}
         <img
           src={neuralImg.url}
           alt=""
           className="absolute select-none"
           style={{
-            bottom: "clamp(-220px, -14vw, -120px)",
-            right: "clamp(-140px, -8vw, -40px)",
-            width: "clamp(520px, 54vw, 820px)",
+            top: "clamp(40px, 8vw, 140px)",
+            right: "clamp(-200px, -12vw, -80px)",
+            width: "clamp(620px, 66vw, 1000px)",
             height: "auto",
-            opacity: nnVisible ? 0.32 : 0,
+            opacity: nnVisible ? 0.34 : 0,
             transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
             mixBlendMode: "multiply",
             WebkitMaskImage:
-              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+              "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
             maskImage:
-              "radial-gradient(ellipse 65% 60% at 55% 40%, black 22%, rgba(0,0,0,0.7) 58%, transparent 90%)",
+              "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
             filter: "contrast(1.08)",
           }}
         />
