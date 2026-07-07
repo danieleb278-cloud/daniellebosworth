@@ -435,7 +435,7 @@ function EditorialSketches() {
         loading="lazy"
         width={1024}
         height={1024}
-        className="sketch-breathe-ear"
+        
         style={{
           ...baseImg,
           top: "clamp(-120px, -6vw, -40px)",
