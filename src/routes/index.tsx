@@ -437,7 +437,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — dominates the top-left, cropped off canvas. Appears late so it's almost an afterthought. */}
+      {/* Ear — enormous, partially cropped so most stays in view. Barely-there so it's felt, not seen. */}
       <img
         src={earSketch}
         alt=""
@@ -446,15 +446,15 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-260px, -18vw, -140px)",
-          left: "clamp(-220px, -14vw, -120px)",
-          width: "clamp(520px, 58vw, 820px)",
+          top: "clamp(-320px, -20vw, -180px)",
+          left: "clamp(-360px, -22vw, -200px)",
+          width: "clamp(1100px, 120vw, 1700px)",
           transition: "opacity 5s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2200ms",
-          opacity: visible ? 0.11 : 0,
+          opacity: visible ? 0.07 : 0,
         }}
       />
-      {/* Eye — lower-right, same treatment, arrives even later like a quiet reveal. */}
+      {/* Eye — enormous, lower-right, even more subtle. */}
       <img
         src={eyeSketch}
         alt=""
@@ -463,12 +463,12 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-320px, -22vw, -180px)",
-          right: "clamp(-260px, -16vw, -140px)",
-          width: "clamp(560px, 62vw, 880px)",
+          bottom: "clamp(-520px, -30vw, -280px)",
+          right: "clamp(-480px, -28vw, -260px)",
+          width: "clamp(1200px, 130vw, 1800px)",
           transition: "opacity 5.5s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
-          opacity: visible ? 0.1 : 0,
+          opacity: visible ? 0.05 : 0,
         }}
       />
 
