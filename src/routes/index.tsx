@@ -455,7 +455,7 @@ function EditorialSketches() {
             "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — iris sits in the dark quote area, mid-right. */}
+      {/* Eye — smaller and tucked near the bottom so it does not overlap the ear. */}
       <img
         src={eyeSketch}
         alt=""
@@ -465,9 +465,9 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-120px, -6vw, -40px)",
-          left: "clamp(-180px, -8vw, -60px)",
-          width: "clamp(850px, 58vw, 1250px)",
+          bottom: "clamp(-260px, -18vw, -150px)",
+          left: "clamp(-80px, -3vw, 20px)",
+          width: "clamp(560px, 42vw, 900px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
           opacity: visible ? 0.14 : 0,
