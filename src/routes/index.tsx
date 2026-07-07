@@ -540,17 +540,22 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, "Message is required").max(2000),
 });
 
+type SendStatus = "idle" | "sending" | "sent" | "error";
+
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [company, setCompany] = useState(""); // honeypot
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<SendStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (company) return; // bot
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       const fieldErrors: Record<string, string> = {};
@@ -562,31 +567,53 @@ function ContactForm() {
       return;
     }
     setErrors({});
+    setStatus("sending");
+    setErrorMsg(null);
     const { name, email, phone, message } = parsed.data;
-    const subject = `Portfolio inquiry from ${name}`;
-    const bodyLines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      phone ? `Phone: ${phone}` : null,
-      "",
-      message,
-    ].filter(Boolean);
-    const href = `mailto:Danieleb278@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = href;
-    setStatus("sent");
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        name,
+        email,
+        phone: phone && phone.length > 0 ? phone : null,
+        message,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+      });
+      if (error) throw error;
+      setStatus("sent");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("contact_messages insert failed", err);
+      setStatus("error");
+      setErrorMsg(
+        "Something went wrong sending your message. You can email me directly instead.",
+      );
+    }
   }
 
   const inputCls =
-    "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none";
+    "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
     <form onSubmit={onSubmit} className="border-l-0 md:border-l-2 md:border-teal md:pl-8">
       <span className="eyebrow">Send a message</span>
       <p className="mt-2 text-sm text-muted-foreground">
-        Fill this out and I'll open your email app with everything ready to send.
+        Drop me a line here — messages land straight in my inbox.
       </p>
+
+      {/* honeypot: hidden from users, catches bots */}
+      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden" tabIndex={-1}>
+        <label>
+          Company
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+          />
+        </label>
+      </div>
 
       <div className="mt-6 space-y-5">
         <div>
@@ -646,26 +673,29 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="eyebrow inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
+          disabled={status === "sending"}
+          className="eyebrow inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2 text-background transition-all duration-300 hover:bg-transparent hover:text-teal hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-wait"
         >
-          Send message →
+          {status === "sending" ? "Sending…" : "Send message →"}
         </button>
 
         {status === "sent" && (
-          <p className="text-xs text-muted-foreground">
-            Opening your email app… if nothing happens, write me at{" "}
+          <p className="rise-in text-sm text-teal">
+            Thanks — your message is on its way. I'll get back to you soon.
+          </p>
+        )}
+        {status === "error" && errorMsg && (
+          <p className="text-sm text-accent">
+            {errorMsg}{" "}
             <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
               Danieleb278@gmail.com
             </a>
-            .
           </p>
         )}
       </div>
     </form>
   );
 }
-
-
 
 function Footer() {
   return (
@@ -677,3 +707,26 @@ function Footer() {
     </footer>
   );
 }
+
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 800);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      className={`fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border-2 border-teal bg-charcoal text-background shadow-lg transition-all duration-500 hover:-translate-y-1 hover:bg-teal ${
+        show ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-3 pointer-events-none"
+      }`}
+    >
+      <span aria-hidden className="font-display text-xl leading-none">↑</span>
+    </button>
+  );
+}
+
