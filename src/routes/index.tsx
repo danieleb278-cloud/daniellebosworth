@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
+import { supabase } from "@/integrations/supabase/client";
 import portrait from "@/assets/portrait.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 
