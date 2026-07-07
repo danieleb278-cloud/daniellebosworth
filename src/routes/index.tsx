@@ -62,32 +62,45 @@ function Index() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-32 pb-20 md:px-12 md:pt-48 md:pb-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section className="relative overflow-hidden px-6 pt-32 pb-20 md:px-12 md:pt-48 md:pb-32">
+      <HeroBackdrop />
+      <div className="relative mx-auto max-w-[1400px]">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-2">
           <span className="eyebrow">№ 001 — Portfolio, 2026</span>
           <span className="eyebrow">Customer Experience, Design, and Strategy</span>
         </div>
 
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-stretch">
-          <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] rise-in md:col-span-8 md:order-2">
-            <span className="block">Understanding <span className="italic">behavior</span>.</span>
-            <span className="block">Designing <span className="italic">systems</span>.</span>
-            <span className="block">Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
+          <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] md:col-span-8 md:order-2">
+            <span className="block rise-in" style={{ animationDelay: "80ms" }}>Understanding <span className="italic">behavior</span>.</span>
+            <span className="block rise-in" style={{ animationDelay: "220ms" }}>Designing <span className="italic">systems</span>.</span>
+            <span className="block rise-in" style={{ animationDelay: "360ms" }}>Bridging <span className="italic">gaps</span><span className="text-teal">.</span></span>
           </h1>
 
           <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
             <Reveal delay={120}>
               <ParallaxWrap>
-                <div className="overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl card-lift">
-                  <PlaceholderImage
-                    src={portrait.url}
-                    alt="Portrait of Danielle Bosworth"
-                    label="Portrait"
-                    caption="Danielle Bosworth"
-                    ratio="4/5"
-                    fit="cover-top"
+                <div className="relative">
+                  {/* soft radial glow behind portrait */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-8 md:-inset-12"
+                    style={{
+                      background:
+                        "radial-gradient(60% 55% at 50% 45%, color-mix(in oklab, var(--teal) 22%, transparent) 0%, transparent 70%)",
+                      filter: "blur(20px)",
+                    }}
                   />
+                  <div className="relative overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl card-lift">
+                    <PlaceholderImage
+                      src={portrait.url}
+                      alt="Portrait of Danielle Bosworth"
+                      label="Portrait"
+                      caption="Danielle Bosworth"
+                      ratio="4/5"
+                      fit="cover-top"
+                    />
+                  </div>
                 </div>
               </ParallaxWrap>
             </Reveal>
@@ -97,27 +110,35 @@ function Hero() {
 
         <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
           <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
-            <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
-              People often tell one story — their behavior tells another. I
-              design for the gap in between<span className="text-accent">.</span>
-            </p>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Before studying product design, I spent years working directly
-              with customers. Those conversations taught me something research
-              continues to confirm:
-            </p>
-            <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
-              What people say, what they do, and what they actually need are
-              often three different things.
-            </blockquote>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              My work focuses on understanding those gaps and designing better
-              experiences around them.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Completing a Master of Business and Science in Product Design
-              &amp; Innovation at Rutgers University.
-            </p>
+            <Reveal delay={480}>
+              <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
+                People often tell one story — their behavior tells another. I
+                design for the gap in between<span className="text-accent">.</span>
+              </p>
+            </Reveal>
+            <Reveal delay={560}>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                Before studying product design, I spent years working directly
+                with customers. Those conversations taught me something research
+                continues to confirm:
+              </p>
+            </Reveal>
+            <Reveal delay={640}>
+              <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
+                What people say, what they do, and what they actually need are
+                often three different things.
+              </blockquote>
+            </Reveal>
+            <Reveal delay={720}>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                My work focuses on understanding those gaps and designing better
+                experiences around them.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                Completing a Master of Business and Science in Product Design
+                &amp; Innovation at Rutgers University.
+              </p>
+            </Reveal>
 
           </div>
           <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
@@ -131,6 +152,166 @@ function Hero() {
     </section>
   );
 }
+
+function HeroBackdrop() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 60);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let raf = 0;
+    let tx = 0, ty = 0;
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      tx = ((e.clientX - cx) / rect.width) * -14;
+      ty = ((e.clientY - cy) / rect.height) * -10;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)`;
+      });
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0"
+      style={{
+        opacity: visible ? 1 : 0,
+        transition: "opacity 2.4s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
+    >
+      {/* warm paper wash behind everything */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 6%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 5%, transparent) 0%, transparent 65%)",
+        }}
+      />
+      {/* parallax layer — notebook fragments */}
+      <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 1600 1000"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ color: "var(--foreground)" }}
+        >
+          {/* handwritten note squiggles (top-left) */}
+          <g style={{ opacity: 0.05 }} strokeWidth="1.4">
+            <path d="M80 140 q30 -14 60 -2 t60 -2 t60 4 t60 -6" />
+            <path d="M80 168 q28 -10 56 0 t56 4 t56 -6 t56 2" />
+            <path d="M80 196 q34 -8 68 4 t68 -4 t68 6" />
+            <path d="M80 224 q26 -6 52 2 t52 -4 t52 6 t52 -2" />
+            <path d="M80 252 q30 -10 60 0 t60 4 t60 -8" />
+          </g>
+
+          {/* wireframe fragment (top-right) */}
+          <g style={{ opacity: 0.05 }} strokeWidth="1.2">
+            <rect x="1240" y="120" width="260" height="170" rx="4" />
+            <rect x="1260" y="140" width="80" height="12" rx="2" />
+            <rect x="1260" y="164" width="220" height="8" rx="2" />
+            <rect x="1260" y="182" width="200" height="8" rx="2" />
+            <rect x="1260" y="200" width="180" height="8" rx="2" />
+            <rect x="1260" y="230" width="90" height="40" rx="3" />
+            <rect x="1360" y="230" width="90" height="40" rx="3" />
+          </g>
+
+          {/* journey map dashed line + nodes (mid) */}
+          <g style={{ opacity: 0.06 }} strokeWidth="1.4">
+            <path d="M120 560 C 320 500, 520 640, 720 560 S 1120 480, 1480 580" strokeDasharray="6 8" />
+            <circle cx="120" cy="560" r="6" fill="currentColor" stroke="none" />
+            <circle cx="420" cy="558" r="5" />
+            <circle cx="720" cy="560" r="6" />
+            <circle cx="1020" cy="536" r="5" />
+            <circle cx="1480" cy="580" r="6" fill="currentColor" stroke="none" />
+          </g>
+
+          {/* sticky note silhouettes (bottom-left cluster) */}
+          <g style={{ opacity: 0.045 }} strokeWidth="1.2">
+            <rect x="150" y="720" width="90" height="90" transform="rotate(-4 195 765)" />
+            <rect x="220" y="740" width="90" height="90" transform="rotate(3 265 785)" />
+            <rect x="290" y="720" width="90" height="90" transform="rotate(-2 335 765)" />
+          </g>
+
+          {/* affinity map dots cluster (mid-right) */}
+          <g style={{ opacity: 0.06 }} fill="currentColor" stroke="none">
+            <circle cx="1180" cy="720" r="4" />
+            <circle cx="1210" cy="710" r="4" />
+            <circle cx="1240" cy="726" r="4" />
+            <circle cx="1200" cy="740" r="4" />
+            <circle cx="1234" cy="748" r="4" />
+            <circle cx="1260" cy="700" r="4" />
+            <circle cx="1290" cy="722" r="4" />
+            <circle cx="1268" cy="748" r="4" />
+          </g>
+          <g style={{ opacity: 0.04 }} strokeWidth="1">
+            <rect x="1150" y="680" width="180" height="100" rx="6" strokeDasharray="4 5" />
+          </g>
+
+          {/* flow arrow (bottom-center) */}
+          <g style={{ opacity: 0.06 }} strokeWidth="1.4">
+            <path d="M540 880 h240" />
+            <path d="M770 870 l14 10 l-14 10" />
+            <path d="M840 880 h180" />
+            <path d="M1010 870 l14 10 l-14 10" />
+          </g>
+
+          {/* mini bar chart (top-mid) */}
+          <g style={{ opacity: 0.05 }} strokeWidth="1.2">
+            <line x1="640" y1="220" x2="640" y2="120" />
+            <line x1="640" y1="220" x2="820" y2="220" />
+            <rect x="650" y="180" width="18" height="40" fill="currentColor" stroke="none" />
+            <rect x="678" y="160" width="18" height="60" fill="currentColor" stroke="none" />
+            <rect x="706" y="140" width="18" height="80" fill="currentColor" stroke="none" />
+            <rect x="734" y="170" width="18" height="50" fill="currentColor" stroke="none" />
+            <rect x="762" y="150" width="18" height="70" fill="currentColor" stroke="none" />
+          </g>
+
+          {/* small sketch — light bulb outline (bottom-right) */}
+          <g style={{ opacity: 0.05 }} strokeWidth="1.3">
+            <path d="M1420 820 a28 28 0 1 1 40 24 v14 h-40 v-14 a28 28 0 0 1 0 -24 z" />
+            <line x1="1428" y1="866" x2="1452" y2="866" />
+            <line x1="1432" y1="878" x2="1448" y2="878" />
+          </g>
+
+          {/* teal annotation marks — the only accent color */}
+          <g style={{ color: "var(--teal)", opacity: 0.28 }} stroke="currentColor" strokeWidth="1.4">
+            <circle cx="720" cy="560" r="14" fill="none" strokeDasharray="3 4" />
+            <path d="M240 300 l24 -22" />
+            <path d="M264 278 l-8 2 l2 -8" fill="currentColor" stroke="none" />
+            <path d="M1180 200 q40 -30 80 -10" fill="none" />
+            <text x="748" y="556" fontFamily="ui-monospace, monospace" fontSize="11" fill="currentColor" stroke="none">
+              gap
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+
 
 function Stat({ k, label }: { k: string; label: string }) {
   return (
@@ -311,7 +492,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — hovering just above the top-left corner of the quote */}
+      {/* Ear — behind the top of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -320,11 +501,11 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-180px, -14vw, -110px)",
-          left: "clamp(-140px, -10vw, -80px)",
-          width: "clamp(180px, 22vw, 300px)",
+          top: "clamp(-140px, -10vw, -70px)",
+          left: "clamp(-90px, -6vw, -40px)",
+          width: "clamp(260px, 32vw, 440px)",
           transitionDelay: "200ms",
-          opacity: visible ? 0.055 : 0,
+          opacity: visible ? 0.09 : 0,
         }}
       />
       {/* Eye — off the bottom-right corner of the quote */}
@@ -336,13 +517,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-200px, -14vw, -120px)",
-          right: "clamp(-180px, -14vw, -110px)",
-          width: "clamp(210px, 26vw, 340px)",
+          bottom: "clamp(-220px, -16vw, -140px)",
+          right: "clamp(-160px, -12vw, -90px)",
+          width: "clamp(300px, 36vw, 480px)",
           transitionDelay: "1400ms",
-          opacity: visible ? 0.05 : 0,
+          opacity: visible ? 0.085 : 0,
         }}
       />
+
     </div>
   );
 }
