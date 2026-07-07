@@ -23,6 +23,7 @@ export function PlaceholderImage({
   tone = "paper",
   className = "",
   fit = "cover",
+  priority = false,
 }: Props) {
   const isInk = tone === "ink";
   return (
