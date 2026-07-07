@@ -446,9 +446,9 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-260px, -18vw, -140px)",
-          left: "clamp(-220px, -14vw, -120px)",
-          width: "clamp(520px, 58vw, 820px)",
+          top: "clamp(-380px, -26vw, -220px)",
+          left: "clamp(-360px, -22vw, -200px)",
+          width: "clamp(820px, 92vw, 1320px)",
           transition: "opacity 5s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2200ms",
           opacity: visible ? 0.11 : 0,
@@ -463,9 +463,9 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-320px, -22vw, -180px)",
-          right: "clamp(-260px, -16vw, -140px)",
-          width: "clamp(560px, 62vw, 880px)",
+          bottom: "clamp(-460px, -30vw, -260px)",
+          right: "clamp(-400px, -24vw, -220px)",
+          width: "clamp(880px, 96vw, 1400px)",
           transition: "opacity 5.5s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
           opacity: visible ? 0.1 : 0,
