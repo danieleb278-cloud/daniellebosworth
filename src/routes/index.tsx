@@ -207,11 +207,50 @@ function buildNeuralField(width: number, height: number) {
   return { nodes, edges };
 }
 
+// Fingerprint — nested distorted arcs radiating from a whorl center.
+function buildFingerprint(cx: number, cy: number, seed: number) {
+  const rand = mulberry32(seed);
+  const rings: string[] = [];
+  const count = 34;
+  for (let i = 0; i < count; i++) {
+    const rBase = 14 + i * 11;
+    const points: string[] = [];
+    const steps = 96;
+    const phase = rand() * Math.PI * 2;
+    const wobbleAmp = 3 + rand() * 5;
+    const wobbleFreq = 2 + Math.floor(rand() * 3);
+    const skew = 1 + rand() * 0.15; // slight vertical stretch per ring
+    // leave a small "opening" on one side for a few outer rings so ridges look natural
+    const openStart = i > count * 0.55 && rand() < 0.35 ? rand() * Math.PI * 2 : null;
+    const openWidth = 0.35 + rand() * 0.4;
+    for (let s = 0; s <= steps; s++) {
+      const t = (s / steps) * Math.PI * 2;
+      if (openStart !== null) {
+        const diff = Math.abs(((t - openStart + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+        if (Math.PI - diff < openWidth) {
+          if (points.length) {
+            rings.push("M " + points.join(" L "));
+            points.length = 0;
+          }
+          continue;
+        }
+      }
+      const r = rBase + Math.sin(t * wobbleFreq + phase) * wobbleAmp;
+      const x = cx + Math.cos(t) * r;
+      const y = cy + Math.sin(t) * r * skew;
+      points.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
+    }
+    if (points.length) rings.push("M " + points.join(" L "));
+  }
+  return rings;
+}
+
 function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   const field = useMemo(() => buildNeuralField(1600, 1000), []);
+  const fingerprint = useMemo(() => buildFingerprint(430, 470, 20260707), []);
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -229,7 +268,6 @@ function HeroBackdrop() {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      // very slight drift — texture should feel alive, not moving
       tx = ((e.clientX - cx) / rect.width) * -5;
       ty = ((e.clientY - cy) / rect.height) * -4;
       if (raf) return;
@@ -262,7 +300,7 @@ function HeroBackdrop() {
             "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 5%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 4%, transparent) 0%, transparent 65%)",
         }}
       />
-      {/* parallax layer — neural network field */}
+      {/* parallax layer — fingerprint (upper-left, behind portrait & first line) + neural (lower-right, behind lower lines) */}
       <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
         <svg
           className="absolute inset-0 h-full w-full"
@@ -271,27 +309,48 @@ function HeroBackdrop() {
           fill="none"
           style={{ color: "var(--foreground)" }}
         >
-          {/* soft radial mask so the field fades toward the edges */}
           <defs>
-            <radialGradient id="hero-field-mask" cx="50%" cy="50%" r="65%">
+            {/* Fingerprint fade — anchored top-left, softens toward center */}
+            <radialGradient id="hero-print-mask" cx="27%" cy="46%" r="46%">
               <stop offset="0%" stopColor="white" stopOpacity="1" />
               <stop offset="70%" stopColor="white" stopOpacity="0.55" />
               <stop offset="100%" stopColor="white" stopOpacity="0" />
             </radialGradient>
-            <mask id="hero-field-fade">
-              <rect width="1600" height="1000" fill="url(#hero-field-mask)" />
+            <mask id="hero-print-fade">
+              <rect width="1600" height="1000" fill="url(#hero-print-mask)" />
+            </mask>
+            {/* Neural fade — anchored lower-right, behind Designing/Bridging */}
+            <radialGradient id="hero-neural-mask" cx="72%" cy="70%" r="52%">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="72%" stopColor="white" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </radialGradient>
+            <mask id="hero-neural-fade">
+              <rect width="1600" height="1000" fill="url(#hero-neural-mask)" />
             </mask>
           </defs>
 
-          <g mask="url(#hero-field-fade)">
-            {/* connective filaments */}
-            <g stroke="currentColor" strokeWidth="0.6" style={{ opacity: 0.22 }}>
+          {/* Fingerprint ridges */}
+          <g
+            mask="url(#hero-print-fade)"
+            stroke="currentColor"
+            strokeWidth="0.7"
+            strokeLinecap="round"
+            style={{ opacity: 0.32 }}
+          >
+            {fingerprint.map((d, i) => (
+              <path key={`fp${i}`} d={d} />
+            ))}
+          </g>
+
+          {/* Neural pathways */}
+          <g mask="url(#hero-neural-fade)">
+            <g stroke="currentColor" strokeWidth="0.6" style={{ opacity: 0.24 }}>
               {field.edges.map(([a, b], i) => (
                 <line key={`e${i}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} />
               ))}
             </g>
-            {/* nodes */}
-            <g fill="currentColor" style={{ opacity: 0.35 }}>
+            <g fill="currentColor" style={{ opacity: 0.38 }}>
               {field.nodes.map((n, i) => (
                 <circle key={`n${i}`} cx={n.x} cy={n.y} r={n.r} />
               ))}
@@ -302,6 +361,7 @@ function HeroBackdrop() {
     </div>
   );
 }
+
 
 
 
@@ -486,7 +546,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — behind the top of the quote */}
+      {/* Ear — oversized, cropped by top-left corner of the quote */}
       <img
         src={earSketch}
         alt=""
@@ -495,14 +555,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          top: "clamp(-140px, -10vw, -70px)",
-          left: "clamp(-90px, -6vw, -40px)",
-          width: "clamp(260px, 32vw, 440px)",
+          top: "clamp(-320px, -22vw, -180px)",
+          left: "clamp(-260px, -18vw, -140px)",
+          width: "clamp(520px, 60vw, 820px)",
           transitionDelay: "200ms",
           opacity: visible ? 0.09 : 0,
         }}
       />
-      {/* Eye — off the bottom-right corner of the quote */}
+      {/* Eye — oversized, cropped by bottom-right corner of the quote */}
       <img
         src={eyeSketch}
         alt=""
@@ -511,13 +571,14 @@ function EditorialSketches() {
         height={1024}
         style={{
           ...baseImg,
-          bottom: "clamp(-220px, -16vw, -140px)",
-          right: "clamp(-160px, -12vw, -90px)",
-          width: "clamp(300px, 36vw, 480px)",
+          bottom: "clamp(-380px, -26vw, -220px)",
+          right: "clamp(-300px, -22vw, -170px)",
+          width: "clamp(560px, 68vw, 900px)",
           transitionDelay: "1400ms",
           opacity: visible ? 0.085 : 0,
         }}
       />
+
 
     </div>
   );
