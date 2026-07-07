@@ -7,6 +7,7 @@ type Props = {
   tone?: "paper" | "ink";
   className?: string;
   fit?: "cover" | "contain" | "cover-top";
+  priority?: boolean;
 };
 
 /**
