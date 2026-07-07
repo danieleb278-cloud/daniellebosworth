@@ -435,7 +435,7 @@ function EditorialSketches() {
         loading="lazy"
         width={1024}
         height={1024}
-        className="sketch-breathe-ear"
+        
         style={{
           ...baseImg,
           top: "clamp(-120px, -6vw, -40px)",
@@ -443,14 +443,19 @@ function EditorialSketches() {
           width: "clamp(1400px, 95vw, 2000px)",
           transition: "opacity 7s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2400ms",
-          opacity: visible ? 0.065 : 0,
+          opacity: visible ? 0.11 : 0,
+          // Flip so the outer helix curls toward the center and the canal
+          // sits at the outside edge. Slightly stronger contrast so the
+          // rim of the ear reads as a shape, not just mist.
+          filter: "invert(1) grayscale(1) contrast(1.05) brightness(1)",
+          transform: "scaleX(-1)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
+            "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 60% 62% at 40% 45%, black 20%, rgba(0,0,0,0.6) 55%, transparent 90%)",
+            "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — pupil/iris sit in the dark quote area, mid-right. */}
+      {/* Eye — iris sits in the dark quote area, mid-right. */}
       <img
         src={eyeSketch}
         alt=""
@@ -460,16 +465,17 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          top: "clamp(-200px, -10vw, -80px)",
+          bottom: "clamp(60px, 12vw, 220px)",
           right: "clamp(-420px, -22vw, -220px)",
           width: "clamp(1500px, 105vw, 2200px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
-          opacity: visible ? 0.07 : 0,
+          opacity: visible ? 0.13 : 0,
+          filter: "invert(1) grayscale(1) contrast(1) brightness(1)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 58% 60% at 55% 55%, black 20%, rgba(0,0,0,0.55) 58%, transparent 92%)",
+            "radial-gradient(ellipse 55% 55% at 52% 55%, black 25%, rgba(0,0,0,0.65) 60%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 58% 60% at 55% 55%, black 20%, rgba(0,0,0,0.55) 58%, transparent 92%)",
+            "radial-gradient(ellipse 55% 55% at 52% 55%, black 25%, rgba(0,0,0,0.65) 60%, transparent 92%)",
         }}
       />
     </div>
