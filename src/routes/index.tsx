@@ -465,17 +465,17 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(60px, 12vw, 220px)",
-          right: "clamp(-420px, -22vw, -220px)",
-          width: "clamp(1500px, 105vw, 2200px)",
+          bottom: "clamp(-40px, -2vw, 20px)",
+          right: "clamp(-520px, -28vw, -300px)",
+          width: "clamp(1200px, 82vw, 1750px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
-          opacity: visible ? 0.13 : 0,
-          filter: "invert(1) grayscale(1) contrast(1) brightness(1)",
+          opacity: visible ? 0.14 : 0,
+          filter: "invert(1) grayscale(1) contrast(1.05) brightness(1)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 55% 55% at 52% 55%, black 25%, rgba(0,0,0,0.65) 60%, transparent 92%)",
+            "radial-gradient(ellipse 52% 52% at 48% 52%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 55% 55% at 52% 55%, black 25%, rgba(0,0,0,0.65) 60%, transparent 92%)",
+            "radial-gradient(ellipse 52% 52% at 48% 52%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
         }}
       />
     </div>
