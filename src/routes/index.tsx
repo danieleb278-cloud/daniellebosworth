@@ -426,10 +426,13 @@ function EditorialSketches() {
     return () => obs.disconnect();
   }, []);
 
+  // Match the fingerprint's rendering: multiply blend, gentle contrast, radial mask.
+  // This lets the sketch's white paper drop out entirely into the navy background
+  // (no gray box), leaving only the strokes pressed into the page like a letterpress.
   const baseImg: React.CSSProperties = {
     position: "absolute",
-    filter: "invert(1) grayscale(1) contrast(0.9)",
-    mixBlendMode: "screen",
+    mixBlendMode: "multiply",
+    filter: "contrast(1.05)",
     transition: "opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1)",
     userSelect: "none",
     pointerEvents: "none",
@@ -442,7 +445,7 @@ function EditorialSketches() {
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: 0 }}
     >
-      {/* Ear — spans top of section down past the quote, mostly cropped left. Barely-there ghost. */}
+      {/* Ear — spans top of section down past the quote, mostly cropped left. Watermark. */}
       <img
         src={earSketch}
         alt=""
@@ -457,10 +460,14 @@ function EditorialSketches() {
           width: "clamp(1400px, 95vw, 2000px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "2800ms",
-          opacity: visible ? 0.075 : 0,
+          opacity: visible ? 0.5 : 0,
+          WebkitMaskImage:
+            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
+          maskImage:
+            "radial-gradient(ellipse 60% 62% at 40% 45%, black 25%, rgba(0,0,0,0.75) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — nearly full-width across the strategy area, lower-right, slightly more visible. */}
+      {/* Eye — nearly full-width across the strategy area, lower-right. Watermark. */}
       <img
         src={eyeSketch}
         alt=""
@@ -475,7 +482,11 @@ function EditorialSketches() {
           width: "clamp(1500px, 105vw, 2200px)",
           transition: "opacity 9s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "4500ms",
-          opacity: visible ? 0.06 : 0,
+          opacity: visible ? 0.42 : 0,
+          WebkitMaskImage:
+            "radial-gradient(ellipse 58% 60% at 55% 55%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
+          maskImage:
+            "radial-gradient(ellipse 58% 60% at 55% 55%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
 
