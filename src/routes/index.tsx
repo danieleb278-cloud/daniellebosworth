@@ -11,6 +11,8 @@ import portrait from "@/assets/portrait.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 import earSketch from "@/assets/editorial/ear-sketch.png";
 import eyeSketch from "@/assets/editorial/eye-sketch.png";
+import fingerprintImg from "@/assets/fingerprint-light.png.asset.json";
+import neuralImg from "@/assets/neural-light.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
