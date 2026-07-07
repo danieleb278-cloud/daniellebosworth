@@ -174,7 +174,10 @@ function ParallaxWrap({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Marquee() {
+  const items = [...marquee, ...marquee];
   return (
+
     <section className="overflow-hidden border-y border-border bg-foreground py-5 text-background">
       <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
         {items.map((t, i) => (
