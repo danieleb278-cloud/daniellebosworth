@@ -219,7 +219,7 @@ function Work() {
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
                   <div className="col-span-12 md:col-span-5 md:order-2">
-                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl bg-charcoal">
+                    <div className="overflow-hidden border-2 border-teal p-3 shadow-lg card-lift bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
                         ratio="4/3"
