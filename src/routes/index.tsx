@@ -455,9 +455,9 @@ function EditorialSketches() {
           top: "clamp(-120px, -6vw, -40px)",
           left: "clamp(-520px, -30vw, -260px)",
           width: "clamp(1400px, 95vw, 2000px)",
-          transition: "opacity 6s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "1800ms",
-          opacity: visible ? 0.11 : 0,
+          transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "2800ms",
+          opacity: visible ? 0.075 : 0,
         }}
       />
       {/* Eye — nearly full-width across the strategy area, lower-right, slightly more visible. */}
@@ -473,9 +473,9 @@ function EditorialSketches() {
           bottom: "clamp(-360px, -22vw, -200px)",
           right: "clamp(-420px, -22vw, -220px)",
           width: "clamp(1500px, 105vw, 2200px)",
-          transition: "opacity 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "3200ms",
-          opacity: visible ? 0.09 : 0,
+          transition: "opacity 9s cubic-bezier(0.4, 0, 0.2, 1)",
+          transitionDelay: "4500ms",
+          opacity: visible ? 0.06 : 0,
         }}
       />
 
