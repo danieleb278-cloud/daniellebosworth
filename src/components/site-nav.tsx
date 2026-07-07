@@ -74,16 +74,23 @@ export function SiteNav() {
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`/#${s.id}`}
-                className={`eyebrow link-underline ${isDark ? 'text-background' : 'text-foreground'}`}
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
+          {sections.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`/#${s.id}`}
+                  className={`eyebrow link-underline flex items-center gap-2 transition-colors duration-300 ${isDark ? 'text-background' : 'text-foreground'} ${isActive ? '!text-teal' : ''}`}
+                >
+                  <span
+                    aria-hidden
+                    className={`h-1 w-1 rounded-full bg-teal transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+                  />
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <button
