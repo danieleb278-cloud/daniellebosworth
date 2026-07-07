@@ -54,20 +54,16 @@ export function AnimatedCounter({
       requestAnimationFrame(tick);
     };
 
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh) {
-      run();
-      return;
-    }
+    // Always wait for the user to actually scroll to the counter — no auto-run
+    // when it happens to be within the initial viewport.
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
           run();
           obs.disconnect();
         }
       },
-      { threshold: 0.35 },
+      { threshold: [0, 0.6, 1] },
     );
     obs.observe(el);
     return () => obs.disconnect();
