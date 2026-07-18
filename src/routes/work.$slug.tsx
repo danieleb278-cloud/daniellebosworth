@@ -261,7 +261,7 @@ function CaseStudyPage() {
           <section className="px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
               <div className="grid grid-cols-12 gap-6">
-                <span className="eyebrow col-span-12 md:col-span-2">§ Reflection</span>
+                <h2 className="eyebrow col-span-12 md:col-span-2">§ Reflection</h2>
                 <p className="col-span-12 font-display text-3xl leading-snug tracking-tight md:col-span-9 md:text-5xl">
                   {study.reflections}
                 </p>
