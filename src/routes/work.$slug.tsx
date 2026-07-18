@@ -111,7 +111,7 @@ function CaseStudyPage() {
       {study.snapshot && (
         <section className="border-t border-border px-6 py-16 md:px-12 md:py-20">
           <div className="mx-auto max-w-[1400px]">
-            <span className="eyebrow text-accent mb-10 block">Project Snapshot</span>
+            <h2 className="eyebrow text-accent mb-10 block">Project Snapshot</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Project Type", study.snapshot.projectType],
