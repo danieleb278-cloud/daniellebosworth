@@ -241,7 +241,7 @@ function CaseStudyPage() {
           {/* Outcomes */}
           <section className="border-t border-border bg-secondary px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
-              <span className="eyebrow">§ Outcomes</span>
+              <h2 className="eyebrow">§ Outcomes</h2>
               <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
                 {study.outcomes.map((o, i) => (
                   <Reveal key={o.label} delay={i * 100}>
