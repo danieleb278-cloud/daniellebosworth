@@ -174,11 +174,11 @@ function CaseStudyPage() {
           <section className="px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6">
               <Reveal className="col-span-12 md:col-span-5">
-                <span className="eyebrow">§ Context</span>
+                <h2 className="eyebrow">§ Context</h2>
                 <p className="mt-6 text-lg leading-relaxed">{study.context}</p>
               </Reveal>
               <Reveal delay={120} className="col-span-12 md:col-span-6 md:col-start-7">
-                <span className="eyebrow">§ The challenge</span>
+                <h2 className="eyebrow">§ The challenge</h2>
                 <p className="mt-6 font-display text-2xl leading-snug md:text-3xl">
                   {study.challenge}
                 </p>
