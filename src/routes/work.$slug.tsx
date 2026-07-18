@@ -190,10 +190,10 @@ function CaseStudyPage() {
           <section className="border-t border-border px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
               <div className="mb-16 grid grid-cols-12 gap-6">
-                <span className="eyebrow col-span-12 md:col-span-2">§ Approach</span>
-                <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
+                <h2 className="eyebrow col-span-12 md:col-span-2">§ Approach</h2>
+                <p className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
                   Three moves, in sequence.
-                </h2>
+                </p>
               </div>
               <ol className="divide-y divide-border">
                 {study.approach.map((a, i) => (
