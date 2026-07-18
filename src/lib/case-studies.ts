@@ -1823,7 +1823,7 @@ caseStudies.push({
   discipline: "Content Strategy · Content Design · Marketing Operations",
   duration: "Ongoing",
   summary:
-    "A repeatable content workflow that transforms one core topic into blog articles, carousels, short-form video, and supporting marketing assets — built to scale output without losing message consistency.",
+    "A repeatable content workflow that turns one topic into blog posts, carousels, short-form video, and marketing assets — built to scale.",
   hero: "One idea, many assets. Strategy is what turns a single topic into a system.",
   context:
     "Modern marketing and content teams need to show up consistently across channels, but most workflows treat every post as a new project. This project builds the system that makes that sustainable.",
