@@ -78,22 +78,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Danielle Bosworth | More than Design" },
-      { name: "description", content: "Portfolio:  a product strategist, customer experience, and UX designer; crafting systems, narratives, and impactful results" },
-      { property: "og:title", content: "Danielle Bosworth | More than Design" },
-      { property: "og:description", content: "Portfolio:  a product strategist, customer experience, and UX designer; crafting systems, narratives, and impactful results" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Danielle Bosworth" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Danielle Bosworth | More than Design" },
-      { name: "twitter:description", content: "Portfolio:  a product strategist, customer experience, and UX designer; crafting systems, narratives, and impactful results" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OEkJo3mfboVTJDbfIac7kJ1Lsmo2/social-images/social-1781606622869-gemini_headshot_2_final.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OEkJo3mfboVTJDbfIac7kJ1Lsmo2/social-images/social-1781606622869-gemini_headshot_2_final.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Danielle Bosworth",
+          url: "https://daniellebosworth.lovable.app",
+          jobTitle: "Product Strategist & UX Designer",
+          description:
+            "Product strategist, customer experience, and UX designer crafting systems, narratives, and impactful results.",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
