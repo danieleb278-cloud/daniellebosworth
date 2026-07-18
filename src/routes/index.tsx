@@ -763,7 +763,7 @@ function Contact() {
                 </div>
                 <div>
                   <span className="eyebrow">Looking for</span>
-                  <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl">
+                  <ul className="mt-3 flex flex-col gap-2 font-display text-lg sm:text-xl">
                     {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
                       <li
                         key={s}
