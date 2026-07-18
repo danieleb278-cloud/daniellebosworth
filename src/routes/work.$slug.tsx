@@ -309,7 +309,7 @@ function SectionsAccordion({ sections }: { sections: Section[] }) {
     <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
-          <span className="eyebrow">§ Case Study</span>
+          <h2 className="eyebrow">§ Case Study</h2>
           <span className="eyebrow">Tap a section to expand</span>
         </div>
         <Accordion
