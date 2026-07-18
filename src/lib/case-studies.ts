@@ -1025,7 +1025,7 @@ export const caseStudies: CaseStudy[] = [
     discipline: "UX Research · Usability Evaluation",
     duration: "Semester project",
     summary:
-      "A research-driven evaluation of a job search platform's user experience. Through surveys, contextual inquiry, heuristic evaluation, and usability testing, the project identified key friction points in job discovery and application workflows and developed actionable recommendations to improve usability and candidate confidence.",
+      "A research-driven UX evaluation of a job search platform — surfacing friction in discovery and application and shaping actionable recommendations.",
     hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
     context:
       "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
