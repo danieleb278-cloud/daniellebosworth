@@ -836,18 +836,21 @@ function ContactForm() {
     setErrorMsg(null);
     const { name, email, phone, message } = parsed.data;
     try {
-      const { error } = await supabase.from("contact_messages").insert({
-        name,
-        email,
-        phone: phone && phone.length > 0 ? phone : null,
-        message,
-        user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+      const res = await fetch("https://formspree.io/f/maqrodpe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone: phone && phone.length > 0 ? phone : "",
+          message,
+        }),
       });
-      if (error) throw error;
+      if (!res.ok) throw new Error(`Formspree ${res.status}`);
       setStatus("sent");
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
-      console.error("contact_messages insert failed", err);
+      console.error("formspree submit failed", err);
       setStatus("error");
       setErrorMsg("Something went wrong sending your message. You can email me directly instead.");
     }
