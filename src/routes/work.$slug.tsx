@@ -17,16 +17,36 @@ export const Route = createFileRoute("/work/$slug")({
     if (!study) throw notFound();
     return { study };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.study.title} — Danielle Bosworth` },
-          { name: "description", content: loaderData.study.summary },
-          { property: "og:title", content: `${loaderData.study.title} — Danielle Bosworth` },
-          { property: "og:description", content: loaderData.study.summary },
-        ]
-      : [],
-  }),
+  head: ({ params, loaderData }) => {
+    if (!loaderData) return { meta: [{ title: "Case study — Danielle Bosworth" }] };
+    const url = `https://daniellebosworth.lovable.app/work/${params.slug}`;
+    const title = `${loaderData.study.title} — Danielle Bosworth`;
+    const desc = loaderData.study.subtitle;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            headline: loaderData.study.title,
+            description: desc,
+            url,
+            author: { "@type": "Person", name: "Danielle Bosworth" },
+          }),
+        },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
       <div className="text-center">
