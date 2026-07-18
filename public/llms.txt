@@ -1,0 +1,12 @@
+# Danielle Bosworth
+
+> Portfolio of Danielle Bosworth — product strategist, customer experience, and UX designer. Understanding human behavior and translating customer insight into business action through research, strategy, and design.
+
+## Pages
+- [Home](/): Introduction, selected work, resume, and contact.
+
+## Case Studies
+- [Content Strategy System](/work/content-strategy): A repeatable content workflow that turns one topic into blog posts, carousels, short-form video, and marketing assets.
+- [Joomla Extensions Directory](/work/joomla): Reframing a listing directory into a decision-support platform through IA, search transparency, and metadata strategy.
+- [Next Destination](/work/next-destination): A travel platform concept built from research to unify discovery, budgeting, group coordination, and itinerary planning.
+- [Robin](/work/robin): UX research and usability evaluation of a job search platform — recommendations to reduce friction and build candidate confidence.

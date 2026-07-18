@@ -17,16 +17,36 @@ export const Route = createFileRoute("/work/$slug")({
     if (!study) throw notFound();
     return { study };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.study.title} — Danielle Bosworth` },
-          { name: "description", content: loaderData.study.summary },
-          { property: "og:title", content: `${loaderData.study.title} — Danielle Bosworth` },
-          { property: "og:description", content: loaderData.study.summary },
-        ]
-      : [],
-  }),
+  head: ({ params, loaderData }) => {
+    if (!loaderData) return { meta: [{ title: "Case study — Danielle Bosworth" }] };
+    const url = `https://daniellebosworth.lovable.app/work/${params.slug}`;
+    const title = `${loaderData.study.title} — Danielle Bosworth`;
+    const desc = loaderData.study.subtitle;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            headline: loaderData.study.title,
+            description: desc,
+            url,
+            author: { "@type": "Person", name: "Danielle Bosworth" },
+          }),
+        },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
       <div className="text-center">
@@ -91,7 +111,7 @@ function CaseStudyPage() {
       {study.snapshot && (
         <section className="border-t border-border px-6 py-16 md:px-12 md:py-20">
           <div className="mx-auto max-w-[1400px]">
-            <span className="eyebrow text-accent mb-10 block">Project Snapshot</span>
+            <h2 className="eyebrow text-accent mb-10 block">Project Snapshot</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Project Type", study.snapshot.projectType],
@@ -154,11 +174,11 @@ function CaseStudyPage() {
           <section className="px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6">
               <Reveal className="col-span-12 md:col-span-5">
-                <span className="eyebrow">§ Context</span>
+                <h2 className="eyebrow">§ Context</h2>
                 <p className="mt-6 text-lg leading-relaxed">{study.context}</p>
               </Reveal>
               <Reveal delay={120} className="col-span-12 md:col-span-6 md:col-start-7">
-                <span className="eyebrow">§ The challenge</span>
+                <h2 className="eyebrow">§ The challenge</h2>
                 <p className="mt-6 font-display text-2xl leading-snug md:text-3xl">
                   {study.challenge}
                 </p>
@@ -170,10 +190,10 @@ function CaseStudyPage() {
           <section className="border-t border-border px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
               <div className="mb-16 grid grid-cols-12 gap-6">
-                <span className="eyebrow col-span-12 md:col-span-2">§ Approach</span>
-                <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
+                <h2 className="eyebrow col-span-12 md:col-span-2">§ Approach</h2>
+                <p className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-5xl">
                   Three moves, in sequence.
-                </h2>
+                </p>
               </div>
               <ol className="divide-y divide-border">
                 {study.approach.map((a, i) => (
@@ -201,7 +221,7 @@ function CaseStudyPage() {
           <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
             <div className="mx-auto max-w-[1400px]">
               <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
-                <span className="eyebrow">§ Selected Artifacts</span>
+                <h2 className="eyebrow">§ Selected Artifacts</h2>
                 <span className="eyebrow">Fig. 02 — 04</span>
               </div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
@@ -221,7 +241,7 @@ function CaseStudyPage() {
           {/* Outcomes */}
           <section className="border-t border-border bg-secondary px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
-              <span className="eyebrow">§ Outcomes</span>
+              <h2 className="eyebrow">§ Outcomes</h2>
               <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
                 {study.outcomes.map((o, i) => (
                   <Reveal key={o.label} delay={i * 100}>
@@ -241,7 +261,7 @@ function CaseStudyPage() {
           <section className="px-6 py-28 md:px-12 md:py-32">
             <div className="mx-auto max-w-[1400px]">
               <div className="grid grid-cols-12 gap-6">
-                <span className="eyebrow col-span-12 md:col-span-2">§ Reflection</span>
+                <h2 className="eyebrow col-span-12 md:col-span-2">§ Reflection</h2>
                 <p className="col-span-12 font-display text-3xl leading-snug tracking-tight md:col-span-9 md:text-5xl">
                   {study.reflections}
                 </p>
@@ -289,7 +309,7 @@ function SectionsAccordion({ sections }: { sections: Section[] }) {
     <section className="border-t border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-10 flex items-end justify-between border-b border-border pb-4">
-          <span className="eyebrow">§ Case Study</span>
+          <h2 className="eyebrow">§ Case Study</h2>
           <span className="eyebrow">Tap a section to expand</span>
         </div>
         <Accordion

@@ -1025,7 +1025,7 @@ export const caseStudies: CaseStudy[] = [
     discipline: "UX Research · Usability Evaluation",
     duration: "Semester project",
     summary:
-      "A research-driven evaluation of a job search platform's user experience. Through surveys, contextual inquiry, heuristic evaluation, and usability testing, the project identified key friction points in job discovery and application workflows and developed actionable recommendations to improve usability and candidate confidence.",
+      "A research-driven UX evaluation of a job search platform — surfacing friction in discovery and application and shaping actionable recommendations.",
     hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
     context:
       "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
@@ -1823,7 +1823,7 @@ caseStudies.push({
   discipline: "Content Strategy · Content Design · Marketing Operations",
   duration: "Ongoing",
   summary:
-    "A repeatable content workflow that transforms one core topic into blog articles, carousels, short-form video, and supporting marketing assets — built to scale output without losing message consistency.",
+    "A repeatable content workflow that turns one topic into blog posts, carousels, short-form video, and marketing assets — built to scale.",
   hero: "One idea, many assets. Strategy is what turns a single topic into a system.",
   context:
     "Modern marketing and content teams need to show up consistently across channels, but most workflows treat every post as a new project. This project builds the system that makes that sustainable.",
