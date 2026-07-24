@@ -30,6 +30,11 @@ export const Route = createFileRoute("/")({
           "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
       },
       { property: "og:url", content: "https://daniellebosworth.lovable.app/" },
+      { property: "og:image", content: `https://daniellebosworth.lovable.app${portrait.url}` },
+      { property: "og:image:alt", content: "Portrait of Danielle Bosworth" },
+      { name: "twitter:image", content: `https://daniellebosworth.lovable.app${portrait.url}` },
+      { name: "twitter:title", content: "Danielle Bosworth — Research, Strategy & Customer Experience" },
+      { name: "twitter:description", content: "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design." },
     ],
     links: [{ rel: "canonical", href: "https://daniellebosworth.lovable.app/" }],
     scripts: [
