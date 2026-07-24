@@ -7,7 +7,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
-import portrait from "@/assets/portrait.jpg.asset.json";
+import portrait from "@/assets/portrait-2026.png.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 import earSketch from "@/assets/editorial/ear-sketch.png";
 import eyeSketch from "@/assets/editorial/eye-sketch.png";
