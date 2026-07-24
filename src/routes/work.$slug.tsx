@@ -22,6 +22,11 @@ export const Route = createFileRoute("/work/$slug")({
     const url = `https://daniellebosworth.lovable.app/work/${params.slug}`;
     const title = `${loaderData.study.title} — Danielle Bosworth`;
     const desc = loaderData.study.subtitle;
+    const coverSrc = loaderData.study.cover?.src;
+    const imageUrl = coverSrc
+      ? (coverSrc.startsWith("http") ? coverSrc : `https://daniellebosworth.lovable.app${coverSrc}`)
+      : undefined;
+    const imageAlt = loaderData.study.cover?.alt ?? title;
     return {
       meta: [
         { title },
@@ -30,6 +35,15 @@ export const Route = createFileRoute("/work/$slug")({
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        ...(imageUrl
+          ? [
+              { property: "og:image", content: imageUrl },
+              { property: "og:image:alt", content: imageAlt },
+              { name: "twitter:image", content: imageUrl },
+            ]
+          : []),
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -41,6 +55,7 @@ export const Route = createFileRoute("/work/$slug")({
             headline: loaderData.study.title,
             description: desc,
             url,
+            ...(imageUrl ? { image: imageUrl } : {}),
             author: { "@type": "Person", name: "Danielle Bosworth" },
           }),
         },
