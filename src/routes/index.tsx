@@ -593,13 +593,6 @@ function About() {
 function Resume() {
   const roles = [
     {
-      year: "July 2026 — Now",
-      role: "Marketing Manager",
-      org: "Shark Fin Shears · Remote",
-      detail:
-        "Leading social media strategy, content marketing, email campaigns, analytics, and brand operations while building scalable marketing systems to support long-term growth.",
-    },
-    {
       year: "May 2025 — July 2026",
       role: "Product Specialist & Marketing Coordinator",
       org: "Magic Sleek · Manalapan, NJ",
