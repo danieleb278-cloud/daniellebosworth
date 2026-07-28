@@ -557,7 +557,7 @@ function About() {
                 <p className="text-base leading-relaxed text-background/80">
                   My background blends psychology, product design, and years of customer-facing leadership — from
                   running a high-volume salon branch to driving measurable growth through outreach, service design, and
-                  CRM improvements. Today I shape education, brand strategy, and digital operations for a professional
+                  CRM improvements. I recently shaped education, brand strategy, and digital operations for a professional
                   haircare company — always with the customer perspective at the center.
                 </p>
               </Reveal>
@@ -597,7 +597,7 @@ function Resume() {
       role: "Product Specialist & Marketing Coordinator",
       org: "Magic Sleek · Manalapan, NJ",
       detail:
-        "Bridging customer insight, brand strategy, and digital operations: educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
+        "Bridged customer insight, brand strategy, and digital operations through educational content, social and email, trade show execution, Tableau/GA4 reporting, and an AI-powered internal knowledge assistant.",
     },
     {
       year: "Jan — May 2025",
