@@ -537,7 +537,7 @@ function About() {
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
-              <p className="font-display text-base leading-relaxed text-background/80 md:text-lg">
+              <p className="font-display text-base leading-loose text-background/80 md:text-lg">
                 I started in{" "}
                 <span className="text-lg text-teal tracking-wide md:text-xl">customer-facing leadership</span>,
                 developed a deep curiosity about{" "}
@@ -552,37 +552,30 @@ function About() {
                 experiences that bridge customer needs and business goals.
               </p>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-8">
+            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
               <Reveal delay={100}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   I've always been drawn to understanding how people, products, and systems work together. I started my
                   career in customer-facing leadership, where I learned firsthand how communication, process, and
-                  experience shape the way people interact with a business. That curiosity led me to study psychology
-                  and, later, product design to better understand not just people, but the systems that support them.
+                  experience shape the way people interact with a business.
                 </p>
               </Reveal>
               <Reveal delay={150}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   Today, I thrive at the intersection of product, customer experience, and business strategy. I enjoy
                   translating insights into practical solutions—whether that's turning user research into product
-                  improvements, transforming technical concepts into customer-friendly education, designing evergreen
-                  product content, or identifying opportunities to improve workflows across teams. One of my greatest
-                  strengths is connecting departments, helping product, marketing, operations, and customer-facing teams
-                  work together more effectively.
+                  improvements, designing evergreen content, or identifying opportunities to improve workflows across teams.
                 </p>
               </Reveal>
               <Reveal delay={200}>
-                <p className="text-base leading-relaxed text-background/80">
-                  I'm currently completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers
-                  University, where I've expanded my passion for systems thinking, UX research, service design, and AI.
-                  I use AI daily to streamline research, organize knowledge, automate repetitive work, and prototype
-                  solutions that improve both employee and customer experiences. What excites me most isn't AI itself—it's
-                  discovering thoughtful ways to use emerging technology to remove friction, improve decision-making,
-                  and help people do their best work.
+                <p className="text-base leading-loose text-background/80">
+                  I'm completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers University,
+                  where I've deepened my passion for systems thinking, UX research, service design, and AI. I use AI daily
+                  to streamline research, organize knowledge, automate repetitive work, and prototype better experiences.
                 </p>
               </Reveal>
               <Reveal delay={250}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   Whether I'm designing a product experience, optimizing a workflow, building educational resources, or
                   shaping go-to-market assets, my goal is always the same: turn complexity into clear, scalable,
                   human-centered solutions.
