@@ -702,7 +702,7 @@ function Resume() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
-          <h2 className="col-span-12 font-display text-2xl tracking-tight md:col-span-10 md:text-4xl">
+          <h2 className="col-span-12 font-display text-xl tracking-tight md:col-span-10 md:text-3xl">
             For a long time I thought I needed to pick one lane.{" "}
             It took me a while to realize that not fitting neatly into one department wasn't a weakness—it was actually my niche.{" "}
             <span className="text-teal-400">
