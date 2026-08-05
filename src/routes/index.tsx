@@ -487,7 +487,7 @@ function EditorialSketches() {
         className="sketch-breathe-eye hidden md:block"
         style={{
           ...baseImg,
-          bottom: "clamp(-110px, -10vh, -40px)",
+          bottom: "clamp(-260px, -22vh, -120px)",
           left: "clamp(-340px, -18vw, -150px)",
           width: "clamp(640px, 50vw, 1020px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
