@@ -483,7 +483,7 @@ function EditorialSketches() {
         loading="lazy"
         width={1024}
         height={1024}
-        className="sketch-breathe-eye"
+        className="sketch-breathe-eye hidden md:block"
         style={{
           ...baseImg,
           top: "clamp(720px, 76vh, 840px)",
