@@ -476,7 +476,7 @@ function EditorialSketches() {
             "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — staggered lower/right from the ear; text can pass over it. */}
+      {/* Eye — below the quote, aligned vertically with the ear above. */}
       <img
         src={eyeSketch}
         alt=""
@@ -486,17 +486,17 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          bottom: "clamp(-300px, -16vw, -150px)",
-          right: "clamp(-320px, -18vw, -150px)",
-          width: "clamp(560px, 44vw, 920px)",
+          top: "clamp(300px, 38vh, 460px)",
+          left: "clamp(-180px, -8vw, 40px)",
+          width: "clamp(480px, 42vw, 780px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
-          opacity: visible ? 0.14 : 0,
+          opacity: visible ? 0.13 : 0,
           filter: "invert(1) grayscale(1) contrast(1.05) brightness(1)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 52% 52% at 48% 52%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
+            "radial-gradient(ellipse 54% 54% at 50% 50%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 52% 52% at 48% 52%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
+            "radial-gradient(ellipse 54% 54% at 50% 50%, black 28%, rgba(0,0,0,0.65) 62%, transparent 92%)",
         }}
       />
     </div>
@@ -590,16 +590,34 @@ function About() {
               </Reveal>
             </div>
 
-            <div className="mt-16 grid grid-cols-2 gap-8 border-t border-background/20 pt-8 md:grid-cols-4">
+            <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:grid-cols-4">
               {[
-                ["Strategy", "Positioning, roadmap input, VOC"],
-                ["CX", "Journey mapping, service design"],
-                ["Product", "UX research, IA, prototyping"],
-                ["Marketing", "Content, social, brand, SEO"],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <div className="font-display text-lg">{k}</div>
-                  <div className="eyebrow mt-1 text-background/60">{v}</div>
+                {
+                  header: "Strategy",
+                  items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
+                },
+                {
+                  header: "Experience",
+                  items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
+                },
+                {
+                  header: "Solutions",
+                  items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
+                },
+                {
+                  header: "Communication",
+                  items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
+                },
+              ].map(({ header, items }) => (
+                <div key={header}>
+                  <div className="font-display text-lg">{header}</div>
+                  <ul className="mt-2 space-y-1">
+                    {items.map((item) => (
+                      <li key={item} className="eyebrow text-background/60">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
