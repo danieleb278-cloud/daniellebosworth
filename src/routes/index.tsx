@@ -486,12 +486,12 @@ function EditorialSketches() {
         className="sketch-breathe-eye hidden md:block"
         style={{
           ...baseImg,
-          top: "clamp(720px, 76vh, 840px)",
-          left: "clamp(-100px, -3vw, 0px)",
-          width: "clamp(380px, 32vw, 520px)",
+          top: "clamp(760px, 78vh, 980px)",
+          left: "clamp(-80px, -2vw, 8px)",
+          width: "clamp(400px, 34vw, 540px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3400ms",
-          opacity: visible ? 0.18 : 0,
+          opacity: visible ? 0.13 : 0,
           filter: "invert(1) grayscale(1) contrast(1.15) brightness(1.05)",
           WebkitMaskImage:
             "radial-gradient(ellipse 58% 58% at 50% 50%, black 34%, rgba(0,0,0,0.75) 68%, transparent 92%)",
@@ -523,21 +523,21 @@ function About() {
             <span className="eyebrow text-background/60">§ About</span>
             <div className="relative mt-6">
               <figure className="relative border-l-2 border-teal pl-5">
-                <span aria-hidden className="font-display text-5xl leading-none text-teal">
+                <span aria-hidden className="font-display text-6xl leading-none text-teal md:text-7xl">
                   “
                 </span>
-                <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
+                <h2 className="mt-2 font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
                   One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span>{" "}
                   on the business.
                 </h2>
-                <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
+                <figcaption className="eyebrow mt-5 text-background/60">— Operating philosophy</figcaption>
               </figure>
             </div>
           </div>
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
-              <p className="font-display text-base leading-relaxed text-background/80 md:text-lg">
+              <p className="font-display text-base leading-loose text-background/80 md:text-lg">
                 I started in{" "}
                 <span className="text-lg text-teal tracking-wide md:text-xl">customer-facing leadership</span>,
                 developed a deep curiosity about{" "}
@@ -552,37 +552,30 @@ function About() {
                 experiences that bridge customer needs and business goals.
               </p>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-8">
+            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
               <Reveal delay={100}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   I've always been drawn to understanding how people, products, and systems work together. I started my
                   career in customer-facing leadership, where I learned firsthand how communication, process, and
-                  experience shape the way people interact with a business. That curiosity led me to study psychology
-                  and, later, product design to better understand not just people, but the systems that support them.
+                  experience shape the way people interact with a business.
                 </p>
               </Reveal>
               <Reveal delay={150}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   Today, I thrive at the intersection of product, customer experience, and business strategy. I enjoy
                   translating insights into practical solutions—whether that's turning user research into product
-                  improvements, transforming technical concepts into customer-friendly education, designing evergreen
-                  product content, or identifying opportunities to improve workflows across teams. One of my greatest
-                  strengths is connecting departments, helping product, marketing, operations, and customer-facing teams
-                  work together more effectively.
+                  improvements, designing evergreen content, or identifying opportunities to improve workflows across teams.
                 </p>
               </Reveal>
               <Reveal delay={200}>
-                <p className="text-base leading-relaxed text-background/80">
-                  I'm currently completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers
-                  University, where I've expanded my passion for systems thinking, UX research, service design, and AI.
-                  I use AI daily to streamline research, organize knowledge, automate repetitive work, and prototype
-                  solutions that improve both employee and customer experiences. What excites me most isn't AI itself—it's
-                  discovering thoughtful ways to use emerging technology to remove friction, improve decision-making,
-                  and help people do their best work.
+                <p className="text-base leading-loose text-background/80">
+                  I'm completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers University,
+                  where I've deepened my passion for systems thinking, UX research, service design, and AI. I use AI daily
+                  to streamline research, organize knowledge, automate repetitive work, and prototype better experiences.
                 </p>
               </Reveal>
               <Reveal delay={250}>
-                <p className="text-base leading-relaxed text-background/80">
+                <p className="text-base leading-loose text-background/80">
                   Whether I'm designing a product experience, optimizing a workflow, building educational resources, or
                   shaping go-to-market assets, my goal is always the same: turn complexity into clear, scalable,
                   human-centered solutions.
