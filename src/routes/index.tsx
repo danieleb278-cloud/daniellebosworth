@@ -476,7 +476,8 @@ function EditorialSketches() {
             "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — directly below the quote caption, sitting in the left column. */}
+      {/* Eye — anchored in the lower-left corner, mirroring the ear in the
+          upper-left so it sits in the blank space below the quote. */}
       <img
         src={eyeSketch}
         alt=""
@@ -486,17 +487,17 @@ function EditorialSketches() {
         className="sketch-breathe-eye hidden md:block"
         style={{
           ...baseImg,
-          top: "clamp(760px, 78vh, 980px)",
-          left: "clamp(-80px, -2vw, 8px)",
-          width: "clamp(400px, 34vw, 540px)",
+          bottom: "clamp(-110px, -10vh, -40px)",
+          left: "clamp(-340px, -18vw, -150px)",
+          width: "clamp(640px, 50vw, 1020px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3400ms",
-          opacity: visible ? 0.13 : 0,
+          opacity: visible ? 0.12 : 0,
           filter: "invert(1) grayscale(1) contrast(1.15) brightness(1.05)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 58% 58% at 50% 50%, black 34%, rgba(0,0,0,0.75) 68%, transparent 92%)",
+            "radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, rgba(0,0,0,0.7) 65%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 58% 58% at 50% 50%, black 34%, rgba(0,0,0,0.75) 68%, transparent 92%)",
+            "radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, rgba(0,0,0,0.7) 65%, transparent 92%)",
         }}
       />
     </div>
