@@ -486,9 +486,9 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          top: "clamp(260px, 34vh, 420px)",
-          left: "clamp(-340px, -20vw, -180px)",
-          width: "clamp(520px, 46vw, 900px)",
+          top: "clamp(300px, 38vh, 460px)",
+          left: "clamp(-180px, -8vw, 40px)",
+          width: "clamp(480px, 42vw, 780px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3800ms",
           opacity: visible ? 0.13 : 0,
