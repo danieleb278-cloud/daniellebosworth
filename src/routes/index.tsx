@@ -590,16 +590,34 @@ function About() {
               </Reveal>
             </div>
 
-            <div className="mt-16 grid grid-cols-2 gap-8 border-t border-background/20 pt-8 md:grid-cols-4">
+            <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:grid-cols-4">
               {[
-                ["Strategy", "Positioning, roadmap input, VOC"],
-                ["CX", "Journey mapping, service design"],
-                ["Product", "UX research, IA, prototyping"],
-                ["Marketing", "Content, social, brand, SEO"],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <div className="font-display text-lg">{k}</div>
-                  <div className="eyebrow mt-1 text-background/60">{v}</div>
+                {
+                  header: "Strategy",
+                  items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
+                },
+                {
+                  header: "Experience",
+                  items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
+                },
+                {
+                  header: "Solutions",
+                  items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
+                },
+                {
+                  header: "Communication",
+                  items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
+                },
+              ].map(({ header, items }) => (
+                <div key={header}>
+                  <div className="font-display text-lg">{header}</div>
+                  <ul className="mt-2 space-y-1">
+                    {items.map((item) => (
+                      <li key={item} className="eyebrow text-background/60">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
