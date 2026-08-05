@@ -703,12 +703,11 @@ function Resume() {
         <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
           <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
           <h2 className="col-span-12 font-display text-2xl tracking-tight md:col-span-10 md:text-4xl">
-            More than a designer, I've spent my career working at the intersection of{" "}
-            <span className="text-teal">customers</span>, <span className="text-teal">operations</span>,{" "}
-            <span className="text-teal">education</span>, and <span className="text-teal">product strategy</span>. My
-            background combines <span className="text-teal">customer-facing leadership</span>,{" "}
-            <span className="text-teal">psychology</span>, <span className="text-teal">research</span>, and{" "}
-            <span className="text-teal">systems thinking</span> to solve problems from multiple perspectives.
+            For a long time I thought I needed to pick one lane. Marketing, product, operations, customer experience,
+            it always felt like I was drawn to all of them. Eventually I realized that was the point. I think of myself as
+            an interdepartmental translator: turning research into product decisions, technical concepts into
+            customer-facing experiences, disconnected processes into optimized workflows, and business goals into practical
+            solutions.
           </h2>
         </div>
 
