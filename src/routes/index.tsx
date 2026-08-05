@@ -552,20 +552,40 @@ function About() {
                 experiences that bridge customer needs and business goals.
               </p>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="mt-12 grid grid-cols-1 gap-8">
               <Reveal delay={100}>
                 <p className="text-base leading-relaxed text-background/80">
-                  My background blends psychology, product design, and years of customer-facing leadership — from
-                  running a high-volume salon branch to driving measurable growth through outreach, service design, and
-                  CRM improvements. I recently shaped education, brand strategy, and digital operations for a professional
-                  haircare company — always with the customer perspective at the center.
+                  I've always been drawn to understanding how people, products, and systems work together. I started my
+                  career in customer-facing leadership, where I learned firsthand how communication, process, and
+                  experience shape the way people interact with a business. That curiosity led me to study psychology
+                  and, later, product design to better understand not just people, but the systems that support them.
+                </p>
+              </Reveal>
+              <Reveal delay={150}>
+                <p className="text-base leading-relaxed text-background/80">
+                  Today, I thrive at the intersection of product, customer experience, and business strategy. I enjoy
+                  translating insights into practical solutions—whether that's turning user research into product
+                  improvements, transforming technical concepts into customer-friendly education, designing evergreen
+                  product content, or identifying opportunities to improve workflows across teams. One of my greatest
+                  strengths is connecting departments, helping product, marketing, operations, and customer-facing teams
+                  work together more effectively.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-relaxed text-background/80">
-                  I'm currently finishing an MBS in Product Design &amp; Innovation at Rutgers. I'm at my best where
-                  customer insight meets systems thinking — using research, analytics, and AI-assisted workflows to turn
-                  complex problems into clear, human-centered solutions.
+                  I'm currently completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers
+                  University, where I've expanded my passion for systems thinking, UX research, service design, and AI.
+                  I use AI daily to streamline research, organize knowledge, automate repetitive work, and prototype
+                  solutions that improve both employee and customer experiences. What excites me most isn't AI itself—it's
+                  discovering thoughtful ways to use emerging technology to remove friction, improve decision-making,
+                  and help people do their best work.
+                </p>
+              </Reveal>
+              <Reveal delay={250}>
+                <p className="text-base leading-relaxed text-background/80">
+                  Whether I'm designing a product experience, optimizing a workflow, building educational resources, or
+                  shaping go-to-market assets, my goal is always the same: turn complexity into clear, scalable,
+                  human-centered solutions.
                 </p>
               </Reveal>
             </div>
