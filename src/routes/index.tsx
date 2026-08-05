@@ -706,8 +706,9 @@ function Resume() {
             For a long time I thought I needed to pick one lane.{" "}
             It took me a while to realize that not fitting neatly into one department wasn't a weakness—it was actually my niche.{" "}
             <span className="text-teal-400">
-              I think of myself as an interdepartmental translator; turning research into product decisions, technical concepts into customer-facing experiences, disconnected processes into optimized workflows, and business goals into practical solutions.
-            </span>
+              I think of myself as an interdepartmental translator;
+            </span>{" "}
+            turning research into product decisions, technical concepts into customer-facing experiences, disconnected processes into optimized workflows, and business goals into practical solutions.
           </h2>
         </div>
 
