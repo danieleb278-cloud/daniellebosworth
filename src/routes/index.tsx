@@ -491,7 +491,7 @@ function EditorialSketches() {
           width: "clamp(400px, 34vw, 540px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
           transitionDelay: "3400ms",
-          opacity: visible ? 0.18 : 0,
+          opacity: visible ? 0.13 : 0,
           filter: "invert(1) grayscale(1) contrast(1.15) brightness(1.05)",
           WebkitMaskImage:
             "radial-gradient(ellipse 58% 58% at 50% 50%, black 34%, rgba(0,0,0,0.75) 68%, transparent 92%)",
