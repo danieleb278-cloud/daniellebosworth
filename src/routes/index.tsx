@@ -476,7 +476,7 @@ function EditorialSketches() {
             "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
         }}
       />
-      {/* Eye — directly below the quote, sitting in the left column. */}
+      {/* Eye — directly below the quote caption, sitting in the left column. */}
       <img
         src={eyeSketch}
         alt=""
@@ -486,7 +486,7 @@ function EditorialSketches() {
         className="sketch-breathe-eye"
         style={{
           ...baseImg,
-          top: "clamp(460px, 54vh, 540px)",
+          top: "clamp(720px, 76vh, 840px)",
           left: "clamp(-100px, -3vw, 0px)",
           width: "clamp(380px, 32vw, 520px)",
           transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
