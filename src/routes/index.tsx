@@ -705,7 +705,7 @@ function Resume() {
           <h2 className="col-span-12 font-display text-xl tracking-tight md:col-span-10 md:text-3xl">
             For a long time I thought I needed to pick one lane.{" "}
             It took me a while to realize that not fitting neatly into one department wasn't a weakness—it was actually my niche.{" "}
-            <span className="text-teal-400">
+            <span className="text-teal">
               I think of myself as an interdepartmental translator;
             </span>{" "}
             turning research into product decisions, technical concepts into customer-facing experiences, disconnected processes into optimized workflows, and business goals into practical solutions.
