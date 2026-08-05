@@ -523,14 +523,14 @@ function About() {
             <span className="eyebrow text-background/60">§ About</span>
             <div className="relative mt-6">
               <figure className="relative border-l-2 border-teal pl-5">
-                <span aria-hidden className="font-display text-5xl leading-none text-teal">
+                <span aria-hidden className="font-display text-6xl leading-none text-teal md:text-7xl">
                   “
                 </span>
-                <h2 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">
+                <h2 className="mt-2 font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
                   One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span>{" "}
                   on the business.
                 </h2>
-                <figcaption className="eyebrow mt-4 text-background/60">— Operating philosophy</figcaption>
+                <figcaption className="eyebrow mt-5 text-background/60">— Operating philosophy</figcaption>
               </figure>
             </div>
           </div>
