@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png.asset.json";
 
 const sections = [
-  { id: "work", label: "Work" },
+  { id: "work", label: "Case Studies" },
   { id: "about", label: "About" },
-  { id: "resume", label: "Résumé" },
+  { id: "resume", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
