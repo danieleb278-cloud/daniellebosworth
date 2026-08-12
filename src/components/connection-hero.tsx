@@ -14,15 +14,6 @@ const signals = [
   { label: "Contradictions", initial: "signal-f", connected: "signal-f-connected" },
 ] as const;
 
-const connections = [
-  ["23%", "23%", "50%", "50%"],
-  ["73%", "19%", "50%", "50%"],
-  ["18%", "58%", "50%", "50%"],
-  ["76%", "55%", "50%", "50%"],
-  ["31%", "82%", "50%", "50%"],
-  ["69%", "81%", "50%", "50%"],
-] as const;
-
 export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) {
   const [connected, setConnected] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -83,20 +74,14 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             </div>
 
             <svg aria-hidden className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              {connections.map(([x1, y1, x2, y2], index) => (
-                <line
-                  key={index}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  pathLength="1"
-                  className="connection-line"
-                />
-              ))}
-              <line x1="50%" y1="50%" x2="24%" y2="94%" pathLength="1" className="connection-line outcome-line" />
-              <line x1="50%" y1="50%" x2="50%" y2="94%" pathLength="1" className="connection-line outcome-line" />
-              <line x1="50%" y1="50%" x2="76%" y2="94%" pathLength="1" className="connection-line outcome-line" />
+              <path d="M 16 24 Q 31 26 43 31" pathLength="1" className="connection-line signal-line signal-line-1" />
+              <path d="M 72 18 Q 64 24 57 39" pathLength="1" className="connection-line signal-line signal-line-2" />
+              <path d="M 15 54 Q 29 51 43 47" pathLength="1" className="connection-line signal-line signal-line-3" />
+              <path d="M 78 50 Q 66 53 57 55" pathLength="1" className="connection-line signal-line signal-line-4" />
+              <path d="M 28 79 Q 36 69 43 63" pathLength="1" className="connection-line signal-line signal-line-5" />
+              <path d="M 73 76 Q 64 70 57 71" pathLength="1" className="connection-line signal-line signal-line-6" />
+              <path d="M 50 22 L 50 73" pathLength="1" className="connection-line connection-spine" />
+              <path d="M 50 73 L 24 87 M 50 73 L 50 87 M 50 73 L 76 87" pathLength="1" className="connection-line outcome-line" />
             </svg>
 
             <div className="portrait-signal absolute right-5 top-16 z-0 w-[5.75rem] border border-teal/60 bg-charcoal p-1.5 opacity-45 sm:right-7 sm:w-[7rem]">
@@ -169,72 +154,116 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           pointer-events: none;
         }
         .connection-node {
-          border-top: 1px solid color-mix(in oklab, var(--background) 34%, transparent);
-          background: var(--charcoal);
-          padding: .55rem .15rem .45rem;
-          font-family: var(--font-mono);
-          font-size: clamp(.62rem, 1.1vw, .72rem);
-          letter-spacing: .11em;
-          line-height: 1.2;
-          text-transform: uppercase;
+          position: absolute;
+          z-index: 10;
           white-space: nowrap;
-          color: color-mix(in oklab, var(--background) 82%, transparent);
-          transition: left 780ms cubic-bezier(.22,.61,.36,1), top 780ms cubic-bezier(.22,.61,.36,1), transform 780ms cubic-bezier(.22,.61,.36,1), border-color 700ms ease, color 700ms ease;
+          line-height: 1;
+          color: var(--background);
+          transition:
+            left 880ms cubic-bezier(.2,.78,.22,1),
+            top 880ms cubic-bezier(.2,.78,.22,1),
+            transform 880ms cubic-bezier(.2,.78,.22,1),
+            opacity 520ms ease,
+            font-size 880ms cubic-bezier(.2,.78,.22,1),
+            letter-spacing 880ms cubic-bezier(.2,.78,.22,1),
+            color 520ms ease,
+            border-color 520ms ease;
+          transition-delay: calc(var(--signal-index) * 38ms);
         }
-        .signal-a { left: 9%; top: 19%; }
-        .signal-b { left: 57%; top: 14%; }
-        .signal-c { left: 6%; top: 53%; }
-        .signal-d { left: 64%; top: 48%; }
-        .signal-e { left: 18%; top: 75%; }
-        .signal-f { left: 59%; top: 73%; }
-        .signal-a-connected { left: 13%; top: 20%; }
-        .signal-b-connected { left: 60%; top: 17%; }
-        .signal-c-connected { left: 9%; top: 51%; }
-        .signal-d-connected { left: 66%; top: 49%; }
-        .signal-e-connected { left: 22%; top: 74%; }
-        .signal-f-connected { left: 58%; top: 73%; }
+        .connection-node > span { font-family: var(--font-mono); font-size: .58em; opacity: .75; }
+
+        /* Disconnected signals: varied voices, scale and strength. */
+        .signal-a { left: 7%; top: 18%; font-family: var(--font-display); font-size: clamp(1.45rem, 3vw, 2.15rem); font-style: italic; opacity: .96; }
+        .signal-b { left: 54%; top: 13%; font-family: var(--font-mono); font-size: clamp(.8rem, 1.5vw, 1rem); letter-spacing: .18em; text-transform: uppercase; opacity: .58; }
+        .signal-c { left: 5%; top: 50%; font-family: var(--font-sans); font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 500; letter-spacing: .02em; opacity: .72; }
+        .signal-d { left: 62%; top: 45%; font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.75rem); opacity: .9; }
+        .signal-e { left: 14%; top: 75%; font-family: var(--font-mono); font-size: clamp(.75rem, 1.4vw, .95rem); letter-spacing: .13em; text-transform: uppercase; opacity: .52; }
+        .signal-f { left: 53%; top: 72%; font-family: var(--font-display); font-size: clamp(1.15rem, 2.3vw, 1.65rem); font-style: italic; opacity: .78; }
+
+        /* Connected signals: one clear, uniform vertical system. */
+        .signal-a-connected { left: 50%; top: 27%; }
+        .signal-b-connected { left: 50%; top: 34.5%; }
+        .signal-c-connected { left: 50%; top: 42%; }
+        .signal-d-connected { left: 50%; top: 49.5%; }
+        .signal-e-connected { left: 50%; top: 57%; }
+        .signal-f-connected { left: 50%; top: 64.5%; }
         .is-connected .connection-node {
-          border-color: color-mix(in oklab, var(--teal) 72%, transparent);
+          transform: translateX(-50%);
+          width: min(58%, 17rem);
+          border-bottom: 1px solid color-mix(in oklab, var(--teal) 48%, transparent);
+          padding: 0 0 .38rem;
+          font-family: var(--font-mono);
+          font-size: clamp(.72rem, 1.3vw, .88rem);
+          font-style: normal;
+          font-weight: 400;
+          letter-spacing: .13em;
+          text-transform: uppercase;
+          text-align: left;
+          opacity: 1;
           color: var(--background);
         }
+
         .connection-line {
-          stroke: color-mix(in oklab, var(--teal) 70%, transparent);
-          stroke-width: .28;
+          fill: none;
+          stroke: color-mix(in oklab, var(--teal) 88%, transparent);
+          stroke-width: 1.15;
           vector-effect: non-scaling-stroke;
+          stroke-linecap: round;
+          stroke-linejoin: round;
           stroke-dasharray: 1;
           stroke-dashoffset: 1;
           opacity: 0;
-          transition: stroke-dashoffset 760ms cubic-bezier(.22,.61,.36,1), opacity 300ms ease;
+          transition: stroke-dashoffset 720ms cubic-bezier(.22,.61,.36,1), opacity 240ms ease;
         }
-        .outcome-line { stroke-width: .18; opacity: 0; }
-        .is-connected .connection-line {
-          stroke-dashoffset: 0;
-          opacity: .78;
-        }
-        .is-connected .outcome-line { opacity: .35; transition-delay: 160ms; }
+        .signal-line-2 { transition-delay: 55ms; }
+        .signal-line-3 { transition-delay: 110ms; }
+        .signal-line-4 { transition-delay: 165ms; }
+        .signal-line-5 { transition-delay: 220ms; }
+        .signal-line-6 { transition-delay: 275ms; }
+        .connection-spine { stroke-width: 1.4; transition-delay: 300ms; }
+        .outcome-line { stroke-width: .85; transition-delay: 510ms; }
+        .is-connected .connection-line { stroke-dashoffset: 0; opacity: .62; }
+        .is-connected .connection-spine { opacity: .9; }
+        .is-connected .outcome-line { opacity: .52; }
+
         .clarity-label, .outcomes {
           opacity: 0;
-          transform-origin: center;
-          transition: opacity 560ms ease 220ms;
           pointer-events: none;
         }
-        .clarity-label { transform: translate(-50%, -50%) scale(.96); transition: opacity 560ms ease 220ms, transform 560ms ease 220ms; }
-        .is-connected .clarity-label { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        .is-connected .outcomes { opacity: 1; }
-        .portrait-signal { transition: opacity 600ms ease; }
-        .is-connected .portrait-signal { opacity: .14; }
+        .clarity-label {
+          top: 14% !important;
+          transform: translate(-50%, -50%) translateY(-10px);
+          transition: opacity 360ms ease 580ms, transform 520ms cubic-bezier(.22,.61,.36,1) 580ms;
+        }
+        .is-connected .clarity-label {
+          opacity: 1;
+          transform: translate(-50%, -50%) translateY(0);
+        }
+        .outcomes {
+          bottom: 5.5rem !important;
+          transition: opacity 440ms ease 700ms, transform 520ms cubic-bezier(.22,.61,.36,1) 700ms;
+          transform: translateY(10px);
+        }
+        .is-connected .outcomes { opacity: 1; transform: translateY(0); }
+        .outcomes > div {
+          padding-top: .7rem;
+          font-size: clamp(.72rem, 1.35vw, .92rem) !important;
+          letter-spacing: .12em !important;
+        }
+        .portrait-signal { transition: opacity 500ms ease, transform 800ms ease; }
+        .is-connected .portrait-signal { opacity: .08; transform: scale(.96); }
 
         @media (max-width: 639px) {
-          .connection-node { font-size: .56rem; letter-spacing: .07em; }
-          .portrait-signal { opacity: .25; }
-          .signal-a { left: 6%; }
-          .signal-b { left: 48%; }
-          .signal-d { left: 54%; }
-          .signal-f { left: 48%; }
-          .signal-a-connected { left: 8%; }
-          .signal-b-connected { left: 50%; }
-          .signal-d-connected { left: 57%; }
-          .signal-f-connected { left: 48%; }
+          .connection-field { height: 32rem; }
+          .signal-a { left: 5%; font-size: 1.45rem; }
+          .signal-b { left: 48%; top: 15%; font-size: .7rem; }
+          .signal-c { left: 5%; font-size: 1rem; }
+          .signal-d { left: 54%; font-size: 1.2rem; }
+          .signal-e { left: 12%; font-size: .65rem; }
+          .signal-f { left: 46%; font-size: 1.05rem; }
+          .is-connected .connection-node { width: 68%; font-size: .68rem; }
+          .outcomes { inset-inline: 1rem !important; bottom: 4.6rem !important; }
+          .outcomes > div { font-size: .62rem !important; }
         }
 
         @media (prefers-reduced-motion: reduce) {
