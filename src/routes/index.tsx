@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteNav } from "@/components/site-nav";
+import { ConnectionHero } from "@/components/connection-hero";
 import { Reveal } from "@/components/reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
@@ -11,8 +12,6 @@ import portrait from "@/assets/portrait-2026.png.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 import earSketch from "@/assets/editorial/ear-sketch.png";
 import eyeSketch from "@/assets/editorial/eye-sketch.png";
-import fingerprintImg from "@/assets/fingerprint-light.png.asset.json";
-import neuralImg from "@/assets/neural-light.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -83,200 +82,7 @@ function Index() {
 }
 
 function Hero() {
-  return (
-    <section className="relative overflow-hidden px-6 pt-32 pb-20 md:px-12 md:pt-48 md:pb-32">
-      <HeroBackdrop />
-      <div className="relative mx-auto max-w-[1400px]">
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-2">
-          <span className="eyebrow">№ 001 — Portfolio, 2026</span>
-          <span className="eyebrow">Customer Experience, Design, and Strategy</span>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6 md:gap-10 items-stretch">
-          <h1 className="col-span-12 flex flex-col justify-between font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.04em] md:col-span-8 md:order-2">
-            <span className="block rise-in" style={{ animationDelay: "80ms" }}>
-              Understanding <span className="italic">behavior</span>
-              <span className="text-teal">.</span>
-            </span>
-            <span className="block rise-in" style={{ animationDelay: "220ms" }}>
-              Designing <span className="italic">systems</span>
-              <span className="text-teal">.</span>
-            </span>
-            <span className="block rise-in" style={{ animationDelay: "360ms" }}>
-              Bridging <span className="italic">gaps</span>
-              <span className="text-teal">.</span>
-            </span>
-          </h1>
-
-          <div className="col-span-12 md:col-span-4 md:order-1 md:pt-2">
-            <Reveal delay={120}>
-              <ParallaxWrap>
-                <div className="relative">
-                  {/* soft radial glow behind portrait */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -inset-8 md:-inset-12"
-                    style={{
-                      background:
-                        "radial-gradient(60% 55% at 50% 45%, color-mix(in oklab, var(--teal) 22%, transparent) 0%, transparent 70%)",
-                      filter: "blur(20px)",
-                    }}
-                  />
-                  <div className="relative overflow-hidden border-2 border-teal p-3 bg-charcoal shadow-xl card-lift">
-                    <PlaceholderImage
-                      src={portrait.url}
-                      alt="Portrait of Danielle Bosworth"
-                      label="Portrait"
-                      caption="Danielle Bosworth"
-                      ratio="4/5"
-                      fit="cover-top"
-                      priority
-                    />
-                  </div>
-                </div>
-              </ParallaxWrap>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="mt-12 grid grid-cols-12 gap-6 border-t border-border pt-8 md:mt-16">
-          <div className="col-span-12 max-w-2xl md:col-span-7 md:col-start-1">
-            <Reveal delay={480}>
-              <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">
-                People often tell one story — their behavior tells another. I design for the gap in between
-                <span className="text-accent">.</span>
-              </p>
-            </Reveal>
-            <Reveal delay={560}>
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Before studying product design, I spent years working directly with customers. Those conversations
-                taught me something research continues to confirm:
-              </p>
-            </Reveal>
-            <Reveal delay={640}>
-              <blockquote className="mt-5 border-l-2 border-teal pl-5 font-display text-xl leading-snug text-foreground md:text-2xl">
-                What people say, what they do, and what they actually need are often three different things.
-              </blockquote>
-            </Reveal>
-            <Reveal delay={720}>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-                My work focuses on understanding those gaps and designing better experiences around them.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Completing a Master of Business and Science in Product Design &amp; Innovation at Rutgers University.
-              </p>
-            </Reveal>
-          </div>
-          <div className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9">
-            <Stat k="175%" label="Revenue growth, branch ops" />
-            <Stat k="+32%" label="Client retention" />
-            <Stat k="04" label="Featured case studies" />
-            <Stat k="MBS" label="Product Design, Rutgers" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HeroBackdrop() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [fpVisible, setFpVisible] = useState(false);
-  const [nnVisible, setNnVisible] = useState(false);
-
-  useEffect(() => {
-    // Delayed appearance — the viewer is reading, then slowly notices something is there.
-    const t1 = setTimeout(() => setFpVisible(true), 1400);
-    const t2 = setTimeout(() => setNnVisible(true), 2600);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, []);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-    let raf = 0;
-    let tx = 0,
-      ty = 0;
-    const onMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      tx = ((e.clientX - cx) / rect.width) * -6;
-      ty = ((e.clientY - cy) / rect.height) * -5;
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)`;
-      });
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* warm paper wash */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(70% 55% at 20% 30%, color-mix(in oklab, var(--accent-yellow) 5%, transparent) 0%, transparent 60%), radial-gradient(60% 50% at 85% 75%, color-mix(in oklab, var(--teal) 4%, transparent) 0%, transparent 65%)",
-        }}
-      />
-      <div ref={ref} className="absolute inset-0" style={{ willChange: "transform" }}>
-        {/* Fingerprint — staggered behind portrait / upper-left. Fades in slowly then breathes. */}
-        <img
-          src={fingerprintImg.url}
-          alt=""
-          className="absolute select-none hero-breathe-fp"
-          style={{
-            top: "clamp(-160px, -10vw, -60px)",
-            left: "clamp(-220px, -14vw, -100px)",
-            width: "clamp(620px, 68vw, 1060px)",
-            height: "auto",
-            opacity: fpVisible ? 0.28 : 0,
-            transform: fpVisible ? undefined : "scale(0.94)",
-            transformOrigin: "38% 42%",
-            transition: "opacity 4.5s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.4, 0, 0.2, 1)",
-            mixBlendMode: "multiply",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
-            maskImage: "radial-gradient(ellipse 62% 62% at 38% 42%, black 20%, rgba(0,0,0,0.75) 55%, transparent 88%)",
-            filter: "contrast(1.05)",
-          }}
-        />
-        {/* Neural network — starts up near "Designing systems" upper-right and drifts down. */}
-        <img
-          src={neuralImg.url}
-          alt=""
-          className="absolute select-none hero-breathe-nn"
-          style={{
-            top: "clamp(40px, 8vw, 140px)",
-            right: "clamp(-200px, -12vw, -80px)",
-            width: "clamp(620px, 66vw, 1000px)",
-            height: "auto",
-            opacity: nnVisible ? 0.34 : 0,
-            transform: nnVisible ? undefined : "scale(0.94)",
-            transformOrigin: "52% 38%",
-            transition: "opacity 4.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6.5s cubic-bezier(0.4, 0, 0.2, 1)",
-            mixBlendMode: "multiply",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
-            maskImage: "radial-gradient(ellipse 62% 58% at 52% 38%, black 22%, rgba(0,0,0,0.7) 60%, transparent 92%)",
-            filter: "contrast(1.08)",
-          }}
-        />
-      </div>
-    </div>
-  );
+  return <ConnectionHero portraitUrl={portrait.url} resumeUrl={resumePdf.url} />;
 }
 
 function Stat({ k, label }: { k: string; label: string }) {
