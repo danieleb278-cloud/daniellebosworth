@@ -108,14 +108,14 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               ))}
             </div>
 
-            <div className="clarity-resolution absolute left-1/2 top-[43%] z-20 w-[88%] -translate-x-1/2 -translate-y-1/2 text-center">
+            <div className="clarity-resolution absolute z-20 text-left">
               <span className="clarity-kicker block font-mono text-[0.6rem] uppercase tracking-[0.28em] text-teal">
                 Patterns become visible
               </span>
               <span className="clarity-word mt-2 block font-display text-[clamp(3.5rem,8vw,6rem)] italic leading-none text-background">
                 Clarity
               </span>
-              <span className="clarity-copy mx-auto mt-4 block max-w-sm font-display text-base italic leading-snug text-background/70 sm:text-lg">
+              <span className="clarity-copy mt-4 block max-w-xs font-display text-base italic leading-snug text-background/75 sm:text-lg">
                 The opportunity is often in the connection.
               </span>
             </div>
@@ -172,15 +172,15 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           width: 44%;
           height: 82%;
           overflow: hidden;
-          opacity: .54;
-          transform: scale(.98);
+          opacity: 0;
+          transform: scale(.92) translateY(12px);
           transform-origin: center;
-          transition: opacity 820ms ease, transform 880ms cubic-bezier(.2,.78,.22,1), filter 820ms ease;
+          transition: opacity 520ms ease 420ms, transform 760ms cubic-bezier(.2,.78,.22,1) 380ms, filter 620ms ease 380ms;
         }
         .portrait-wash {
-          background:
-            linear-gradient(90deg, var(--charcoal) 0%, transparent 44%, transparent 75%, var(--charcoal) 100%),
-            linear-gradient(0deg, var(--charcoal) 0%, transparent 26%, transparent 76%, var(--charcoal) 100%);
+          background: linear-gradient(90deg, color-mix(in oklab, var(--charcoal) 44%, transparent), transparent 24%);
+          opacity: 1;
+          transition: opacity 420ms ease 460ms;
         }
         .focus-glow {
           background: color-mix(in oklab, var(--teal) 22%, transparent);
@@ -235,8 +235,12 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           pointer-events: none;
         }
         .clarity-resolution {
+          left: 6%;
+          top: 22%;
+          width: 42%;
           filter: blur(13px);
-          transform: translate(-50%, -50%) scale(.82);
+          transform: scale(.82) translateY(10px);
+          transform-origin: left center;
           transition: opacity 470ms ease 430ms, filter 650ms ease 390ms, transform 720ms cubic-bezier(.2,.78,.22,1) 360ms;
         }
         .clarity-kicker, .clarity-copy {
@@ -263,9 +267,12 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           letter-spacing: -.04em;
         }
         .is-connected .portrait-field {
-          opacity: .82;
-          transform: scale(1.035);
-          filter: contrast(1.08);
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          filter: contrast(1.05);
+        }
+        .is-connected .portrait-wash {
+          opacity: 0;
         }
         .is-connected .focus-glow {
           opacity: .7;
@@ -274,7 +281,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .is-connected .clarity-resolution {
           opacity: 1;
           filter: blur(0);
-          transform: translate(-50%, -50%) scale(1);
+          transform: scale(1) translateY(0);
         }
         .is-connected .clarity-kicker,
         .is-connected .clarity-copy {
@@ -288,7 +295,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         @media (max-width: 639px) {
           .word-field { height: 32rem; }
-          .portrait-field { right: -3%; top: 10%; width: 55%; height: 76%; opacity: .46; }
+          .portrait-field { right: 3%; top: 11%; width: 48%; height: 72%; opacity: 0; }
+          .clarity-resolution { left: 5%; top: 19%; width: 43%; }
+          .clarity-word { font-size: clamp(2.7rem, 13vw, 4rem) !important; }
+          .clarity-kicker { font-size: .5rem !important; letter-spacing: .18em !important; }
+          .clarity-copy { max-width: 10.5rem; font-size: .82rem !important; }
           .word-systems { font-size: 2.3rem; }
           .word-behavior { font-size: 2.35rem; top: 40%; }
           .word-process { font-size: 1.9rem; left: 43%; }
