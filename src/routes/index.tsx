@@ -376,7 +376,7 @@ function About() {
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-base leading-loose text-background/80">
-                  I'm completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers University,
+                  I'm completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers University in December 2026,
                   where I've deepened my passion for systems thinking, UX research, service design, and AI. I use AI daily
                   to streamline research, organize knowledge, automate repetitive work, and prototype better experiences.
                 </p>
@@ -431,7 +431,7 @@ function About() {
 function Resume() {
   const roles = [
     {
-      year: "May 2025 — July 2026",
+      year: "May 2025 — June 2026",
       role: "Product Specialist & Marketing Coordinator",
       org: "Magic Sleek · Manalapan, NJ",
       detail:
@@ -445,7 +445,7 @@ function Resume() {
         "Competitive and ingredient research for professional haircare; built an Airtable research library and synthesized findings into product roadmap recommendations.",
     },
     {
-      year: "2024 — Present",
+      year: "2024 — Expected Dec 2026",
       role: "MBS, Product Design & Innovation",
       org: "Rutgers University · GPA 3.7",
       detail:
@@ -616,7 +616,7 @@ function Contact() {
                 <div>
                   <span className="eyebrow">Looking for</span>
                   <ul className="mt-3 flex flex-col gap-2 font-display text-lg sm:text-xl">
-                    {["Product Design", "UX Research", "Customer Experience", "Product Strategy"].map((s) => (
+                    {["Solutions Consulting", "Customer Experience", "Product Strategy", "Innovation Management"].map((s) => (
                       <li
                         key={s}
                         className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
