@@ -33,7 +33,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduceMotion(media.matches);
+    const update = () => {\n      setReduceMotion(media.matches);\n      if (media.matches) setConnected(true);\n    };
     update();
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
@@ -141,7 +141,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               onClick={() => setConnected((value) => !value)}
               className="inline-flex min-h-11 w-fit items-center gap-3 border-b border-teal pb-1 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
             >
-              {connected ? "Return to the signals" : "Reveal the clarity"}
+              {connected ? "Reset view" : "Reveal the connections"}
               <span aria-hidden>{connected ? "↺" : "↗"}</span>
             </button>
             <p id="connection-state-description" aria-live="polite" className="sr-only">
@@ -308,7 +308,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .word-experience { font-size: 1.15rem; }
           .word-strategy { left: 39%; font-size: 1.1rem; }
           .outcome-row { inset-inline: .8rem; gap: .4rem; }
-          .outcome-row > div { font-size: .56rem !important; letter-spacing: .08em !important; }
+          .outcome-row > div { font-size: .64rem !important; letter-spacing: .05em !important; }
           .clarity-copy { max-width: 15rem; }
         }
 
