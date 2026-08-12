@@ -9,7 +9,7 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
-export function SiteNav() {
+type SiteNavProps = {\n  darkAtTop?: boolean;\n};\n\nexport function SiteNav({ darkAtTop = false }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -46,7 +46,7 @@ export function SiteNav() {
     };
   }, [open]);
 
-  const isDark = scrolled || open;
+  const isDark = scrolled || open;\n  const useLightText = isDark || darkAtTop;
 
   return (
     <header
@@ -68,7 +68,7 @@ export function SiteNav() {
             alt=""
             className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"
           />
-          <span className={`truncate font-display text-lg tracking-tight sm:text-xl ${isDark ? 'text-background' : 'text-foreground'}`}>
+          <span className={`truncate font-display text-lg tracking-tight sm:text-xl ${useLightText ? 'text-background' : 'text-foreground'}`}>
             Danielle Bosworth
           </span>
         </Link>
@@ -80,7 +80,7 @@ export function SiteNav() {
               <li key={s.id}>
                 <a
                   href={`/#${s.id}`}
-                  className={`eyebrow link-underline flex items-center gap-2 transition-colors duration-300 ${isDark ? 'text-background' : 'text-foreground'} ${isActive ? '!text-teal' : ''}`}
+                  className={`eyebrow link-underline flex items-center gap-2 transition-colors duration-300 ${useLightText ? 'text-background' : 'text-foreground'} ${isActive ? '!text-teal' : ''}`}
                 >
                   <span
                     aria-hidden
@@ -98,14 +98,14 @@ export function SiteNav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={`eyebrow flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 md:hidden ${isDark ? 'border-background/30 text-background' : 'border-foreground text-foreground'}`}
+          className={`eyebrow flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 md:hidden ${useLightText ? 'border-background/30 text-background' : 'border-foreground text-foreground'}`}
         >
           <span className="relative block h-3 w-4">
             <span
-              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${isDark ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 rotate-45" : "top-0"}`}
+              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${useLightText ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 rotate-45" : "top-0"}`}
             />
             <span
-              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${isDark ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 -rotate-45" : "top-full"}`}
+              className={`absolute left-0 right-0 h-px transition-transform duration-300 ${useLightText ? 'bg-background' : 'bg-foreground'} ${open ? "top-1/2 -rotate-45" : "top-full"}`}
             />
           </span>
           {open ? "Close" : "Menu"}
