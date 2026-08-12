@@ -65,6 +65,33 @@ const marquee = [
   "Cross-Functional",
 ];
 
+const projectProof: Record<string, { connection: string; evidence: string }> = {
+  joomla: {
+    connection:
+      "Users were not simply struggling to search. Metadata quality, ranking logic, compatibility, and trust all shaped whether they could make a confident decision.",
+    evidence:
+      "Four stakeholder interviews, two surveys, a heuristic evaluation, and competitive research informed an IA and search recommendation framework.",
+  },
+  "next-destination": {
+    connection:
+      "Planning stress came from fragmentation across budgeting, group coordination, personalization, and itinerary tools, not from destination discovery alone.",
+    evidence:
+      "Research synthesis and feature prioritization shaped an all-in-one concept, high-fidelity prototype, and product strategy.",
+  },
+  robin: {
+    connection:
+      "Job-search friction connected information overload, unclear pathways, and inconsistent application workflows at key decision points.",
+    evidence:
+      "Contextual inquiry, journey mapping, usability evaluation, and click-through testing informed recommendations presented to the client.",
+  },
+  "content-strategy": {
+    connection:
+      "The same customer question could support multiple audience touchpoints when the message was adapted to each channel rather than recreated from scratch.",
+    evidence:
+      "One source article became a coordinated set of blog, carousel, short-form video, email, and supporting social assets.",
+  },
+};
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -188,7 +215,23 @@ function Work() {
                       <span className="text-teal">.</span>
                     </h3>
                     <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">{cs.subtitle}</p>
-                    <div className="mt-5 flex flex-wrap items-center gap-2">
+                    {projectProof[cs.slug] && (
+                      <div className="mt-6 grid max-w-2xl gap-5 border-l-2 border-teal pl-5 sm:grid-cols-2">
+                        <div>
+                          <span className="eyebrow text-teal">Connection recognized</span>
+                          <p className="mt-2 text-sm leading-relaxed text-foreground">
+                            {projectProof[cs.slug].connection}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="eyebrow text-muted-foreground">Evidence</span>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {projectProof[cs.slug].evidence}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    <div className="mt-6 flex flex-wrap items-center gap-2">
                       {cs.tags.map((t) => (
                         <span
                           key={t}
