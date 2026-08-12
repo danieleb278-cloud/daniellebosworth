@@ -403,6 +403,15 @@ function About() {
                 me find the relationships behind a problem and turn complexity into clear, human-centered solutions.
               </p>
             </Reveal>
+            <Reveal delay={220}>
+              <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
+                My curiosity extends far beyond my professional work. I'm fascinated by the universe, quantum physics,
+                human consciousness, philosophy, and questions that challenge conventional explanations. I'm especially
+                drawn to the unexpected patterns that appear across seemingly unrelated subjects. That curiosity shapes
+                how I work: I look beyond the most obvious answer, explore ideas from multiple perspectives, and search
+                for connections that can reveal a clearer understanding of the problem.
+              </p>
+            </Reveal>
 
             <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:grid-cols-4">
               {[
