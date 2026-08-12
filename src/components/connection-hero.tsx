@@ -33,7 +33,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => {\n      setReduceMotion(media.matches);\n      if (media.matches) setConnected(true);\n    };
+    const update = () => {
+      setReduceMotion(media.matches);
+      if (media.matches) setConnected(true);
+    };
     update();
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
