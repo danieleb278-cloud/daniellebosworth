@@ -9,7 +9,11 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
-type SiteNavProps = {\n  darkAtTop?: boolean;\n};\n\nexport function SiteNav({ darkAtTop = false }: SiteNavProps) {
+type SiteNavProps = {
+  darkAtTop?: boolean;
+};
+
+export function SiteNav({ darkAtTop = false }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -46,7 +50,8 @@ type SiteNavProps = {\n  darkAtTop?: boolean;\n};\n\nexport function SiteNav({ d
     };
   }, [open]);
 
-  const isDark = scrolled || open;\n  const useLightText = isDark || darkAtTop;
+  const isDark = scrolled || open;
+  const useLightText = isDark || darkAtTop;
 
   return (
     <header
