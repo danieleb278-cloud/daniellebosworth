@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 type ConnectionHeroProps = {
   portraitUrl: string;
@@ -107,7 +107,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               <div
                 key={signal.label}
                 className={`connection-node absolute z-10 ${signal.initial} ${showConnected ? signal.connected : ""}`}
-                style={{ "--signal-index": index } as React.CSSProperties}
+                style={{ "--signal-index": index } as CSSProperties}
               >
                 <span aria-hidden className="mr-2 text-teal">0{index + 1}</span>
                 {signal.label}
