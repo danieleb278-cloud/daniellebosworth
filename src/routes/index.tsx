@@ -387,51 +387,31 @@ function About() {
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
-              <p className="font-display text-base leading-loose text-background/80 md:text-lg">
-                I started in{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">customer-facing leadership</span>,
-                developed a deep curiosity about{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">human behavior</span>, and pursued{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">psychology</span> and{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">product design</span> to better understand
-                people and systems. Today I use{" "}
-                <span className="text-lg text-teal tracking-wide md:text-xl">
-                  research, strategy, and design thinking
-                </span>{" "}
-                to uncover <span className="text-lg text-teal tracking-wide md:text-xl">insights</span> and build
-                experiences that bridge customer needs and business goals.
+              <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
+                For a long time I thought I needed to pick one lane. Marketing, product, operations, customer experience —
+                I was drawn to all of them. Eventually I realized that was the point. I think of myself as an{" "}
+                <span className="text-teal">interdepartmental translator</span>: turning research into product decisions,
+                technical concepts into customer-facing experiences, disconnected processes into optimized workflows,
+                and business goals into practical solutions.
               </p>
             </Reveal>
-            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
-              <Reveal delay={100}>
-                <p className="text-base leading-loose text-background/80">
-                  I've always been drawn to understanding how people, products, and systems work together. I started my
-                  career in customer-facing leadership, where I learned firsthand how communication, process, and
-                  experience shape the way people interact with a business.
-                </p>
-              </Reveal>
-              <Reveal delay={150}>
-                <p className="text-base leading-loose text-background/80">
-                  Today, I thrive at the intersection of product, customer experience, and business strategy. I enjoy
-                  translating insights into practical solutions—whether that's turning user research into product
-                  improvements, designing evergreen content, or identifying opportunities to improve workflows across teams.
-                </p>
-              </Reveal>
-              <Reveal delay={200}>
-                <p className="text-base leading-loose text-background/80">
-                  I'm completing my Master of Business and Science in Product Design &amp; Innovation at Rutgers University in December 2026,
-                  where I've deepened my passion for systems thinking, UX research, service design, and AI. I use AI daily
-                  to streamline research, organize knowledge, automate repetitive work, and prototype better experiences.
-                </p>
-              </Reveal>
-              <Reveal delay={250}>
-                <p className="text-base leading-loose text-background/80">
-                  Whether I'm designing a product experience, optimizing a workflow, building educational resources, or
-                  shaping go-to-market assets, my goal is always the same: turn complexity into clear, scalable,
-                  human-centered solutions.
-                </p>
-              </Reveal>
-            </div>
+            <Reveal delay={120}>
+              <p className="mt-8 max-w-3xl text-base leading-loose text-background/75">
+                My foundation in psychology and customer-facing leadership helps me understand people; my Master of
+                Business and Science in Product Design &amp; Innovation at Rutgers University, expected December 2026,
+                strengthens how I approach systems, research, service design, and AI. Together, those perspectives help
+                me find the relationships behind a problem and turn complexity into clear, human-centered solutions.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
+                My curiosity extends far beyond my professional work. I'm fascinated by the universe, quantum physics,
+                human consciousness, philosophy, and questions that challenge conventional explanations. I'm especially
+                drawn to the unexpected patterns that appear across seemingly unrelated subjects. That curiosity shapes
+                how I work: I look beyond the most obvious answer, explore ideas from multiple perspectives, and search
+                for connections that can reveal a clearer understanding of the problem.
+              </p>
+            </Reveal>
 
             <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:grid-cols-4">
               {[
@@ -549,16 +529,8 @@ function Resume() {
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
-          <span className="eyebrow col-span-12 md:col-span-2">§ Résumé</span>
-          <h2 className="col-span-12 font-display text-xl tracking-tight md:col-span-10 md:text-3xl">
-            For a long time I thought I needed to pick one lane.{" "}
-            It took me a while to realize that not fitting neatly into one department wasn't a weakness—it was actually my niche.{" "}
-            <span className="text-teal">
-              I think of myself as an interdepartmental translator;
-            </span>{" "}
-            turning research into product decisions, technical concepts into customer-facing experiences, disconnected processes into optimized workflows, and business goals into practical solutions.
-          </h2>
+        <div className="mb-12 border-b border-border pb-8">
+          <span className="eyebrow">§ Experience</span>
         </div>
 
         <div className="grid grid-cols-12 gap-6">
