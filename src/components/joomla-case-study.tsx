@@ -152,7 +152,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {problemImage && (
             <div className="mt-16">
-              <PlaceholderImage src={problemImage.src} alt={problemImage.alt} caption="Fig. 02 · The current compare-by-memory loop users fall into" ratio={problemImage.ratio ?? "16/9"} fit={problemImage.fit ?? "cover"} priority />
+              <CaseFigure src={problemImage.src} alt={problemImage.alt} caption="Fig. 02 · The current compare-by-memory loop users fall into" />
             </div>
           )}
         </div>
@@ -178,7 +178,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {researchImage && (
             <div className="mt-14">
-              <PlaceholderImage src={researchImage.src} alt={researchImage.alt} caption="Fig. 03 · Journey across search, evaluation, and selection" ratio={researchImage.ratio ?? "16/9"} fit={researchImage.fit ?? "cover"} priority />
+              <CaseFigure src={researchImage.src} alt={researchImage.alt} caption="Fig. 03 · Journey across search, evaluation, and selection" />
             </div>
           )}
         </div>
@@ -281,6 +281,37 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   );
 }
 
+function CaseFigure({
+  src,
+  alt,
+  caption,
+  portrait = false,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  portrait?: boolean;
+}) {
+  return (
+    <figure className="w-full">
+      <div className="flex w-full items-center justify-center border border-border bg-secondary p-4 md:p-6">
+        <img
+          src={src}
+          alt={alt}
+          className={portrait ? "block max-h-[760px] w-auto max-w-full" : "block h-auto w-full"}
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
+        />
+      </div>
+      <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
+        <span>{caption}</span>
+        <span aria-hidden>✦</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 function SolutionCarousel() {
   const slides = [
     {
@@ -300,7 +331,7 @@ function SolutionCarousel() {
       <div className="mx-auto max-w-5xl">
         {slides.map((slide, index) => (
           <div key={slide.src} className={index === active ? "block" : "hidden"} aria-hidden={index !== active}>
-            <PlaceholderImage src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" priority />
+            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index === 0} />
           </div>
         ))}
       </div>
