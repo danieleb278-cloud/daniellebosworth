@@ -253,11 +253,30 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               </div>
             ))}
           </div>
-          {solutionImages.slice(0, 3).map((image, i) => (
-            <div key={`${image.src}-${i}`} className="mt-14">
-              <PlaceholderImage src={image.src} alt={image.alt} caption={image.caption} ratio={image.ratio ?? "16/9"} fit={image.fit ?? "cover"} />
-            </div>
-          ))}
+          <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
+            <Reveal>
+              <div className="mx-auto max-w-xl">
+                <PlaceholderImage
+                  src={joomlaSearchResults.url}
+                  alt="Redesigned search results page with structured filters and comparable cards"
+                  caption="Fig. 05 · Search results with structured filters, comparable cards, and clearer metadata"
+                  ratio="3/5"
+                  fit="cover-top"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="mx-auto max-w-xl">
+                <PlaceholderImage
+                  src={joomlaComparison.url}
+                  alt="Side-by-side extension comparison view"
+                  caption="Fig. 06 · Side-by-side comparison so alternatives are evaluated without recall effort"
+                  ratio="4/3"
+                  fit="cover-top"
+                />
+              </div>
+            </Reveal>
+          </div>
           {features && <DeepDive title="Explore all solution details" section={features} />}
         </div>
       </section>
