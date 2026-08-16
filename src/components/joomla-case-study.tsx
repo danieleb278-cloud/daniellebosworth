@@ -152,7 +152,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {problemImage && (
             <div className="mt-16">
-              <PlaceholderImage src={problemImage.src} alt={problemImage.alt} caption="Fig. 02 · The current compare-by-memory loop users fall into" ratio={problemImage.ratio ?? "16/9"} fit={problemImage.fit ?? "cover"} />
+              <PlaceholderImage src={problemImage.src} alt={problemImage.alt} caption="Fig. 02 · The current compare-by-memory loop users fall into" ratio={problemImage.ratio ?? "16/9"} fit={problemImage.fit ?? "cover"} priority />
             </div>
           )}
         </div>
@@ -178,7 +178,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {researchImage && (
             <div className="mt-14">
-              <PlaceholderImage src={researchImage.src} alt={researchImage.alt} caption="Fig. 03 · Journey across search, evaluation, and selection" ratio={researchImage.ratio ?? "16/9"} fit={researchImage.fit ?? "cover"} />
+              <PlaceholderImage src={researchImage.src} alt={researchImage.alt} caption="Fig. 03 · Journey across search, evaluation, and selection" ratio={researchImage.ratio ?? "16/9"} fit={researchImage.fit ?? "cover"} priority />
             </div>
           )}
         </div>
@@ -300,7 +300,7 @@ function SolutionCarousel() {
   return (
     <div className="mt-14">
       <div className="mx-auto max-w-5xl">
-        <PlaceholderImage src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" />
+        <PlaceholderImage key={slide.src} src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" priority />
       </div>
       <div className="mx-auto mt-6 flex max-w-5xl items-center justify-between border-t border-border pt-5">
         <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
