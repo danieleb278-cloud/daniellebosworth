@@ -295,12 +295,14 @@ function SolutionCarousel() {
     },
   ];
   const [active, setActive] = useState(0);
-  const slide = slides[active];
-
   return (
     <div className="mt-14">
       <div className="mx-auto max-w-5xl">
-        <PlaceholderImage key={slide.src} src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" priority />
+        {slides.map((slide, index) => (
+          <div key={slide.src} className={index === active ? "block" : "hidden"} aria-hidden={index !== active}>
+            <PlaceholderImage src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" priority />
+          </div>
+        ))}
       </div>
       <div className="mx-auto mt-6 flex max-w-5xl items-center justify-between border-t border-border pt-5">
         <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
