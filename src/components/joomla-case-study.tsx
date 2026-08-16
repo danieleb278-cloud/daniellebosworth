@@ -105,30 +105,21 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const reflection = findSection(sections, "reflection");
   const overview = findSection(sections, "overview");
 
-  const heroImage = findFirstImage(overview);
   const problemImage = findFirstImage(problem);
   const researchImage = findFirstImage(research);
-  const solutionImages = collectImages(solution).concat(collectImages(features));
 
   return (
     <>
       {/* Hero visual */}
-      {heroImage && (
-        <section className="px-6 pb-20 md:px-12 md:pb-28">
-          <div className="mx-auto max-w-[1400px]">
-            <Reveal>
-              <div className="overflow-hidden border border-border bg-secondary px-6 py-10 md:px-14 md:py-16">
-                <PlaceholderImage
-                  src={heroImage.src}
-                  alt={heroImage.alt}
-                  ratio="16/9"
-                  fit={heroImage.fit ?? "contain"}
-                />
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      )}
+      <section className="px-6 pb-20 md:px-12 md:pb-28">
+        <div className="mx-auto max-w-[1400px]">
+          <Reveal>
+            <div className="overflow-hidden border border-border bg-secondary p-3 md:p-5">
+              <JoomlaHeroMedia />
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* 30 second read */}
       <section id="overview" className="border-y border-border px-6 py-20 md:px-12 md:py-24">
