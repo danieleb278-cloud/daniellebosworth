@@ -68,42 +68,28 @@ const insightCards = [
   },
 ];
 
-const reasoning = [
+const solutionGroups = [
   {
-    evidence: "Users struggled to find relevant extensions and search results were difficult to interpret.",
-    insight: "Retrieval alone was not solving the discovery problem.",
-    decision: "Make search intent-aware with stronger relevance signals, filtering, and transparent result explanations.",
+    number: "01",
+    title: "Build a stronger information foundation",
+    body: "Standardized metadata and a guided submission wizard give search, filtering, and comparison more consistent information to work with.",
   },
   {
-    evidence: "Compatibility and decision-critical information were scattered across the experience.",
-    insight: "Users were being asked to remember and mentally compare information across extensions.",
-    decision: "Standardize metadata and surface comparable information earlier in results and detail views.",
+    number: "02",
+    title: "Make discovery more relevant",
+    body: "Intent-aware ranking, clearer filters, and transparent match explanations help users understand why an extension appears.",
   },
   {
-    evidence: "Users sometimes discovered an extension was unsuitable only after investing significant time.",
-    insight: "The directory needed to support evaluation, not simply discovery.",
-    decision: "Add side-by-side comparison and stronger trust, compatibility, and maintenance signals.",
+    number: "03",
+    title: "Support confident evaluation",
+    body: "Comparable cards, compatibility details, maintenance signals, and side-by-side comparison reduce guesswork before selection.",
   },
-];
-
-const solutionNames = [
-  "Enhanced Search Relevance",
-  "Intelligent Metadata Structure",
-  "Extension Submission Wizard",
-  "Comparison Tool",
-  "Search Transparency",
-  "Improved Filtering",
 ];
 
 export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const sections = study.sections ?? [];
   const research = findSection(sections, "research");
   const problem = findSection(sections, "problem");
-  const solution = findSection(sections, "solution");
-  const ia = findSection(sections, "ia");
-  const features = findSection(sections, "features");
-  const outcomes = findSection(sections, "outcomes");
-  const reflection = findSection(sections, "reflection");
 
   const problemImage = findFirstImage(problem);
   const researchImage = findFirstImage(research);
@@ -124,7 +110,8 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
       {/* 30 second read */}
       <section id="overview" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="01 / 07" label="The project in 30 seconds" />
+          <SectionLabel number="01 / 05" label="Overview" />
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The project in 30 seconds</p>
           <div className="mt-12" />
           <div className="grid gap-10 md:grid-cols-3 md:gap-12">
             <Summary label="The problem" text="Users could access thousands of extensions, but finding, comparing, and confidently selecting the right one required too much effort." />
@@ -132,11 +119,11 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
             <Summary label="The direction" text="Treat the directory as a decision-support experience built around intent, structured metadata, and comparison — not just a list of extensions." />
           </div>
           {study.snapshot && (
-            <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              <Meta label="Role" value={study.snapshot.myRole} />
-              <Meta label="Duration" value={study.duration} />
-              <Meta label="Methods" value={study.snapshot.methodsUsed} />
-              <Meta label="Tools" value={study.snapshot.toolsUsed} />
+            <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
+              <Meta label="Role" value="UX Researcher & Information Architect" />
+              <Meta label="Duration" value="12 weeks" />
+              <Meta label="Methods" value="Interviews, surveys, heuristic evaluation, competitive analysis" />
+              <Meta label="Tools" value="Figma, Miro, Google Forms, Cacoo" />
             </div>
           )}
         </div>
@@ -145,7 +132,8 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
       {/* Challenge */}
       <section id="challenge" className="px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="02 / 07" label="The challenge" />
+          <SectionLabel number="02 / 05" label="Discover" />
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The challenge</p>
           <div className="mt-14 grid grid-cols-12 gap-8">
             <Reveal className="col-span-12 lg:col-span-8">
               <h2 className="font-display text-[clamp(2.6rem,6vw,6.5rem)] leading-[0.98] tracking-[-0.035em]">
@@ -159,7 +147,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {problemImage && (
             <div className="mt-16">
-              <PlaceholderImage src={problemImage.src} alt={problemImage.alt} caption={problemImage.caption} ratio={problemImage.ratio ?? "16/9"} fit={problemImage.fit ?? "cover"} />
+              <PlaceholderImage src={problemImage.src} alt={problemImage.alt} caption="Fig. 02 · The current compare-by-memory loop users fall into" ratio={problemImage.ratio ?? "16/9"} fit={problemImage.fit ?? "cover"} />
             </div>
           )}
         </div>
@@ -168,7 +156,10 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
       {/* Insights */}
       <section id="insights" className="px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="03 / 07" label="What the research revealed" />
+          <div className="flex items-baseline gap-5">
+            <span className="font-mono text-xs text-muted-foreground">Research findings</span>
+            <span className="eyebrow text-accent">What discovery revealed</span>
+          </div>
           <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-12">
             {insightCards.map((card, i) => (
               <Reveal key={card.label} delay={i * 80}>
@@ -182,17 +173,17 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {researchImage && (
             <div className="mt-14">
-              <PlaceholderImage src={researchImage.src} alt={researchImage.alt} caption={researchImage.caption} ratio={researchImage.ratio ?? "16/9"} fit={researchImage.fit ?? "cover"} />
+              <PlaceholderImage src={researchImage.src} alt={researchImage.alt} caption="Fig. 03 · Journey across search, evaluation, and selection" ratio={researchImage.ratio ?? "16/9"} fit={researchImage.fit ?? "cover"} />
             </div>
           )}
-          {research && <DeepDive title="Explore the research" section={research} />}
         </div>
       </section>
 
       {/* Connecting the dots */}
       <section id="reasoning" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="04 / 07" label="Connecting the dots" tone="dark" />
+          <SectionLabel number="03 / 05" label="Define" tone="dark" />
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-background/60">Connecting the dots</p>
           <div className="grid gap-12 py-16 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
             <div className="space-y-4 font-display text-2xl text-background/70 md:text-3xl">
               <p>Different search language</p>
@@ -214,38 +205,23 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
         </div>
       </section>
 
-      {/* Evidence -> insight -> decision */}
-      <section className="px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="05 / 07" label="Evidence, insight, decision" />
-          <div className="mt-14 space-y-14">
-            {reasoning.map((item, i) => (
-              <Reveal key={item.evidence} delay={i * 70}>
-                <div className="grid gap-7 md:grid-cols-3 md:gap-10">
-                  <ReasonCell label="Evidence" text={item.evidence} />
-                  <ReasonCell label="Insight" text={item.insight} />
-                  <ReasonCell label="Decision" text={item.decision} accent />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Design */}
 
-      {/* Solution */}
       <section id="solution" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="06 / 07" label="The solution direction" />
+          <SectionLabel number="04 / 05" label="Design" />
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The solution direction</p>
           <div className="mt-10 max-w-4xl">
             <h2 className="font-display text-4xl leading-tight tracking-tight md:text-6xl">A directory that helps people <span className="text-accent">decide, not just browse.</span></h2>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">The recommendations work as a system: improve the information entering the directory, use that structure to sharpen discovery, and make alternatives easier to evaluate before users commit time to implementation.</p>
           </div>
-          <div className="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {solutionNames.map((name, i) => (
-              <div key={name} className="border-t border-border pt-5">
-                <span className="font-mono text-xs text-accent">0{i + 1}</span>
-                <h3 className="mt-3 font-display text-xl tracking-tight md:text-2xl">{name}</h3>
-              </div>
+          <div className="mt-14 grid gap-10 lg:grid-cols-3">
+            {solutionGroups.map((item) => (
+              <article key={item.number} className="border-t border-border pt-5">
+                <span className="font-mono text-xs text-accent">{item.number}</span>
+                <h3 className="mt-4 font-display text-2xl leading-tight tracking-tight">{item.title}</h3>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{item.body}</p>
+              </article>
             ))}
           </div>
           <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -254,7 +230,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
                 <PlaceholderImage
                   src={joomlaSearchResults.url}
                   alt="Redesigned search results page with structured filters and comparable cards"
-                  caption="Fig. 05 · Search results with structured filters, comparable cards, and clearer metadata"
+                  caption="Fig. 04 · Search results with structured filters, comparable cards, and clearer metadata"
                   ratio="3/5"
                   fit="cover-top"
                 />
@@ -265,23 +241,21 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
                 <PlaceholderImage
                   src={joomlaComparison.url}
                   alt="Side-by-side extension comparison view"
-                  caption="Fig. 06 · Side-by-side comparison so alternatives are evaluated without recall effort"
+                  caption="Fig. 05 · Side-by-side comparison so alternatives are evaluated without recall effort"
                   ratio="4/3"
                   fit="cover-top"
                 />
               </div>
             </Reveal>
           </div>
-          {solution && <DeepDive title="See the underlying search + metadata model" section={solution} />}
-          {ia && <DeepDive title="Explore the information architecture work" section={ia} />}
-          {features && <DeepDive title="Explore all solution details" section={features} />}
         </div>
       </section>
 
       {/* Impact */}
       <section id="impact" className="px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="07 / 07" label="Expected impact & next validation" />
+          <SectionLabel number="05 / 05" label="Next" />
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Expected impact & next validation</p>
           <div className="mt-12 grid gap-12 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-4xl tracking-tight md:text-5xl">Designed to improve</h2>
@@ -297,7 +271,6 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               <p className="mt-6 text-muted-foreground">Because this was a design recommendation project rather than a launched product, these are intended outcomes—not manufactured performance metrics.</p>
             </div>
           </div>
-          {outcomes && <DeepDive title="See supporting impact rationale" section={outcomes} />}
         </div>
       </section>
 
@@ -318,7 +291,6 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               </div>
             </div>
           </div>
-          {reflection && <DeepDive title="Read the full reflection" section={reflection} />}
         </div>
       </section>
     </>
@@ -329,7 +301,7 @@ function Summary({ label, text }: { label: string; text: string }) {
   return <div><span className="eyebrow text-accent">{label}</span><p className="mt-5 font-display text-2xl leading-snug tracking-tight md:text-3xl">{text}</p></div>;
 }
 function Meta({ label, value }: { label: string; value: string }) {
-  return <div><span className="eyebrow text-muted-foreground">{label}</span><p className="mt-2 text-sm leading-relaxed">{value}</p></div>;
+  return <div className="min-h-32 border-border px-0 py-6 sm:px-6 sm:first:pl-0 lg:border-r lg:last:border-r-0"><span className="eyebrow text-muted-foreground">{label}</span><p className="mt-3 max-w-[24ch] text-sm leading-relaxed">{value}</p></div>;
 }
 function SectionLabel({ number, label, tone = "light" }: { number: string; label: string; tone?: "light" | "dark" }) {
   return (
@@ -341,27 +313,6 @@ function SectionLabel({ number, label, tone = "light" }: { number: string; label
 }
 function ReasonCell({ label, text, accent = false }: { label: string; text: string; accent?: boolean }) {
   return <div><span className={`eyebrow ${accent ? "text-accent" : "text-muted-foreground"}`}>{label}</span><p className="mt-4 font-display text-xl leading-snug md:text-2xl">{text}</p></div>;
-}
-
-function DeepDive({ title, section }: { title: string; section: Section }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="mt-12 border-t border-border">
-      <button type="button" onClick={() => setOpen(!open)} className="flex w-full items-center justify-between py-6 text-left">
-        <span className="eyebrow">{title}</span><span className="font-display text-2xl text-accent">{open ? "−" : "+"}</span>
-      </button>
-      {open && <div className="grid grid-cols-12 gap-6 pb-10"><div className="col-span-12 space-y-6 md:col-span-10 md:col-start-2">{section.blocks.map((block, i) => <DeepBlock key={i} block={block} />)}</div></div>}
-    </div>
-  );
-}
-
-function DeepBlock({ block }: { block: Block }) {
-  if (block.kind === "p") return <p className="text-base leading-relaxed text-muted-foreground md:text-lg">{block.text}</p>;
-  if (block.kind === "list") return <div>{block.heading && <h4 className="font-display text-xl">{block.heading}</h4>}<ul className="mt-3 space-y-2">{block.items.map((item) => <li key={item} className="flex gap-3 text-muted-foreground"><span className="mt-2 h-px w-4 shrink-0 bg-accent"/><span>{item}</span></li>)}</ul></div>;
-  if (block.kind === "image") return <PlaceholderImage src={block.src} alt={block.alt} caption={block.caption} ratio={block.ratio ?? "16/9"} fit={block.fit ?? "cover"} />;
-  if (block.kind === "gallery") return <div className="grid gap-5 sm:grid-cols-2">{block.items.map((item, i) => <PlaceholderImage key={i} src={item.src} alt={item.alt} caption={item.caption} ratio={item.ratio ?? "4/5"} />)}</div>;
-  if (block.kind === "carousel") return null;
-  return <div className="border-l border-border pl-5"><h4 className="font-display text-xl md:text-2xl">{block.heading}</h4><div className="mt-4 space-y-4">{block.blocks.map((nested, i) => <DeepBlock key={i} block={nested} />)}</div></div>;
 }
 
 function findSection(sections: Section[], id: string) { return sections.find((section) => section.id === id); }
