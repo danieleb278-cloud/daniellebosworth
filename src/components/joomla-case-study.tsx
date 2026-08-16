@@ -315,14 +315,19 @@ function CaseFigure({
 function SolutionCarousel() {
   const slides = [
     {
+      src: "/joomla/submission-wizard.jpg",
+      alt: "Guided extension submission wizard with conditional metadata sections",
+      caption: "Fig. 04 · Submission wizard that structures metadata at the source",
+    },
+    {
       src: "/joomla/search-results-redesign.jpg",
       alt: "Redesigned search results page with structured filters and comparable cards",
-      caption: "Fig. 04 · Search results with structured filters, comparable cards, and clearer metadata",
+      caption: "Fig. 05 · Search results with structured filters, comparable cards, and clearer metadata",
     },
     {
       src: "/joomla/comparison-detail.jpg",
       alt: "Side-by-side extension comparison view",
-      caption: "Fig. 05 · Side-by-side comparison so alternatives are evaluated without recall effort",
+      caption: "Fig. 06 · Side-by-side comparison so alternatives are evaluated without recall effort",
     },
   ];
   const [active, setActive] = useState(0);
@@ -331,7 +336,7 @@ function SolutionCarousel() {
       <div className="mx-auto max-w-5xl">
         {slides.map((slide, index) => (
           <div key={slide.src} className={index === active ? "block" : "hidden"} aria-hidden={index !== active}>
-            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index === 0} />
+            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index < 2} />
           </div>
         ))}
       </div>
