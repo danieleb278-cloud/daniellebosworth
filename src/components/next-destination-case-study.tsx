@@ -144,10 +144,10 @@ export function NextDestinationCaseStudy({ study }: { study: CaseStudy }) {
           <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-12">
             {insights.map((card, index) => (
               <Reveal key={card.label} delay={index * 80}>
-                <article>
+                <article className="grid h-full grid-rows-[auto_1fr_auto]">
                   <span className="eyebrow text-accent">{String(index + 1).padStart(2, "0")} · {card.label}</span>
-                  <h3 className="mt-7 font-display text-2xl leading-tight tracking-tight md:text-3xl">{card.title}</h3>
-                  <p className="mt-5 leading-relaxed text-muted-foreground">{card.body}</p>
+                  <h3 className="mt-7 font-display text-2xl leading-tight tracking-tight md:min-h-[7.5rem] md:text-3xl">{card.title}</h3>
+                  <p className="mt-5 self-start leading-relaxed text-muted-foreground">{card.body}</p>
                 </article>
               </Reveal>
             ))}
