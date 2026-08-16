@@ -1,7 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import type { Block, CaseStudy, Section } from "@/lib/case-studies";
+import joomlaHeroPoster from "@/assets/joomla/joomla_hero_poster.jpg.asset.json";
+import joomlaSearchResults from "@/assets/joomla/search_results_redesign.png.asset.json";
+import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
+
+const HERO_VIDEO_SRC = "/joomla%20hero.mp4";
+
+function JoomlaHeroMedia() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return (
+    <figure className="w-full">
+      <div className="relative w-full overflow-hidden border border-border bg-secondary" style={{ aspectRatio: "16/9" }}>
+        {reducedMotion ? (
+          <img
+            src={joomlaHeroPoster.url}
+            alt="Joomla Extension Directory redesign walkthrough"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src={HERO_VIDEO_SRC}
+            poster={joomlaHeroPoster.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Joomla Extension Directory redesign walkthrough"
+          />
+        )}
+      </div>
+      <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
+        <span>Fig. 01 · Walkthrough of the proposed Joomla Extension Directory experience</span>
+        <span aria-hidden>✦</span>
+      </figcaption>
+    </figure>
+  );
+}
 
 const insightCards = [
   {
@@ -53,35 +100,26 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const research = findSection(sections, "research");
   const problem = findSection(sections, "problem");
   const solution = findSection(sections, "solution");
+  const ia = findSection(sections, "ia");
   const features = findSection(sections, "features");
   const outcomes = findSection(sections, "outcomes");
   const reflection = findSection(sections, "reflection");
-  const overview = findSection(sections, "overview");
 
-  const heroImage = findFirstImage(overview);
   const problemImage = findFirstImage(problem);
   const researchImage = findFirstImage(research);
-  const solutionImages = collectImages(solution).concat(collectImages(features));
 
   return (
     <>
       {/* Hero visual */}
-      {heroImage && (
-        <section className="px-6 pb-20 md:px-12 md:pb-28">
-          <div className="mx-auto max-w-[1400px]">
-            <Reveal>
-              <div className="overflow-hidden border border-border bg-secondary px-6 py-10 md:px-14 md:py-16">
-                <PlaceholderImage
-                  src={heroImage.src}
-                  alt={heroImage.alt}
-                  ratio="16/9"
-                  fit={heroImage.fit ?? "contain"}
-                />
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      )}
+      <section className="px-6 pb-20 md:px-12 md:pb-28">
+        <div className="mx-auto max-w-[1400px]">
+          <Reveal>
+            <div className="overflow-hidden border border-border bg-secondary p-3 md:p-5">
+              <JoomlaHeroMedia />
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* 30 second read */}
       <section id="overview" className="border-y border-border px-6 py-20 md:px-12 md:py-24">
@@ -215,11 +253,32 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               </div>
             ))}
           </div>
-          {solutionImages.slice(0, 3).map((image, i) => (
-            <div key={`${image.src}-${i}`} className="mt-14">
-              <PlaceholderImage src={image.src} alt={image.alt} caption={image.caption} ratio={image.ratio ?? "16/9"} fit={image.fit ?? "cover"} />
-            </div>
-          ))}
+          <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
+            <Reveal>
+              <div className="mx-auto max-w-xl">
+                <PlaceholderImage
+                  src={joomlaSearchResults.url}
+                  alt="Redesigned search results page with structured filters and comparable cards"
+                  caption="Fig. 05 · Search results with structured filters, comparable cards, and clearer metadata"
+                  ratio="3/5"
+                  fit="cover-top"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="mx-auto max-w-xl">
+                <PlaceholderImage
+                  src={joomlaComparison.url}
+                  alt="Side-by-side extension comparison view"
+                  caption="Fig. 06 · Side-by-side comparison so alternatives are evaluated without recall effort"
+                  ratio="4/3"
+                  fit="cover-top"
+                />
+              </div>
+            </Reveal>
+          </div>
+          {solution && <DeepDive title="See the underlying search + metadata model" section={solution} />}
+          {ia && <DeepDive title="Explore the information architecture work" section={ia} />}
           {features && <DeepDive title="Explore all solution details" section={features} />}
         </div>
       </section>
