@@ -1,7 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import type { Block, CaseStudy, Section } from "@/lib/case-studies";
+import joomlaHeroPoster from "@/assets/joomla/joomla_hero_poster.jpg.asset.json";
+import joomlaSearchResults from "@/assets/joomla/search_results_redesign.png.asset.json";
+import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
+
+const HERO_VIDEO_SRC = "/joomla%20hero.mp4";
+
+function JoomlaHeroMedia() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return (
+    <figure className="w-full">
+      <div className="relative w-full overflow-hidden border border-border bg-secondary" style={{ aspectRatio: "16/9" }}>
+        {reducedMotion ? (
+          <img
+            src={joomlaHeroPoster.url}
+            alt="Joomla Extension Directory redesign walkthrough"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src={HERO_VIDEO_SRC}
+            poster={joomlaHeroPoster.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Joomla Extension Directory redesign walkthrough"
+          />
+        )}
+      </div>
+      <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
+        <span>Fig. 01 · Walkthrough of the proposed Joomla Extension Directory experience</span>
+        <span aria-hidden>✦</span>
+      </figcaption>
+    </figure>
+  );
+}
 
 const insightCards = [
   {
