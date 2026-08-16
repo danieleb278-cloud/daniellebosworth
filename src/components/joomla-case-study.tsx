@@ -99,11 +99,9 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const sections = study.sections ?? [];
   const research = findSection(sections, "research");
   const problem = findSection(sections, "problem");
-  const solution = findSection(sections, "solution");
   const features = findSection(sections, "features");
   const outcomes = findSection(sections, "outcomes");
   const reflection = findSection(sections, "reflection");
-  const overview = findSection(sections, "overview");
 
   const problemImage = findFirstImage(problem);
   const researchImage = findFirstImage(research);
