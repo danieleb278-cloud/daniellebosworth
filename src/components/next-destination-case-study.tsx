@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/reveal";
 import type { CaseStudy } from "@/lib/case-studies";
 import ndScreens from "@/assets/nd/screens.png.asset.json";
@@ -8,6 +8,10 @@ import ndFullProto from "@/assets/nd/fullproto.png.asset.json";
 import ndPersonalization from "@/assets/nd/personalization.png.asset.json";
 import ndItinerary from "@/assets/nd/itinerary.png.asset.json";
 import ndBudget from "@/assets/nd/budget.png.asset.json";
+
+const LOVABLE_ASSET_ORIGIN = "https://daniellebosworth.lovable.app";
+const assetUrl = (path: string) => path.startsWith("http") ? path : `${LOVABLE_ASSET_ORIGIN}${path}`;
+const HERO_VIDEO_SRC = "/next%20desination%20video.mp4";
 
 const insights = [
   {
@@ -45,18 +49,50 @@ const solutionGroups = [
   },
 ];
 
+function NextDestinationHero() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return (
+    <figure className="w-full">
+      <div className="relative w-full overflow-hidden bg-secondary" style={{ aspectRatio: "16/9" }}>
+        {reducedMotion ? (
+          <img src={assetUrl(ndScreens.url)} alt="Next Destination mobile planning experience" className="absolute inset-0 h-full w-full object-contain" />
+        ) : (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src={HERO_VIDEO_SRC}
+            poster={assetUrl(ndScreens.url)}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Next Destination travel planning prototype walkthrough"
+          />
+        )}
+      </div>
+      <figcaption className="eyebrow mt-4 flex items-center justify-between">
+        <span>Fig. 01 · Next Destination brings discovery, planning, budgets, and collaboration into one experience</span>
+        <span aria-hidden>✦</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export function NextDestinationCaseStudy({ study }: { study: CaseStudy }) {
   return (
     <>
       <section className="px-6 pb-20 md:px-12 md:pb-28">
         <div className="mx-auto max-w-[1400px]">
-          <Reveal>
-            <CaseFigure
-              src={ndScreens.url}
-              alt="Next Destination mobile experience shown across key planning screens"
-              caption="Fig. 01 · One connected experience for discovering, organizing, and sharing a trip"
-            />
-          </Reveal>
+          <Reveal><NextDestinationHero /></Reveal>
         </div>
       </section>
 
@@ -95,7 +131,7 @@ export function NextDestinationCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           <div className="mt-16">
             <CaseFigure
-              src={ndJourney.url}
+              src={assetUrl(ndJourney.url)}
               alt="Journey map describing the fragmented travel planning process"
               caption="Fig. 02 · The planning journey exposed friction across discovery, evaluation, coordination, and booking"
             />
@@ -228,10 +264,10 @@ function CaseFigure({ src, alt, caption, portrait = false }: { src: string; alt:
 
 function SolutionCarousel() {
   const slides = [
-    { src: ndFullProto.url, alt: "Full Next Destination prototype flow", caption: "Fig. 03 · The complete prototype connects onboarding, discovery, planning, and collaboration", portrait: false },
-    { src: ndPersonalization.url, alt: "Personalized recommendation screens", caption: "Fig. 04 · Preferences and budget shape a more relevant starting point", portrait: true },
-    { src: ndItinerary.url, alt: "Collaborative itinerary planning screens", caption: "Fig. 05 · A shared itinerary keeps group decisions and changes visible", portrait: true },
-    { src: ndBudget.url, alt: "Travel budget planning screens", caption: "Fig. 06 · Budget tools keep inspiration grounded in practical tradeoffs", portrait: true },
+    { src: assetUrl(ndFullProto.url), alt: "Full Next Destination prototype flow", caption: "Fig. 03 · The complete prototype connects onboarding, discovery, planning, and collaboration", portrait: false },
+    { src: assetUrl(ndPersonalization.url), alt: "Personalized recommendation screens", caption: "Fig. 04 · Preferences and budget shape a more relevant starting point", portrait: true },
+    { src: assetUrl(ndItinerary.url), alt: "Collaborative itinerary planning screens", caption: "Fig. 05 · A shared itinerary keeps group decisions and changes visible", portrait: true },
+    { src: assetUrl(ndBudget.url), alt: "Travel budget planning screens", caption: "Fig. 06 · Budget tools keep inspiration grounded in practical tradeoffs", portrait: true },
   ];
   const [active, setActive] = useState(0);
   return (
