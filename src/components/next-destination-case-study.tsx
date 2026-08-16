@@ -152,6 +152,24 @@ export function NextDestinationCaseStudy({ study }: { study: CaseStudy }) {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="mt-24">
+              <div className="mb-8 grid gap-6 lg:grid-cols-[1fr_1.25fr] lg:items-end">
+                <div>
+                  <span className="eyebrow text-accent">Market opportunity</span>
+                  <h3 className="mt-5 font-display text-3xl leading-tight tracking-tight md:text-5xl">The gap was not more inspiration. It was a more connected planning experience.</h3>
+                </div>
+                <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
+                  Competitors handled individual parts of a trip well, but few connected budgeting, personalized suggestions, group input, and itinerary planning in one experience.
+                </p>
+              </div>
+              <CaseFigure
+                src="/next-destination/competitive-analysis.png"
+                alt="Competitive analysis comparing Next Destination with travel planning and group coordination products"
+                caption="Fig. 03 · Competitive analysis revealed an opportunity to connect planning functions that were usually separated"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -264,10 +282,10 @@ function CaseFigure({ src, alt, caption, portrait = false }: { src: string; alt:
 
 function SolutionCarousel() {
   const slides = [
-    { src: assetUrl(ndFullProto.url), alt: "Full Next Destination prototype flow", caption: "Fig. 03 · The complete prototype connects onboarding, discovery, planning, and collaboration", portrait: false },
-    { src: assetUrl(ndPersonalization.url), alt: "Personalized recommendation screens", caption: "Fig. 04 · Preferences and budget shape a more relevant starting point", portrait: true },
-    { src: assetUrl(ndItinerary.url), alt: "Collaborative itinerary planning screens", caption: "Fig. 05 · A shared itinerary keeps group decisions and changes visible", portrait: true },
-    { src: assetUrl(ndBudget.url), alt: "Travel budget planning screens", caption: "Fig. 06 · Budget tools keep inspiration grounded in practical tradeoffs", portrait: true },
+    { src: assetUrl(ndFullProto.url), alt: "Full Next Destination prototype flow", caption: "Fig. 04 · The complete prototype connects onboarding, discovery, planning, and collaboration", portrait: false },
+    { src: assetUrl(ndPersonalization.url), alt: "Personalized recommendation screens", caption: "Fig. 05 · Preferences and budget shape a more relevant starting point", portrait: true },
+    { src: assetUrl(ndItinerary.url), alt: "Collaborative itinerary planning screens", caption: "Fig. 06 · A shared itinerary keeps group decisions and changes visible", portrait: true },
+    { src: assetUrl(ndBudget.url), alt: "Travel budget planning screens", caption: "Fig. 07 · Budget tools keep inspiration grounded in practical tradeoffs", portrait: true },
   ];
   const [active, setActive] = useState(0);
   return (
