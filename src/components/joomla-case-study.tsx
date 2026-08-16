@@ -224,30 +224,9 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               </article>
             ))}
           </div>
-          <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
-            <Reveal>
-              <div className="mx-auto max-w-xl">
-                <PlaceholderImage
-                  src={joomlaSearchResults.url}
-                  alt="Redesigned search results page with structured filters and comparable cards"
-                  caption="Fig. 04 · Search results with structured filters, comparable cards, and clearer metadata"
-                  ratio="3/5"
-                  fit="cover-top"
-                />
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <div className="mx-auto max-w-xl">
-                <PlaceholderImage
-                  src={joomlaComparison.url}
-                  alt="Side-by-side extension comparison view"
-                  caption="Fig. 05 · Side-by-side comparison so alternatives are evaluated without recall effort"
-                  ratio="4/3"
-                  fit="cover-top"
-                />
-              </div>
-            </Reveal>
-          </div>
+          <Reveal>
+            <SolutionCarousel />
+          </Reveal>
         </div>
       </section>
 
@@ -294,6 +273,54 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
         </div>
       </section>
     </>
+  );
+}
+
+function SolutionCarousel() {
+  const slides = [
+    {
+      src: joomlaSearchResults.url,
+      alt: "Redesigned search results page with structured filters and comparable cards",
+      caption: "Fig. 04 · Search results with structured filters, comparable cards, and clearer metadata",
+    },
+    {
+      src: joomlaComparison.url,
+      alt: "Side-by-side extension comparison view",
+      caption: "Fig. 05 · Side-by-side comparison so alternatives are evaluated without recall effort",
+    },
+  ];
+  const [active, setActive] = useState(0);
+  const slide = slides[active];
+
+  return (
+    <div className="mt-14">
+      <div className="mx-auto max-w-5xl">
+        <PlaceholderImage src={slide.src} alt={slide.alt} caption={slide.caption} ratio="16/9" fit="contain" />
+      </div>
+      <div className="mx-auto mt-6 flex max-w-5xl items-center justify-between border-t border-border pt-5">
+        <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
+          Solution visual {String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+        </span>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setActive((active - 1 + slides.length) % slides.length)}
+            className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-colors hover:border-accent hover:text-accent"
+            aria-label="Show previous solution visual"
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            onClick={() => setActive((active + 1) % slides.length)}
+            className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-colors hover:border-accent hover:text-accent"
+            aria-label="Show next solution visual"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
