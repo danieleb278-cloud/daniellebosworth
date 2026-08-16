@@ -43,7 +43,7 @@ function JoomlaHeroMedia() {
         )}
       </div>
       <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
-        <span>Fig. 01 · Walkthrough of the proposed Joomla Extension Directory experience</span>
+        <span>Fig. 01 · Fragmented, inconsistent data made it harder for JED users to search, discover, and evaluate extensions.</span>
         <span aria-hidden>✦</span>
       </figcaption>
     </figure>
