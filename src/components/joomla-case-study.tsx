@@ -3,8 +3,6 @@ import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import type { Block, CaseStudy, Section } from "@/lib/case-studies";
 import joomlaHeroPoster from "@/assets/joomla/joomla_hero_poster.jpg.asset.json";
-import joomlaSearchResults from "@/assets/joomla/search_results_redesign.png.asset.json";
-import joomlaComparison from "@/assets/joomla/comparison_w_detail.png.asset.json";
 
 const HERO_VIDEO_SRC = "/joomla%20hero.mp4";
 
@@ -91,8 +89,18 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const research = findSection(sections, "research");
   const problem = findSection(sections, "problem");
 
-  const problemImage = findFirstImage(problem);
-  const researchImage = findFirstImage(research);
+  const problemImage = {
+    src: "/joomla/diagram-comparing-problem.png",
+    alt: "Diagram of the current confusing extension comparison experience",
+    ratio: "16/9",
+    fit: "contain" as const,
+  };
+  const researchImage = {
+    src: "/joomla/customer-journey-map.png",
+    alt: "Customer journey map across search, evaluation, and selection",
+    ratio: "16/9",
+    fit: "contain" as const,
+  };
 
   return (
     <>
@@ -279,12 +287,12 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
 function SolutionCarousel() {
   const slides = [
     {
-      src: joomlaSearchResults.url,
+      src: "/joomla/search-results-redesign.png",
       alt: "Redesigned search results page with structured filters and comparable cards",
       caption: "Fig. 04 · Search results with structured filters, comparable cards, and clearer metadata",
     },
     {
-      src: joomlaComparison.url,
+      src: "/joomla/comparison-detail.png",
       alt: "Side-by-side extension comparison view",
       caption: "Fig. 05 · Side-by-side comparison so alternatives are evaluated without recall effort",
     },
