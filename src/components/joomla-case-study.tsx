@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
-import type { Block, CaseStudy, Section } from "@/lib/case-studies";
+import type { CaseStudy } from "@/lib/case-studies";
 import joomlaHeroPoster from "@/assets/joomla/joomla_hero_poster.jpg.asset.json";
 
 const HERO_VIDEO_SRC = "/joomla%20hero.mp4";
@@ -85,9 +85,6 @@ const solutionGroups = [
 ];
 
 export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
-  const sections = study.sections ?? [];
-  const research = findSection(sections, "research");
-  const problem = findSection(sections, "problem");
 
   const problemImage = {
     src: "/joomla/diagram-comparing-problem.png",
@@ -348,18 +345,4 @@ function SectionLabel({ number, label, tone = "light" }: { number: string; label
 }
 function ReasonCell({ label, text, accent = false }: { label: string; text: string; accent?: boolean }) {
   return <div><span className={`eyebrow ${accent ? "text-accent" : "text-muted-foreground"}`}>{label}</span><p className="mt-4 font-display text-xl leading-snug md:text-2xl">{text}</p></div>;
-}
-
-function findSection(sections: Section[], id: string) { return sections.find((section) => section.id === id); }
-function findFirstImage(section?: Section) { return section ? collectImages(section)[0] : undefined; }
-function collectImages(section?: Section): Extract<Block, { kind: "image" }>[] {
-  if (!section) return [];
-  const images: Extract<Block, { kind: "image" }>[] = [];
-  const walk = (blocks: Block[]) => blocks.forEach((block) => {
-    if (block.kind === "image") images.push(block);
-    else if (block.kind === "group") walk(block.blocks);
-    else if (block.kind === "gallery") block.items.forEach((item) => images.push({ kind: "image", ...item }));
-  });
-  walk(section.blocks);
-  return images;
 }
