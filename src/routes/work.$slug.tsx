@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { JoomlaCaseStudy } from "@/components/joomla-case-study";
 import { NextDestinationCaseStudy } from "@/components/next-destination-case-study";
+import { RobinCaseStudy } from "@/components/robin-case-study";
 import { caseStudies, getCaseStudy, type Block, type Section } from "@/lib/case-studies";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -42,6 +43,7 @@ function CaseStudyPage() {
   const next = caseStudies[(currentIndex + 1) % caseStudies.length];
   const isJoomla = study.slug === "joomla";
   const isNextDestination = study.slug === "next-destination";
+  const isRobin = study.slug === "robin";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -59,7 +61,7 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
+      {isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : isRobin ? <RobinCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
 
       <section className="border-t border-border">
         <Link to="/work/$slug" params={{ slug: next.slug }} className="group block px-6 py-20 md:px-12 md:py-28">
