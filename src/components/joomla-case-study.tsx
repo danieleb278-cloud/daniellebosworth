@@ -99,6 +99,8 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
   const sections = study.sections ?? [];
   const research = findSection(sections, "research");
   const problem = findSection(sections, "problem");
+  const solution = findSection(sections, "solution");
+  const ia = findSection(sections, "ia");
   const features = findSection(sections, "features");
   const outcomes = findSection(sections, "outcomes");
   const reflection = findSection(sections, "reflection");
@@ -275,6 +277,8 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
               </div>
             </Reveal>
           </div>
+          {solution && <DeepDive title="See the underlying search + metadata model" section={solution} />}
+          {ia && <DeepDive title="Explore the information architecture work" section={ia} />}
           {features && <DeepDive title="Explore all solution details" section={features} />}
         </div>
       </section>
