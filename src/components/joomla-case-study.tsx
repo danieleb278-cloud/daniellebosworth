@@ -4,7 +4,7 @@ import { PlaceholderImage } from "@/components/placeholder-image";
 import type { CaseStudy } from "@/lib/case-studies";
 import joomlaHeroPoster from "@/assets/joomla/joomla_hero_poster.jpg.asset.json";
 
-const HERO_VIDEO_SRC = "/joomla%20hero.mp4";
+const HERO_VIDEO_SRC = "/final%20joomla.mp4";
 
 function JoomlaHeroMedia() {
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -23,7 +23,7 @@ function JoomlaHeroMedia() {
         {reducedMotion ? (
           <img
             src={joomlaHeroPoster.url}
-            alt="Joomla Extension Directory redesign walkthrough"
+            alt="Short motion preview of the Joomla Extension Directory redesign"
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
@@ -36,7 +36,7 @@ function JoomlaHeroMedia() {
             loop
             playsInline
             preload="metadata"
-            aria-label="Joomla Extension Directory redesign walkthrough"
+            aria-label="Short motion preview of the Joomla Extension Directory redesign"
           />
         )}
       </div>
