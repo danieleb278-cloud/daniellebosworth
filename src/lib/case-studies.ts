@@ -1009,7 +1009,7 @@ export const caseStudies: CaseStudy[] = [
       deliverables: "Personas, Journey Maps, Opportunity Analysis, Product Strategy, Feature Roadmap, Experience Design Concepts",
       outcome: "Developed a travel planning platform concept that consolidated trip planning, budgeting, personalization, and collaboration into a unified experience.",
     },
-    cover: { src: ndLogo.url, alt: "Next Destination logo" },
+    cover: { src: "/home/next-destination-logo.png", alt: "Next Destination logo" },
     sections: nextDestinationSections,
   },
   {
@@ -1063,13 +1063,12 @@ export const caseStudies: CaseStudy[] = [
       deliverables: "Research Findings, Personas, Journey Maps, Usability Analysis, Design Recommendations, Client Presentation",
       outcome: "Partnered with a real-world client to evaluate and improve the job seeker experience. Conducted user research and usability analysis to identify friction points in job discovery, application workflows, and navigation. Developed evidence-based recommendations that were presented directly to the client.",
     },
-    cover: { src: robinLogo.url, alt: "Robin logo — your job search sidekick" },
+    cover: { src: "/home/robin-logo.jpg", alt: "Robin logo — your job search sidekick" },
     sections: robinSections,
   },
 ];
 
 import robinLogo from "@/assets/robin/logo.jpg.asset.json";
-import ndLogo from "@/assets/nd/logo.png.asset.json";
 import robinSurvey from "@/assets/robin/survey.jpg.asset.json";
 import robinPersona from "@/assets/robin/persona_clean.jpg.asset.json";
 import robinJourneyMap from "@/assets/robin/journey_map.jpg.asset.json";
@@ -1114,7 +1113,6 @@ import contentCarousel5 from "@/assets/content/carousel5.png.asset.json";
 import contentCarousel6 from "@/assets/content/carousel6.png.asset.json";
 import contentCarousel7 from "@/assets/content/carousel7.png.asset.json";
 import contentBlogPost from "@/assets/content/blogpost.png.asset.json";
-import contentCover from "@/assets/content/cover.png.asset.json";
 
 const contentCarouselSlides = [
   { src: contentCarousel1.url, alt: "Carousel slide 1 — title" },
@@ -1654,7 +1652,7 @@ caseStudies.unshift({
       deliverables: "Research Findings, Search Analysis, Information Architecture Recommendations, Prioritized UX Improvements, Stakeholder Presentations",
       outcome: "Conducted an end-to-end evaluation of the Joomla Extension Directory to identify barriers to extension discovery, search relevance, and decision-making. Developed a comprehensive recommendation framework focused on improving findability, transparency, and user confidence.",
     },
-    cover: { src: joomlaLogo.url, alt: "Joomla! logo" },
+    cover: { src: "/home/joomla-logo.png", alt: "Joomla! logo" },
     sections: joomlaSections,
 });
 
@@ -1867,8 +1865,8 @@ caseStudies.push({
   },
   sections: contentStrategySections,
   cover: {
-    src: contentCover.url,
-    alt: "Content strategy collage — blog, email, short-form video, and hero composition",
+    src: "/home/content-strategy-cover.png",
+    alt: "Content strategy article cover",
   },
 });
 
