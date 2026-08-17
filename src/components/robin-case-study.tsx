@@ -13,7 +13,7 @@ import robinMenu from "@/assets/robin/menu.jpg.asset.json";
 
 const ORIGIN = "https://daniellebosworth.lovable.app";
 const assetUrl = (path: string) => path.startsWith("http") ? path : `${ORIGIN}${path}`;
-const HERO_VIDEO_SRC = "/robin%20hero.mp4";
+const HERO_VIDEO_SRC = "/final%20robin%20hero%20absolute.mp4";
 
 const findings = [
   { label: "Relevance", title: "More listings did not create better choices.", body: "Job seekers struggled to identify opportunities that matched their goals, qualifications, and priorities." },
