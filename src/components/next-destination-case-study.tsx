@@ -11,7 +11,7 @@ import ndBudget from "@/assets/nd/budget.png.asset.json";
 
 const LOVABLE_ASSET_ORIGIN = "https://daniellebosworth.lovable.app";
 const assetUrl = (path: string) => path.startsWith("http") ? path : `${LOVABLE_ASSET_ORIGIN}${path}`;
-const HERO_VIDEO_SRC = "/next%20desination%20video.mp4";
+const HERO_VIDEO_SRC = "/next%20destination%20final%20absolute.mp4";
 
 const insights = [
   {
