@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.png.asset.json";
 
 const sections = [
   { id: "work", label: "Case Studies" },
@@ -69,7 +68,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           aria-label="Danielle Bosworth — home"
         >
           <img
-            src={logo.url}
+            src="/home/site-logo.png"
             alt=""
             className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"
           />
