@@ -125,7 +125,7 @@ export function JoomlaCaseStudy({ study }: { study: CaseStudy }) {
           </div>
           {study.snapshot && (
             <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
-              <Meta label="Role" value="UX Researcher & Information Architect" />
+              <Meta label="Role" value="Sole UX Researcher & Information Architect" />
               <Meta label="Duration" value="12 weeks" />
               <Meta label="Methods" value="Interviews, surveys, heuristic evaluation, competitive analysis" />
               <Meta label="Tools" value="Figma, Miro, Google Forms, Cacoo" />
@@ -329,6 +329,31 @@ function SolutionCarousel() {
       alt: "Side-by-side extension comparison view",
       caption: "Fig. 06 · Side-by-side comparison so alternatives are evaluated without recall effort",
     },
+    {
+      src: "/joomla/extension-detail.webp",
+      alt: "Redesigned extension detail page with compatibility, trust, documentation, and comparison information",
+      caption: "Fig. 07 · Extension detail page brings decision-critical information into one evaluation surface",
+    },
+    {
+      src: "/joomla/algolia-system.webp",
+      alt: "Metadata-driven search system connecting submission, Algolia indexing, filtering, and ranked results",
+      caption: "Fig. 08 · Structured metadata powers intent-aware search, filtering, and more relevant results",
+    },
+    {
+      src: "/joomla/legacy-data.webp",
+      alt: "Model for transforming unstructured legacy extension data into standardized metadata",
+      caption: "Fig. 09 · Legacy-data strategy maps inconsistent listings into a searchable schema",
+    },
+    {
+      src: "/joomla/cleanup-model.webp",
+      alt: "Incentive-based model for improving extension data quality",
+      caption: "Fig. 10 · Incentives, validation, and community review support sustainable data quality",
+    },
+    {
+      src: "/joomla/sitemap-condensed.webp",
+      alt: "Condensed Joomla Extension Directory sitemap showing hierarchical, shortcut, and faceted retrieval",
+      caption: "Fig. 11 · Multiple retrieval paths connect browsing, shortcuts, and faceted search",
+    },
   ];
   const [active, setActive] = useState(0);
   return (
@@ -336,7 +361,7 @@ function SolutionCarousel() {
       <div className="mx-auto max-w-5xl">
         {slides.map((slide, index) => (
           <div key={slide.src} className={index === active ? "block" : "hidden"} aria-hidden={index !== active}>
-            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index < 2} />
+            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index < 2 || index === 3} />
           </div>
         ))}
       </div>
@@ -384,3 +409,4 @@ function SectionLabel({ number, label, tone = "light" }: { number: string; label
 function ReasonCell({ label, text, accent = false }: { label: string; text: string; accent?: boolean }) {
   return <div><span className={`eyebrow ${accent ? "text-accent" : "text-muted-foreground"}`}>{label}</span><p className="mt-4 font-display text-xl leading-snug md:text-2xl">{text}</p></div>;
 }
+

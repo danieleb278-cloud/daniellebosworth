@@ -960,7 +960,7 @@ const nextDestinationSections: Section[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "next-destination",
-    index: "02",
+    index: "04",
     title: "Next Destination",
     subtitle:
       "Designing an all-in-one travel planning application from concept through high-fidelity prototype and go-to-market strategy.",
@@ -1604,13 +1604,13 @@ const joomlaSections: Section[] = [
 
 caseStudies.unshift({
     slug: "joomla",
-    index: "01",
+    index: "02",
     title: "Joomla Extension Directory",
     subtitle:
       "Information architecture and search strategy redesign for a global open-source software marketplace.",
     client: "Joomla Extension Directory",
-    year: "2024",
-    role: "UX Researcher & Designer",
+    year: "2026",
+    role: "Sole UX Researcher, Information Architect & Designer",
     discipline: "Information Architecture · Search Experience · UX Strategy",
     duration: "12 weeks",
     summary:
@@ -1654,6 +1654,46 @@ caseStudies.unshift({
     },
     cover: { src: "/home/joomla-logo.png", alt: "Joomla! logo" },
     sections: joomlaSections,
+});
+
+
+caseStudies.unshift({
+  slug: "vocari",
+  index: "01",
+  title: "Vocari",
+  subtitle: "An evidence-informed career discovery platform designed to help people understand themselves before choosing what comes next.",
+  client: "Independent academic product",
+  year: "2026",
+  role: "Product Creator, Product Designer & Prototype Developer",
+  discipline: "Product Strategy · Systems Design · UX Research · AI Governance",
+  duration: "May–August 2026",
+  summary: "A reflective career-discovery system that turns lived experience into transparent patterns, explainable recommendations, and user-controlled next steps.",
+  hero: "Understand yourself first. Explore careers second.",
+  context: "People with nonlinear experience often struggle to translate what they have done into a clear future direction. Traditional career assessments can flatten that complexity into fixed labels and unexplained matches.",
+  challenge: "Design and build a trustworthy career-discovery platform that learns progressively, explains its interpretations, preserves user agency, and remains honest about the limits of its evidence and prototype.",
+  approach: [
+    { title: "Progressive discovery", body: "Replace a one-time identity result with an evolving evidence model built from experiences, interests, values, preferences, and reflection." },
+    { title: "Collaborative interpretation", body: "Let users understand, clarify, or challenge patterns, preview proposed changes, and control what becomes part of Profile DNA." },
+    { title: "Responsible exploration", body: "Connect patterns to governed career information, explanations, evidence strength, and realistic tradeoffs without positioning the system as an authority." },
+  ],
+  outcomes: [
+    { metric: "8", label: "Affective-computing research sessions" },
+    { metric: "35", label: "Careers in the expanded prototype library" },
+    { metric: "1", label: "Connected product, evidence, and governance system" },
+  ],
+  reflections: "The hardest product challenge was not generating more features. It was designing an evidence system that could evolve without becoming opaque or authoritative.",
+  tags: ["Product Strategy", "Systems Design", "UX Research", "AI Governance"],
+  snapshot: {
+    projectType: "Original AI-Enabled Career Development Product",
+    duration: "May–August 2026",
+    teamSize: "Independent product ownership with two research-support teammates",
+    myRole: "Product Creator, Product Designer, Prototype Developer, Research Lead",
+    methodsUsed: "Interviews, Surveys, Usability Testing, Journey Mapping, Information Architecture, Affective-Computing Research, Product Specification",
+    toolsUsed: "Lovable, React, TypeScript, Supabase, MorphCast, Figma, Canva, Google Workspace",
+    deliverables: "Working Prototype, Product Book, Progressive Discovery Engine, Product Vision, Career Content & Data Specification, Research Findings",
+    outcome: "Designed and built a working research prototype that connects evidence-based self-understanding to explainable career exploration while preserving transparency, correction, and user control.",
+  },
+  cover: { src: "/vocari/homepage.webp", alt: "Vocari research prototype homepage" },
 });
 
 const contentStrategySections: Section[] = [
@@ -1811,7 +1851,7 @@ const contentStrategySections: Section[] = [
 
 caseStudies.push({
   slug: "content-strategy",
-  index: "04",
+  index: "05",
   title: "Content Strategy",
   subtitle:
     "Multi-channel content development that turns a single topic into a system of assets across formats and platforms.",
@@ -1871,5 +1911,8 @@ caseStudies.push({
 });
 
 
+caseStudies.sort((a, b) => Number(a.index) - Number(b.index));
+
 export const getCaseStudy = (slug: string) =>
   caseStudies.find((c) => c.slug === slug);
+
