@@ -8,7 +8,7 @@ const researchCards = [
   {
     label: "Personalization",
     title: "People wanted guidance connected to their actual experiences.",
-    body: "Generic results felt incomplete when participants could not see how their interests, strengths, and lived experience shaped a recommendation.",
+    body: "Generic results felt incomplete when participants could not see how their interests, strengths, skills, values, motivations, memories, and lived experience shaped a recommendation.",
   },
   {
     label: "Trust",
@@ -25,18 +25,18 @@ const researchCards = [
 const solutionGroups = [
   {
     number: "01",
-    title: "Replace fixed labels with progressive discovery",
-    body: "Profile DNA brings together recurring evidence from experiences, interests, values, work preferences, and reflections without declaring a permanent personality type.",
+    title: "Turn conversation into an evolving evidence model",
+    body: "Purpose-built prompts help AI notice recurring patterns across experiences, interests, values, motivations, skills, preferences, memories, and reflections without declaring a permanent personality type.",
   },
   {
     number: "02",
-    title: "Make interpretation collaborative",
-    body: "Understand, Clarify, and Challenge interactions let users inspect a pattern, add context, preview a proposed change, and remain in control of what is saved.",
+    title: "Let each interaction improve the next one",
+    body: "Understand, Clarify, and Challenge interactions let users inspect an AI interpretation, add context, preview a proposed change, and decide what becomes confirmed evidence for future recommendations.",
   },
   {
     number: "03",
-    title: "Connect understanding to realistic exploration",
-    body: "Career recommendations explain why a path may fit, name evidence strength and tradeoffs, and preserve public career browsing beyond a ranked job list.",
+    title: "Recommend for both interest and likely fit",
+    body: "The target system connects confirmed evidence to careers a person may enjoy and be equipped to pursue, explaining strengths, requirements, uncertainty, and realistic tradeoffs rather than producing a black-box match.",
   },
 ];
 
@@ -89,7 +89,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
             <Summary label="The problem" text="Career assessments often produce fixed labels and recommendations people cannot meaningfully evaluate." />
             <Summary label="What I did" text="I conceived, named, designed, and built Vocari, including its product system, research direction, information architecture, interface, and working prototype." />
-            <Summary label="The direction" text="Help people recognize evidence-based patterns first, then explore careers with explanation, realistic tradeoffs, and user control." />
+            <Summary label="The direction" text="Use purposeful AI conversations to recognize patterns people may miss, then improve career and growth recommendations as confirmed evidence accumulates over time." />
           </div>
           <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
             <Meta label="Role" value="Product Creator, Product Designer & Prototype Developer" />
@@ -139,7 +139,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <div className="grid gap-12 py-16 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
             <div className="space-y-4 font-display text-2xl text-background/70 md:text-3xl"><p>Fixed assessment results</p><p>Unexplained recommendations</p><p>Invisible profile changes</p></div>
             <div className="hidden h-48 w-px bg-background/20 lg:block" />
-            <div><span className="eyebrow text-accent">Product opportunity</span><p className="mt-6 font-display text-3xl leading-snug md:text-5xl">Turn self-discovery into a transparent, correctable evidence loop.</p></div>
+            <div><span className="eyebrow text-accent">Product opportunity</span><p className="mt-6 font-display text-3xl leading-snug md:text-5xl">Turn every AI interaction into a transparent, correctable learning loop.</p></div>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <CaseFigure src="/vocari/discovery-journey.webp" alt="Vocari progressive discovery service journey" caption="Fig. 04 · Progressive Discovery connects reflection, recognition, career exploration, action, and continued growth" dark />
@@ -154,6 +154,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <SectionLabel number="04 / 05" label="Design" />
           <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The solution direction</p>
           <div className="mt-14 grid gap-12 md:grid-cols-3">{solutionGroups.map(group => <div key={group.number}><span className="font-mono text-xs text-accent">{group.number}</span><h3 className="mt-6 font-display text-2xl leading-tight md:text-3xl">{group.title}</h3><p className="mt-5 leading-relaxed text-muted-foreground">{group.body}</p></div>)}</div>
+          <AILearningLoop />
           <DesignCarousel />
         </div>
       </section>
@@ -163,17 +164,47 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <SectionLabel number="05 / 05" label="Next" />
           <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Outcome, boundaries & reflection</p>
           <div className="mt-14 grid gap-12 lg:grid-cols-2">
-            <div><span className="eyebrow text-accent">What the prototype demonstrated</span><h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">A career platform can treat the user as the authority on their own life.</h2><p className="mt-7 text-lg leading-relaxed text-muted-foreground">The working prototype demonstrated a coherent path from foundation questions to rule-derived patterns, explainable career recommendations, public exploration, authenticated profile persistence, and consent-aware research instrumentation.</p></div>
+            <div><span className="eyebrow text-accent">What the prototype demonstrated</span><h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">A career platform can treat the user as the authority on their own life.</h2><p className="mt-7 text-lg leading-relaxed text-muted-foreground">The working prototype established the structured foundation: profile evidence, rule-derived patterns, explainable career recommendations, public exploration, authenticated persistence, and consent-aware research instrumentation. The approved AI direction adds purposeful conversations that transform user-confirmed context into progressively better recommendations.</p></div>
             <div className="space-y-8">
-              <ReasonCell label="Validate next" text="Broader career coverage, longitudinal understanding, accessibility, recommendation calibration, and safe trait-scoped AI conversations." />
+              <ReasonCell label="Validate next" text="Longitudinal AI conversations, broader career coverage, recommendation calibration, accessibility, and resource recommendations that improve through reflection." />
               <ReasonCell label="Important boundary" text="MorphCast remained isolated research instrumentation and did not influence consumer recommendations." />
-              <ReasonCell label="Reflection" text="The hardest product challenge was not generating more features. It was designing an evidence system that could evolve without becoming opaque or authoritative." />
+              <ReasonCell label="Reflection" text="The hardest product challenge was not simply adding AI. It was designing a learning loop that could recognize patterns, improve through interaction, and still keep its evidence visible, correctable, and user-controlled." />
             </div>
           </div>
           <div className="mt-16 border-t border-border pt-12"><span className="eyebrow text-accent">Capabilities demonstrated</span><div className="mt-7 flex flex-wrap gap-3">{["Product creation","Systems thinking","UX research","Information architecture","Interaction design","Prototype development","AI governance","Data specification"].map(skill=><span key={skill} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider">{skill}</span>)}</div></div>
         </div>
       </section>
     </>
+  );
+}
+
+function AILearningLoop() {
+  const steps = [
+    { number: "01", title: "Prompt", text: "Vocari asks a focused question selected to fill a meaningful gap in what it understands." },
+    { number: "02", title: "Interpret", text: "AI looks for patterns across confirmed experiences, skills, values, motivations, interests, memories, preferences, and real-life context." },
+    { number: "03", title: "Confirm", text: "The user can understand, clarify, challenge, or reject the interpretation before it changes Profile DNA." },
+    { number: "04", title: "Recommend", text: "Career and growth recommendations become more specific, explainable, and realistic as the evidence improves." },
+    { number: "05", title: "Reflect", text: "The user reflects on a career, activity, or future learning resource, creating new evidence for the next interaction." },
+  ];
+  return (
+    <div className="mt-16 border-y border-border py-14">
+      <div className="grid gap-8 lg:grid-cols-[0.8fr_1.7fr]">
+        <div>
+          <span className="eyebrow text-accent">The AI learning loop</span>
+          <h3 className="mt-6 font-display text-3xl leading-tight md:text-5xl">The more users interact, the more useful Vocari can become.</h3>
+          <p className="mt-6 leading-relaxed text-muted-foreground">Vocari is designed to learn through purposeful questions and confirmed evidence, not passive surveillance. Over time, the same loop can support resource recommendations and reflections that deepen the profile again.</p>
+        </div>
+        <div className="grid gap-px bg-border sm:grid-cols-2">
+          {steps.map((step) => (
+            <div key={step.number} className="bg-background p-6">
+              <span className="font-mono text-xs text-accent">{step.number} · {step.title}</span>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="mt-8 border-l border-accent pl-5 text-sm leading-relaxed text-muted-foreground">Guardrail: contextual factors help make recommendations realistic, but protected identity characteristics should never be used to limit a person’s potential or predict employability.</p>
+    </div>
   );
 }
 
