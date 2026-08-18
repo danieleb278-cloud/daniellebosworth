@@ -6,6 +6,7 @@ import { PlaceholderImage } from "@/components/placeholder-image";
 import { JoomlaCaseStudy } from "@/components/joomla-case-study";
 import { NextDestinationCaseStudy } from "@/components/next-destination-case-study";
 import { RobinCaseStudy } from "@/components/robin-case-study";
+import { VocariCaseStudy } from "@/components/vocari-case-study";
 import { caseStudies, getCaseStudy, type Block, type Section } from "@/lib/case-studies";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -44,6 +45,7 @@ function CaseStudyPage() {
   const isJoomla = study.slug === "joomla";
   const isNextDestination = study.slug === "next-destination";
   const isRobin = study.slug === "robin";
+  const isVocari = study.slug === "vocari";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -61,7 +63,7 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : isRobin ? <RobinCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
+      {isVocari ? <VocariCaseStudy study={study} /> : isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : isRobin ? <RobinCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
 
       <section className="border-t border-border">
         <Link to="/work/$slug" params={{ slug: next.slug }} className="group block px-6 py-20 md:px-12 md:py-28">
@@ -109,3 +111,4 @@ function CarouselBlock({ block }: { block: Extract<Block,{kind:"carousel"}> }) {
   const [i,setI]=useState(0); const total=block.slides.length; const go=(n:number)=>setI(((n%total)+total)%total);
   return <figure className="w-full"><div className="relative mx-auto max-w-md"><div style={{aspectRatio:block.ratio ?? "4/5"}} className="relative w-full overflow-hidden border border-border bg-secondary">{block.slides.map((s,idx)=><img key={idx} src={s.src} alt={s.alt ?? ""} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx===i?"opacity-100":"opacity-0"}`}/>)}<div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3"><button type="button" onClick={()=>go(i-1)} className="eyebrow rounded-full bg-background/85 px-3 py-1.5">←</button><span className="eyebrow rounded-full bg-background/85 px-3 py-1.5">{i+1} / {total}</span><button type="button" onClick={()=>go(i+1)} className="eyebrow rounded-full bg-background/85 px-3 py-1.5">→</button></div></div></div>{block.caption && <figcaption className="eyebrow mt-3 border-t border-border pt-2">{block.caption}</figcaption>}</figure>;
 }
+
