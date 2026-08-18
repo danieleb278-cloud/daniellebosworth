@@ -35,8 +35,8 @@ const solutionGroups = [
   },
   {
     number: "03",
-    title: "Reveal where a person may be likely to thrive",
-    body: "Vocari looks beyond stated interests for recurring evidence of strengths, problem-solving patterns, motivations, and environments where a person performs well. It connects those patterns to careers where developing competence may also increase confidence and enjoyment."
+    title: "Reveal possibilities hidden inside existing strengths",
+    body: "People often overlook abilities that come naturally to them. Vocari connects recurring evidence of strengths, problem-solving patterns, motivations, and ways of working to careers they may never have considered, expanding options instead of narrowing them."
   },
 ];
 
@@ -89,7 +89,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
             <Summary label="The problem" text="Career assessments often produce fixed labels and recommendations people cannot meaningfully evaluate." />
             <Summary label="What I did" text="I conceived, named, designed, and built Vocari, including its product system, research direction, information architecture, interface, and working prototype." />
-            <Summary label="The direction" text="Use purposeful AI conversations to reveal strengths and patterns people may miss, then identify career environments where competence, confidence, and enjoyment could reinforce one another." />
+            <Summary label="The direction" text="Use purposeful AI conversations to reveal strengths people may not recognize in themselves, then connect those abilities to career possibilities they may never have considered." />
           </div>
           <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
             <Meta label="Role" value="Product Creator, Product Designer & Prototype Developer" />
@@ -183,7 +183,7 @@ function AILearningLoop() {
     { number: "01", title: "Prompt", text: "Vocari asks a focused question selected to fill a meaningful gap in what it understands." },
     { number: "02", title: "Interpret", text: "AI looks for patterns across confirmed experiences, skills, values, motivations, interests, memories, preferences, and real-life context." },
     { number: "03", title: "Confirm", text: "The user can understand, clarify, challenge, or reject the interpretation before it changes Profile DNA." },
-    { number: "04", title: "Recommend", text: "Recommendations connect recurring evidence of ability and motivation to careers where the person may be more likely to build competence, feel effective, and thrive." },
+    { number: "04", title: "Recommend", text: "Recommendations show where recurring strengths and motivations are valuable, opening unfamiliar career possibilities without ruling out any path." },
     { number: "05", title: "Reflect", text: "The user reflects on a career, activity, or future learning resource, creating new evidence for the next interaction." },
   ];
   return (
@@ -203,7 +203,7 @@ function AILearningLoop() {
           ))}
         </div>
       </div>
-      <p className="mt-8 border-l border-accent pl-5 text-sm leading-relaxed text-muted-foreground">Vocari does not promise success. It surfaces evidence-informed possibilities where demonstrated strengths, motivations, and ways of working align with what a career actually requires.</p>
+      <p className="mt-8 border-l border-accent pl-5 text-sm leading-relaxed text-muted-foreground">Recommendations are invitations to explore, not judgments about what someone can or cannot do. The goal is to make overlooked strengths and unfamiliar possibilities visible.</p>
     </div>
   );
 }

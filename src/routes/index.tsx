@@ -66,6 +66,12 @@ const marquee = [
 ];
 
 const projectProof: Record<string, { connection: string; evidence: string }> = {
+  vocari: {
+    connection:
+      "People often overlook abilities that come naturally to them. AI can connect recurring evidence across experiences, skills, values, motivations, and memories to careers they may never have considered.",
+    evidence:
+      "An end-to-end research prototype, eight affective-computing sessions, Profile DNA, explainable recommendations, and the Progressive Discovery system established the foundation for learning over time.",
+  },
   joomla: {
     connection:
       "Users were not simply struggling to search. Metadata quality, ranking logic, compatibility, and trust all shaped whether they could make a confident decision.",
@@ -179,7 +185,7 @@ function Work() {
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
             <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Four projects on UX research, product design, and
+              Five projects on UX research, product design, and
               <span className="italic text-muted-foreground"> system-level thinking</span>
               <span className="text-accent">.</span>
             </h2>
