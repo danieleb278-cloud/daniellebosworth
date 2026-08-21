@@ -199,6 +199,7 @@ const commercialImpact = [
     description:
       "Helped grow monthly location sales from approximately $4K–$5K to more than $20K by improving team performance, staffing, service operations, customer outreach, and the overall client experience.",
     tags: ["Revenue Growth", "Team Leadership", "Service Operations"],
+    featuredCase: false,
   },
   {
     index: "03",
@@ -209,6 +210,7 @@ const commercialImpact = [
     description:
       "Built an AI-assisted knowledge resource that organized fragmented product information, technical guidance, and frequently asked questions into a more accessible system for answering customer and internal questions.",
     tags: ["AI-Assisted Workflows", "Knowledge Management", "Information Architecture"],
+    featuredCase: false,
   },
 ];
 
@@ -284,7 +286,7 @@ function CommercialImpact() {
 
 const magicSleekEvidence = [
   {
-    src: "/magic-sleek/commercial-gap.png",
+    src: "/magic-sleek/commercial-gap.svg",
     alt: "Before-and-after diagram showing the distributor enablement gap and the partner-ready system Danielle built",
     label: "01 · Business gap",
     title: "The product story existed. The partner system did not.",
@@ -292,7 +294,7 @@ const magicSleekEvidence = [
       "Outdated general materials and scattered commercial information made the opportunity harder for distributor leaders and field representatives to evaluate.",
   },
   {
-    src: "/magic-sleek/partnership-pathway.png",
+    src: "/magic-sleek/partnership-pathway.svg",
     alt: "Five-stage pathway from initiating distributor contact through an approximately 56 thousand dollar initial order",
     label: "02 · Contribution pathway",
     title: "I connected relationship-building, content, and enablement.",
@@ -300,7 +302,7 @@ const magicSleekEvidence = [
       "I initiated contact with distributor leadership, secured the meeting, built the sales story, and prepared the team to represent the product.",
   },
   {
-    src: "/magic-sleek/enablement-toolkit.png",
+    src: "/magic-sleek/enablement-toolkit.svg",
     alt: "Representative reconstruction of distributor, professional decision, and troubleshooting documents",
     label: "03 · Enablement system",
     title: "One knowledge foundation, translated by audience.",
@@ -308,7 +310,7 @@ const magicSleekEvidence = [
       "Distributor materials clarified commercial value while professional guides supported consistent application, troubleshooting, and post-training reference.",
   },
   {
-    src: "/magic-sleek/training-seminar.png",
+    src: "/magic-sleek/training-seminar.svg",
     alt: "Representative four-hour training seminar architecture covering product, application, sales, and support",
     label: "04 · Team readiness",
     title: "Four hours designed to build selling confidence.",
@@ -390,7 +392,7 @@ function MagicSleekFieldCase() {
                   loading="lazy"
                   width={1664}
                   height={960}
-                  className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
+                  className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.01]"
                 />
               </a>
               <figcaption className="mt-5 border-l-2 border-teal pl-4">
