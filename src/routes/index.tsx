@@ -188,6 +188,7 @@ const commercialImpact = [
     description:
       "Supported onboarding for a major regional beauty distributor by coordinating product education, technical information, sales materials, and cross-functional communication surrounding its first Magic Sleek purchase order.",
     tags: ["Distributor Enablement", "Product Education", "Cross-Functional Operations"],
+    featuredCase: true,
   },
   {
     index: "02",
@@ -261,11 +262,161 @@ function CommercialImpact() {
                     </li>
                   ))}
                 </ul>
+
+                {item.featuredCase && (
+                  <a
+                    href="#magic-sleek-field-case"
+                    className="eyebrow arrow-slide mt-8 inline-flex w-fit items-center gap-2 text-teal link-underline"
+                  >
+                    Featured field case <span className="arrow" aria-hidden>↓</span>
+                  </a>
+                )}
               </article>
             </Reveal>
           ))}
         </div>
+
+        <MagicSleekFieldCase />
       </div>
+    </section>
+  );
+}
+
+const magicSleekEvidence = [
+  {
+    src: "/magic-sleek/commercial-gap.png",
+    alt: "Before-and-after diagram showing the distributor enablement gap and the partner-ready system Danielle built",
+    label: "01 · Business gap",
+    title: "The product story existed. The partner system did not.",
+    description:
+      "Outdated general materials and scattered commercial information made the opportunity harder for distributor leaders and field representatives to evaluate.",
+  },
+  {
+    src: "/magic-sleek/partnership-pathway.png",
+    alt: "Five-stage pathway from initiating distributor contact through an approximately 56 thousand dollar initial order",
+    label: "02 · Contribution pathway",
+    title: "I connected relationship-building, content, and enablement.",
+    description:
+      "I initiated contact with distributor leadership, secured the meeting, built the sales story, and prepared the team to represent the product.",
+  },
+  {
+    src: "/magic-sleek/enablement-toolkit.png",
+    alt: "Representative reconstruction of distributor, professional decision, and troubleshooting documents",
+    label: "03 · Enablement system",
+    title: "One knowledge foundation, translated by audience.",
+    description:
+      "Distributor materials clarified commercial value while professional guides supported consistent application, troubleshooting, and post-training reference.",
+  },
+  {
+    src: "/magic-sleek/training-seminar.png",
+    alt: "Representative four-hour training seminar architecture covering product, application, sales, and support",
+    label: "04 · Team readiness",
+    title: "Four hours designed to build selling confidence.",
+    description:
+      "The seminar connected product knowledge, professional application, objection handling, and salon value into a repeatable field conversation.",
+  },
+];
+
+function MagicSleekFieldCase() {
+  return (
+    <section
+      id="magic-sleek-field-case"
+      aria-labelledby="magic-sleek-case-heading"
+      className="scroll-mt-24 border-t border-background/20 pt-20 md:pt-28"
+    >
+      <Reveal>
+        <div className="grid grid-cols-12 gap-6">
+          <div className="col-span-12 md:col-span-3">
+            <span className="eyebrow text-teal">§ Featured Field Case</span>
+            <p className="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-background/45">
+              Magic Sleek · B2B partner expansion
+            </p>
+          </div>
+          <div className="col-span-12 md:col-span-9">
+            <h3
+              id="magic-sleek-case-heading"
+              className="max-w-5xl font-display text-4xl leading-[1.02] tracking-tight md:text-6xl"
+            >
+              Building the system behind a{" "}
+              <span className="italic text-teal">~$56K distributor launch</span>
+              <span className="text-accent">.</span>
+            </h3>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-background/75 md:text-lg">
+              Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
+              presentations, informal knowledge, and materials created for other audiences. I turned that information
+              into a partner-ready sales and education system, while also opening the relationship that created the
+              opportunity.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="mt-14 grid gap-px border border-background/20 bg-background/20 md:grid-cols-3">
+        {[
+          {
+            label: "The business need",
+            body: "Give distributor leadership enough commercial clarity to evaluate the partnership, then equip its sales representatives to communicate value to salons.",
+          },
+          {
+            label: "What I owned",
+            body: "Initiated contact with the owner, secured the meeting, created distributor-specific and professional materials, and led a four-hour product and sales seminar.",
+          },
+          {
+            label: "The result",
+            body: "The combined relationship, sales, and training work supported a new distributor partnership and an initial order of approximately $56K.",
+          },
+        ].map((item) => (
+          <div key={item.label} className="bg-charcoal p-7 md:p-8">
+            <span className="eyebrow text-teal">{item.label}</span>
+            <p className="mt-4 text-sm leading-relaxed text-background/75 md:text-base">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+        {magicSleekEvidence.map((item, i) => (
+          <Reveal key={item.src} delay={(i % 2) * 100}>
+            <figure>
+              <a
+                href={item.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block overflow-hidden border border-background/20 bg-navy p-2 transition-colors hover:border-teal"
+                aria-label={`Open full-size visual: ${item.title}`}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  width={1664}
+                  height={960}
+                  className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
+                />
+              </a>
+              <figcaption className="mt-5 border-l-2 border-teal pl-4">
+                <span className="eyebrow text-teal">{item.label}</span>
+                <h4 className="mt-2 font-display text-2xl leading-tight text-background">{item.title}</h4>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-background/65">{item.description}</p>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="mt-16 grid grid-cols-12 gap-6 border-y border-background/20 py-10">
+        <div className="col-span-12 md:col-span-3">
+          <span className="eyebrow text-teal">Commercial takeaway</span>
+        </div>
+        <p className="col-span-12 max-w-4xl font-display text-2xl leading-relaxed text-background md:col-span-9 md:text-3xl">
+          This was not a design exercise. It was cross-functional commercial work that moved from opportunity
+          identification to partner readiness and revenue.
+        </p>
+      </div>
+
+      <p className="mt-6 max-w-3xl text-xs leading-relaxed text-background/45">
+        Visuals are representative reconstructions because original client materials are confidential. The commercial
+        figure is approximate and reflects the initial distributor order.
+      </p>
     </section>
   );
 }
