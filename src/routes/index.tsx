@@ -104,6 +104,7 @@ function Index() {
       <SiteNav darkAtTop />
       <Hero />
       <Marquee />
+      <CommercialImpact />
       <Work />
       <About />
       <Resume />
@@ -172,6 +173,97 @@ function Marquee() {
             {t} <span className="text-accent soft-pulse">✦</span>
           </span>
         ))}
+      </div>
+    </section>
+  );
+}
+
+const commercialImpact = [
+  {
+    index: "01",
+    category: "B2B Growth & Distributor Enablement",
+    outcome: "~$56K",
+    outcomeLabel: "Initial distributor order",
+    context: "Magic Sleek · Partner Expansion",
+    description:
+      "Supported onboarding for a major regional beauty distributor by coordinating product education, technical information, sales materials, and cross-functional communication surrounding its first Magic Sleek purchase order.",
+    tags: ["Distributor Enablement", "Product Education", "Cross-Functional Operations"],
+  },
+  {
+    index: "02",
+    category: "Retail Turnaround & Growth",
+    outcome: "4×+",
+    outcomeLabel: "Monthly location sales",
+    context: "Supercuts / G&C Robins Co. · 13 Months",
+    description:
+      "Helped grow monthly location sales from approximately $4K–$5K to more than $20K by improving team performance, staffing, service operations, customer outreach, and the overall client experience.",
+    tags: ["Revenue Growth", "Team Leadership", "Service Operations"],
+  },
+  {
+    index: "03",
+    category: "AI-Assisted Knowledge Operations",
+    outcome: "One source",
+    outcomeLabel: "For product knowledge",
+    context: "Magic Sleek · Internal Knowledge System",
+    description:
+      "Built an AI-assisted knowledge resource that organized fragmented product information, technical guidance, and frequently asked questions into a more accessible system for answering customer and internal questions.",
+    tags: ["AI-Assisted Workflows", "Knowledge Management", "Information Architecture"],
+  },
+];
+
+function CommercialImpact() {
+  return (
+    <section
+      aria-labelledby="commercial-impact-heading"
+      className="border-b border-border bg-charcoal px-6 py-24 text-background md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal>
+          <div className="grid grid-cols-12 gap-6 border-b border-background/20 pb-8">
+            <span className="eyebrow col-span-12 text-teal md:col-span-2">§ Commercial Impact</span>
+            <h2
+              id="commercial-impact-heading"
+              className="col-span-12 max-w-5xl font-display text-4xl tracking-tight md:col-span-10 md:text-6xl"
+            >
+              Business outcomes across revenue growth, partner enablement, and{" "}
+              <span className="italic text-background/60">knowledge systems</span>
+              <span className="text-accent">.</span>
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-px overflow-hidden border border-background/20 bg-background/20 lg:grid-cols-3">
+          {commercialImpact.map((item, i) => (
+            <Reveal key={item.index} delay={i * 100}>
+              <article className="group flex h-full flex-col bg-charcoal p-7 transition-colors duration-500 hover:bg-navy md:p-9">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="eyebrow max-w-[18rem] text-teal">{item.category}</span>
+                  <span className="font-mono text-xs text-background/40">{item.index} / 03</span>
+                </div>
+
+                <div className="mt-12">
+                  <div className="font-display text-[clamp(2.7rem,5vw,5.25rem)] leading-[0.9] tracking-[-0.04em] text-background transition-transform duration-500 group-hover:-translate-y-1">
+                    {item.outcome}
+                  </div>
+                  <div className="eyebrow mt-3 text-background/60">{item.outcomeLabel}</div>
+                </div>
+
+                <div className="mt-10 border-t border-background/20 pt-6">
+                  <p className="font-display text-lg text-background">{item.context}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-background/70 md:text-base">{item.description}</p>
+                </div>
+
+                <ul className="mt-auto flex flex-wrap gap-2 pt-8" aria-label="Related capabilities">
+                  {item.tags.map((tag) => (
+                    <li key={tag} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/65">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
