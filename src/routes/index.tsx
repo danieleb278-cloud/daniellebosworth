@@ -816,20 +816,14 @@ function Resume() {
     "ElevenLabs",
   ];
   const skills = [
-    "Product Strategy",
-    "Customer Experience (CX)",
-    "Customer Insights & VOC",
-    "Journey Mapping",
-    "Service Design",
-    "Content Strategy",
-    "Educational Content",
-    "Copywriting & Editing",
-    "Social Media & Brand",
-    "SEO & Analytics",
+    "Product & Experience Strategy",
+    "Customer Insights & Research Synthesis",
+    "Service & Process Design",
     "Information Architecture",
-    "Knowledge Management",
-    "Process Improvement",
-    "AI-Assisted Workflows",
+    "Product Education & Enablement",
+    "AI-Assisted Knowledge Systems",
+    "Cross-Functional Operations",
+    "Multichannel Content Strategy",
     "Systems Thinking",
   ];
   return (
