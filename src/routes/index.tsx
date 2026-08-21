@@ -225,8 +225,10 @@ function CommercialImpact() {
               id="commercial-impact-heading"
               className="col-span-12 max-w-5xl font-display text-4xl tracking-tight md:col-span-10 md:text-6xl"
             >
-              Cross-functional work. <span className="italic text-background/60">Real business impact</span>
-              <span className="text-accent">.</span>
+              <span className="block">Cross-functional work.</span>
+              <span className="block italic text-background/60">
+                Real business impact<span className="text-accent">.</span>
+              </span>
             </h2>
           </div>
         </Reveal>
