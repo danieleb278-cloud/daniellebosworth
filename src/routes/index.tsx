@@ -225,8 +225,7 @@ function CommercialImpact() {
               id="commercial-impact-heading"
               className="col-span-12 max-w-5xl font-display text-4xl tracking-tight md:col-span-10 md:text-6xl"
             >
-              Business outcomes across revenue growth, partner enablement, and{" "}
-              <span className="italic text-background/60">knowledge systems</span>
+              Cross-functional work. <span className="italic text-background/60">Real business impact</span>
               <span className="text-accent">.</span>
             </h2>
           </div>
