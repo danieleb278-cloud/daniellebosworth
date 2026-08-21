@@ -8,7 +8,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
-import portrait from "@/assets/portrait-2026.png.asset.json";
+const portraitUrl = "/home/portrait.svg";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 import earSketch from "@/assets/editorial/ear-sketch.png";
 import eyeSketch from "@/assets/editorial/eye-sketch.png";
@@ -29,9 +29,9 @@ export const Route = createFileRoute("/")({
           "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
       },
       { property: "og:url", content: "https://daniellebosworth.lovable.app/" },
-      { property: "og:image", content: `https://daniellebosworth.lovable.app${portrait.url}` },
+      { property: "og:image", content: `https://daniellebosworth.lovable.app${portraitUrl}` },
       { property: "og:image:alt", content: "Portrait of Danielle Bosworth" },
-      { name: "twitter:image", content: `https://daniellebosworth.lovable.app${portrait.url}` },
+      { name: "twitter:image", content: `https://daniellebosworth.lovable.app${portraitUrl}` },
       { name: "twitter:title", content: "Danielle Bosworth — Research, Strategy & Customer Experience" },
       { name: "twitter:description", content: "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design." },
     ],
@@ -104,6 +104,7 @@ function Index() {
       <SiteNav darkAtTop />
       <Hero />
       <Marquee />
+      <CommercialImpact />
       <Work />
       <About />
       <Resume />
@@ -115,7 +116,7 @@ function Index() {
 }
 
 function Hero() {
-  return <ConnectionHero portraitUrl={portrait.url} resumeUrl={resumePdf.url} />;
+  return <ConnectionHero portraitUrl={portraitUrl} resumeUrl={resumePdf.url} />;
 }
 
 function Stat({ k, label }: { k: string; label: string }) {
@@ -173,6 +174,305 @@ function Marquee() {
           </span>
         ))}
       </div>
+    </section>
+  );
+}
+
+const commercialImpact = [
+  {
+    index: "01",
+    category: "B2B Growth & Distributor Enablement",
+    outcome: "~$56K",
+    outcomeLabel: "Initial distributor order",
+    context: "Magic Sleek · Partner Expansion",
+    description:
+      "Supported onboarding for a major regional beauty distributor by coordinating product education, technical information, sales materials, and cross-functional communication surrounding its first Magic Sleek purchase order.",
+    tags: ["Distributor Enablement", "Product Education", "Cross-Functional Operations"],
+    featuredCase: true,
+  },
+  {
+    index: "02",
+    category: "Retail Turnaround & Growth",
+    outcome: "4×+",
+    outcomeLabel: "Monthly location sales",
+    context: "Supercuts / G&C Robins Co. · 13 Months",
+    description:
+      "Helped grow monthly location sales from approximately $4K–$5K to more than $20K by improving team performance, staffing, service operations, customer outreach, and the overall client experience.",
+    tags: ["Revenue Growth", "Team Leadership", "Service Operations"],
+    featuredCase: false,
+  },
+  {
+    index: "03",
+    category: "AI-Assisted Knowledge Operations",
+    outcome: "One source",
+    outcomeLabel: "For product knowledge",
+    context: "Magic Sleek · Internal Knowledge System",
+    description:
+      "Built an AI-assisted knowledge resource that organized fragmented product information, technical guidance, and frequently asked questions into a more accessible system for answering customer and internal questions.",
+    tags: ["AI-Assisted Workflows", "Knowledge Management", "Information Architecture"],
+    featuredCase: false,
+  },
+];
+
+function CommercialImpact() {
+  const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
+
+  function toggleFieldCase() {
+    const nextOpen = !fieldCaseOpen;
+    setFieldCaseOpen(nextOpen);
+    if (nextOpen) {
+      window.setTimeout(() => {
+        document.getElementById("magic-sleek-field-case")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 80);
+    }
+  }
+
+  return (
+    <section
+      aria-labelledby="commercial-impact-heading"
+      className="border-b border-border bg-charcoal px-6 py-24 text-background md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal>
+          <div className="grid grid-cols-12 gap-6 border-b border-background/20 pb-8">
+            <span className="eyebrow col-span-12 text-teal md:col-span-2">§ Commercial Impact</span>
+            <h2
+              id="commercial-impact-heading"
+              className="col-span-12 max-w-5xl font-display text-4xl tracking-tight md:col-span-10 md:text-6xl"
+            >
+              <span className="block">Cross-functional work.</span>
+              <span className="block italic text-background/60">
+                Real business impact<span className="text-accent">.</span>
+              </span>
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-px overflow-hidden border border-background/20 bg-background/20 lg:grid-cols-3">
+          {commercialImpact.map((item, i) => (
+            <Reveal key={item.index} delay={i * 100}>
+              <article className="group flex h-full flex-col bg-charcoal p-7 transition-colors duration-500 hover:bg-navy md:p-9">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="eyebrow max-w-[18rem] text-teal">{item.category}</span>
+                  <span className="font-mono text-xs text-background/40">{item.index} / 03</span>
+                </div>
+
+                <div className="mt-12">
+                  <div className="font-display text-[clamp(2.7rem,5vw,5.25rem)] leading-[0.9] tracking-[-0.04em] text-background transition-transform duration-500 group-hover:-translate-y-1">
+                    {item.outcome}
+                  </div>
+                  <div className="eyebrow mt-3 text-background/60">{item.outcomeLabel}</div>
+                </div>
+
+                <div className="mt-10 border-t border-background/20 pt-6">
+                  <p className="font-display text-lg text-background">{item.context}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-background/70 md:text-base">{item.description}</p>
+                </div>
+
+                <ul className="mt-auto flex flex-wrap gap-2 pt-8" aria-label="Related capabilities">
+                  {item.tags.map((tag) => (
+                    <li key={tag} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/65">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                {item.featuredCase && (
+                  <button
+                    type="button"
+                    onClick={toggleFieldCase}
+                    aria-expanded={fieldCaseOpen}
+                    aria-controls="magic-sleek-field-case"
+                    className="eyebrow arrow-slide mt-8 inline-flex w-fit items-center gap-2 text-teal link-underline"
+                  >
+                    {fieldCaseOpen ? "Close featured field case" : "View featured field case"}
+                    <span className="arrow" aria-hidden>{fieldCaseOpen ? "↑" : "↓"}</span>
+                  </button>
+                )}
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <MagicSleekFieldCase open={fieldCaseOpen} onToggle={toggleFieldCase} />
+      </div>
+    </section>
+  );
+}
+
+const magicSleekEvidence = [
+  {
+    src: "/magic-sleek/commercial-gap.svg",
+    alt: "Before-and-after diagram showing the distributor enablement gap and the partner-ready system Danielle built",
+    label: "01 · Business gap",
+    title: "The product story existed. The partner system did not.",
+    description:
+      "Outdated general materials and scattered commercial information made the opportunity harder for distributor leaders and field representatives to evaluate.",
+  },
+  {
+    src: "/magic-sleek/partnership-pathway.svg",
+    alt: "Five-stage pathway from initiating distributor contact through an approximately 56 thousand dollar initial order",
+    label: "02 · Contribution pathway",
+    title: "I connected relationship-building, content, and enablement.",
+    description:
+      "I initiated contact with distributor leadership, secured the meeting, built the sales story, and prepared the team to represent the product.",
+  },
+  {
+    src: "/magic-sleek/enablement-toolkit.svg",
+    alt: "Representative reconstruction of distributor, professional decision, and troubleshooting documents",
+    label: "03 · Enablement system",
+    title: "One knowledge foundation, translated by audience.",
+    description:
+      "Distributor materials clarified commercial value while professional guides supported consistent application, troubleshooting, and post-training reference.",
+  },
+  {
+    src: "/magic-sleek/training-seminar.svg",
+    alt: "Representative four-hour training seminar architecture covering product, application, sales, and support",
+    label: "04 · Team readiness",
+    title: "Four hours designed to build selling confidence.",
+    description:
+      "The seminar connected product knowledge, professional application, objection handling, and salon value into a repeatable field conversation.",
+  },
+];
+
+function MagicSleekFieldCase({
+  open,
+  onToggle,
+}: {
+  open: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <section
+      id="magic-sleek-field-case"
+      aria-labelledby="magic-sleek-case-heading"
+      className="scroll-mt-24 mt-12 border border-background/20"
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        aria-controls="magic-sleek-case-content"
+        className="group grid w-full grid-cols-12 gap-6 p-6 text-left transition-colors hover:bg-navy/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal md:p-9"
+      >
+        <div className="col-span-12 md:col-span-3">
+          <span className="eyebrow text-teal">§ Featured Field Case</span>
+          <span className="mt-3 block font-mono text-xs uppercase tracking-[0.16em] text-background/45">
+            Magic Sleek · B2B partner expansion
+          </span>
+        </div>
+        <div className="col-span-10 md:col-span-7">
+          <h3
+            id="magic-sleek-case-heading"
+            className="font-display text-3xl leading-[1.05] tracking-tight text-background md:text-4xl"
+          >
+            Building the system behind a{" "}
+            <span className="italic text-teal">~$56K distributor launch</span>
+            <span className="text-accent">.</span>
+          </h3>
+        </div>
+        <div className="col-span-2 flex items-center justify-end md:col-span-2">
+          <span
+            aria-hidden
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-teal font-display text-2xl text-teal transition-transform duration-300 group-hover:scale-105"
+          >
+            {open ? "−" : "+"}
+          </span>
+          <span className="sr-only">{open ? "Close case study" : "Open case study"}</span>
+        </div>
+      </button>
+
+      {open && (
+        <div id="magic-sleek-case-content" className="border-t border-background/20 px-6 pb-12 pt-12 md:px-9 md:pb-16">
+          <Reveal>
+            <p className="max-w-4xl font-display text-2xl leading-relaxed text-background/90 md:text-3xl">
+              Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
+              presentations, informal knowledge, and materials created for other audiences. I turned that information
+              into a partner-ready sales and education system, while also opening the relationship that created the
+              opportunity.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-px border border-background/20 bg-background/20 md:grid-cols-3">
+            {[
+              {
+                label: "The business need",
+                body: "Give distributor leadership enough commercial clarity to evaluate the partnership, then equip its sales representatives to communicate value to salons.",
+              },
+              {
+                label: "What I owned",
+                body: "Initiated contact with the owner, secured the meeting, created distributor-specific and professional materials, and led a four-hour product and sales seminar.",
+              },
+              {
+                label: "The result",
+                body: "The combined relationship, sales, and training work supported a new distributor partnership and an initial order of approximately $56K.",
+              },
+            ].map((item) => (
+              <div key={item.label} className="bg-charcoal p-7 md:p-8">
+                <span className="eyebrow text-teal">{item.label}</span>
+                <p className="mt-4 text-sm leading-relaxed text-background/75 md:text-base">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+            {magicSleekEvidence.map((item, i) => (
+              <Reveal key={item.src} delay={(i % 2) * 100}>
+                <figure>
+                  <a
+                    href={item.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block overflow-hidden border border-background/20 bg-navy p-2 transition-colors hover:border-teal"
+                    aria-label={`Open full-size visual: ${item.title}`}
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      width={1664}
+                      height={960}
+                      className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.01]"
+                    />
+                  </a>
+                  <figcaption className="mt-5 border-l-2 border-teal pl-4">
+                    <span className="eyebrow text-teal">{item.label}</span>
+                    <h4 className="mt-2 font-display text-2xl leading-tight text-background">{item.title}</h4>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-background/65">{item.description}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-12 gap-6 border-y border-background/20 py-10">
+            <div className="col-span-12 md:col-span-3">
+              <span className="eyebrow text-teal">Commercial takeaway</span>
+            </div>
+            <p className="col-span-12 max-w-4xl font-display text-2xl leading-relaxed text-background md:col-span-9 md:text-3xl">
+              This was not a design exercise. It was cross-functional commercial work that moved from opportunity
+              identification to partner readiness and revenue.
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+            <p className="max-w-3xl text-xs leading-relaxed text-background/45">
+              Visuals are representative reconstructions because original client materials are confidential. The
+              commercial figure is approximate and reflects the initial distributor order.
+            </p>
+            <button
+              type="button"
+              onClick={onToggle}
+              className="eyebrow shrink-0 text-teal link-underline"
+            >
+              Close case ↑
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
