@@ -95,7 +95,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
             <Meta label="Role" value="Product Creator, Product Designer & Prototype Developer" />
             <Meta label="Duration" value="May–August 2026" />
             <Meta label="Methods" value="Product strategy, interviews, surveys, usability testing, affective-computing research, IA, interaction design" />
-            <Meta label="Tools" value="Lovable, React, TypeScript, Supabase, MorphCast, Figma, Canva, Google Workspace" />
+            <Meta label="Tools" value="Lovable, ChatGPT, GitHub, Vercel, React, TypeScript, Supabase, MorphCast, Figma" />
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="https://myvocari.lovable.app" target="_blank" rel="noreferrer" className="border border-foreground bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-[0.14em] text-background transition-colors hover:bg-accent hover:text-foreground">Explore the research prototype ↗</a>
@@ -156,6 +156,39 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <div className="mt-14 grid gap-12 md:grid-cols-3">{solutionGroups.map(group => <div key={group.number}><span className="font-mono text-xs text-accent">{group.number}</span><h3 className="mt-6 font-display text-2xl leading-tight md:text-3xl">{group.title}</h3><p className="mt-5 leading-relaxed text-muted-foreground">{group.body}</p></div>)}</div>
           <AILearningLoop />
           <DesignCarousel />
+
+          <Reveal>
+            <div className="mt-16 grid gap-8 border-y border-border py-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+              <div>
+                <span className="eyebrow text-accent">Delivery resilience</span>
+                <h3 className="mt-6 font-display text-3xl leading-tight md:text-5xl">
+                  When the platform reached its limits, I changed the delivery pipeline.
+                </h3>
+              </div>
+              <div>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  During high-intensity prototyping, platform resource limits began interrupting iteration. Instead of
+                  pausing development, I established an alternate workflow: bringing relevant codebase context into
+                  ChatGPT to develop targeted patches, reviewing and pushing changes through GitHub, and using Vercel's
+                  automated deployments to keep the working prototype available for continued validation.
+                </p>
+                <p className="mt-6 leading-relaxed text-muted-foreground">
+                  The workflow reduced dependency on a single prototyping platform while preserving version history,
+                  deployment continuity, and the ability to keep testing live product decisions.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3" aria-label="Delivery workflow tools">
+                  {["ChatGPT-assisted development", "GitHub version control", "Vercel deployment"].map((tool) => (
+                    <span
+                      key={tool}
+                      className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
