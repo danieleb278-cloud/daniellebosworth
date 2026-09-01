@@ -1017,7 +1017,7 @@ export const caseStudies: CaseStudy[] = [
     index: "03",
     title: "Robin",
     subtitle:
-      "Product discovery and UX research to identify unmet needs and shape the future of a job search platform.",
+      "A client-driven product/design project focused on understanding an existing job-search workflow, stakeholder/client requirements, application organization, resume management, interviews, contacts, and iterative UX validation.",
 
     client: "Robin (academic engagement)",
     year: "2024",
@@ -1025,7 +1025,7 @@ export const caseStudies: CaseStudy[] = [
     discipline: "UX Research · Usability Evaluation",
     duration: "Semester project",
     summary:
-      "A research-driven UX evaluation of a job search platform — surfacing friction in discovery and application and shaping actionable recommendations.",
+      "A client-driven product/design project focused on understanding an existing job-search workflow, stakeholder/client requirements, application organization, resume management, interviews, contacts, and iterative UX validation.",
     hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
     context:
       "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
@@ -1661,13 +1661,13 @@ caseStudies.unshift({
   slug: "vocari",
   index: "01",
   title: "Vocari",
-  subtitle: "An AI-enabled career discovery platform that learns through purposeful conversation, confirmed evidence, and reflection.",
+  subtitle: "An independent AI/product innovation project focused on adaptive career discovery, behavioral signals, profile learning, user trust, feedback loops, and responsible AI interaction.",
   client: "Independent academic product",
   year: "2026",
   role: "Product Creator, Product Designer & Prototype Developer",
   discipline: "Product Strategy · Systems Design · UX Research · AI Governance",
   duration: "May–August 2026",
-  summary: "An AI-enabled discovery system designed to recognize patterns across lived experience and improve explainable career recommendations as user-confirmed evidence grows.",
+  summary: "An independent AI/product innovation project focused on adaptive career discovery, behavioral signals, profile learning, user trust, feedback loops, and responsible AI interaction.",
   hero: "Understand yourself first. Explore careers second.",
   context: "People with nonlinear experience often struggle to translate what they have done into a clear future direction. Traditional career assessments can flatten that complexity into fixed labels and unexplained matches.",
   challenge: "Design and build a trustworthy AI-enabled career-discovery platform that asks purposeful questions, recognizes patterns people may miss, improves recommendations through confirmed evidence and reflection, and remains honest about the limits of its current prototype.",

@@ -68,7 +68,7 @@ const marquee = [
 const projectProof: Record<string, { connection: string; evidence: string }> = {
   vocari: {
     connection:
-      "People often overlook abilities that come naturally to them. AI can connect recurring evidence across experiences, skills, values, motivations, and memories to careers they may never have considered.",
+      "An independent AI/product innovation: Vocari explores how behavioral signals, confirmed evidence, and reflection can power adaptive career discovery without flattening a person's complexity.",
     evidence:
       "An end-to-end research prototype, eight affective-computing sessions, Profile DNA, explainable recommendations, and the Progressive Discovery system established the foundation for learning over time.",
   },
@@ -86,7 +86,7 @@ const projectProof: Record<string, { connection: string; evidence: string }> = {
   },
   robin: {
     connection:
-      "Job-search friction connected information overload, unclear pathways, and inconsistent application workflows at key decision points.",
+      "A client-driven product/design engagement: Robin focused on understanding the existing job-search workflow — discovery, applications, resumes, interviews, and contacts — then validating UX improvements against real stakeholder requirements.",
     evidence:
       "Contextual inquiry, journey mapping, usability evaluation, and click-through testing informed recommendations presented to the client.",
   },
@@ -694,8 +694,9 @@ function About() {
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
-                For a long time I thought I needed to pick one lane. Marketing, product, operations, customer experience —
-                I was drawn to all of them. Eventually I realized that was the point. I think of myself as an{" "}
+                My path has been cumulative, not scattered. Frontline customer experience → leadership and operations →
+                psychology → product and systems → AI and emerging technology. Each stage added a lens rather than changed
+                lanes. I think of myself as an{" "}
                 <span className="text-teal">interdepartmental translator</span>: turning research into product decisions,
                 technical concepts into customer-facing experiences, disconnected processes into optimized workflows,
                 and business goals into practical solutions.
@@ -711,11 +712,11 @@ function About() {
             </Reveal>
             <Reveal delay={220}>
               <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
-                My curiosity extends far beyond my professional work. I'm fascinated by the universe, quantum physics,
-                human consciousness, philosophy, and questions that challenge conventional explanations. I'm especially
-                drawn to the unexpected patterns that appear across seemingly unrelated subjects. That curiosity shapes
-                how I work: I look beyond the most obvious answer, explore ideas from multiple perspectives, and search
-                for connections that can reveal a clearer understanding of the problem.
+                I approach product and service design through a systems-complexity lens. Whether analyzing behavioral
+                patterns, cross-functional dependencies, or operational bottlenecks, I look for the underlying structures
+                that dictate how information and people actually move through a system. My curiosity outside work — about
+                human consciousness, philosophy, physics, and unexpected patterns across disciplines — keeps me asking
+                better questions and finding connections others miss.
               </p>
             </Reveal>
 
@@ -931,10 +932,13 @@ function Contact() {
                 <div>
                   <span className="eyebrow">Looking for</span>
                   <ul className="mt-3 flex flex-col gap-2 font-display text-lg sm:text-xl">
-                    {["Solutions Consulting", "Customer Experience", "Product Strategy", "Innovation Management"].map((s) => (
+                    {[
+                      "Roles at the intersection of product strategy, AI-enabled systems, and customer experience.",
+                      "Adjacent directions: solutions consulting, innovation, implementation.",
+                    ].map((s) => (
                       <li
                         key={s}
-                        className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
+                        className="flex items-start gap-3 transition-transform duration-300 hover:translate-x-1"
                       >
                         <span className="text-teal">•</span>
                         <span>{s}</span>
