@@ -938,7 +938,7 @@ function Contact() {
                     ].map((s) => (
                       <li
                         key={s}
-                        className="flex items-start gap-3 transition-transform duration-300 hover:translate-x-1"
+                        className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
                       >
                         <span className="text-teal">•</span>
                         <span>{s}</span>
