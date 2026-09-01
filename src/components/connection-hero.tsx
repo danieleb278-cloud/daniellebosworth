@@ -52,8 +52,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             I see connections others <span className="italic text-teal">overlook.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-background/75 md:text-lg">
-            I uncover relationships between people, information, processes, and business needs, then turn friction,
-            contradictions, and complexity into intuitive designs, clearer systems, and more meaningful experiences.
+            I bridge human behavior, operational workflows, and AI systems, turning complex business friction into
+            structured, high-impact product experiences.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
