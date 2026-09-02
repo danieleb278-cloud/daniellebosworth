@@ -86,7 +86,7 @@ const projectProof: Record<string, { connection: string; evidence: string }> = {
   },
   robin: {
     connection:
-      "A client-driven product/design engagement: Robin focused on understanding the existing job-search workflow — discovery, applications, resumes, interviews, and contacts — then validating UX improvements against real stakeholder requirements.",
+      "The real friction wasn't simply finding openings. Job seekers were managing resumes, applications, interviews, contacts, and follow-up across a fragmented process.",
     evidence:
       "Contextual inquiry, journey mapping, usability evaluation, and click-through testing informed recommendations presented to the client.",
   },
@@ -520,7 +520,7 @@ function Work() {
                       {cs.title}
                       <span className="text-teal">.</span>
                     </h3>
-                    <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">{cs.subtitle}</p>
+                    <p className="mt-3 max-w-xl text-base text-muted-foreground md:text-lg">{cs.homeSubtitle ?? cs.subtitle}</p>
                     {projectProof[cs.slug] && (
                       <div className="mt-6 grid max-w-2xl gap-5 border-l-2 border-teal pl-5 sm:grid-cols-2">
                         <div>
