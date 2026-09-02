@@ -104,6 +104,7 @@ function Index() {
       <SiteNav darkAtTop />
       <Hero />
       <Marquee />
+      <HowIWork />
       <CommercialImpact />
       <Work />
       <About />
@@ -173,6 +174,47 @@ function Marquee() {
             {t} <span className="text-accent soft-pulse">✦</span>
           </span>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function HowIWork() {
+  const steps = ["Find the friction", "Trace the system", "Design the intervention"];
+  return (
+    <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-24 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal>
+          <div className="grid grid-cols-12 gap-6">
+            <span className="eyebrow col-span-12 text-teal md:col-span-3">§ How I Work</span>
+            <div className="col-span-12 md:col-span-9">
+              <h2 id="how-i-work-heading" className="font-display text-4xl tracking-tight md:text-5xl">
+                Find the friction<span className="text-accent">.</span> Trace the system
+                <span className="text-accent">.</span> Design the intervention<span className="text-accent">.</span>
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Research helps me understand where a problem actually begins. Systems thinking reveals the dependencies
+                around it. Product strategy turns those findings into something actionable, whether that means changing
+                a workflow, defining a feature, restructuring information, or introducing new technology.
+              </p>
+              <ol className="mt-10 flex flex-wrap gap-x-3 gap-y-3">
+                {steps.map((step, i) => (
+                  <li key={step} className="flex items-center gap-3">
+                    <span className="eyebrow rounded-full border border-border px-4 py-2 transition-colors duration-300 hover:border-teal hover:text-teal">
+                      <span className="mr-2 font-mono text-teal">0{i + 1}</span>
+                      {step}
+                    </span>
+                    {i < steps.length - 1 && (
+                      <span aria-hidden className="hidden font-mono text-muted-foreground md:inline">
+                        →
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -696,10 +738,10 @@ function About() {
               <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
                 My path has been cumulative, not scattered. Frontline customer experience → leadership and operations →
                 psychology → product and systems → AI and emerging technology. Each stage added a lens rather than changed
-                lanes. I think of myself as an{" "}
-                <span className="text-teal">interdepartmental translator</span>: turning research into product decisions,
-                technical concepts into customer-facing experiences, disconnected processes into optimized workflows,
-                and business goals into practical solutions.
+                 lanes. I often become the{" "}
+                <span className="text-teal">interdepartmental translator</span>, following a problem across the
+                boundaries where customer behavior, business operations, information, and technology meet — and turning
+                what I find there into practical solutions.
               </p>
             </Reveal>
             <Reveal delay={120}>
