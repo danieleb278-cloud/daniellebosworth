@@ -977,7 +977,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Cross-functional product team (academic)",
     year: "2025",
     role: "UX Researcher & Product Strategy",
-    discipline: "UX Research · Product Strategy",
+    discipline: "End-to-End Product Design · UX Research · Experience Strategy",
     duration: "Semester project",
     summary:
       "A travel platform concept built from surveys, interviews, and competitive analysis to address the fragmented nature of modern trip planning.",
@@ -1033,7 +1033,8 @@ export const caseStudies: CaseStudy[] = [
     client: "Robin (industry-sponsored RFP project)",
     year: "2024",
     role: "UX Researcher & Designer",
-    discipline: "Product Discovery · UX Research · Feature Strategy",
+    discipline: "Product Discovery · Market & User Research · Feature Strategy",
+
     duration: "Semester project",
     summary:
       "An industry-sponsored RFP project: researching job seekers and job-posting perspectives, defining the product's feature strategy, and validating the concept through prototyping and user testing.",
@@ -1622,7 +1623,7 @@ caseStudies.unshift({
     client: "Joomla Extension Directory",
     year: "2026",
     role: "Sole UX Researcher, Information Architect & Designer",
-    discipline: "Information Architecture · Search Experience · UX Strategy",
+    discipline: "Search & Information Systems · Product Strategy · Information Architecture",
     duration: "12 weeks",
     summary:
       "Reframing the JED from a listing directory into a decision-support platform — through IA, search transparency, and metadata strategy.",
@@ -1676,7 +1677,7 @@ caseStudies.unshift({
   client: "Independent academic product",
   year: "2026",
   role: "Product Creator, Product Designer & Prototype Developer",
-  discipline: "Product Strategy · Systems Design · UX Research · AI Governance",
+  discipline: "AI Product Strategy · Human-AI Interaction · Adaptive Systems",
   duration: "May–August 2026",
   summary: "An independent AI/product innovation project focused on adaptive career discovery, behavioral signals, profile learning, user trust, feedback loops, and responsible AI interaction.",
   hero: "Understand yourself first. Explore careers second.",
@@ -1869,7 +1870,7 @@ caseStudies.push({
   client: "Independent project",
   year: "2025",
   role: "Content Strategist & Creator",
-  discipline: "Content Strategy · Content Design · Marketing Operations",
+  discipline: "Visual Communication · Content Systems · Content Strategy",
   duration: "Ongoing",
   summary:
     "A repeatable content workflow that turns one topic into blog posts, carousels, short-form video, and marketing assets — built to scale.",
