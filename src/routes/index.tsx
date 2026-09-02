@@ -1033,9 +1033,11 @@ function ContactForm() {
     "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
-    <form onSubmit={onSubmit} className="flex h-full flex-col border-l-0 md:border-l-2 md:border-teal md:pl-8">
-      <span className="eyebrow">Send a message</span>
-      <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
+    <form onSubmit={onSubmit} className="flex h-full flex-col justify-between border-l-0 md:border-l-2 md:border-teal md:pl-8">
+      <div>
+        <span className="eyebrow">Send a message</span>
+        <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
+      </div>
 
       {/* honeypot: hidden from users, catches bots */}
       <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden" tabIndex={-1}>
@@ -1051,7 +1053,7 @@ function ContactForm() {
         </label>
       </div>
 
-      <div className="mt-6 space-y-5">
+      <div className="space-y-6">
         <div>
           <label className="eyebrow" htmlFor="cf-name">
             Name
@@ -1108,7 +1110,7 @@ function ContactForm() {
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
             maxLength={2000}
-            rows={4}
+            rows={6}
             className={inputCls + " resize-y"}
             placeholder="Tell me a bit about the role or project…"
           />
@@ -1116,7 +1118,7 @@ function ContactForm() {
         </div>
       </div>
 
-      <div className="mt-auto">
+      <div>
         <button
           type="submit"
           disabled={status === "sending"}
