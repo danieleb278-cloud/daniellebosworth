@@ -41,7 +41,7 @@ function RobinHero() {
       {reducedMotion ? <img src={assetUrl(robinLogo.url)} alt="Robin job search platform" className="absolute inset-0 h-full w-full object-contain" /> :
       <video className="absolute inset-0 h-full w-full object-cover" src={HERO_VIDEO_SRC} poster={assetUrl(robinLogo.url)} autoPlay muted loop playsInline preload="metadata" aria-label="Robin job search experience walkthrough" />}
     </div>
-    <figcaption className="eyebrow mt-4 flex items-center justify-between"><span>Fig. 01 · Robin — organizing applications, resumes, interviews, and job-search activity in one connected experience</span><span aria-hidden>✦</span></figcaption>
+    <figcaption className="eyebrow mt-4 flex items-center justify-between"><span>Fig. 01 · Proposed Robin experience shaped by research, feature definition, prototyping, and user testing</span><span aria-hidden>✦</span></figcaption>
   </figure>;
 }
 
@@ -54,14 +54,14 @@ export function RobinCaseStudy({ study }: { study: CaseStudy }) {
         <SectionLabel number="01 / 05" label="Overview" />
         <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The project in 30 seconds</p>
         <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
-          <Summary label="The problem" text="Job seekers faced information overload, inconsistent workflows, and limited visibility across discovery, applications, and follow-up." />
-          <Summary label="What I did" text="I helped lead research synthesis across surveys, contextual inquiry, journey mapping, heuristics, competitive review, and usability testing." />
-          <Summary label="The direction" text="Shift Robin from a collection of job-search tools toward a clearer system that supports relevance, progress, and decision confidence." />
+          <Summary label="The brief" text="An industry-sponsored RFP asked our team how the job-search experience could be improved — an open challenge, not a predefined solution." />
+          <Summary label="What I did" text="I helped lead research and synthesis across surveys, journey mapping, a design sprint, prototyping, and user testing within a four-person team." />
+          <Summary label="The direction" text="A human-centered, AI-assisted platform concept that centralizes applications, guides follow-ups, and makes progress visible." />
         </div>
         <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
-          <Meta label="Role" value="UX Researcher, Experience Strategist & Synthesis Lead" />
+          <Meta label="Role" value="UX Researcher, Experience Strategist & Synthesis Lead (team of 4)" />
           <Meta label="Duration" value="Spring semester" />
-          <Meta label="Methods" value="Surveys, contextual inquiry, heuristics, usability testing" />
+          <Meta label="Methods" value="Surveys, journey mapping, design sprint, prototyping, user testing" />
           <Meta label="Tools" value="Figma, Miro, Google Forms" />
         </div>
       </div>
@@ -99,8 +99,8 @@ export function RobinCaseStudy({ study }: { study: CaseStudy }) {
     <section className="px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div><span className="eyebrow text-accent">Usability evidence</span><h2 className="mt-6 font-display text-4xl leading-tight tracking-tight md:text-5xl">Small inconsistencies weakened trust at important moments.</h2><p className="mt-6 text-lg leading-relaxed text-muted-foreground">The heuristic evaluation exposed problems with consistency, system feedback, and user control. These findings translated broad frustrations into specific design priorities.</p></div>
-          <CaseFigure src={assetUrl(robinHeuristics.url)} alt="Robin heuristic evaluation examples" caption="Fig. 03 · Heuristic review translated usability issues into actionable recommendations" />
+          <div><span className="eyebrow text-accent">Competitive &amp; usability evidence</span><h2 className="mt-6 font-display text-4xl leading-tight tracking-tight md:text-5xl">Studying existing experiences showed where trust breaks down.</h2><p className="mt-6 text-lg leading-relaxed text-muted-foreground">Evaluating current platforms against usability principles exposed consistency, feedback, and control problems. Those patterns turned broad frustrations into specific design priorities for the concept.</p></div>
+          <CaseFigure src={assetUrl(robinHeuristics.url)} alt="Heuristic evaluation examples from existing job-search experiences" caption="Fig. 03 · Evaluating existing experiences turned usability patterns into design priorities" />
         </div>
       </div>
     </section>
@@ -108,8 +108,8 @@ export function RobinCaseStudy({ study }: { study: CaseStudy }) {
     <section className="bg-secondary px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
         <SectionLabel number="04 / 05" label="Design" />
-        <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Recommendations grounded in research</p>
-        <div className="mt-10 max-w-4xl"><h2 className="font-display text-4xl leading-tight tracking-tight md:text-6xl">A job-search experience that helps people <span className="text-accent">move forward.</span></h2><p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">The proposed system connects the moments users previously managed alone: understanding priorities, preparing materials, tracking activity, and knowing what to do next.</p></div>
+        <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">A concept grounded in research</p>
+        <div className="mt-10 max-w-4xl"><h2 className="font-display text-4xl leading-tight tracking-tight md:text-6xl">A job-search experience that helps people <span className="text-accent">move forward.</span></h2><p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">The proposed concept connects the moments job seekers previously managed alone: understanding priorities, preparing materials, tracking activity, and knowing what to do next.</p></div>
         <div className="mt-14 grid gap-10 lg:grid-cols-3">{priorities.map(item=><article key={item.number} className="border-t border-border pt-5"><span className="font-mono text-xs text-accent">{item.number}</span><h3 className="mt-4 font-display text-2xl leading-tight tracking-tight">{item.title}</h3><p className="mt-4 leading-relaxed text-muted-foreground">{item.body}</p></article>)}</div>
         <Reveal><SolutionCarousel /></Reveal>
       </div>
@@ -118,12 +118,12 @@ export function RobinCaseStudy({ study }: { study: CaseStudy }) {
     <section className="px-6 py-24 md:px-12 md:py-32"><div className="mx-auto max-w-[1400px]">
       <SectionLabel number="05 / 05" label="Next" /><p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Client value & next validation</p>
       <div className="mt-12 grid gap-12 lg:grid-cols-2">
-        <div><h2 className="font-display text-4xl tracking-tight md:text-5xl">The work delivered</h2><div className="mt-8 grid grid-cols-2 gap-3">{["Research synthesis","Usability diagnosis","Product priorities","Design recommendations"].map(item=><div key={item} className="border-t border-border pt-4 font-display text-lg md:text-xl">{item}</div>)}</div></div>
-        <div className="border-l border-border pl-0 lg:pl-10"><span className="eyebrow text-accent">What I&apos;d validate next</span><p className="mt-6 font-display text-2xl leading-snug md:text-3xl">Test whether the proposed workflow helps job seekers identify relevant actions faster, understand their status, and adapt their strategy with less uncertainty.</p><p className="mt-6 text-muted-foreground">The engagement produced research-backed recommendations presented directly to the client. Outcomes are framed as intended value rather than invented product metrics.</p></div>
+        <div><h2 className="font-display text-4xl tracking-tight md:text-5xl">The work delivered</h2><div className="mt-8 grid grid-cols-2 gap-3">{["Research synthesis","Feature strategy","Product concept prototype","User testing analysis"].map(item=><div key={item} className="border-t border-border pt-4 font-display text-lg md:text-xl">{item}</div>)}</div></div>
+        <div className="border-l border-border pl-0 lg:pl-10"><span className="eyebrow text-accent">What testing surfaced</span><p className="mt-6 font-display text-2xl leading-snug md:text-3xl">Users validated the calendar, AI-assisted resume builder, job board, and stored application credentials — and asked for skill assessments, resource integration, and resume review with ATS checking.</p><p className="mt-6 text-muted-foreground">The team presented research-backed product recommendations directly to the client. Outcomes are framed as intended value rather than invented product metrics.</p></div>
       </div>
     </div></section>
 
-    <section className="px-6 py-24 md:px-12 md:py-32"><div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-12"><div className="lg:col-span-8"><span className="eyebrow text-accent">Reflection</span><p className="mt-7 font-display text-3xl leading-snug tracking-tight md:text-5xl">{study.reflections}</p></div><div className="lg:col-span-4"><span className="eyebrow text-accent">This project demonstrates</span><div className="mt-7 flex flex-wrap gap-2">{["Client Collaboration","Research Synthesis","Usability Evaluation","Experience Strategy","Product Recommendations"].map(skill=><span key={skill} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider">{skill}</span>)}</div></div></div></section>
+    <section className="px-6 py-24 md:px-12 md:py-32"><div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-12"><div className="lg:col-span-8"><span className="eyebrow text-accent">Reflection</span><p className="mt-7 font-display text-3xl leading-snug tracking-tight md:text-5xl">{study.reflections}</p></div><div className="lg:col-span-4"><span className="eyebrow text-accent">This project demonstrates</span><div className="mt-7 flex flex-wrap gap-2">{["Product Discovery","User Research","Feature Strategy","Design Sprint","Prototyping & Testing"].map(skill=><span key={skill} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider">{skill}</span>)}</div></div></div></section>
   </>;
 }
 
