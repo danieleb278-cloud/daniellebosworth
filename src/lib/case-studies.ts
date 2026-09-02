@@ -382,15 +382,15 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The proposed redesign focused on simplifying the job search experience while helping users make informed decisions faster.",
+        text: "The proposed Robin concept brings applications, resumes, follow-ups, and daily tasks into one connected experience.",
       },
       {
         kind: "p",
-        text: "Recommendations emphasized clearer navigation, improved search functionality, better content organization, stronger visual hierarchy, streamlined application processes, and increased transparency throughout the user journey.",
+        text: "Proposed capabilities include a job board with action tools, AI-enhanced resume and cover-letter writing, a calendar and daily task list, automated follow-up actions, courses and skills resources, and both AI and human support.",
       },
       {
         kind: "p",
-        text: "The redesign prioritizes usability, efficiency, and user confidence.",
+        text: "The concept prioritizes clarity, momentum, and confidence at every stage of the search.",
       },
     ],
   },
@@ -479,22 +479,21 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The redesign recommendations aimed to:",
+        text: "User testing validated the core concept and pointed the roadmap toward:",
       },
       {
         kind: "list",
         items: [
-          "Improve task completion rates",
-          "Increase application submissions",
-          "Reduce user frustration",
-          "Improve discoverability",
-          "Increase confidence during job searching",
-          "Create a more efficient user experience",
+          "Skill assessments",
+          "Integrated learning and skill-building resources",
+          "Easier calendar interactions",
+          "Job-seeker resources",
+          "Resume review and ATS checking",
         ],
       },
       {
         kind: "p",
-        text: "By focusing on user needs rather than platform assumptions, the recommendations support both user success and business objectives.",
+        text: "Feedback confirmed the product direction while showing exactly where refinement would create the most value — evidence the team presented back to the client.",
       },
     ],
   },
@@ -505,11 +504,11 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "This project reinforced the value of research-driven design decisions. Through interviews, usability testing, and contextual inquiry, it became clear that small usability issues can significantly impact user confidence and engagement.",
+        text: "Working from an open RFP meant research had to define the product before anyone designed it. Personas and journey mapping turned a broad challenge into concrete opportunities, and the design sprint turned competing concepts into a shared direction.",
       },
       {
         kind: "p",
-        text: "The experience strengthened my ability to connect user behavior with actionable design recommendations and demonstrated how research can uncover opportunities that may not be immediately visible through analytics alone.",
+        text: "The experience strengthened my ability to connect user behavior with feature definition — and showed how user testing can validate a concept while sharpening it at the same time.",
       },
     ],
   },
