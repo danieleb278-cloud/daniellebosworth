@@ -1108,7 +1108,9 @@ function ContactForm() {
           />
           {errors.message && <p className="mt-1 text-xs text-accent">{errors.message}</p>}
         </div>
+      </div>
 
+      <div className="mt-auto">
         <button
           type="submit"
           disabled={status === "sending"}
@@ -1118,10 +1120,10 @@ function ContactForm() {
         </button>
 
         {status === "sent" && (
-          <p className="rise-in text-sm text-teal">Thanks — your message is on its way. I'll get back to you soon.</p>
+          <p className="rise-in mt-3 text-sm text-teal">Thanks — your message is on its way. I'll get back to you soon.</p>
         )}
         {status === "error" && errorMsg && (
-          <p className="text-sm text-accent">
+          <p className="mt-3 text-sm text-accent">
             {errorMsg}{" "}
             <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
               Email me directly
