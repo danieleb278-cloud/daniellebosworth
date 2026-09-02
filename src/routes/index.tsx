@@ -907,8 +907,8 @@ function Contact() {
                 <span className="text-accent">.</span>
               </h2>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
-              <div className="flex flex-col gap-8">
+            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
+              <div className="flex h-full flex-col justify-between gap-8">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="mailto:Danieleb278@gmail.com"
@@ -1027,7 +1027,7 @@ function ContactForm() {
     "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
-    <form onSubmit={onSubmit} className="border-l-0 md:border-l-2 md:border-teal md:pl-8">
+    <form onSubmit={onSubmit} className="flex h-full flex-col border-l-0 md:border-l-2 md:border-teal md:pl-8">
       <span className="eyebrow">Send a message</span>
       <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
 
@@ -1108,7 +1108,9 @@ function ContactForm() {
           />
           {errors.message && <p className="mt-1 text-xs text-accent">{errors.message}</p>}
         </div>
+      </div>
 
+      <div className="mt-auto">
         <button
           type="submit"
           disabled={status === "sending"}
@@ -1118,10 +1120,10 @@ function ContactForm() {
         </button>
 
         {status === "sent" && (
-          <p className="rise-in text-sm text-teal">Thanks — your message is on its way. I'll get back to you soon.</p>
+          <p className="rise-in mt-3 text-sm text-teal">Thanks — your message is on its way. I'll get back to you soon.</p>
         )}
         {status === "error" && errorMsg && (
-          <p className="text-sm text-accent">
+          <p className="mt-3 text-sm text-accent">
             {errorMsg}{" "}
             <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
               Email me directly
