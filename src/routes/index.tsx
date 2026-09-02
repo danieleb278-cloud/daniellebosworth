@@ -914,7 +914,7 @@ function Contact() {
               </h2>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
-              <div className="flex h-full flex-col justify-between gap-8">
+              <div className="flex h-full flex-col gap-10">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="mailto:Danieleb278@gmail.com"
@@ -933,14 +933,14 @@ function Contact() {
                 </div>
                 <div>
                   <span className="eyebrow">Looking for</span>
-                  <ul className="mt-3 flex flex-col gap-2 font-display text-lg sm:text-xl">
+                  <ul className="mt-4 flex flex-col gap-3 font-display text-lg sm:text-xl">
                     {[
                       "Roles at the intersection of product strategy, AI-enabled systems, and customer experience.",
                       "Adjacent directions: solutions consulting, innovation, implementation.",
                     ].map((s) => (
                       <li
                         key={s}
-                        className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
+                        className="flex items-start gap-3 transition-transform duration-300 hover:translate-x-1"
                       >
                         <span className="text-2xl leading-none text-teal">›</span>
                         <span>{s}</span>
@@ -950,13 +950,13 @@ function Contact() {
                 </div>
                 <div>
                   <span className="eyebrow">Based in</span>
-                  <p className="mt-2 font-display text-lg sm:text-xl">
+                  <p className="mt-3 font-display text-lg sm:text-xl">
                     New Jersey<span className="text-teal">.</span>{" "}
                     <span className="text-muted-foreground">
                       Open to onsite roles in central NJ, or remote anywhere.
                     </span>
                   </p>
-                  <p className="mt-3 inline-block rounded-full border border-teal px-3 py-1 text-xs uppercase tracking-[0.18em] text-teal">
+                  <p className="mt-4 inline-block rounded-full border border-teal px-3 py-1 text-xs uppercase tracking-[0.18em] text-teal">
                     Full-time · Contract · Part-time
                   </p>
                 </div>
@@ -1033,9 +1033,11 @@ function ContactForm() {
     "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
-    <form onSubmit={onSubmit} className="flex h-full flex-col border-l-0 md:border-l-2 md:border-teal md:pl-8">
-      <span className="eyebrow">Send a message</span>
-      <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
+    <form onSubmit={onSubmit} className="flex h-full flex-col gap-8 border-l-0 md:border-l-2 md:border-teal md:pl-8">
+      <div>
+        <span className="eyebrow">Send a message</span>
+        <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
+      </div>
 
       {/* honeypot: hidden from users, catches bots */}
       <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden" tabIndex={-1}>
@@ -1051,7 +1053,7 @@ function ContactForm() {
         </label>
       </div>
 
-      <div className="mt-6 space-y-5">
+      <div className="space-y-5">
         <div>
           <label className="eyebrow" htmlFor="cf-name">
             Name
@@ -1108,7 +1110,7 @@ function ContactForm() {
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
             maxLength={2000}
-            rows={4}
+            rows={5}
             className={inputCls + " resize-y"}
             placeholder="Tell me a bit about the role or project…"
           />
@@ -1116,7 +1118,7 @@ function ContactForm() {
         </div>
       </div>
 
-      <div className="mt-auto">
+      <div>
         <button
           type="submit"
           disabled={status === "sending"}
