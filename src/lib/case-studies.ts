@@ -269,7 +269,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The redesign focused on improving content organization and navigation.",
+        text: "With the opportunities mapped, a design sprint helped the team compare concepts and reach consensus on which features would create the strongest product — and what each feature needed to accomplish.",
       },
       {
         kind: "list",
@@ -307,7 +307,17 @@ const robinSections: Section[] = [
         blocks: [
           {
             kind: "p",
-            text: "Observing and understanding how users currently search for jobs revealed significant pain points in navigation, search behavior, and application completion.",
+            text: "Observing how job seekers currently search revealed significant pain points in navigation, search behavior, and application completion — evidence that shaped what the proposed product needed to solve.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Design Sprint",
+        blocks: [
+          {
+            kind: "p",
+            text: "With opportunities identified, the team ran a design sprint to compare concepts, weigh tradeoffs, and reach consensus on the feature set before wireframing and prototyping the proposed solution.",
           },
         ],
       },
@@ -317,7 +327,7 @@ const robinSections: Section[] = [
         blocks: [
           {
             kind: "p",
-            text: "The platform was evaluated using established usability principles to identify:",
+            text: "Existing job-search experiences were evaluated against established usability principles to identify:",
           },
           {
             kind: "list",
@@ -351,21 +361,15 @@ const robinSections: Section[] = [
       },
       {
         kind: "group",
-        heading: "Usability Testing",
+        heading: "User Testing",
         blocks: [
           {
             kind: "p",
-            text: "Users completed key tasks while feedback was collected regarding:",
+            text: "The prototype was tested with users, who responded well to core functions — the calendar, AI-assisted resume builder with templates, job board, and stored application credentials.",
           },
           {
-            kind: "list",
-            items: [
-              "Ease of navigation",
-              "Search effectiveness",
-              "Application workflows",
-              "Information clarity",
-              "Overall satisfaction",
-            ],
+            kind: "p",
+            text: "Feedback also pointed toward refinements: skill assessments, resource integration, easier calendar interactions, skill-building and job-seeker resources, and resume review with ATS checking.",
           },
         ],
       },
