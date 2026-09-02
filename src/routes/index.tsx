@@ -909,22 +909,18 @@ function Contact() {
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
               <div className="flex flex-col gap-8">
-                <div>
-                  <span className="eyebrow">Email</span>
+                <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="mailto:Danieleb278@gmail.com"
-                    className="eyebrow mt-3 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2.5 text-background transition-colors hover:bg-transparent hover:text-teal"
                   >
                     Email me →
                   </a>
-                </div>
-                <div>
-                  <span className="eyebrow">LinkedIn</span>
                   <a
                     href="https://linkedin.com/in/daniellelbosworth"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="eyebrow mt-3 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2.5 text-background transition-colors hover:bg-transparent hover:text-teal"
                   >
                     LinkedIn →
                   </a>
