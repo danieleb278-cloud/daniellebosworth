@@ -907,8 +907,8 @@ function Contact() {
                 <span className="text-accent">.</span>
               </h2>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
-              <div className="flex flex-col gap-8">
+            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
+              <div className="flex h-full flex-col justify-between gap-8">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="mailto:Danieleb278@gmail.com"
