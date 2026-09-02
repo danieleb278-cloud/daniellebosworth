@@ -913,9 +913,9 @@ function Contact() {
                   <span className="eyebrow">Email</span>
                   <a
                     href="mailto:Danieleb278@gmail.com"
-                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
+                    className="eyebrow mt-3 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
                   >
-                    Danieleb278@gmail.com
+                    Email me →
                   </a>
                 </div>
                 <div>
@@ -924,9 +924,9 @@ function Contact() {
                     href="https://linkedin.com/in/daniellelbosworth"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 block break-all font-display text-xl link-underline sm:text-2xl"
+                    className="eyebrow mt-3 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
                   >
-                    /in/daniellelbosworth
+                    LinkedIn →
                   </a>
                 </div>
                 <div>
@@ -940,7 +940,7 @@ function Contact() {
                         key={s}
                         className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
                       >
-                        <span className="text-teal">•</span>
+                        <span className="text-2xl leading-none text-teal">›</span>
                         <span>{s}</span>
                       </li>
                     ))}
@@ -1128,7 +1128,7 @@ function ContactForm() {
           <p className="text-sm text-accent">
             {errorMsg}{" "}
             <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
-              Danieleb278@gmail.com
+              Email me directly
             </a>
           </p>
         )}
