@@ -1128,7 +1128,7 @@ function ContactForm() {
           <p className="text-sm text-accent">
             {errorMsg}{" "}
             <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
-              Danieleb278@gmail.com
+              Email me directly
             </a>
           </p>
         )}
