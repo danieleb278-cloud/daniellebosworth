@@ -41,7 +41,7 @@ function RobinHero() {
       {reducedMotion ? <img src={assetUrl(robinLogo.url)} alt="Robin job search platform" className="absolute inset-0 h-full w-full object-contain" /> :
       <video className="absolute inset-0 h-full w-full object-cover" src={HERO_VIDEO_SRC} poster={assetUrl(robinLogo.url)} autoPlay muted loop playsInline preload="metadata" aria-label="Robin job search experience walkthrough" />}
     </div>
-    <figcaption className="eyebrow mt-4 flex items-center justify-between"><span>Fig. 01 · Robin — an existing job-search platform evaluated through research, usability analysis, and iterative design recommendations.</span><span aria-hidden>✦</span></figcaption>
+    <figcaption className="eyebrow mt-4 flex items-center justify-between"><span>Fig. 01 · Robin — organizing applications, resumes, interviews, and job-search activity in one connected experience</span><span aria-hidden>✦</span></figcaption>
   </figure>;
 }
 
