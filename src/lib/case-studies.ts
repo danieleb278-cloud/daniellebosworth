@@ -79,7 +79,7 @@ const robinSections: Section[] = [
       {
         kind: "image",
         label: "Fig. 01",
-        caption: "Robin — your job search sidekick. Brand identity used throughout the redesign.",
+        caption: "Robin — your job search sidekick. Brand identity developed for the proposed product concept.",
         ratio: "16 / 9",
         src: robinLogo.url,
         alt: "Robin logo with tagline 'Your job search sidekick'",
@@ -87,11 +87,11 @@ const robinSections: Section[] = [
       },
       {
         kind: "p",
-        text: "Robin is a job search and career exploration platform designed to help users discover employment opportunities and navigate the job application process.",
+        text: "Robin was an industry-sponsored Request for Proposal (RFP) project. The client came to our student team with an open challenge: explore how the job-search experience could be improved and propose what a better product should do.",
       },
       {
         kind: "p",
-        text: "This project focused on evaluating the existing user experience, identifying usability issues, understanding user needs, and developing recommendations to improve job discovery, application workflows, and overall platform usability. The goal was to create a more intuitive, efficient, and user-centered experience that helps users find relevant opportunities while reducing friction throughout the job search journey.",
+        text: "Our answer, developed through research and user testing: a human-centered, AI-based platform that streamlines the job search by centralizing applications, providing personalized recommendations, and guiding job seekers with actionable follow-ups. The team researched the market and its users, defined the feature set, prototyped the concept, tested it, and analyzed the feedback.",
       },
     ],
   },
@@ -159,7 +159,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The project began with extensive user research to understand how job seekers currently search for opportunities and where they experience friction.",
+        text: "Because the brief was open, research came first. The team set out to understand how job seekers and job posters experience the process today — where organization breaks down, how resumes are submitted and managed, and where AI could genuinely help.",
       },
       {
         kind: "list",
@@ -184,6 +184,10 @@ const robinSections: Section[] = [
         alt: "Bar chart showing satisfaction ratings for current job-application experience",
       },
       {
+        kind: "p",
+        text: "A survey of 10 participants across diverse ages and industries surfaced two recurring themes: information and data overload, and a need for more automation in tracking job applications.",
+      },
+      {
         kind: "list",
         heading: "Key Findings",
         items: [
@@ -203,11 +207,11 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Job seekers need a simpler and more transparent way to discover opportunities, evaluate job fit, and complete applications without unnecessary complexity.",
+        text: "The RFP asked us to create a human-centered, AI-based platform that streamlines job search by centralizing applications, providing personalized recommendations, and guiding job seekers with actionable follow-ups.",
       },
       {
         kind: "p",
-        text: "The current experience creates friction through information overload, inconsistent workflows, and unclear pathways that slow users down during critical decision-making moments.",
+        text: "Our research confirmed the premise: job seekers faced information and data overload, disconnected tracking, and little guidance on what to do next.",
       },
     ],
   },
@@ -265,7 +269,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The redesign focused on improving content organization and navigation.",
+        text: "With the opportunities mapped, a design sprint helped the team compare concepts and reach consensus on which features would create the strongest product — and what each feature needed to accomplish.",
       },
       {
         kind: "list",
@@ -303,7 +307,17 @@ const robinSections: Section[] = [
         blocks: [
           {
             kind: "p",
-            text: "Observing and understanding how users currently search for jobs revealed significant pain points in navigation, search behavior, and application completion.",
+            text: "Observing how job seekers currently search revealed significant pain points in navigation, search behavior, and application completion — evidence that shaped what the proposed product needed to solve.",
+          },
+        ],
+      },
+      {
+        kind: "group",
+        heading: "Design Sprint",
+        blocks: [
+          {
+            kind: "p",
+            text: "With opportunities identified, the team ran a design sprint to compare concepts, weigh tradeoffs, and reach consensus on the feature set before wireframing and prototyping the proposed solution.",
           },
         ],
       },
@@ -313,7 +327,7 @@ const robinSections: Section[] = [
         blocks: [
           {
             kind: "p",
-            text: "The platform was evaluated using established usability principles to identify:",
+            text: "Existing job-search experiences were evaluated against established usability principles to identify:",
           },
           {
             kind: "list",
@@ -347,21 +361,15 @@ const robinSections: Section[] = [
       },
       {
         kind: "group",
-        heading: "Usability Testing",
+        heading: "User Testing",
         blocks: [
           {
             kind: "p",
-            text: "Users completed key tasks while feedback was collected regarding:",
+            text: "The prototype was tested with users, who responded well to core functions — the calendar, AI-assisted resume builder with templates, job board, and stored application credentials.",
           },
           {
-            kind: "list",
-            items: [
-              "Ease of navigation",
-              "Search effectiveness",
-              "Application workflows",
-              "Information clarity",
-              "Overall satisfaction",
-            ],
+            kind: "p",
+            text: "Feedback also pointed toward refinements: skill assessments, resource integration, easier calendar interactions, skill-building and job-seeker resources, and resume review with ATS checking.",
           },
         ],
       },
@@ -374,15 +382,15 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The proposed redesign focused on simplifying the job search experience while helping users make informed decisions faster.",
+        text: "The proposed Robin concept brings applications, resumes, follow-ups, and daily tasks into one connected experience.",
       },
       {
         kind: "p",
-        text: "Recommendations emphasized clearer navigation, improved search functionality, better content organization, stronger visual hierarchy, streamlined application processes, and increased transparency throughout the user journey.",
+        text: "Proposed capabilities include a job board with action tools, AI-enhanced resume and cover-letter writing, a calendar and daily task list, automated follow-up actions, courses and skills resources, and both AI and human support.",
       },
       {
         kind: "p",
-        text: "The redesign prioritizes usability, efficiency, and user confidence.",
+        text: "The concept prioritizes clarity, momentum, and confidence at every stage of the search.",
       },
     ],
   },
@@ -471,22 +479,21 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The redesign recommendations aimed to:",
+        text: "User testing validated the core concept and pointed the roadmap toward:",
       },
       {
         kind: "list",
         items: [
-          "Improve task completion rates",
-          "Increase application submissions",
-          "Reduce user frustration",
-          "Improve discoverability",
-          "Increase confidence during job searching",
-          "Create a more efficient user experience",
+          "Skill assessments",
+          "Integrated learning and skill-building resources",
+          "Easier calendar interactions",
+          "Job-seeker resources",
+          "Resume review and ATS checking",
         ],
       },
       {
         kind: "p",
-        text: "By focusing on user needs rather than platform assumptions, the recommendations support both user success and business objectives.",
+        text: "Feedback confirmed the product direction while showing exactly where refinement would create the most value — evidence the team presented back to the client.",
       },
     ],
   },
@@ -497,11 +504,11 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "This project reinforced the value of research-driven design decisions. Through interviews, usability testing, and contextual inquiry, it became clear that small usability issues can significantly impact user confidence and engagement.",
+        text: "Working from an open RFP meant research had to define the product before anyone designed it. Personas and journey mapping turned a broad challenge into concrete opportunities, and the design sprint turned competing concepts into a shared direction.",
       },
       {
         kind: "p",
-        text: "The experience strengthened my ability to connect user behavior with actionable design recommendations and demonstrated how research can uncover opportunities that may not be immediately visible through analytics alone.",
+        text: "The experience strengthened my ability to connect user behavior with feature definition — and showed how user testing can validate a concept while sharpening it at the same time.",
       },
     ],
   },
@@ -1019,34 +1026,34 @@ export const caseStudies: CaseStudy[] = [
     index: "03",
     title: "Robin",
     homeSubtitle:
-      "A client UX engagement focused on making the job-search process easier to organize, navigate, and act on.",
+      "An industry-sponsored RFP engagement researching the job-search market and defining a human-centered product concept for a client platform.",
     subtitle:
-      "Researching how job seekers manage the full application journey, then translating those findings into a more connected workflow for an existing client platform.",
+      "Answering a client's open brief by researching how job seekers actually work, identifying gaps and opportunities, and defining, prototyping, and testing the proposed product experience.",
 
-    client: "Robin (academic engagement)",
+    client: "Robin (industry-sponsored RFP project)",
     year: "2024",
     role: "UX Researcher & Designer",
-    discipline: "UX Research · Usability Evaluation",
+    discipline: "Product Discovery · UX Research · Feature Strategy",
     duration: "Semester project",
     summary:
-      "A client engagement combining contextual inquiry, usability evaluation, journey mapping, and iterative design recommendations to improve continuity across the job-search experience.",
-    hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
+      "An industry-sponsored RFP project: researching job seekers and job-posting perspectives, defining the product's feature strategy, and validating the concept through prototyping and user testing.",
+    hero: "Create a human-centered, AI-based platform that streamlines the job search — centralizing applications, personalizing recommendations, and guiding job seekers with actionable follow-ups.",
     context:
-      "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
+      "Robin came to our student team with an open RFP: explore how the job-search experience could be improved and propose what a better product should include. The work started with the market and the users, not a predefined solution.",
     challenge:
-      "Evaluate the existing user experience, identify usability issues, and develop recommendations that reduce friction throughout the job search journey while supporting both user success and business objectives.",
+      "Research job-search organization gaps, resume submission patterns, and where AI could genuinely improve the experience — then define, prototype, and test the features most worth building.",
     approach: [
       {
-        title: "User research & discovery",
-        body: "Surveys, contextual inquiry, competitive analysis, and stakeholder interviews to understand how job seekers search for opportunities and where they experience friction.",
+        title: "Market & user research",
+        body: "Surveys, contextual inquiry, and competitive analysis across job seekers and job-posting perspectives to find organization gaps, understand resume submission patterns, and locate where AI could help.",
       },
       {
-        title: "Heuristic evaluation & usability testing",
-        body: "Evaluated the platform against established usability principles and conducted task-based usability tests to identify navigation issues, consistency problems, and user control concerns.",
+        title: "Feature strategy & definition",
+        body: "Personas and journey mapping surfaced the opportunities; a design sprint let the team compare concepts and reach consensus on which features would create the strongest product and what each needed to accomplish.",
       },
       {
-        title: "Recommendations & IA planning",
-        body: "Developed recommendations for clearer navigation, improved search, better content hierarchy, streamlined applications, and progress tracking based on research findings.",
+        title: "Prototyping & user testing",
+        body: "Wireframed and prototyped the proposed experience, then tested it with users — validating the core functions and capturing feedback that shaped the final recommendations.",
       },
     ],
     outcomes: [
@@ -1055,17 +1062,17 @@ export const caseStudies: CaseStudy[] = [
       { metric: "6", label: "Key features recommended" },
     ],
     reflections:
-      "Small usability issues can significantly impact user confidence. Research uncovered opportunities that analytics alone would have missed.",
-    tags: ["Contextual Inquiry", "Usability Evaluation", "Workflow Design", "Client Recommendations"],
+      "An open brief means research defines the product. Testing confirmed the core concept — and showed exactly where to refine next.",
+    tags: ["Product Discovery", "UX Research", "Feature Strategy", "Prototyping & Testing"],
     snapshot: {
-      projectType: "Graduate UX Consulting Project (Real Client Engagement)",
+      projectType: "Industry-Sponsored RFP Project (UX Research & Product Concept Design)",
       duration: "Spring 2024 Semester",
       teamSize: "4 Team Members",
       myRole: "UX Researcher, Experience Strategist, and Research Synthesis Lead",
-      methodsUsed: "Surveys, Contextual Inquiry, Heuristic Evaluation, Competitive Analysis, Usability Testing, Journey Mapping, Stakeholder Research",
+      methodsUsed: "Surveys, Contextual Inquiry, Competitive Analysis, Personas, Journey Mapping, Design Sprint, Wireframing, Prototyping, User Testing",
       toolsUsed: "Figma, Miro/Mural, Google Forms, Canva, Google Slides, ChatGPT (brainstorming), NotebookLM (organization)",
-      deliverables: "Research Findings, Personas, Journey Maps, Usability Analysis, Design Recommendations, Client Presentation",
-      outcome: "Partnered with a real-world client to evaluate and improve the job seeker experience. Conducted user research and usability analysis to identify friction points in job discovery, application workflows, and navigation. Developed evidence-based recommendations that were presented directly to the client.",
+      deliverables: "Research Findings, Personas, Journey Maps, Design Sprint Concepts, Product Concept Prototype, User Testing Analysis, Client Presentation",
+      outcome: "Responded to the client's RFP by researching the job-search landscape, defining a proposed feature set — application and resume organization, automated follow-ups, calendar and task planning, AI-assisted writing, and skill resources — and validating the concept through prototyping and user testing.",
     },
     cover: { src: "/home/robin-logo.jpg", alt: "Robin logo — your job search sidekick" },
     sections: robinSections,

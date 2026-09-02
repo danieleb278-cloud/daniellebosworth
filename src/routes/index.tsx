@@ -86,9 +86,9 @@ const projectProof: Record<string, { connection: string; evidence: string }> = {
   },
   robin: {
     connection:
-      "The real friction wasn't simply finding openings. Job seekers were managing resumes, applications, interviews, contacts, and follow-up across a fragmented process.",
+      "The client brief was open: improve the job-search experience. Research showed job seekers juggling resumes, applications, interviews, and follow-up with little visibility into what to do next.",
     evidence:
-      "Contextual inquiry, journey mapping, usability evaluation, and click-through testing informed recommendations presented to the client.",
+      "Market and user research, personas and journey mapping, a design sprint, a working prototype, and user testing shaped the product concept presented back to the client.",
   },
   "content-strategy": {
     connection:
