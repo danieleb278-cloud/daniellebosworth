@@ -1027,7 +1027,7 @@ function ContactForm() {
     "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
-    <form onSubmit={onSubmit} className="border-l-0 md:border-l-2 md:border-teal md:pl-8">
+    <form onSubmit={onSubmit} className="flex h-full flex-col border-l-0 md:border-l-2 md:border-teal md:pl-8">
       <span className="eyebrow">Send a message</span>
       <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
 
