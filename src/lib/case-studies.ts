@@ -977,7 +977,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Cross-functional product team (academic)",
     year: "2025",
     role: "UX Researcher & Product Strategy",
-    discipline: "UX Research · Product Strategy",
+    discipline: "End-to-End Product Design · UX Research · Experience Strategy",
     duration: "Semester project",
     summary:
       "A travel platform concept built from surveys, interviews, and competitive analysis to address the fragmented nature of modern trip planning.",
@@ -1007,7 +1007,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflections:
       "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
-    tags: ["Mobile UX Design", "Journey Mapping", "Feature Prioritization", "Go-to-Market Strategy"],
+    tags: ["End-to-End Product Design", "Experience Strategy", "Journey Mapping", "Feature Prioritization"],
     snapshot: {
       projectType: "Academic Product Design & Strategy Project",
       duration: "Graduate Product Design Course",
@@ -1033,7 +1033,8 @@ export const caseStudies: CaseStudy[] = [
     client: "Robin (industry-sponsored RFP project)",
     year: "2024",
     role: "UX Researcher & Designer",
-    discipline: "Product Discovery · UX Research · Feature Strategy",
+    discipline: "Product Discovery · Market & User Research · Feature Strategy",
+
     duration: "Semester project",
     summary:
       "An industry-sponsored RFP project: researching job seekers and job-posting perspectives, defining the product's feature strategy, and validating the concept through prototyping and user testing.",
@@ -1063,7 +1064,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflections:
       "An open brief means research defines the product. Testing confirmed the core concept — and showed exactly where to refine next.",
-    tags: ["Product Discovery", "UX Research", "Feature Strategy", "Prototyping & Testing"],
+    tags: ["Product Discovery", "Market & User Research", "Feature Strategy", "Prototyping & Testing"],
     snapshot: {
       projectType: "Industry-Sponsored RFP Project (UX Research & Product Concept Design)",
       duration: "Spring 2024 Semester",
@@ -1622,7 +1623,7 @@ caseStudies.unshift({
     client: "Joomla Extension Directory",
     year: "2026",
     role: "Sole UX Researcher, Information Architect & Designer",
-    discipline: "Information Architecture · Search Experience · UX Strategy",
+    discipline: "Search & Information Systems · Product Strategy · Information Architecture",
     duration: "12 weeks",
     summary:
       "Reframing the JED from a listing directory into a decision-support platform — through IA, search transparency, and metadata strategy.",
@@ -1652,7 +1653,7 @@ caseStudies.unshift({
     ],
     reflections:
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
-    tags: ["Information Architecture", "Search & Metadata Strategy", "Research Analysis", "Solution Synthesis"],
+    tags: ["Information Architecture", "Search Systems", "Product Strategy", "Research Synthesis"],
     snapshot: {
       projectType: "Independent UX Research & Information Architecture Consulting Project",
       duration: "Spring 2026 Semester",
@@ -1676,7 +1677,7 @@ caseStudies.unshift({
   client: "Independent academic product",
   year: "2026",
   role: "Product Creator, Product Designer & Prototype Developer",
-  discipline: "Product Strategy · Systems Design · UX Research · AI Governance",
+  discipline: "AI Product Strategy · Human-AI Interaction · Adaptive Systems",
   duration: "May–August 2026",
   summary: "An independent AI/product innovation project focused on adaptive career discovery, behavioral signals, profile learning, user trust, feedback loops, and responsible AI interaction.",
   hero: "Understand yourself first. Explore careers second.",
@@ -1693,7 +1694,7 @@ caseStudies.unshift({
     { metric: "1", label: "AI learning loop designed around confirmation and control" },
   ],
   reflections: "The hardest product challenge was not generating more features. It was designing an evidence system that could evolve without becoming opaque or authoritative.",
-  tags: ["End-to-End Product Design", "AI Governance", "Systems Design", "Affective Computing Research"],
+  tags: ["AI Product Strategy", "Human-AI Interaction", "Adaptive Systems", "Affective Computing Research"],
   snapshot: {
     projectType: "Original AI-Enabled Career Development Product",
     duration: "May–August 2026",
@@ -1869,7 +1870,7 @@ caseStudies.push({
   client: "Independent project",
   year: "2025",
   role: "Content Strategist & Creator",
-  discipline: "Content Strategy · Content Design · Marketing Operations",
+  discipline: "Visual Communication · Content Systems · Content Strategy",
   duration: "Ongoing",
   summary:
     "A repeatable content workflow that turns one topic into blog posts, carousels, short-form video, and marketing assets — built to scale.",
@@ -1899,7 +1900,7 @@ caseStudies.push({
   ],
   reflections:
     "Content strategy is less about volume and more about systems. Repurposing is the highest-leverage move a small team can make.",
-  tags: ["Content Systems", "Audience Insights", "Communication Design", "Marketing Operations"],
+  tags: ["Visual Communication", "Content Systems", "Content Strategy", "Audience Insights"],
   snapshot: {
     projectType: "Content Strategy & Multi-Channel Content Development",
     duration: "2025–Present",
