@@ -79,7 +79,7 @@ const robinSections: Section[] = [
       {
         kind: "image",
         label: "Fig. 01",
-        caption: "Robin — your job search sidekick. Brand identity used throughout the redesign.",
+        caption: "Robin — your job search sidekick. Brand identity developed for the proposed product concept.",
         ratio: "16 / 9",
         src: robinLogo.url,
         alt: "Robin logo with tagline 'Your job search sidekick'",
@@ -87,11 +87,11 @@ const robinSections: Section[] = [
       },
       {
         kind: "p",
-        text: "Robin is a job search and career exploration platform designed to help users discover employment opportunities and navigate the job application process.",
+        text: "Robin was an industry-sponsored Request for Proposal (RFP) project. The client came to our student team with an open challenge: explore how the job-search experience could be improved and propose what a better product should do.",
       },
       {
         kind: "p",
-        text: "This project focused on evaluating the existing user experience, identifying usability issues, understanding user needs, and developing recommendations to improve job discovery, application workflows, and overall platform usability. The goal was to create a more intuitive, efficient, and user-centered experience that helps users find relevant opportunities while reducing friction throughout the job search journey.",
+        text: "Our answer, developed through research and user testing: a human-centered, AI-based platform that streamlines the job search by centralizing applications, providing personalized recommendations, and guiding job seekers with actionable follow-ups. The team researched the market and its users, defined the feature set, prototyped the concept, tested it, and analyzed the feedback.",
       },
     ],
   },
@@ -159,7 +159,7 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "The project began with extensive user research to understand how job seekers currently search for opportunities and where they experience friction.",
+        text: "Because the brief was open, research came first. The team set out to understand how job seekers and job posters experience the process today — where organization breaks down, how resumes are submitted and managed, and where AI could genuinely help.",
       },
       {
         kind: "list",
@@ -184,6 +184,10 @@ const robinSections: Section[] = [
         alt: "Bar chart showing satisfaction ratings for current job-application experience",
       },
       {
+        kind: "p",
+        text: "A survey of 10 participants across diverse ages and industries surfaced two recurring themes: information and data overload, and a need for more automation in tracking job applications.",
+      },
+      {
         kind: "list",
         heading: "Key Findings",
         items: [
@@ -203,11 +207,11 @@ const robinSections: Section[] = [
     blocks: [
       {
         kind: "p",
-        text: "Job seekers need a simpler and more transparent way to discover opportunities, evaluate job fit, and complete applications without unnecessary complexity.",
+        text: "The RFP asked us to create a human-centered, AI-based platform that streamlines job search by centralizing applications, providing personalized recommendations, and guiding job seekers with actionable follow-ups.",
       },
       {
         kind: "p",
-        text: "The current experience creates friction through information overload, inconsistent workflows, and unclear pathways that slow users down during critical decision-making moments.",
+        text: "Our research confirmed the premise: job seekers faced information and data overload, disconnected tracking, and little guidance on what to do next.",
       },
     ],
   },
