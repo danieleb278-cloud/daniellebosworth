@@ -1033,7 +1033,7 @@ function ContactForm() {
     "mt-2 w-full border-b border-border bg-transparent py-2 font-display text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-teal focus:outline-none focus-visible:border-teal";
 
   return (
-    <form onSubmit={onSubmit} className="flex h-full flex-col justify-between border-l-0 md:border-l-2 md:border-teal md:pl-8">
+    <form onSubmit={onSubmit} className="flex h-full flex-col gap-8 border-l-0 md:border-l-2 md:border-teal md:pl-8">
       <div>
         <span className="eyebrow">Send a message</span>
         <p className="mt-2 text-sm text-muted-foreground">Drop me a line here — messages land straight in my inbox.</p>
@@ -1053,7 +1053,7 @@ function ContactForm() {
         </label>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-5">
         <div>
           <label className="eyebrow" htmlFor="cf-name">
             Name
@@ -1110,7 +1110,7 @@ function ContactForm() {
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
             maxLength={2000}
-            rows={6}
+            rows={5}
             className={inputCls + " resize-y"}
             placeholder="Tell me a bit about the role or project…"
           />
