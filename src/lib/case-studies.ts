@@ -47,6 +47,8 @@ export type CaseStudy = {
   index: string;
   title: string;
   subtitle: string;
+  /** Optional shorter description shown on the homepage card. */
+  homeSubtitle?: string;
   client: string;
   year: string;
   role: string;
@@ -1016,8 +1018,10 @@ export const caseStudies: CaseStudy[] = [
     slug: "robin",
     index: "03",
     title: "Robin",
+    homeSubtitle:
+      "A client UX engagement focused on making the job-search process easier to organize, navigate, and act on.",
     subtitle:
-      "A client-driven product/design project focused on understanding an existing job-search workflow, stakeholder/client requirements, application organization, resume management, interviews, contacts, and iterative UX validation.",
+      "Researching how job seekers manage the full application journey, then translating those findings into a more connected workflow for an existing client platform.",
 
     client: "Robin (academic engagement)",
     year: "2024",
@@ -1025,7 +1029,7 @@ export const caseStudies: CaseStudy[] = [
     discipline: "UX Research · Usability Evaluation",
     duration: "Semester project",
     summary:
-      "A client-driven product/design project focused on understanding an existing job-search workflow, stakeholder/client requirements, application organization, resume management, interviews, contacts, and iterative UX validation.",
+      "A client engagement combining contextual inquiry, usability evaluation, journey mapping, and iterative design recommendations to improve continuity across the job-search experience.",
     hero: "Job seekers need a simpler, more transparent way to discover opportunities, evaluate fit, and apply with confidence.",
     context:
       "Research revealed candidates struggling with information overload, inconsistent workflows, and unclear pathways during critical decision-making moments in the job search process.",
