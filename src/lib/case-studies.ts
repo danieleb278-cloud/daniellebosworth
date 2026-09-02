@@ -1007,7 +1007,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflections:
       "Design from research, not assumptions. Group coordination turned out to be a bigger pain point than destination discovery itself.",
-    tags: ["Mobile UX Design", "Journey Mapping", "Feature Prioritization", "Go-to-Market Strategy"],
+    tags: ["End-to-End Product Design", "Experience Strategy", "Journey Mapping", "Feature Prioritization"],
     snapshot: {
       projectType: "Academic Product Design & Strategy Project",
       duration: "Graduate Product Design Course",
@@ -1064,7 +1064,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflections:
       "An open brief means research defines the product. Testing confirmed the core concept — and showed exactly where to refine next.",
-    tags: ["Product Discovery", "UX Research", "Feature Strategy", "Prototyping & Testing"],
+    tags: ["Product Discovery", "Market & User Research", "Feature Strategy", "Prototyping & Testing"],
     snapshot: {
       projectType: "Industry-Sponsored RFP Project (UX Research & Product Concept Design)",
       duration: "Spring 2024 Semester",
@@ -1653,7 +1653,7 @@ caseStudies.unshift({
     ],
     reflections:
       "Search isn't about retrieving results — it's about helping people decide. The information was there; it just wasn't legible, comparable, or trustworthy.",
-    tags: ["Information Architecture", "Search & Metadata Strategy", "Research Analysis", "Solution Synthesis"],
+    tags: ["Information Architecture", "Search Systems", "Product Strategy", "Research Synthesis"],
     snapshot: {
       projectType: "Independent UX Research & Information Architecture Consulting Project",
       duration: "Spring 2026 Semester",
@@ -1694,7 +1694,7 @@ caseStudies.unshift({
     { metric: "1", label: "AI learning loop designed around confirmation and control" },
   ],
   reflections: "The hardest product challenge was not generating more features. It was designing an evidence system that could evolve without becoming opaque or authoritative.",
-  tags: ["End-to-End Product Design", "AI Governance", "Systems Design", "Affective Computing Research"],
+  tags: ["AI Product Strategy", "Human-AI Interaction", "Adaptive Systems", "Affective Computing Research"],
   snapshot: {
     projectType: "Original AI-Enabled Career Development Product",
     duration: "May–August 2026",
@@ -1900,7 +1900,7 @@ caseStudies.push({
   ],
   reflections:
     "Content strategy is less about volume and more about systems. Repurposing is the highest-leverage move a small team can make.",
-  tags: ["Content Systems", "Audience Insights", "Communication Design", "Marketing Operations"],
+  tags: ["Visual Communication", "Content Systems", "Content Strategy", "Audience Insights"],
   snapshot: {
     projectType: "Content Strategy & Multi-Channel Content Development",
     duration: "2025–Present",
