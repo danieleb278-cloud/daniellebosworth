@@ -914,7 +914,7 @@ function Contact() {
               </h2>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
-              <div className="flex h-full flex-col justify-between gap-8">
+              <div className="flex h-full flex-col justify-between gap-10">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="mailto:Danieleb278@gmail.com"
@@ -933,14 +933,14 @@ function Contact() {
                 </div>
                 <div>
                   <span className="eyebrow">Looking for</span>
-                  <ul className="mt-3 flex flex-col gap-2 font-display text-lg sm:text-xl">
+                  <ul className="mt-4 flex flex-col gap-3 font-display text-lg sm:text-xl">
                     {[
                       "Roles at the intersection of product strategy, AI-enabled systems, and customer experience.",
                       "Adjacent directions: solutions consulting, innovation, implementation.",
                     ].map((s) => (
                       <li
                         key={s}
-                        className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1"
+                        className="flex items-start gap-3 transition-transform duration-300 hover:translate-x-1"
                       >
                         <span className="text-2xl leading-none text-teal">›</span>
                         <span>{s}</span>
@@ -950,13 +950,13 @@ function Contact() {
                 </div>
                 <div>
                   <span className="eyebrow">Based in</span>
-                  <p className="mt-2 font-display text-lg sm:text-xl">
+                  <p className="mt-3 font-display text-lg sm:text-xl">
                     New Jersey<span className="text-teal">.</span>{" "}
                     <span className="text-muted-foreground">
                       Open to onsite roles in central NJ, or remote anywhere.
                     </span>
                   </p>
-                  <p className="mt-3 inline-block rounded-full border border-teal px-3 py-1 text-xs uppercase tracking-[0.18em] text-teal">
+                  <p className="mt-4 inline-block rounded-full border border-teal px-3 py-1 text-xs uppercase tracking-[0.18em] text-teal">
                     Full-time · Contract · Part-time
                   </p>
                 </div>
