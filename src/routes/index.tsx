@@ -84,6 +84,12 @@ const projectProof: Record<string, { connection: string; evidence: string }> = {
     evidence:
       "Research synthesis and feature prioritization shaped an all-in-one concept, high-fidelity prototype, and product strategy.",
   },
+  supercuts: {
+    connection:
+      "The visible problem was low sales, but the real problem crossed staffing, service consistency, training, customer behavior, and local demand.",
+    evidence:
+      "Reviewed roughly six months of historical performance, then changed training, operations, incentives, and local outreach while monitoring results — monthly sales grew from roughly $4–5K to more than $20K over about 13 months.",
+  },
   robin: {
     connection:
       "The client brief was open: improve the job-search experience. Research showed job seekers juggling resumes, applications, interviews, and follow-up with little visibility into what to do next.",
@@ -242,6 +248,7 @@ const commercialImpact = [
       "Improved frontline service workflows, staffing, CRM outreach, and client follow-up, helping turn a struggling retail location into a high-performing operation with a +32% lift in retention.",
     tags: ["CX Design", "Service Design", "Customer Journey Mapping"],
     featuredCase: false,
+    caseSlug: "supercuts",
   },
   {
     index: "03",
@@ -321,6 +328,17 @@ function CommercialImpact() {
                     </li>
                   ))}
                 </ul>
+
+                {"caseSlug" in item && item.caseSlug && (
+                  <Link
+                    to="/work/$slug"
+                    params={{ slug: item.caseSlug }}
+                    className="eyebrow arrow-slide mt-8 inline-flex w-fit items-center gap-2 text-teal link-underline"
+                  >
+                    Read the full case study
+                    <span className="arrow" aria-hidden>→</span>
+                  </Link>
+                )}
 
                 {item.featuredCase && (
                   <button
@@ -527,7 +545,7 @@ function Work() {
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
             <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Five projects on UX research, product design, and
+              Six projects on UX research, product design, and
               <span className="italic text-muted-foreground"> system-level thinking</span>
               <span className="text-accent">.</span>
             </h2>
