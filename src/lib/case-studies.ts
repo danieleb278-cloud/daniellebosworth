@@ -969,7 +969,7 @@ const nextDestinationSections: Section[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "next-destination",
-    index: "04",
+    index: "05",
     title: "Next Destination",
     subtitle:
       "Designing an all-in-one travel planning application from concept through high-fidelity prototype and go-to-market strategy.",
@@ -1863,7 +1863,7 @@ const contentStrategySections: Section[] = [
 
 caseStudies.push({
   slug: "content-strategy",
-  index: "05",
+  index: "06",
   title: "Content Strategy",
   subtitle:
     "Multi-channel content development that turns a single topic into a system of assets across formats and platforms.",
@@ -1922,6 +1922,71 @@ caseStudies.push({
   },
 });
 
+
+caseStudies.push({
+  slug: "supercuts",
+  index: "04",
+  title: "Supercuts Turnaround",
+  homeSubtitle:
+    "Turning an underperforming service location into a stronger operating system by connecting staff performance, customer experience, local outreach, and measurable business results.",
+  subtitle:
+    "The problem looked like sales. The system behind it was bigger — staffing, service consistency, training, customer behavior, and local demand all shaped the number.",
+  client: "G&C Robins Co. / Supercuts (East Windsor, NJ)",
+  year: "2019–2021",
+  role: "Location Manager (Service Operations Lead)",
+  discipline: "Service Operations Turnaround · Customer Experience · Operations Strategy",
+  duration: "~13 months of measured turnaround",
+  summary:
+    "Inherited an underperforming salon location, established a baseline from roughly six months of prior performance data, diagnosed the interconnected causes behind low sales, and ran coordinated interventions across training, incentives, operations, and local outreach. Monthly location sales grew from roughly $4–5K to more than $20K in about 13 months.",
+  hero: "The sales number was the signal, not the diagnosis.",
+  context:
+    "After a nearby New Brunswick location closed, I transferred to the East Windsor location and took over a store that was underperforming. Monthly sales were running roughly $4–5K. The environment was a live operating business: real staff, real customers, real daily service delivery.",
+  challenge:
+    "Understand why the location was underperforming — without assuming it was simply a sales problem — and design practical interventions that could be run and adjusted while the store stayed open.",
+  approach: [
+    {
+      title: "Establish the baseline",
+      body: "Reviewed roughly six months of prior performance data to understand patterns rather than react to a single bad month, and observed day-to-day service delivery and staff behavior firsthand.",
+    },
+    {
+      title: "Diagnose the system",
+      body: "Traced the low sales back through customer experience, staff capability and behavior, daily operations, and local awareness — treating the number as an outcome of those dependencies rather than the root cause.",
+    },
+    {
+      title: "Intervene across levers",
+      body: "Staff training and coaching, contests and incentives to build engagement and accountability, operational and staffing changes, and outreach to local businesses — run together rather than as isolated tactics.",
+    },
+    {
+      title: "Monitor and adjust",
+      body: "Used ongoing performance data and observation as a practical feedback loop: watch performance, identify friction, intervene, monitor the response, adjust.",
+    },
+  ],
+  outcomes: [
+    { metric: "4×+", label: "Growth in monthly location sales" },
+    { metric: "$20K+", label: "Monthly sales, up from roughly $4–5K" },
+    { metric: "~13", label: "Months of coordinated intervention" },
+  ],
+  reflections:
+    "The sales number was the signal, not the diagnosis. The turnaround came from treating the location as an interconnected service system rather than trying to fix one metric in isolation.",
+  tags: ["Service Operations", "CX Strategy", "Performance Diagnosis", "Team Enablement"],
+  cover: {
+    src: "/supercuts/turnaround-cover.svg",
+    alt: "Portfolio synthesis chart showing monthly location sales rising from roughly $4–5K to more than $20K over about 13 months",
+  },
+  snapshot: {
+    projectType: "Real-World Service Operations & CX Turnaround",
+    duration: "~13 months of measured turnaround",
+    teamSize: "Location team (stylists and support staff)",
+    myRole: "Location Manager — service operations, staff development, customer experience, local outreach",
+    methodsUsed:
+      "Historical performance review, on-floor observation, staff coaching, incentive design, operational restructuring, local business development, ongoing performance monitoring",
+    toolsUsed: "Point-of-sale and performance reporting, CRM outreach, scheduling and staffing tools",
+    deliverables:
+      "Baseline performance read, coordinated intervention plan, training and incentive programs, outreach approach, ongoing performance review cadence",
+    outcome:
+      "Monthly location sales grew from roughly $4–5K to more than $20K over approximately 13 months — a 4×+ increase driven by coordinated changes across people, process, customer experience, and local demand.",
+  },
+});
 
 caseStudies.sort((a, b) => Number(a.index) - Number(b.index));
 

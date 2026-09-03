@@ -8,6 +8,7 @@ import { NextDestinationCaseStudy } from "@/components/next-destination-case-stu
 import { RobinCaseStudy } from "@/components/robin-case-study";
 import { VocariCaseStudy } from "@/components/vocari-case-study";
 import { ContentStrategyCaseStudy } from "@/components/content-strategy-case-study";
+import { SupercutsCaseStudy } from "@/components/supercuts-case-study";
 import { caseStudies, getCaseStudy, type Block, type Section } from "@/lib/case-studies";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -48,6 +49,7 @@ function CaseStudyPage() {
   const isRobin = study.slug === "robin";
   const isVocari = study.slug === "vocari";
   const isContentStrategy = study.slug === "content-strategy";
+  const isSupercuts = study.slug === "supercuts";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -65,7 +67,7 @@ function CaseStudyPage() {
         </div>
       </section>
 
-      {isVocari ? <VocariCaseStudy study={study} /> : isContentStrategy ? <ContentStrategyCaseStudy study={study} /> : isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : isRobin ? <RobinCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
+      {isSupercuts ? <SupercutsCaseStudy study={study} /> : isVocari ? <VocariCaseStudy study={study} /> : isContentStrategy ? <ContentStrategyCaseStudy study={study} /> : isJoomla ? <JoomlaCaseStudy study={study} /> : isNextDestination ? <NextDestinationCaseStudy study={study} /> : isRobin ? <RobinCaseStudy study={study} /> : <LegacyCaseStudy study={study} />}
 
       <section className="border-t border-border">
         <Link to="/work/$slug" params={{ slug: next.slug }} className="group block px-6 py-20 md:px-12 md:py-28">
