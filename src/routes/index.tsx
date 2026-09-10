@@ -622,14 +622,48 @@ function Work() {
 }
 
 function WorkCarousel({ items }: { items: typeof caseStudies }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+
+  function goTo(next: number) {
+    const total = items.length;
+    const target = ((next % total) + total) % total;
+    setIndex(target);
+    const track = trackRef.current;
+    const card = track?.children[target] as HTMLElement | undefined;
+    if (track && card) {
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    }
+  }
+
   return (
     <div className="mt-16">
-      <div className="flex items-baseline justify-between gap-4 border-t border-border pt-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-border pt-8">
         <span className="eyebrow">§ More work</span>
-        <span className="eyebrow hidden text-muted-foreground sm:inline">Swipe for more →</span>
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            aria-label="Previous project"
+            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+          >
+            ← Prev
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            aria-label="Next project"
+            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+          >
+            Next →
+          </button>
+        </div>
       </div>
 
-      <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:-mx-12 md:px-12">
+      <div
+        ref={trackRef}
+        className="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 md:-mx-12 md:px-12"
+      >
         {items.map((cs) => (
           <Link
             key={cs.slug}
@@ -647,19 +681,11 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
                 className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
-            <span className="mt-5 font-mono text-xs text-muted-foreground">
-              {cs.index} / {String(caseStudies.length).padStart(2, "0")}
-            </span>
-            <h3 className="mt-2 font-display text-2xl tracking-tight">
+            <h3 className="mt-5 font-display text-2xl tracking-tight">
               {cs.title}
               <span className="text-teal">.</span>
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.homeSubtitle ?? cs.subtitle}</p>
-            {projectProof[cs.slug] && (
-              <p className="mt-4 border-l-2 border-teal pl-4 text-sm leading-relaxed text-foreground">
-                {projectProof[cs.slug].evidence}
-              </p>
-            )}
             <div className="mt-5 flex flex-wrap gap-2">
               {cs.tags.slice(0, 3).map((t) => (
                 <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
