@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Danielle Bosworth",
-          url: "https://daniellebosworth.lovable.app",
+          url: "https://madebydanielleb.com",
           jobTitle: "Product Strategist & UX Designer",
           description:
             "Product strategist, customer experience, and UX designer crafting systems, narratives, and impactful results.",

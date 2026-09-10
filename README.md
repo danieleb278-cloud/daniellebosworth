@@ -4,7 +4,7 @@ Create a modern portfolio website for a Product Strategy, UX, and Marketing prof
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://daniellebosworth.lovable.app
+**Live app**: https://madebydanielleb.com
 
 ## Build with Lovable
 

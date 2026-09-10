@@ -18,26 +18,26 @@ import eyeSketch from "@/assets/editorial/eye-sketch.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth — Research, Strategy & Customer Experience" },
+      { title: "Danielle Bosworth — Product, AI & Experience Strategy" },
       {
         name: "description",
         content:
-          "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
+          "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems.",
       },
-      { property: "og:title", content: "Danielle Bosworth — Research, Strategy & Customer Experience" },
+      { property: "og:title", content: "Danielle Bosworth — Product, AI & Experience Strategy" },
       {
         property: "og:description",
         content:
-          "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design.",
+          "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems.",
       },
-      { property: "og:url", content: "https://daniellebosworth.lovable.app/" },
-      { property: "og:image", content: "https://daniellebosworth.lovable.app/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
+      { property: "og:url", content: "https://madebydanielleb.com/" },
+      { property: "og:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
       { property: "og:image:alt", content: "Danielle Bosworth logo" },
-      { name: "twitter:image", content: "https://daniellebosworth.lovable.app/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
-      { name: "twitter:title", content: "Danielle Bosworth — Research, Strategy & Customer Experience" },
-      { name: "twitter:description", content: "Portfolio of Danielle Bosworth: understanding human behavior and translating customer insight into business action through research, strategy, and design." },
+      { name: "twitter:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
+      { name: "twitter:title", content: "Danielle Bosworth — Product, AI & Experience Strategy" },
+      { name: "twitter:description", content: "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems." },
     ],
-    links: [{ rel: "canonical", href: "https://daniellebosworth.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://madebydanielleb.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -45,9 +45,9 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Danielle Bosworth",
-          url: "https://daniellebosworth.lovable.app/",
+          url: "https://madebydanielleb.com/",
           description:
-            "Portfolio of Danielle Bosworth: research, strategy, and customer experience design.",
+            "Product and experience strategy portfolio of Danielle Bosworth, connecting human behavior, operational workflows, systems thinking, and AI.",
           author: { "@type": "Person", name: "Danielle Bosworth" },
         }),
       },
