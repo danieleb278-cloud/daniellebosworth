@@ -578,8 +578,13 @@ function Work() {
           ))}
         </div>
 
-        <WorkCarousel items={rest} onOpenFieldCase={() => setFieldCaseOpen(true)} />
+        <WorkCarousel
+          items={rest}
+          onOpenFieldCase={() => setFieldCaseOpen(true)}
+          onOpenContentCase={() => setContentCaseOpen(true)}
+        />
         <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
+        <ContentVisualCase open={contentCaseOpen} onClose={() => setContentCaseOpen(false)} />
       </div>
     </section>
 
@@ -589,13 +594,15 @@ function Work() {
 function WorkCarousel({
   items,
   onOpenFieldCase,
+  onOpenContentCase,
 }: {
   items: typeof caseStudies;
   onOpenFieldCase: () => void;
+  onOpenContentCase: () => void;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
-  const total = items.length + 1;
+  const total = items.length + 2;
 
 
   // Scroll offset that brings card `i` to the snap position.
