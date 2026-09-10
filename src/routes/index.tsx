@@ -266,18 +266,19 @@ const commercialImpact = [
 function CommercialImpact() {
   const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
 
-  function toggleFieldCase() {
-    const nextOpen = !fieldCaseOpen;
-    setFieldCaseOpen(nextOpen);
-    if (nextOpen) {
-      window.setTimeout(() => {
-        document.getElementById("magic-sleek-field-case")?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 80);
-    }
-  }
+  useEffect(() => {
+    if (!fieldCaseOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFieldCaseOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [fieldCaseOpen]);
 
   return (
     <section
@@ -308,15 +309,58 @@ function CommercialImpact() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-background/55">
-          See the full case studies below.
-        </p>
+        <FeaturedCommercialCase onOpen={() => setFieldCaseOpen(true)} />
 
-        <MagicSleekFieldCase open={fieldCaseOpen} onToggle={toggleFieldCase} />
+        <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
       </div>
     </section>
   );
 }
+
+function FeaturedCommercialCase({ onOpen }: { onOpen: () => void }) {
+  return (
+    <Reveal>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-haspopup="dialog"
+        className="group mt-10 grid w-full gap-6 border-t border-background/20 pt-8 text-left md:grid-cols-[minmax(0,320px)_minmax(0,1fr)] md:items-center md:gap-10"
+      >
+        <span className="block overflow-hidden border border-background/20 bg-navy p-2">
+          <img
+            src="/magic-sleek/partnership-pathway.svg"
+            alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
+            loading="lazy"
+            className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+          />
+        </span>
+        <span className="block min-w-0">
+          <span className="eyebrow text-teal">Featured commercial case</span>
+          <span className="eyebrow mt-2 block text-background/45">Magic Sleek · B2B Partner Expansion</span>
+          <span className="mt-3 block font-display text-2xl leading-[1.1] tracking-tight text-background md:text-3xl">
+            Building the system behind a <span className="italic text-teal">~$56K distributor launch</span>
+            <span className="text-accent">.</span>
+          </span>
+          <span className="mt-3 block max-w-2xl text-sm leading-relaxed text-background/70">
+            I connected partner outreach, sales positioning, product education, and field enablement into one system
+            that supported the distributor launch.
+          </span>
+          <span className="mt-4 flex flex-wrap items-center gap-2">
+            {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/70">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-5 inline-flex text-teal">
+            Explore the field case <span className="arrow" aria-hidden>→</span>
+          </span>
+        </span>
+      </button>
+    </Reveal>
+  );
+}
+
 
 const magicSleekEvidence = [
   {
