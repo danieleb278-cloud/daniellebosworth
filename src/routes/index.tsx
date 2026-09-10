@@ -6,6 +6,7 @@ import { ConnectionHero } from "@/components/connection-hero";
 import { Reveal } from "@/components/reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
+import { ContentVisualCase } from "@/components/content-visual-case";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
