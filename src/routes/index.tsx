@@ -573,9 +573,11 @@ function Work() {
           ))}
         </div>
 
-        <WorkCarousel items={rest} />
+        <WorkCarousel items={rest} onOpenFieldCase={() => setFieldCaseOpen(true)} />
+        <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
       </div>
     </section>
+
   );
 }
 
