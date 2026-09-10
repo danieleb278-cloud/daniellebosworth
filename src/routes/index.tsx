@@ -466,9 +466,30 @@ function MagicSleekFieldCase({
   );
 }
 
+const moreWorkOrder = ["robin", "next-destination", "supercuts", "content-strategy"];
+
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
-  const rest = caseStudies.filter((cs) => cs.slug !== "vocari" && cs.slug !== "joomla");
+  const rest = moreWorkOrder
+    .map((slug) => caseStudies.find((cs) => cs.slug === slug))
+    .filter((cs): cs is (typeof caseStudies)[number] => Boolean(cs));
+
+  const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
+
+  useEffect(() => {
+    if (!fieldCaseOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFieldCaseOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [fieldCaseOpen]);
+
 
   return (
     <section id="work" className="px-6 py-28 md:px-12 md:py-40">
