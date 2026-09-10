@@ -654,16 +654,27 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
     };
   }, [items.length]);
 
-  function goTo(next: number) {
-    const total = items.length;
-    const target = ((next % total) + total) % total;
-    indexRef.current = target;
+  function scrollToIndex(target: number) {
     const track = trackRef.current;
     const card = track?.children[target] as HTMLElement | undefined;
-    if (track && card) {
-      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
-    }
+    if (!track || !card) return;
+    indexRef.current = target;
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
   }
+
+  function step(dir: 1 | -1) {
+    const track = trackRef.current;
+    const total = items.length;
+    if (!track) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const atEnd = track.scrollLeft >= maxScroll - 2;
+    const atStart = track.scrollLeft <= 2;
+    // Wrap when the track can't scroll any further in that direction
+    if (dir === 1 && atEnd) return scrollToIndex(0);
+    if (dir === -1 && atStart) return scrollToIndex(total - 1);
+    scrollToIndex(((indexRef.current + dir) % total + total) % total);
+  }
+
 
   const arrowClass =
     "grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-base leading-none text-foreground transition-colors hover:border-teal hover:text-teal";
