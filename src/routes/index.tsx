@@ -6,6 +6,8 @@ import { ConnectionHero } from "@/components/connection-hero";
 import { Reveal } from "@/components/reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
+import { ContentVisualCase } from "@/components/content-visual-case";
+import noiseCover from "@/assets/noise/Cover_Noise_visual_design_study.png.asset.json";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
@@ -466,7 +468,7 @@ function MagicSleekFieldCase({
   );
 }
 
-const moreWorkOrder = ["robin", "next-destination", "supercuts", "content-strategy"];
+const moreWorkOrder = ["robin", "next-destination", "supercuts"];
 
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
@@ -475,11 +477,16 @@ function Work() {
     .filter((cs): cs is (typeof caseStudies)[number] => Boolean(cs));
 
   const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
+  const [contentCaseOpen, setContentCaseOpen] = useState(false);
+  const anyModalOpen = fieldCaseOpen || contentCaseOpen;
 
   useEffect(() => {
-    if (!fieldCaseOpen) return;
+    if (!anyModalOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFieldCaseOpen(false);
+      if (e.key === "Escape") {
+        setFieldCaseOpen(false);
+        setContentCaseOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -488,7 +495,7 @@ function Work() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
     };
-  }, [fieldCaseOpen]);
+  }, [anyModalOpen]);
 
 
   return (
@@ -573,8 +580,13 @@ function Work() {
           ))}
         </div>
 
-        <WorkCarousel items={rest} onOpenFieldCase={() => setFieldCaseOpen(true)} />
+        <WorkCarousel
+          items={rest}
+          onOpenFieldCase={() => setFieldCaseOpen(true)}
+          onOpenContentCase={() => setContentCaseOpen(true)}
+        />
         <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
+        <ContentVisualCase open={contentCaseOpen} onClose={() => setContentCaseOpen(false)} />
       </div>
     </section>
 
@@ -584,13 +596,15 @@ function Work() {
 function WorkCarousel({
   items,
   onOpenFieldCase,
+  onOpenContentCase,
 }: {
   items: typeof caseStudies;
   onOpenFieldCase: () => void;
+  onOpenContentCase: () => void;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
-  const total = items.length + 1;
+  const total = items.length + 2;
 
 
   // Scroll offset that brings card `i` to the snap position.
@@ -756,6 +770,40 @@ function WorkCarousel({
             </span>
           </Link>
         ))}
+
+        <button
+          type="button"
+          onClick={onOpenContentCase}
+          aria-haspopup="dialog"
+          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+        >
+          <span className="eyebrow mb-3 block text-teal">Content · Visual design</span>
+          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+            <img
+              src={noiseCover.url}
+              alt="NOISE visual attention study cover artwork"
+              loading="lazy"
+              className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </span>
+          <span className="mt-5 block font-display text-2xl leading-[1.15] tracking-tight">
+            Content &amp; Visual Communication
+            <span className="text-teal">.</span>
+          </span>
+          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+            Two explorations in translating ideas into attention, visual hierarchy, and multichannel communication.
+          </span>
+          <span className="mt-5 flex flex-wrap gap-2">
+            {["Content Strategy", "Visual Communication", "Creative Direction"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
+            Explore the work <span className="arrow" aria-hidden>→</span>
+          </span>
+        </button>
       </div>
     </div>
   );
