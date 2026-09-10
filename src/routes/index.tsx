@@ -399,53 +399,46 @@ const magicSleekEvidence = [
 
 function MagicSleekFieldCase({
   open,
-  onToggle,
+  onClose,
 }: {
   open: boolean;
-  onToggle: () => void;
+  onClose: () => void;
 }) {
+  if (!open) return null;
   return (
-    <section
-      id="magic-sleek-field-case"
-      aria-labelledby="magic-sleek-case-heading"
-      className="scroll-mt-24 mt-12 border border-background/20"
+    <div
+      className="fixed inset-0 z-[60] flex items-start justify-center bg-charcoal/80 p-0 backdrop-blur-sm sm:p-6"
+      onClick={onClose}
     >
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls="magic-sleek-case-content"
-        className="group grid w-full grid-cols-12 gap-6 p-6 text-left transition-colors hover:bg-navy/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal md:p-9"
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="magic-sleek-case-heading"
+        onClick={(e) => e.stopPropagation()}
+        className="page-fade max-h-full w-full max-w-[1100px] overflow-y-auto border border-background/20 bg-charcoal text-background"
       >
-        <div className="col-span-12 md:col-span-3">
-          <span className="eyebrow text-teal">§ Featured Field Case</span>
-          <span className="mt-3 block font-mono text-xs uppercase tracking-[0.16em] text-background/45">
-            Magic Sleek · B2B partner expansion
-          </span>
-        </div>
-        <div className="col-span-10 md:col-span-7">
-          <h3
-            id="magic-sleek-case-heading"
-            className="font-display text-3xl leading-[1.05] tracking-tight text-background md:text-4xl"
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-background/20 bg-charcoal px-6 py-5 md:px-9">
+          <div>
+            <span className="eyebrow text-teal">§ Featured Field Case</span>
+            <h3
+              id="magic-sleek-case-heading"
+              className="mt-2 font-display text-2xl leading-[1.05] tracking-tight text-background md:text-3xl"
+            >
+              Building the system behind a <span className="italic text-teal">~$56K distributor launch</span>
+              <span className="text-accent">.</span>
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="shrink-0 border border-background/25 px-3 py-1 font-mono text-xs uppercase tracking-[0.14em] text-background/70 hover:border-teal hover:text-teal"
           >
-            Building the system behind a{" "}
-            <span className="italic text-teal">~$56K distributor launch</span>
-            <span className="text-accent">.</span>
-          </h3>
+            Close ✕
+          </button>
         </div>
-        <div className="col-span-2 flex items-center justify-end md:col-span-2">
-          <span
-            aria-hidden
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-teal font-display text-2xl text-teal transition-transform duration-300 group-hover:scale-105"
-          >
-            {open ? "−" : "+"}
-          </span>
-          <span className="sr-only">{open ? "Close case study" : "Open case study"}</span>
-        </div>
-      </button>
 
-      {open && (
-        <div id="magic-sleek-case-content" className="border-t border-background/20 px-6 pb-12 pt-12 md:px-9 md:pb-16">
+        <div id="magic-sleek-case-content" className="px-6 pb-12 pt-10 md:px-9 md:pb-16">
+
           <Reveal>
             <p className="max-w-4xl font-display text-2xl leading-relaxed text-background/90 md:text-3xl">
               Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
