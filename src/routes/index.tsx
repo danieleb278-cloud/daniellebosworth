@@ -623,12 +623,41 @@ function Work() {
 
 function WorkCarousel({ items }: { items: typeof caseStudies }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [index, setIndex] = useState(0);
+  const indexRef = useRef(0);
+
+  // Keep the internal index synced with manual swiping / trackpad scrolling
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const cards = Array.from(track.children) as HTMLElement[];
+        if (cards.length === 0) return;
+        let nearest = 0;
+        let best = Infinity;
+        cards.forEach((card, i) => {
+          const d = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
+          if (d < best) {
+            best = d;
+            nearest = i;
+          }
+        });
+        indexRef.current = nearest;
+      });
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      track.removeEventListener("scroll", onScroll);
+    };
+  }, [items.length]);
 
   function goTo(next: number) {
     const total = items.length;
     const target = ((next % total) + total) % total;
-    setIndex(target);
+    indexRef.current = target;
     const track = trackRef.current;
     const card = track?.children[target] as HTMLElement | undefined;
     if (track && card) {
@@ -636,29 +665,33 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
     }
   }
 
+  const arrowClass =
+    "grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-base leading-none text-foreground transition-colors hover:border-teal hover:text-teal";
+
   return (
     <div className="mt-16">
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-border pt-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-t border-border pt-8">
         <span className="eyebrow">§ More work</span>
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={() => goTo(index - 1)}
+            onClick={() => goTo(indexRef.current - 1)}
             aria-label="Previous project"
-            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+            className={arrowClass}
           >
-            ← Prev
+            <span aria-hidden>←</span>
           </button>
           <button
             type="button"
-            onClick={() => goTo(index + 1)}
+            onClick={() => goTo(indexRef.current + 1)}
             aria-label="Next project"
-            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+            className={arrowClass}
           >
-            Next →
+            <span aria-hidden>→</span>
           </button>
         </div>
       </div>
+
 
       <div
         ref={trackRef}
