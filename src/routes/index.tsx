@@ -264,22 +264,6 @@ const commercialImpact = [
 ];
 
 function CommercialImpact() {
-  const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
-
-  useEffect(() => {
-    if (!fieldCaseOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFieldCaseOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [fieldCaseOpen]);
-
   return (
     <section
       aria-labelledby="commercial-impact-heading"
@@ -308,58 +292,11 @@ function CommercialImpact() {
             </div>
           ))}
         </div>
-
-        <FeaturedCommercialCase onOpen={() => setFieldCaseOpen(true)} />
-
-        <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
       </div>
     </section>
   );
 }
 
-function FeaturedCommercialCase({ onOpen }: { onOpen: () => void }) {
-  return (
-    <Reveal>
-      <button
-        type="button"
-        onClick={onOpen}
-        aria-haspopup="dialog"
-        className="group mt-10 grid w-full gap-6 border-t border-background/20 pt-8 text-left md:grid-cols-[minmax(0,320px)_minmax(0,1fr)] md:items-center md:gap-10"
-      >
-        <span className="block overflow-hidden border border-background/20 bg-navy p-2">
-          <img
-            src="/magic-sleek/partnership-pathway.svg"
-            alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
-            loading="lazy"
-            className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
-          />
-        </span>
-        <span className="block min-w-0">
-          <span className="eyebrow text-teal">Featured commercial case</span>
-          <span className="eyebrow mt-2 block text-background/45">Magic Sleek · B2B Partner Expansion</span>
-          <span className="mt-3 block font-display text-2xl leading-[1.1] tracking-tight text-background md:text-3xl">
-            Building the system behind a <span className="italic text-teal">~$56K distributor launch</span>
-            <span className="text-accent">.</span>
-          </span>
-          <span className="mt-3 block max-w-2xl text-sm leading-relaxed text-background/70">
-            I connected partner outreach, sales positioning, product education, and field enablement into one system
-            that supported the distributor launch.
-          </span>
-          <span className="mt-4 flex flex-wrap items-center gap-2">
-            {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
-              <span key={t} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/70">
-                {t}
-              </span>
-            ))}
-          </span>
-          <span className="eyebrow arrow-slide link-underline mt-5 inline-flex text-teal">
-            Explore the field case <span className="arrow" aria-hidden>→</span>
-          </span>
-        </span>
-      </button>
-    </Reveal>
-  );
-}
 
 
 const magicSleekEvidence = [
@@ -529,9 +466,30 @@ function MagicSleekFieldCase({
   );
 }
 
+const moreWorkOrder = ["robin", "next-destination", "supercuts", "content-strategy"];
+
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
-  const rest = caseStudies.filter((cs) => cs.slug !== "vocari" && cs.slug !== "joomla");
+  const rest = moreWorkOrder
+    .map((slug) => caseStudies.find((cs) => cs.slug === slug))
+    .filter((cs): cs is (typeof caseStudies)[number] => Boolean(cs));
+
+  const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
+
+  useEffect(() => {
+    if (!fieldCaseOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFieldCaseOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [fieldCaseOpen]);
+
 
   return (
     <section id="work" className="px-6 py-28 md:px-12 md:py-40">
@@ -615,15 +573,35 @@ function Work() {
           ))}
         </div>
 
-        <WorkCarousel items={rest} />
+        <WorkCarousel items={rest} onOpenFieldCase={() => setFieldCaseOpen(true)} />
+        <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
       </div>
     </section>
+
   );
 }
 
-function WorkCarousel({ items }: { items: typeof caseStudies }) {
+function WorkCarousel({
+  items,
+  onOpenFieldCase,
+}: {
+  items: typeof caseStudies;
+  onOpenFieldCase: () => void;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
+  const total = items.length + 1;
+
+
+  // Scroll offset that brings card `i` to the snap position.
+  function offsetFor(track: HTMLDivElement, i: number) {
+    const cards = Array.from(track.children) as HTMLElement[];
+    const first = cards[0];
+    const card = cards[i];
+    if (!first || !card) return 0;
+    const max = track.scrollWidth - track.clientWidth;
+    return Math.max(0, Math.min(max, card.offsetLeft - first.offsetLeft));
+  }
 
   // Keep the internal index synced with manual swiping / trackpad scrolling
   useEffect(() => {
@@ -633,17 +611,16 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const cards = Array.from(track.children) as HTMLElement[];
-        if (cards.length === 0) return;
+        const count = track.children.length;
         let nearest = 0;
         let best = Infinity;
-        cards.forEach((card, i) => {
-          const d = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
+        for (let i = 0; i < count; i++) {
+          const d = Math.abs(offsetFor(track, i) - track.scrollLeft);
           if (d < best) {
             best = d;
             nearest = i;
           }
-        });
+        }
         indexRef.current = nearest;
       });
     };
@@ -656,15 +633,13 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
 
   function scrollToIndex(target: number) {
     const track = trackRef.current;
-    const card = track?.children[target] as HTMLElement | undefined;
-    if (!track || !card) return;
+    if (!track || !track.children[target]) return;
     indexRef.current = target;
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    track.scrollTo({ left: offsetFor(track, target), behavior: "smooth" });
   }
 
   function step(dir: 1 | -1) {
     const track = trackRef.current;
-    const total = items.length;
     if (!track) return;
     const maxScroll = track.scrollWidth - track.clientWidth;
     const atEnd = track.scrollLeft >= maxScroll - 2;
@@ -674,6 +649,8 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
     if (dir === -1 && atStart) return scrollToIndex(total - 1);
     scrollToIndex(((indexRef.current + dir) % total + total) % total);
   }
+
+
 
 
   const arrowClass =
@@ -708,8 +685,45 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
         ref={trackRef}
         className="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 md:-mx-12 md:px-12"
       >
+        <button
+          type="button"
+          onClick={onOpenFieldCase}
+          aria-haspopup="dialog"
+          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+        >
+          <span className="eyebrow mb-3 block text-teal">Commercial field case</span>
+          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+            <img
+              src="/magic-sleek/partnership-pathway.svg"
+              alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
+              loading="lazy"
+              className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </span>
+          <span className="eyebrow mt-5 block text-muted-foreground">Magic Sleek · B2B Partner Expansion</span>
+          <span className="mt-2 block font-display text-2xl leading-[1.15] tracking-tight">
+            Building the system behind a ~$56K distributor launch
+            <span className="text-teal">.</span>
+          </span>
+          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+            I connected partner outreach, sales positioning, product education, and field enablement into one system
+            that supported the distributor launch.
+          </span>
+          <span className="mt-5 flex flex-wrap gap-2">
+            {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
+            Explore field case <span className="arrow" aria-hidden>→</span>
+          </span>
+        </button>
+
         {items.map((cs) => (
           <Link
+
             key={cs.slug}
             to="/work/$slug"
             params={{ slug: cs.slug }}
