@@ -1931,16 +1931,16 @@ caseStudies.push({
     "Turning an underperforming service location into a stronger operating system by connecting staff performance, customer experience, local outreach, and measurable business results.",
   subtitle:
     "The problem looked like sales. The system behind it was bigger — staffing, service consistency, training, customer behavior, and local demand all shaped the number.",
-  client: "G&C Robins Co. / Supercuts (East Windsor, NJ)",
+  client: "G&C Robins Co. / Supercuts — North Brunswick, NJ",
   year: "2019–2021",
   role: "Location Manager (Service Operations Lead)",
   discipline: "Service Operations Turnaround · Customer Experience · Operations Strategy",
   duration: "~13 months of measured turnaround",
   summary:
-    "Inherited an underperforming salon location, established a baseline from roughly six months of prior performance data, diagnosed the interconnected causes behind low sales, and ran coordinated interventions across training, incentives, operations, and local outreach. Monthly location sales grew from roughly $4–5K to more than $20K in about 13 months.",
+    "Inherited an underperforming Supercuts salon location in North Brunswick, established a baseline from roughly six months of prior performance data, diagnosed the interconnected causes behind low sales, and ran coordinated interventions across training, incentives, operations, and local outreach. Monthly location sales grew from roughly $4–5K to more than $20K in about 13 months.",
   hero: "The sales number was the signal, not the diagnosis.",
   context:
-    "After a nearby New Brunswick location closed, I transferred to the East Windsor location and took over a store that was underperforming. Monthly sales were running roughly $4–5K. The environment was a live operating business: real staff, real customers, real daily service delivery.",
+    "I started at the East Brunswick store and was quickly promoted to manage the North Brunswick location, which was underperforming when I took it over. Monthly sales were running roughly $4–5K. The turnaround happened there over the following months, until COVID temporarily closed the stores; when the business reopened, I was assigned to East Windsor. The environment was a live operating business: real staff, real customers, real daily service delivery.",
   challenge:
     "Understand why the location was underperforming — without assuming it was simply a sales problem — and design practical interventions that could be run and adjusted while the store stayed open.",
   approach: [
