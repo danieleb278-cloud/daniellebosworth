@@ -1028,7 +1028,7 @@ function Resume() {
       role: "Branch Manager → Hairstylist / Cosmetologist",
       org: "G&C Robins Co. / Supercuts · The Art of Hair",
       detail:
-        "Led daily operations, staff, and CX in a high-volume retail environment — drove ~175% revenue growth and +32% retention through outreach, CRM, and service-design improvements.",
+        "Led daily operations, staff, and CX in a high-volume retail environment, growing monthly location sales from roughly $4–5K to more than $20K while improving retention through outreach, CRM, and service improvements.",
     },
     {
       year: "2021 — 2023",
