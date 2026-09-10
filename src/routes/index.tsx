@@ -266,18 +266,19 @@ const commercialImpact = [
 function CommercialImpact() {
   const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
 
-  function toggleFieldCase() {
-    const nextOpen = !fieldCaseOpen;
-    setFieldCaseOpen(nextOpen);
-    if (nextOpen) {
-      window.setTimeout(() => {
-        document.getElementById("magic-sleek-field-case")?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 80);
-    }
-  }
+  useEffect(() => {
+    if (!fieldCaseOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFieldCaseOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [fieldCaseOpen]);
 
   return (
     <section
@@ -308,15 +309,58 @@ function CommercialImpact() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-background/55">
-          See the full case studies below.
-        </p>
+        <FeaturedCommercialCase onOpen={() => setFieldCaseOpen(true)} />
 
-        <MagicSleekFieldCase open={fieldCaseOpen} onToggle={toggleFieldCase} />
+        <MagicSleekFieldCase open={fieldCaseOpen} onClose={() => setFieldCaseOpen(false)} />
       </div>
     </section>
   );
 }
+
+function FeaturedCommercialCase({ onOpen }: { onOpen: () => void }) {
+  return (
+    <Reveal>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-haspopup="dialog"
+        className="group mt-10 grid w-full gap-6 border-t border-background/20 pt-8 text-left md:grid-cols-[minmax(0,320px)_minmax(0,1fr)] md:items-center md:gap-10"
+      >
+        <span className="block overflow-hidden border border-background/20 bg-navy p-2">
+          <img
+            src="/magic-sleek/partnership-pathway.svg"
+            alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
+            loading="lazy"
+            className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+          />
+        </span>
+        <span className="block min-w-0">
+          <span className="eyebrow text-teal">Featured commercial case</span>
+          <span className="eyebrow mt-2 block text-background/45">Magic Sleek · B2B Partner Expansion</span>
+          <span className="mt-3 block font-display text-2xl leading-[1.1] tracking-tight text-background md:text-3xl">
+            Building the system behind a <span className="italic text-teal">~$56K distributor launch</span>
+            <span className="text-accent">.</span>
+          </span>
+          <span className="mt-3 block max-w-2xl text-sm leading-relaxed text-background/70">
+            I connected partner outreach, sales positioning, product education, and field enablement into one system
+            that supported the distributor launch.
+          </span>
+          <span className="mt-4 flex flex-wrap items-center gap-2">
+            {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/70">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-5 inline-flex text-teal">
+            Explore the field case <span className="arrow" aria-hidden>→</span>
+          </span>
+        </span>
+      </button>
+    </Reveal>
+  );
+}
+
 
 const magicSleekEvidence = [
   {
@@ -355,53 +399,46 @@ const magicSleekEvidence = [
 
 function MagicSleekFieldCase({
   open,
-  onToggle,
+  onClose,
 }: {
   open: boolean;
-  onToggle: () => void;
+  onClose: () => void;
 }) {
+  if (!open) return null;
   return (
-    <section
-      id="magic-sleek-field-case"
-      aria-labelledby="magic-sleek-case-heading"
-      className="scroll-mt-24 mt-12 border border-background/20"
+    <div
+      className="fixed inset-0 z-[60] flex items-start justify-center bg-charcoal/80 p-0 backdrop-blur-sm sm:p-6"
+      onClick={onClose}
     >
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls="magic-sleek-case-content"
-        className="group grid w-full grid-cols-12 gap-6 p-6 text-left transition-colors hover:bg-navy/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal md:p-9"
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="magic-sleek-case-heading"
+        onClick={(e) => e.stopPropagation()}
+        className="page-fade max-h-full w-full max-w-[1100px] overflow-y-auto border border-background/20 bg-charcoal text-background"
       >
-        <div className="col-span-12 md:col-span-3">
-          <span className="eyebrow text-teal">§ Featured Field Case</span>
-          <span className="mt-3 block font-mono text-xs uppercase tracking-[0.16em] text-background/45">
-            Magic Sleek · B2B partner expansion
-          </span>
-        </div>
-        <div className="col-span-10 md:col-span-7">
-          <h3
-            id="magic-sleek-case-heading"
-            className="font-display text-3xl leading-[1.05] tracking-tight text-background md:text-4xl"
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-background/20 bg-charcoal px-6 py-5 md:px-9">
+          <div>
+            <span className="eyebrow text-teal">§ Featured Field Case</span>
+            <h3
+              id="magic-sleek-case-heading"
+              className="mt-2 font-display text-2xl leading-[1.05] tracking-tight text-background md:text-3xl"
+            >
+              Building the system behind a <span className="italic text-teal">~$56K distributor launch</span>
+              <span className="text-accent">.</span>
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="shrink-0 border border-background/25 px-3 py-1 font-mono text-xs uppercase tracking-[0.14em] text-background/70 hover:border-teal hover:text-teal"
           >
-            Building the system behind a{" "}
-            <span className="italic text-teal">~$56K distributor launch</span>
-            <span className="text-accent">.</span>
-          </h3>
+            Close ✕
+          </button>
         </div>
-        <div className="col-span-2 flex items-center justify-end md:col-span-2">
-          <span
-            aria-hidden
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-teal font-display text-2xl text-teal transition-transform duration-300 group-hover:scale-105"
-          >
-            {open ? "−" : "+"}
-          </span>
-          <span className="sr-only">{open ? "Close case study" : "Open case study"}</span>
-        </div>
-      </button>
 
-      {open && (
-        <div id="magic-sleek-case-content" className="border-t border-background/20 px-6 pb-12 pt-12 md:px-9 md:pb-16">
+        <div id="magic-sleek-case-content" className="px-6 pb-12 pt-10 md:px-9 md:pb-16">
+
           <Reveal>
             <p className="max-w-4xl font-display text-2xl leading-relaxed text-background/90 md:text-3xl">
               Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
@@ -480,15 +517,15 @@ function MagicSleekFieldCase({
             </p>
             <button
               type="button"
-              onClick={onToggle}
+              onClick={onClose}
               className="eyebrow shrink-0 text-teal link-underline"
             >
-              Close case ↑
+              Close case ✕
             </button>
           </div>
         </div>
-      )}
-    </section>
+      </div>
+    </div>
   );
 }
 
@@ -503,8 +540,8 @@ function Work() {
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
             <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Six projects on UX research, product design, and
-              <span className="italic text-muted-foreground"> system-level thinking</span>
+              Selected work across product, research, and
+              <span className="italic text-muted-foreground"> systems thinking</span>
               <span className="text-accent">.</span>
             </h2>
           </div>
@@ -585,14 +622,48 @@ function Work() {
 }
 
 function WorkCarousel({ items }: { items: typeof caseStudies }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+
+  function goTo(next: number) {
+    const total = items.length;
+    const target = ((next % total) + total) % total;
+    setIndex(target);
+    const track = trackRef.current;
+    const card = track?.children[target] as HTMLElement | undefined;
+    if (track && card) {
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    }
+  }
+
   return (
     <div className="mt-16">
-      <div className="flex items-baseline justify-between gap-4 border-t border-border pt-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-border pt-8">
         <span className="eyebrow">§ More work</span>
-        <span className="eyebrow hidden text-muted-foreground sm:inline">Swipe for more →</span>
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            aria-label="Previous project"
+            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+          >
+            ← Prev
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            aria-label="Next project"
+            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+          >
+            Next →
+          </button>
+        </div>
       </div>
 
-      <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:-mx-12 md:px-12">
+      <div
+        ref={trackRef}
+        className="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 md:-mx-12 md:px-12"
+      >
         {items.map((cs) => (
           <Link
             key={cs.slug}
@@ -610,19 +681,11 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
                 className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
-            <span className="mt-5 font-mono text-xs text-muted-foreground">
-              {cs.index} / {String(caseStudies.length).padStart(2, "0")}
-            </span>
-            <h3 className="mt-2 font-display text-2xl tracking-tight">
+            <h3 className="mt-5 font-display text-2xl tracking-tight">
               {cs.title}
               <span className="text-teal">.</span>
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.homeSubtitle ?? cs.subtitle}</p>
-            {projectProof[cs.slug] && (
-              <p className="mt-4 border-l-2 border-teal pl-4 text-sm leading-relaxed text-foreground">
-                {projectProof[cs.slug].evidence}
-              </p>
-            )}
             <div className="mt-5 flex flex-wrap gap-2">
               {cs.tags.slice(0, 3).map((t) => (
                 <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
