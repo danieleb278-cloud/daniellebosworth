@@ -466,7 +466,7 @@ function MagicSleekFieldCase({
   );
 }
 
-const moreWorkOrder = ["robin", "next-destination", "supercuts", "content-strategy"];
+const moreWorkOrder = ["robin", "next-destination", "supercuts"];
 
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
@@ -475,11 +475,16 @@ function Work() {
     .filter((cs): cs is (typeof caseStudies)[number] => Boolean(cs));
 
   const [fieldCaseOpen, setFieldCaseOpen] = useState(false);
+  const [contentCaseOpen, setContentCaseOpen] = useState(false);
+  const anyModalOpen = fieldCaseOpen || contentCaseOpen;
 
   useEffect(() => {
-    if (!fieldCaseOpen) return;
+    if (!anyModalOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFieldCaseOpen(false);
+      if (e.key === "Escape") {
+        setFieldCaseOpen(false);
+        setContentCaseOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -488,7 +493,7 @@ function Work() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
     };
-  }, [fieldCaseOpen]);
+  }, [anyModalOpen]);
 
 
   return (
