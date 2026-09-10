@@ -694,7 +694,7 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
           </button>
           <button
             type="button"
-            onClick={() => goTo(indexRef.current + 1)}
+            onClick={() => step(1)}
             aria-label="Next project"
             className={arrowClass}
           >
