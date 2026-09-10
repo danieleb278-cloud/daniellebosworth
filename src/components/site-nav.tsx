@@ -72,7 +72,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
             alt=""
             className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"
           />
-          <span className={`truncate font-display text-lg tracking-tight sm:text-xl ${useLightText ? 'text-background' : 'text-foreground'}`}>
+          <span className={`truncate font-display text-lg tracking-tight lg:text-xl ${useLightText ? 'text-background' : 'text-foreground'}`}>
             Danielle Bosworth
           </span>
         </Link>
