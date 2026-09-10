@@ -540,8 +540,8 @@ function Work() {
           <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
             <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
             <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Six projects on UX research, product design, and
-              <span className="italic text-muted-foreground"> system-level thinking</span>
+              Selected work across product, research, and
+              <span className="italic text-muted-foreground"> systems thinking</span>
               <span className="text-accent">.</span>
             </h2>
           </div>
