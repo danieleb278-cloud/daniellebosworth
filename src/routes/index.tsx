@@ -440,7 +440,7 @@ function MagicSleekFieldCase({
         <div id="magic-sleek-case-content" className="px-6 pb-12 pt-10 md:px-9 md:pb-16">
 
           <Reveal>
-            <p className="max-w-4xl font-display text-2xl leading-relaxed text-background/90 md:text-3xl">
+            <p className="max-w-4xl font-display text-xl leading-relaxed text-background/90 sm:text-2xl md:text-3xl">
               Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
               presentations, informal knowledge, and materials created for other audiences. I turned that information
               into a partner-ready sales and education system, while also opening the relationship that created the
@@ -623,42 +623,86 @@ function Work() {
 
 function WorkCarousel({ items }: { items: typeof caseStudies }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [index, setIndex] = useState(0);
+  const indexRef = useRef(0);
 
-  function goTo(next: number) {
-    const total = items.length;
-    const target = ((next % total) + total) % total;
-    setIndex(target);
+  // Keep the internal index synced with manual swiping / trackpad scrolling
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const cards = Array.from(track.children) as HTMLElement[];
+        if (cards.length === 0) return;
+        let nearest = 0;
+        let best = Infinity;
+        cards.forEach((card, i) => {
+          const d = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
+          if (d < best) {
+            best = d;
+            nearest = i;
+          }
+        });
+        indexRef.current = nearest;
+      });
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      track.removeEventListener("scroll", onScroll);
+    };
+  }, [items.length]);
+
+  function scrollToIndex(target: number) {
     const track = trackRef.current;
     const card = track?.children[target] as HTMLElement | undefined;
-    if (track && card) {
-      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
-    }
+    if (!track || !card) return;
+    indexRef.current = target;
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
   }
+
+  function step(dir: 1 | -1) {
+    const track = trackRef.current;
+    const total = items.length;
+    if (!track) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const atEnd = track.scrollLeft >= maxScroll - 2;
+    const atStart = track.scrollLeft <= 2;
+    // Wrap when the track can't scroll any further in that direction
+    if (dir === 1 && atEnd) return scrollToIndex(0);
+    if (dir === -1 && atStart) return scrollToIndex(total - 1);
+    scrollToIndex(((indexRef.current + dir) % total + total) % total);
+  }
+
+
+  const arrowClass =
+    "grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-base leading-none text-foreground transition-colors hover:border-teal hover:text-teal";
 
   return (
     <div className="mt-16">
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-border pt-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-t border-border pt-8">
         <span className="eyebrow">§ More work</span>
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={() => goTo(index - 1)}
+            onClick={() => step(-1)}
             aria-label="Previous project"
-            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+            className={arrowClass}
           >
-            ← Prev
+            <span aria-hidden>←</span>
           </button>
           <button
             type="button"
-            onClick={() => goTo(index + 1)}
+            onClick={() => step(1)}
             aria-label="Next project"
-            className="eyebrow border border-border px-3 py-1.5 transition-colors hover:border-teal hover:text-teal"
+            className={arrowClass}
           >
-            Next →
+            <span aria-hidden>→</span>
           </button>
         </div>
       </div>
+
 
       <div
         ref={trackRef}
