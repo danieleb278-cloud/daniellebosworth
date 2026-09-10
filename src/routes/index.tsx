@@ -282,80 +282,35 @@ function CommercialImpact() {
   return (
     <section
       aria-labelledby="commercial-impact-heading"
-      className="border-b border-border bg-charcoal px-6 py-24 text-background md:px-12 md:py-32"
+      className="border-b border-border bg-charcoal px-6 py-14 text-background md:px-12 md:py-16"
     >
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
-          <div className="grid grid-cols-12 gap-6 border-b border-background/20 pb-8">
-            <span className="eyebrow col-span-12 text-teal md:col-span-2">§ Commercial Impact</span>
-            <h2
-              id="commercial-impact-heading"
-              className="col-span-12 max-w-5xl font-display text-4xl tracking-tight md:col-span-10 md:text-6xl"
-            >
-              <span className="block">Cross-functional work.</span>
-              <span className="block italic text-background/60">
-                Real business impact<span className="text-accent">.</span>
-              </span>
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+            <span className="eyebrow text-teal">§ Commercial Impact</span>
+            <h2 id="commercial-impact-heading" className="font-display text-2xl tracking-tight md:text-3xl">
+              Cross-functional work, real business impact<span className="text-accent">.</span>
             </h2>
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-px overflow-hidden border border-background/20 bg-background/20 lg:grid-cols-3">
-          {commercialImpact.map((item, i) => (
-            <Reveal key={item.index} delay={i * 100}>
-              <article className="group flex h-full flex-col bg-charcoal p-7 transition-colors duration-500 hover:bg-navy md:p-9">
-                <div className="flex items-start justify-between gap-4">
-                  <span className="eyebrow max-w-[18rem] text-teal">{item.category}</span>
-                  <span className="font-mono text-xs text-background/40">{item.index} / 03</span>
-                </div>
-
-                <div className="mt-12">
-                  <div className="font-display text-[clamp(2.7rem,5vw,5.25rem)] leading-[0.9] tracking-[-0.04em] text-background transition-transform duration-500 group-hover:-translate-y-1">
-                    {item.outcome}
-                  </div>
-                  <div className="eyebrow mt-3 text-background/60">{item.outcomeLabel}</div>
-                </div>
-
-                <div className="mt-10 border-t border-background/20 pt-6">
-                  <p className="font-display text-lg text-background">{item.context}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-background/70 md:text-base">{item.description}</p>
-                </div>
-
-                <ul className="mt-auto flex flex-wrap gap-2 pt-8" aria-label="Related capabilities">
-                  {item.tags.map((tag) => (
-                    <li key={tag} className="eyebrow rounded-full border border-background/25 px-3 py-1 text-background/65">
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {"caseSlug" in item && item.caseSlug && (
-                  <Link
-                    to="/work/$slug"
-                    params={{ slug: item.caseSlug }}
-                    className="eyebrow arrow-slide mt-8 inline-flex w-fit items-center gap-2 text-teal link-underline"
-                  >
-                    Read the full case study
-                    <span className="arrow" aria-hidden>→</span>
-                  </Link>
-                )}
-
-                {item.featuredCase && (
-                  <button
-                    type="button"
-                    onClick={toggleFieldCase}
-                    aria-expanded={fieldCaseOpen}
-                    aria-controls="magic-sleek-field-case"
-                    className="eyebrow arrow-slide mt-8 inline-flex w-fit items-center gap-2 text-teal link-underline"
-                  >
-                    {fieldCaseOpen ? "Close featured field case" : "View featured field case"}
-                    <span className="arrow" aria-hidden>{fieldCaseOpen ? "↑" : "↓"}</span>
-                  </button>
-                )}
-              </article>
-            </Reveal>
+        <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-3">
+          {commercialImpact.map((item) => (
+            <div key={item.index} className="flex items-baseline gap-4">
+              <span className="font-display text-3xl leading-none tracking-[-0.03em] text-background md:text-4xl">
+                {item.outcome}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm text-background/80">{item.outcomeLabel}</span>
+                <span className="eyebrow block text-background/45">{item.context}</span>
+              </span>
+            </div>
           ))}
         </div>
+
+        <p className="mt-8 text-sm text-background/55">
+          See the full case studies below.
+        </p>
 
         <MagicSleekFieldCase open={fieldCaseOpen} onToggle={toggleFieldCase} />
       </div>
