@@ -493,6 +493,9 @@ function MagicSleekFieldCase({
 }
 
 function Work() {
+  const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
+  const rest = caseStudies.filter((cs) => cs.slug !== "vocari" && cs.slug !== "joomla");
+
   return (
     <section id="work" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
@@ -508,12 +511,12 @@ function Work() {
         </Reveal>
 
         <div className="divide-y divide-border">
-          {caseStudies.map((cs, i) => (
+          {featured.map((cs, i) => (
             <Reveal key={cs.slug} delay={i * 100}>
               <Link to="/work/$slug" params={{ slug: cs.slug }} className="group block py-10 md:py-14">
                 <div className="grid grid-cols-12 gap-6 md:items-center md:gap-10">
                   {/* Image */}
-                  <div className="col-span-12 md:col-span-5 md:order-2">
+                  <div className={`col-span-12 md:col-span-5 ${cs.slug === "joomla" ? "md:order-2" : "md:order-1"}`}>
                     <div className="overflow-hidden border-2 border-teal p-3 shadow-lg card-lift bg-charcoal">
                       <PlaceholderImage
                         label={`Project ${cs.index}`}
@@ -527,7 +530,7 @@ function Work() {
                   </div>
 
                   {/* Text */}
-                  <div className="col-span-12 md:col-span-7 md:order-1">
+                  <div className={`col-span-12 md:col-span-7 ${cs.slug === "joomla" ? "md:order-1" : "md:order-2"}`}>
                     <span className="font-mono text-sm text-muted-foreground">
                       {cs.index} / {String(caseStudies.length).padStart(2, "0")}
                     </span>
@@ -574,8 +577,66 @@ function Work() {
             </Reveal>
           ))}
         </div>
+
+        <WorkCarousel items={rest} />
       </div>
     </section>
+  );
+}
+
+function WorkCarousel({ items }: { items: typeof caseStudies }) {
+  return (
+    <div className="mt-16">
+      <div className="flex items-baseline justify-between gap-4 border-t border-border pt-8">
+        <span className="eyebrow">§ More work</span>
+        <span className="eyebrow hidden text-muted-foreground sm:inline">Swipe for more →</span>
+      </div>
+
+      <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:-mx-12 md:px-12">
+        {items.map((cs) => (
+          <Link
+            key={cs.slug}
+            to="/work/$slug"
+            params={{ slug: cs.slug }}
+            className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 card-lift sm:w-[52%] lg:w-[38%]"
+          >
+            <div className="overflow-hidden border border-border bg-charcoal p-2">
+              <PlaceholderImage
+                label={`Project ${cs.index}`}
+                ratio="16/9"
+                src={cs.cover?.src}
+                alt={cs.cover?.alt}
+                fit="contain"
+                className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </div>
+            <span className="mt-5 font-mono text-xs text-muted-foreground">
+              {cs.index} / {String(caseStudies.length).padStart(2, "0")}
+            </span>
+            <h3 className="mt-2 font-display text-2xl tracking-tight">
+              {cs.title}
+              <span className="text-teal">.</span>
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.homeSubtitle ?? cs.subtitle}</p>
+            {projectProof[cs.slug] && (
+              <p className="mt-4 border-l-2 border-teal pl-4 text-sm leading-relaxed text-foreground">
+                {projectProof[cs.slug].evidence}
+              </p>
+            )}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {cs.tags.slice(0, 3).map((t) => (
+                <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <span className="eyebrow arrow-slide link-underline mt-auto pt-6 text-teal">
+              See full case study <span className="arrow" aria-hidden>→</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
 
