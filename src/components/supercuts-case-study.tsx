@@ -97,8 +97,8 @@ export function SupercutsCaseStudy({ study }: { study: CaseStudy }) {
             <SectionHeader number="01" eyebrow="Business Context" title="An inherited, underperforming location" />
             <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                After a nearby New Brunswick location closed, I transferred to the East Windsor location and took over a
-                store that was underperforming. Monthly sales were running roughly $4–5K.
+                I started at the East Brunswick store and was promoted to manage the North Brunswick location, which was
+                underperforming when I took it over. Monthly sales were running roughly $4–5K.
               </p>
               <p>
                 This was not a design exercise. It was a live operating business with staff, customers, schedules, and
