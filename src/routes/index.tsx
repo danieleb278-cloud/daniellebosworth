@@ -593,6 +593,16 @@ function WorkCarousel({
   const total = items.length + 1;
 
 
+  // Scroll offset that brings card `i` to the snap position.
+  function offsetFor(track: HTMLDivElement, i: number) {
+    const cards = Array.from(track.children) as HTMLElement[];
+    const first = cards[0];
+    const card = cards[i];
+    if (!first || !card) return 0;
+    const max = track.scrollWidth - track.clientWidth;
+    return Math.max(0, Math.min(max, card.offsetLeft - first.offsetLeft));
+  }
+
   // Keep the internal index synced with manual swiping / trackpad scrolling
   useEffect(() => {
     const track = trackRef.current;
@@ -601,17 +611,16 @@ function WorkCarousel({
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const cards = Array.from(track.children) as HTMLElement[];
-        if (cards.length === 0) return;
+        const count = track.children.length;
         let nearest = 0;
         let best = Infinity;
-        cards.forEach((card, i) => {
-          const d = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
+        for (let i = 0; i < count; i++) {
+          const d = Math.abs(offsetFor(track, i) - track.scrollLeft);
           if (d < best) {
             best = d;
             nearest = i;
           }
-        });
+        }
         indexRef.current = nearest;
       });
     };
@@ -624,10 +633,9 @@ function WorkCarousel({
 
   function scrollToIndex(target: number) {
     const track = trackRef.current;
-    const card = track?.children[target] as HTMLElement | undefined;
-    if (!track || !card) return;
+    if (!track || !track.children[target]) return;
     indexRef.current = target;
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    track.scrollTo({ left: offsetFor(track, target), behavior: "smooth" });
   }
 
   function step(dir: 1 | -1) {
@@ -641,6 +649,7 @@ function WorkCarousel({
     if (dir === -1 && atStart) return scrollToIndex(total - 1);
     scrollToIndex(((indexRef.current + dir) % total + total) % total);
   }
+
 
 
 
