@@ -632,7 +632,6 @@ function WorkCarousel({
 
   function step(dir: 1 | -1) {
     const track = trackRef.current;
-    const total = items.length;
     if (!track) return;
     const maxScroll = track.scrollWidth - track.clientWidth;
     const atEnd = track.scrollLeft >= maxScroll - 2;
@@ -642,6 +641,7 @@ function WorkCarousel({
     if (dir === -1 && atStart) return scrollToIndex(total - 1);
     scrollToIndex(((indexRef.current + dir) % total + total) % total);
   }
+
 
 
   const arrowClass =
