@@ -712,7 +712,9 @@ function WorkCarousel({
           </span>
         </button>
 
+        {items.map((cs) => (
           <Link
+
             key={cs.slug}
             to="/work/$slug"
             params={{ slug: cs.slug }}
