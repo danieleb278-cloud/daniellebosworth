@@ -517,15 +517,15 @@ function MagicSleekFieldCase({
             </p>
             <button
               type="button"
-              onClick={onToggle}
+              onClick={onClose}
               className="eyebrow shrink-0 text-teal link-underline"
             >
-              Close case ↑
+              Close case ✕
             </button>
           </div>
         </div>
-      )}
-    </section>
+      </div>
+    </div>
   );
 }
 
