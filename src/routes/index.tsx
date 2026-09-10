@@ -676,7 +676,42 @@ function WorkCarousel({
         ref={trackRef}
         className="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 md:-mx-12 md:px-12"
       >
-        {items.map((cs) => (
+        <button
+          type="button"
+          onClick={onOpenFieldCase}
+          aria-haspopup="dialog"
+          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+        >
+          <span className="eyebrow mb-3 block text-teal">Commercial field case</span>
+          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+            <img
+              src="/magic-sleek/partnership-pathway.svg"
+              alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
+              loading="lazy"
+              className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </span>
+          <span className="eyebrow mt-5 block text-muted-foreground">Magic Sleek · B2B Partner Expansion</span>
+          <span className="mt-2 block font-display text-2xl leading-[1.15] tracking-tight">
+            Building the system behind a ~$56K distributor launch
+            <span className="text-teal">.</span>
+          </span>
+          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+            I connected partner outreach, sales positioning, product education, and field enablement into one system
+            that supported the distributor launch.
+          </span>
+          <span className="mt-5 flex flex-wrap gap-2">
+            {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
+            Explore field case <span className="arrow" aria-hidden>→</span>
+          </span>
+        </button>
+
           <Link
             key={cs.slug}
             to="/work/$slug"
