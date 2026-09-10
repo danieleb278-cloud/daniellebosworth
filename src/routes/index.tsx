@@ -686,7 +686,7 @@ function WorkCarousel({ items }: { items: typeof caseStudies }) {
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={() => goTo(indexRef.current - 1)}
+            onClick={() => step(-1)}
             aria-label="Previous project"
             className={arrowClass}
           >
