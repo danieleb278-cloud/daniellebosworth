@@ -581,9 +581,17 @@ function Work() {
   );
 }
 
-function WorkCarousel({ items }: { items: typeof caseStudies }) {
+function WorkCarousel({
+  items,
+  onOpenFieldCase,
+}: {
+  items: typeof caseStudies;
+  onOpenFieldCase: () => void;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
+  const total = items.length + 1;
+
 
   // Keep the internal index synced with manual swiping / trackpad scrolling
   useEffect(() => {
