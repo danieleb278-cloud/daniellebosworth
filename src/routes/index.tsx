@@ -769,6 +769,40 @@ function WorkCarousel({
             </span>
           </Link>
         ))}
+
+        <button
+          type="button"
+          onClick={onOpenContentCase}
+          aria-haspopup="dialog"
+          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+        >
+          <span className="eyebrow mb-3 block text-teal">Content · Visual design</span>
+          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+            <img
+              src={noiseCover.url}
+              alt="NOISE visual attention study cover artwork"
+              loading="lazy"
+              className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </span>
+          <span className="mt-5 block font-display text-2xl leading-[1.15] tracking-tight">
+            Content &amp; Visual Communication
+            <span className="text-teal">.</span>
+          </span>
+          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+            Two explorations in translating ideas into attention, visual hierarchy, and multichannel communication.
+          </span>
+          <span className="mt-5 flex flex-wrap gap-2">
+            {["Content Strategy", "Visual Communication", "Creative Direction"].map((t) => (
+              <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
+                {t}
+              </span>
+            ))}
+          </span>
+          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
+            Explore the work <span className="arrow" aria-hidden>→</span>
+          </span>
+        </button>
       </div>
     </div>
   );
