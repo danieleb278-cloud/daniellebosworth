@@ -77,7 +77,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden shrink-0 items-center gap-5 md:flex lg:gap-8">
           {sections.map((s) => {
             const isActive = active === s.id;
             return (
