@@ -440,7 +440,7 @@ function MagicSleekFieldCase({
         <div id="magic-sleek-case-content" className="px-6 pb-12 pt-10 md:px-9 md:pb-16">
 
           <Reveal>
-            <p className="max-w-4xl font-display text-2xl leading-relaxed text-background/90 md:text-3xl">
+            <p className="max-w-4xl font-display text-xl leading-relaxed text-background/90 sm:text-2xl md:text-3xl">
               Magic Sleek had strong product expertise, but its distributor story was fragmented across outdated
               presentations, informal knowledge, and materials created for other audiences. I turned that information
               into a partner-ready sales and education system, while also opening the relationship that created the
