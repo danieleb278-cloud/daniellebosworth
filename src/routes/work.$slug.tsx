@@ -20,11 +20,11 @@ export const Route = createFileRoute("/work/$slug")({
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Case study — Danielle Bosworth" }] };
-    const url = `https://daniellebosworth.lovable.app/work/${params.slug}`;
+    const url = `https://madebydanielleb.com/work/${params.slug}`;
     const title = `${loaderData.study.title} — Danielle Bosworth`;
     const desc = loaderData.study.subtitle;
     const coverSrc = loaderData.study.cover?.src;
-    const imageUrl = coverSrc ? (coverSrc.startsWith("http") ? coverSrc : `https://daniellebosworth.lovable.app${coverSrc}`) : undefined;
+    const imageUrl = coverSrc ? (coverSrc.startsWith("http") ? coverSrc : `https://madebydanielleb.com${coverSrc}`) : undefined;
     return {
       meta: [
         { title }, { name: "description", content: desc },
