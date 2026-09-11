@@ -120,6 +120,9 @@ function Index() {
       <Contact />
       <Footer />
       <BackToTop />
+      <Link to="/connect" className="hidden" aria-hidden tabIndex={-1}>
+        Connect page
+      </Link>
     </div>
   );
 }
