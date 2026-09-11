@@ -143,9 +143,9 @@ export function ConnectPage() {
               const card = (
                 <>
                   <span className="font-mono text-[0.65rem] tracking-[0.18em] text-teal">0{index + 1}</span>
-                  <span className="mt-5 block font-display text-2xl leading-tight tracking-tight">{path.title}</span>
-                  <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">{path.themes}</span>
-                  <span className="mt-5 flex items-center justify-between border-t border-border pt-3 text-xs font-medium">
+                  <span className="mt-5 block font-display text-2xl leading-tight tracking-tight md:min-h-[3.75rem]">{path.title}</span>
+                  <span className="mt-2 block text-sm leading-relaxed text-muted-foreground md:min-h-[4.5rem]">{path.themes}</span>
+                  <span className="mt-5 flex items-center justify-between border-t border-border pt-3 text-xs font-medium md:mt-auto">
                     {path.resumeUrl ? "View tailored resume" : "Tailored resume link coming soon"}
                     <ArrowRight aria-hidden className="h-4 w-4" />
                   </span>
@@ -156,12 +156,12 @@ export function ConnectPage() {
                 <a
                   key={path.title}
                   href={path.resumeUrl}
-                  className="group card-lift min-h-44 rounded-sm border border-border bg-card p-5 focus-visible:outline-offset-4"
+                  className="group card-lift flex min-h-44 flex-col rounded-sm border border-border bg-card p-5 focus-visible:outline-offset-4"
                 >
                   {card}
                 </a>
               ) : (
-                <div key={path.title} className="min-h-44 rounded-sm border border-border bg-card p-5">
+                <div key={path.title} className="flex min-h-44 flex-col rounded-sm border border-border bg-card p-5">
                   {card}
                 </div>
               );
