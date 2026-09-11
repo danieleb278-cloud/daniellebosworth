@@ -120,9 +120,14 @@ function Index() {
       <Contact />
       <Footer />
       <BackToTop />
-      <Link to="/connect" className="hidden" aria-hidden tabIndex={-1}>
-        Connect page
-      </Link>
+      {import.meta.env.DEV ? (
+        <Link
+          to="/connect"
+          className="fixed bottom-5 left-5 z-50 rounded-sm border border-border bg-background px-3 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-foreground shadow-sm transition-colors hover:border-teal hover:text-teal"
+        >
+          Preview connect page
+        </Link>
+      ) : null}
     </div>
   );
 }
