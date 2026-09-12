@@ -113,13 +113,13 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
             <div className="clarity-resolution absolute z-20 text-left">
               <span className="clarity-kicker block font-mono text-[0.6rem] uppercase tracking-[0.28em] text-teal">
-                Patterns become visible
+                From complexity to
               </span>
               <span className="clarity-word mt-2 block font-display text-[clamp(3.5rem,8vw,6rem)] italic leading-none text-background">
                 Clarity
               </span>
               <span className="clarity-copy mt-4 block max-w-xs font-display text-base italic leading-snug text-background/75 sm:text-lg">
-                The opportunity is often in the connection.
+                Clear patterns. Better direction.
               </span>
             </div>
 
@@ -144,12 +144,12 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               onClick={() => setConnected((value) => !value)}
               className="inline-flex min-h-11 w-fit items-center gap-3 border-b border-teal pb-1 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
             >
-              {connected ? "Reset view" : "Reveal the connections"}
+              {connected ? "Reset view" : "Bring it into focus"}
               <span aria-hidden>{connected ? "↺" : "↗"}</span>
             </button>
             <p id="connection-state-description" aria-live="polite" className="sr-only">
               {connected
-                ? "The overlapping signals have resolved into clarity, designs, systems, and experiences."
+                ? "The overlapping signals have come into focus, revealing clarity, designs, systems, and experiences."
                 : "The signals are layered in an intentionally complex editorial composition."}
             </p>
           </div>
