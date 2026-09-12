@@ -758,7 +758,14 @@ function WorkCarousel({
                 src={cs.cover?.src}
                 alt={cs.cover?.alt}
                 fit="contain"
-                className="bg-paper transition-transform duration-700 group-hover:scale-[1.02]"
+                imageClassName={
+                  cs.slug === "supercuts"
+                    ? "scale-[1.12] group-hover:scale-[1.15]"
+                    : cs.slug === "robin" || cs.slug === "next-destination"
+                      ? "scale-[1.35] group-hover:scale-[1.39]"
+                      : ""
+                }
+                className="bg-paper"
               />
             </div>
             <h3 className="mt-5 font-display text-2xl tracking-tight">
