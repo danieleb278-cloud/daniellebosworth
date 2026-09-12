@@ -100,16 +100,16 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           aria-controls="connection-field"
           aria-describedby="connection-state-description"
           onClick={() => setConnected((value) => !value)}
-          className="state-toggle inline-flex min-h-11 items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-background/70 transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+          className="state-toggle inline-flex min-h-12 items-center gap-3 border border-background/25 px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
         >
-          <span aria-hidden>{connected ? "↺" : "＋"}</span>
-          {connected ? "Show starting point" : "See how I design solutions"}
+          <span aria-hidden>↻</span>
+          {connected ? "Show connections" : "Show starting point"}
         </button>
 
         <p id="connection-state-description" aria-live="polite" className="sr-only">
           {connected
-            ? "Danielle's portrait and personal statement about her cross-functional approach are emphasized."
-            : "The starting composition shows functional signals positioned around Danielle's headline and portrait."}
+            ? "The starting-point view shows Danielle's portrait and personal statement about her cross-functional approach."
+            : "The connections view shows functional signals positioned around Danielle's headline and portrait."}
         </p>
       </div>
 
@@ -176,23 +176,44 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .signal-label {
           position: absolute;
           font-family: var(--font-mono);
-          font-size: .65rem;
-          letter-spacing: .2em;
+          font-size: .9rem;
+          font-weight: 500;
+          letter-spacing: .14em;
           text-transform: uppercase;
-          color: color-mix(in oklab, var(--background) 52%, transparent);
+          color: color-mix(in oklab, var(--background) 74%, transparent);
           transition: opacity 500ms ease, color 500ms ease, transform 700ms cubic-bezier(.2,.78,.22,1);
         }
 
-        .signal-feedback { left: 47%; top: 45%; color: var(--teal); }
+        .signal-feedback {
+          left: 45%;
+          top: 43%;
+          color: var(--teal);
+          font-family: var(--font-display);
+          font-size: clamp(1.45rem, 2.2vw, 2.15rem);
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: -.015em;
+          text-transform: none;
+        }
         .signal-operations { left: 34%; top: 61%; }
         .signal-behavior { left: 2%; top: 70%; }
-        .signal-product { left: 55%; top: 75%; }
+        .signal-product {
+          left: 54%;
+          top: 74%;
+          color: var(--background);
+          font-family: var(--font-display);
+          font-size: clamp(1.65rem, 2.5vw, 2.5rem);
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: -.02em;
+          text-transform: none;
+        }
         .signal-experience { right: 2%; top: 68%; }
 
         .signal-rule {
           position: absolute;
           height: 1px;
-          background: color-mix(in oklab, var(--teal) 32%, transparent);
+          background: color-mix(in oklab, var(--teal) 52%, transparent);
           transform-origin: left center;
           transition: opacity 500ms ease, transform 750ms cubic-bezier(.2,.78,.22,1);
         }
@@ -206,10 +227,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           left: 49%;
           bottom: 5.75rem;
           z-index: 6;
-          width: min(22rem, 29%);
-          color: color-mix(in oklab, var(--background) 76%, transparent);
-          font-size: .82rem;
-          line-height: 1.55;
+          width: min(25rem, 32%);
+          color: color-mix(in oklab, var(--background) 88%, transparent);
+          font-size: clamp(1.125rem, 1.35vw, 1.3rem);
+          line-height: 1.58;
           opacity: 0;
           transform: translateY(1rem);
           transition: opacity 520ms ease 260ms, transform 700ms cubic-bezier(.2,.78,.22,1) 220ms;
@@ -223,7 +244,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           top: -2rem;
           color: var(--teal);
           font-family: var(--font-display);
-          font-size: 5.8rem;
+          font-size: 7.5rem;
           font-style: italic;
           line-height: 1;
           opacity: .75;
@@ -261,14 +282,14 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           opacity: 1;
           transform: translateY(0);
         }
-        .is-connected .signal-label { opacity: .13; }
+        .is-connected .signal-label { opacity: .1; }
         .is-connected .signal-rule { opacity: .12; transform: scaleX(.72); }
 
         @media (max-width: 1023px) {
           .editorial-hero { min-height: 43rem; }
           .portrait-integrated { width: 43%; height: 36rem; }
           .hero-headline { max-width: 9.4ch; }
-          .hero-note { left: 43%; width: 29%; font-size: .76rem; }
+          .hero-note { left: 41%; width: 35%; font-size: 1.05rem; }
           .cta-resume { left: 22rem; }
           .signal-feedback { left: 44%; }
           .signal-product { left: 48%; }
@@ -298,7 +319,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               linear-gradient(90deg, var(--charcoal) 0%, transparent 35%),
               linear-gradient(0deg, var(--charcoal) 0%, transparent 22%);
           }
-          .signal-label { font-size: .54rem; letter-spacing: .14em; }
+          .signal-label { font-size: .68rem; letter-spacing: .12em; }
+          .signal-feedback { font-size: clamp(1.05rem, 5vw, 1.35rem); }
+          .signal-product { font-size: clamp(1.25rem, 6vw, 1.65rem); }
           .signal-feedback { left: 4%; top: 38%; }
           .signal-operations { left: 2%; top: 48%; }
           .signal-behavior { left: 4%; top: 57%; writing-mode: vertical-rl; transform: rotate(180deg); }
@@ -310,15 +333,15 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .hero-note {
             left: 5%;
             bottom: 10.8rem;
-            width: 52%;
-            max-width: 13rem;
-            font-size: .7rem;
-            line-height: 1.5;
+            width: 56%;
+            max-width: 15rem;
+            font-size: .9rem;
+            line-height: 1.55;
           }
           .note-mark {
             left: -1.1rem;
             top: -1.8rem;
-            font-size: 4.5rem;
+            font-size: 5.4rem;
           }
           .cta-work { left: 0; bottom: 5rem; }
           .cta-resume { left: auto; right: 0; bottom: 5.35rem; }
@@ -330,7 +353,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .editorial-hero { min-height: 59rem; }
           .hero-headline { font-size: clamp(3rem, 15.5vw, 4.25rem); }
           .portrait-integrated { top: 19rem; width: 78%; }
-          .hero-note { width: 55%; bottom: 11.4rem; }
+          .hero-note { width: 58%; max-width: 14rem; bottom: 11.4rem; font-size: .86rem; }
           .cta-work { width: 100%; }
           .cta-resume { left: 0; right: auto; bottom: 3.2rem; }
           .state-toggle { bottom: .15rem; }
