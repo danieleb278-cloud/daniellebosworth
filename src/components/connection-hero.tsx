@@ -367,13 +367,13 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .quote-mark-open { left: -.8rem; top: -2.8rem; }
           .quote-mark-close { bottom: -3.4rem; right: -.15rem; }
           .quote-intro { margin-left: 3%; }
-          .quote-bridge { margin-top: .12rem; }
+          .quote-bridge { margin-left: 18%; margin-top: .05rem; }
           .quote-feedback { margin-top: .28rem; font-size: clamp(1.7rem, 7.4vw, 2.3rem); }
           .quote-context { margin-top: .35rem; max-width: 94%; }
-          .quote-transition { margin-top: .8rem; }
-          .quote-product { margin-left: 10%; font-size: clamp(2.3rem, 10vw, 3.15rem); }
+          .quote-transition { margin-top: .48rem; }
+          .quote-product { margin-left: 4%; margin-top: 0; font-size: clamp(2.3rem, 10vw, 3.15rem); }
           .quote-experience { margin-top: .4rem; max-width: 94%; }
-          .quote-learning { margin-top: .72rem; max-width: 94%; }
+          .quote-learning { margin-top: .4rem; max-width: 94%; }
           .word-systems { font-size: 2.3rem; }
           .word-behavior { font-size: 2.35rem; top: 40%; }
           .word-process { font-size: 1.9rem; left: 43%; }
