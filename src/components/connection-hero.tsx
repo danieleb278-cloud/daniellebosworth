@@ -79,7 +79,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             className={`word-field relative isolate h-[31rem] overflow-hidden border border-background/15 bg-background/[0.025] sm:h-[34rem] ${connected ? "is-connected" : ""} ${reduceMotion ? "reduce-motion" : ""}`}
             aria-label={
               connected
-                ? "Clarity revealed from overlapping signals, leading to designs, systems, and experiences."
+                ? "Danielle's approach to designing solutions is shown beside her portrait."
                 : "A layered field of human, information, process, and business signals."
             }
           >
@@ -113,13 +113,13 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
             <div className="clarity-resolution absolute z-20 text-left">
               <span className="clarity-kicker block font-mono text-[0.6rem] uppercase tracking-[0.28em] text-teal">
-                From complexity to
+                How I work
               </span>
-              <span className="clarity-word mt-2 block font-display text-[clamp(3.5rem,8vw,6rem)] italic leading-none text-background">
-                Clarity
+              <span className="clarity-word mt-2 block max-w-sm font-display text-[clamp(2.35rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.035em] text-background">
+                Designing solutions
               </span>
-              <span className="clarity-copy mt-4 block max-w-xs font-display text-base italic leading-snug text-background/75 sm:text-lg">
-                Clear patterns. Better direction.
+              <span className="clarity-copy mt-5 block max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
+                “I work best between departments, bringing together customer feedback, stakeholder needs, and day-to-day operations. Whether I’m shaping a product idea, improving an experience, or fixing a workflow, I use what I learn to design practical solutions.”
               </span>
             </div>
 
@@ -142,14 +142,14 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               aria-controls="connection-field"
               aria-describedby="connection-state-description"
               onClick={() => setConnected((value) => !value)}
-              className="inline-flex min-h-11 w-fit items-center gap-3 border-b border-teal pb-1 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+              className="inline-flex min-h-12 w-fit items-center justify-center gap-3 border border-teal bg-teal px-5 py-3 font-mono text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
             >
-              {connected ? "Reset view" : "Bring it into focus"}
-              <span aria-hidden>{connected ? "↺" : "↗"}</span>
+              <span aria-hidden>{connected ? "↺" : "▶"}</span>
+              {connected ? "Show starting point" : "See how I design solutions"}
             </button>
             <p id="connection-state-description" aria-live="polite" className="sr-only">
               {connected
-                ? "The overlapping signals have come into focus, revealing clarity, designs, systems, and experiences."
+                ? "Danielle's portrait and statement about how she designs solutions are now visible."
                 : "The signals are layered in an intentionally complex editorial composition."}
             </p>
           </div>
@@ -299,10 +299,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         @media (max-width: 639px) {
           .word-field { height: 32rem; }
           .portrait-field { right: 3%; top: 11%; width: 48%; height: 72%; opacity: 0; }
-          .clarity-resolution { left: 5%; top: 19%; width: 43%; }
-          .clarity-word { font-size: clamp(2.7rem, 13vw, 4rem) !important; }
+          .clarity-resolution { left: 5%; top: 14%; width: 49%; }
+          .clarity-word { font-size: clamp(2rem, 9vw, 3.15rem) !important; }
           .clarity-kicker { font-size: .5rem !important; letter-spacing: .18em !important; }
-          .clarity-copy { max-width: 10.5rem; font-size: .82rem !important; }
+          .clarity-copy { max-width: 15rem; font-size: .76rem !important; line-height: 1.5 !important; }
           .word-systems { font-size: 2.3rem; }
           .word-behavior { font-size: 2.35rem; top: 40%; }
           .word-process { font-size: 1.9rem; left: 43%; }
@@ -312,7 +312,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .word-strategy { left: 39%; font-size: 1.1rem; }
           .outcome-row { inset-inline: .8rem; gap: .4rem; }
           .outcome-row > div { font-size: .64rem !important; letter-spacing: .05em !important; }
-          .clarity-copy { max-width: 15rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
