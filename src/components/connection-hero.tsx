@@ -107,29 +107,23 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               ))}
             </div>
 
-            <blockquote className="clarity-resolution absolute z-20 text-center">
-              <span
-                aria-hidden
-                className="clarity-kicker block font-display text-[4.5rem] leading-[0.55] text-teal sm:text-[6rem]"
-              >
-                “
-              </span>
-              <p className="clarity-copy mx-auto mt-4 max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
-                I work best between departments, bringing together{" "}
-                <span className="font-medium text-teal">customer feedback</span>,{" "}
-                <span className="font-medium text-teal">stakeholder needs</span>, and{" "}
-                <span className="font-medium text-teal">day-to-day operations</span>.
-              </p>
-              <p className="clarity-copy mx-auto mt-3 max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
-                Whether I’m shaping a product idea, improving an experience, or fixing a workflow, I use what I learn to{" "}
-                <span className="font-display text-lg italic text-background sm:text-xl">design practical solutions.</span>
-              </p>
-              <span
-                aria-hidden
-                className="clarity-kicker mt-3 block font-display text-[4.5rem] leading-[0.45] text-teal sm:text-[6rem]"
-              >
-                ”
-              </span>
+            <blockquote className="clarity-resolution quote-composition absolute z-20">
+              <span aria-hidden className="clarity-kicker quote-mark quote-mark-open">“</span>
+              <div className="clarity-copy quote-lines">
+                <span className="quote-line quote-intro">I work best</span>
+                <span className="quote-line quote-departments">between departments,</span>
+                <span className="quote-line quote-bridge">bringing together</span>
+                <span className="quote-line quote-feedback">customer feedback</span>
+                <span className="quote-line quote-stakeholders">stakeholder needs, and</span>
+                <span className="quote-line quote-operations">day-to-day operations.</span>
+                <span className="quote-line quote-transition">Whether I’m shaping a</span>
+                <span className="quote-line quote-product">product</span>
+                <span className="quote-line quote-experience">improving an experience,</span>
+                <span className="quote-line quote-workflow">or fixing a workflow,</span>
+                <span className="quote-line quote-learning">I turn what I learn into</span>
+                <span className="quote-line quote-practical">practical <em>solutions.</em></span>
+              </div>
+              <span aria-hidden className="clarity-kicker quote-mark quote-mark-close">”</span>
             </blockquote>
           </div>
 
@@ -249,6 +243,99 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           transform: translateY(8px);
           transition: opacity 380ms ease 650ms, transform 520ms ease 620ms;
         }
+        .quote-composition {
+          text-wrap: balance;
+        }
+        .quote-lines {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: .12rem;
+          position: relative;
+          z-index: 1;
+        }
+        .quote-line {
+          display: block;
+          color: color-mix(in oklab, var(--background) 80%, transparent);
+          font-family: var(--font-sans);
+          font-size: .9rem;
+          line-height: 1.15;
+        }
+        .quote-mark {
+          position: absolute;
+          z-index: 0;
+          color: var(--teal);
+          font-family: var(--font-display);
+          font-size: 8.5rem;
+          font-style: italic;
+          line-height: 1;
+          opacity: .72;
+        }
+        .quote-mark-open { left: -1.8rem; top: -3.8rem; }
+        .quote-mark-close { bottom: -4.9rem; right: -.5rem; }
+        .quote-intro {
+          margin-left: 9%;
+          font-family: var(--font-display);
+          font-size: 1.3rem;
+          font-style: italic;
+        }
+        .quote-departments { margin-left: 19%; font-size: .98rem; }
+        .quote-bridge {
+          align-self: center;
+          margin-top: .55rem;
+          font-family: var(--font-mono);
+          font-size: .62rem;
+          letter-spacing: .18em;
+          text-transform: uppercase;
+        }
+        .quote-feedback {
+          align-self: flex-end;
+          color: var(--teal);
+          font-family: var(--font-display);
+          font-size: clamp(2rem, 4vw, 3.25rem);
+          font-style: italic;
+          line-height: .9;
+          letter-spacing: -.035em;
+        }
+        .quote-stakeholders { align-self: center; margin-top: .3rem; }
+        .quote-operations { align-self: flex-end; font-family: var(--font-display); font-size: 1.05rem; }
+        .quote-transition {
+          margin-left: 5%;
+          margin-top: .75rem;
+          font-family: var(--font-mono);
+          font-size: .6rem;
+          letter-spacing: .1em;
+          text-transform: uppercase;
+        }
+        .quote-product {
+          margin-left: 18%;
+          color: var(--background);
+          font-family: var(--font-display);
+          font-size: clamp(2.8rem, 5.6vw, 4.5rem);
+          font-style: italic;
+          line-height: .82;
+          letter-spacing: -.045em;
+        }
+        .quote-experience { align-self: flex-end; margin-top: .35rem; }
+        .quote-workflow { align-self: center; }
+        .quote-learning { margin-left: 4%; margin-top: .45rem; }
+        .quote-practical {
+          align-self: flex-end;
+          border-bottom: 1px solid color-mix(in oklab, var(--teal) 72%, transparent);
+          color: var(--background);
+          font-family: var(--font-mono);
+          font-size: .72rem;
+          letter-spacing: .13em;
+          padding-bottom: .18rem;
+          text-transform: uppercase;
+        }
+        .quote-practical em {
+          color: var(--teal);
+          font-family: var(--font-display);
+          font-size: 1.35rem;
+          letter-spacing: 0;
+          text-transform: none;
+        }
 
         .is-connected .support-word {
           opacity: 0;
@@ -288,9 +375,23 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         @media (max-width: 639px) {
           .word-field { height: 32rem; }
           .portrait-field { right: 3%; top: 11%; width: 48%; height: 72%; opacity: 0; }
-          .clarity-resolution { left: 4%; top: 13%; width: 52%; }
-          .clarity-kicker { font-size: 4rem !important; letter-spacing: 0 !important; }
-          .clarity-copy { max-width: 15.5rem; font-size: .76rem !important; line-height: 1.5 !important; }
+          .clarity-resolution { left: 4%; top: 12%; width: 52%; }
+          .quote-lines { gap: .1rem; }
+          .quote-line { font-size: .68rem; line-height: 1.15; }
+          .quote-mark { font-size: 5.7rem !important; }
+          .quote-mark-open { left: -.8rem; top: -2.8rem; }
+          .quote-mark-close { bottom: -3.7rem; right: -.15rem; }
+          .quote-intro { margin-left: 5%; font-size: 1rem; }
+          .quote-departments { margin-left: 13%; font-size: .76rem; }
+          .quote-bridge { margin-top: .38rem; font-size: .48rem; letter-spacing: .12em; }
+          .quote-feedback { font-size: clamp(1.65rem, 7.2vw, 2.25rem); }
+          .quote-operations { font-size: .8rem; }
+          .quote-transition { margin-top: .55rem; font-size: .46rem; letter-spacing: .06em; }
+          .quote-product { margin-left: 10%; font-size: clamp(2.25rem, 10vw, 3.1rem); }
+          .quote-experience { margin-top: .25rem; }
+          .quote-learning { margin-top: .3rem; }
+          .quote-practical { font-size: .52rem; letter-spacing: .08em; }
+          .quote-practical em { font-size: 1rem; }
           .word-systems { font-size: 2.3rem; }
           .word-behavior { font-size: 2.35rem; top: 40%; }
           .word-process { font-size: 1.9rem; left: 43%; }
