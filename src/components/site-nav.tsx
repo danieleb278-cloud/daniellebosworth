@@ -137,7 +137,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           ))}
           <li>
             <a
-              href="mailto:Danieleb278@gmail.com"
+              href="mailto:contact.madebydanielleb@gmail.com"
               onClick={() => setOpen(false)}
               className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-teal"
             >
