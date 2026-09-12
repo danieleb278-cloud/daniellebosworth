@@ -6,6 +6,7 @@ type Props = {
   alt?: string;
   tone?: "paper" | "ink";
   className?: string;
+  imageClassName?: string;
   fit?: "cover" | "contain" | "cover-top";
   priority?: boolean;
 };
@@ -22,6 +23,7 @@ export function PlaceholderImage({
   alt = "",
   tone = "paper",
   className = "",
+  imageClassName = "",
   fit = "cover",
   priority = false,
 }: Props) {
@@ -40,7 +42,7 @@ export function PlaceholderImage({
           <img
             src={src}
             alt={alt}
-            className={`absolute inset-0 h-full w-full ${
+            className={`absolute inset-0 h-full w-full transition-transform duration-700 ${imageClassName} ${
               fit === "contain"
                 ? "object-contain p-6"
                 : fit === "cover-top"
