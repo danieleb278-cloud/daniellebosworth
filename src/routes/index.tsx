@@ -677,6 +677,19 @@ function WorkCarousel({
 
   const arrowClass =
     "grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-base leading-none text-foreground transition-colors hover:border-teal hover:text-teal";
+  const cardClass =
+    "group grid w-[80%] shrink-0 snap-start grid-rows-[auto_2.5rem_minmax(5.75rem,auto)_minmax(8rem,1fr)_auto] self-stretch border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]";
+  const mediaClass = "block aspect-video overflow-hidden border border-border bg-charcoal p-2";
+  const mediaImageClass = "block h-full w-full bg-paper object-contain transition-transform duration-700";
+  const metadataClass = "eyebrow mt-5 block self-start text-muted-foreground";
+  const titleClass = "mt-1 block self-start font-display text-2xl leading-[1.15] tracking-tight";
+  const descriptionClass = "mt-2 block self-start text-sm leading-relaxed text-muted-foreground";
+  const tagsClass = "mt-5 flex min-h-[4.5rem] content-start flex-wrap gap-2 self-end";
+  const metadataBySlug: Record<string, string> = {
+    robin: "Industry RFP · Product Discovery",
+    "next-destination": "End-to-End Product Design",
+    supercuts: "Operations · Customer Experience",
+  };
 
   return (
     <div className="mt-16">
@@ -711,77 +724,67 @@ function WorkCarousel({
           type="button"
           onClick={onOpenFieldCase}
           aria-haspopup="dialog"
-          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+          className={cardClass}
         >
-          <span className="eyebrow mb-3 block text-teal">Commercial field case</span>
-          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+          <span className={mediaClass}>
             <img
               src="/magic-sleek/partnership-pathway.svg"
               alt="Five-stage pathway from initiating distributor contact through an initial distributor order"
               loading="lazy"
-              className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+              className={`${mediaImageClass} bg-charcoal group-hover:scale-[1.02]`}
             />
           </span>
-          <span className="eyebrow mt-5 block text-muted-foreground">Magic Sleek · B2B Partner Expansion</span>
-          <span className="mt-2 block font-display text-2xl leading-[1.15] tracking-tight">
+          <span className={metadataClass}>Magic Sleek · B2B Partner Expansion</span>
+          <span className={titleClass}>
             Building the system behind a ~$56K distributor launch
             <span className="text-teal">.</span>
           </span>
-          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+          <span className={descriptionClass}>
             I connected partner outreach, sales positioning, product education, and field enablement into one system
             that supported the distributor launch.
           </span>
-          <span className="mt-5 flex flex-wrap gap-2">
+          <span className={tagsClass}>
             {["B2B Strategy", "Partner Enablement", "Cross-Functional Execution"].map((t) => (
               <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
                 {t}
               </span>
             ))}
           </span>
-          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
-            Explore field case <span className="arrow" aria-hidden>→</span>
-          </span>
         </button>
 
         {items.map((cs) => (
           <Link
-
             key={cs.slug}
             to="/work/$slug"
             params={{ slug: cs.slug }}
-            className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 card-lift sm:w-[52%] lg:w-[38%]"
+            className={cardClass}
           >
-            <div className="overflow-hidden border border-border bg-charcoal p-2">
-              <PlaceholderImage
-                label={`Project ${cs.index}`}
-                ratio="16/9"
+            <span className={mediaClass}>
+              <img
                 src={cs.cover?.src}
-                alt={cs.cover?.alt}
-                fit="contain"
-                imageClassName={
+                alt={cs.cover?.alt ?? `${cs.title} project cover`}
+                loading="lazy"
+                className={`${mediaImageClass} ${
                   cs.slug === "supercuts"
-                    ? "scale-[1.12] group-hover:scale-[1.15]"
+                    ? "bg-charcoal scale-[1.03] group-hover:scale-[1.06]"
                     : cs.slug === "robin" || cs.slug === "next-destination"
-                      ? "scale-[1.35] group-hover:scale-[1.39]"
-                      : ""
-                }
-                className="bg-paper"
+                      ? "scale-[1.18] group-hover:scale-[1.22]"
+                      : "group-hover:scale-[1.02]"
+                }`}
               />
-            </div>
-            <h3 className="mt-5 font-display text-2xl tracking-tight">
+            </span>
+            <span className={metadataClass}>{metadataBySlug[cs.slug] ?? cs.discipline}</span>
+            <h3 className={titleClass}>
               {cs.title}
               <span className="text-teal">.</span>
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.homeSubtitle ?? cs.subtitle}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <p className={descriptionClass}>{cs.homeSubtitle ?? cs.subtitle}</p>
+            <span className={tagsClass}>
               {cs.tags.slice(0, 3).map((t) => (
                 <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
                   {t}
                 </span>
               ))}
-            </div>
-            <span className="eyebrow arrow-slide link-underline mt-auto pt-6 text-teal">
-              See full case study <span className="arrow" aria-hidden>→</span>
             </span>
           </Link>
         ))}
@@ -790,33 +793,30 @@ function WorkCarousel({
           type="button"
           onClick={onOpenContentCase}
           aria-haspopup="dialog"
-          className="group flex w-[80%] shrink-0 snap-start flex-col border border-border bg-card p-5 text-left card-lift sm:w-[52%] lg:w-[38%]"
+          className={cardClass}
         >
-          <span className="eyebrow mb-3 block text-teal">Content · Visual design</span>
-          <span className="block overflow-hidden border border-border bg-charcoal p-2">
+          <span className={mediaClass}>
             <img
               src={noiseCover.url}
               alt="NOISE visual attention study cover artwork"
               loading="lazy"
-              className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+              className={`${mediaImageClass} object-cover group-hover:scale-[1.02]`}
             />
           </span>
-          <span className="mt-5 block font-display text-2xl leading-[1.15] tracking-tight">
+          <span className={metadataClass}>Content Strategy · Visual Design</span>
+          <span className={titleClass}>
             Content &amp; Visual Communication
             <span className="text-teal">.</span>
           </span>
-          <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+          <span className={descriptionClass}>
             Two explorations in translating ideas into attention, visual hierarchy, and multichannel communication.
           </span>
-          <span className="mt-5 flex flex-wrap gap-2">
+          <span className={tagsClass}>
             {["Content Strategy", "Visual Communication", "Creative Direction"].map((t) => (
               <span key={t} className="eyebrow rounded-full border border-border px-3 py-1">
                 {t}
               </span>
             ))}
-          </span>
-          <span className="eyebrow arrow-slide link-underline mt-auto block pt-6 text-teal">
-            Explore the work <span className="arrow" aria-hidden>→</span>
           </span>
         </button>
       </div>
