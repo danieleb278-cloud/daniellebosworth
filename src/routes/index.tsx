@@ -291,7 +291,10 @@ function CommercialImpact() {
 
         <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-3">
           {commercialImpact.map((item) => (
-            <div key={item.index} className="flex items-baseline gap-4">
+            <div
+              key={item.index}
+              className="grid grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 sm:flex sm:grid-cols-none sm:gap-4"
+            >
               <span className="font-display text-3xl leading-none tracking-[-0.03em] text-background md:text-4xl">
                 {item.outcome}
               </span>
