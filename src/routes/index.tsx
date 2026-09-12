@@ -1167,7 +1167,7 @@ function Contact() {
               <div className="flex h-full flex-col gap-10">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
-                    href="mailto:Danieleb278@gmail.com"
+                    href="mailto:contact.madebydanielleb@gmail.com"
                     className="inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2.5 text-background transition-colors hover:bg-transparent hover:text-teal"
                   >
                     Email me →
@@ -1383,7 +1383,7 @@ function ContactForm() {
         {status === "error" && errorMsg && (
           <p className="mt-3 text-sm text-accent">
             {errorMsg}{" "}
-            <a href="mailto:Danieleb278@gmail.com" className="text-teal link-underline">
+            <a href="mailto:contact.madebydanielleb@gmail.com" className="text-teal link-underline">
               Email me directly
             </a>
           </p>
