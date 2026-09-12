@@ -1,30 +1,16 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useState } from "react";
 
 type ConnectionHeroProps = {
   portraitUrl: string;
   resumeUrl: string;
 };
 
-const coreWords = [
-  { label: "Behavior", className: "word-behavior" },
-  { label: "Information", className: "word-information" },
-  { label: "Friction", className: "word-friction" },
-  { label: "Constraints", className: "word-constraints" },
-  { label: "Business needs", className: "word-business" },
-  { label: "Contradictions", className: "word-contradictions" },
-] as const;
-
-const supportingWords = [
-  { label: "Systems", className: "word-systems" },
-  { label: "Patterns", className: "word-patterns" },
-  { label: "Research", className: "word-research" },
-  { label: "Signals", className: "word-signals" },
-  { label: "Human", className: "word-human" },
-  { label: "Process", className: "word-process" },
-  { label: "Structure", className: "word-structure" },
-  { label: "Context", className: "word-context" },
-  { label: "Strategy", className: "word-strategy" },
-  { label: "Experience", className: "word-experience" },
+const signals = [
+  { label: "Customer feedback", className: "signal-feedback" },
+  { label: "Operations", className: "signal-operations" },
+  { label: "Human behavior", className: "signal-behavior" },
+  { label: "Product", className: "signal-product" },
+  { label: "Experience", className: "signal-experience" },
 ] as const;
 
 export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) {
@@ -37,354 +23,326 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
       setReduceMotion(media.matches);
       if (media.matches) setConnected(true);
     };
+
     update();
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
   }, []);
 
   return (
-    <section className="connection-hero relative overflow-hidden bg-charcoal px-6 pb-20 pt-32 text-background md:px-12 md:pb-28 md:pt-44">
+    <section className="connection-hero relative overflow-hidden bg-charcoal px-6 pb-12 pt-32 text-background md:px-12 md:pb-16 md:pt-40">
       <div aria-hidden className="connection-hero-grid absolute inset-0 opacity-30" />
-      <div className="relative mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(34rem,1.08fr)] lg:items-center lg:gap-16">
-        <div className="max-w-3xl">
-          <p className="eyebrow !text-teal">Systems-minded product &amp; experience strategist</p>
-          <h1 className="mt-7 max-w-[12ch] font-display text-[clamp(3.2rem,6.8vw,7rem)] leading-[0.91] tracking-[-0.055em] text-background">
-            I see connections others <span className="italic text-teal">overlook.</span>
-          </h1>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#work"
-              className="arrow-slide inline-flex min-h-12 items-center justify-center border border-teal bg-teal px-6 py-3 font-mono text-xs uppercase tracking-[0.16em] text-charcoal transition-colors hover:bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
-            >
-              Explore selected work <span aria-hidden className="arrow">→</span>
-            </a>
-            <a
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center border border-background/35 px-6 py-3 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
-            >
-              View résumé
-            </a>
-          </div>
+
+      <div
+        id="connection-field"
+        className={`editorial-hero relative mx-auto max-w-[1400px] ${
+          connected ? "is-connected" : ""
+        } ${reduceMotion ? "reduce-motion" : ""}`}
+        aria-label={
+          connected
+            ? "Danielle's portrait and a personal note about her cross-functional approach."
+            : "An editorial composition connecting customer feedback, operations, human behavior, product, and experience."
+        }
+      >
+        <p className="hero-eyebrow eyebrow !text-teal">Systems-minded product &amp; experience strategist</p>
+
+        <h1 className="hero-headline font-display text-[clamp(3.2rem,7.2vw,7.35rem)] leading-[0.88] tracking-[-0.06em] text-background">
+          I see connections others <span className="italic text-teal">overlook.</span>
+        </h1>
+
+        <div aria-hidden className="portrait-integrated">
+          <img src={portraitUrl} alt="" className="h-full w-full object-cover object-top grayscale" />
+          <div className="portrait-veil absolute inset-0" />
         </div>
 
-        <div className="min-w-0">
-          <div
-            id="connection-field"
-            className={`word-field relative isolate h-[31rem] overflow-hidden border border-background/15 bg-background/[0.025] sm:h-[34rem] ${connected ? "is-connected" : ""} ${reduceMotion ? "reduce-motion" : ""}`}
-            aria-label={
-              connected
-                ? "Danielle's statement about how she approaches cross-functional problems is shown beside her portrait."
-                : "A layered field of human, information, process, and business signals."
-            }
-          >
-            <div aria-hidden className="portrait-field absolute z-0">
-              <img src={portraitUrl} alt="" className="h-full w-full object-cover object-top grayscale" />
-              <div className="portrait-wash absolute inset-0" />
-            </div>
-
-            <div aria-hidden className="focus-glow absolute left-1/2 top-[46%] z-[1] h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full" />
-
-            <div className="word-cloud absolute inset-0 z-10" aria-hidden>
-              {supportingWords.map((word, index) => (
-                <span
-                  key={word.label}
-                  className={`cloud-word support-word ${word.className}`}
-                  style={{ "--word-index": index } as CSSProperties}
-                >
-                  {word.label}
-                </span>
-              ))}
-              {coreWords.map((word, index) => (
-                <span
-                  key={word.label}
-                  className={`cloud-word core-word ${word.className}`}
-                  style={{ "--word-index": index } as CSSProperties}
-                >
-                  {word.label}
-                </span>
-              ))}
-            </div>
-
-            <blockquote className="clarity-resolution quote-composition absolute z-20">
-              <span aria-hidden className="clarity-kicker quote-mark quote-mark-open">“</span>
-              <div className="clarity-copy quote-lines">
-                <span className="quote-line quote-intro">I work best between departments,</span>
-                <span className="quote-line quote-bridge">bringing together</span>
-                <span className="quote-line quote-feedback">customer feedback</span>
-                <span className="quote-line quote-context">stakeholder needs, and day-to-day operations.</span>
-
-                <span className="quote-line quote-transition">Whether I’m shaping a</span>
-                <span className="quote-line quote-product">product</span>
-                <span className="quote-line quote-experience">improving an experience, or fixing a workflow,</span>
-
-                <span className="quote-line quote-learning">
-                  I turn what I learn into practical solutions.
-                </span>
-              </div>
-              <span aria-hidden className="clarity-kicker quote-mark quote-mark-close">”</span>
-            </blockquote>
-          </div>
-
-          <div className="mt-5 flex items-center justify-between gap-5">
-            <button
-              type="button"
-              aria-expanded={connected}
-              aria-controls="connection-field"
-              aria-describedby="connection-state-description"
-              onClick={() => setConnected((value) => !value)}
-              className="inline-flex min-h-12 w-fit items-center justify-center gap-3 border border-teal bg-teal px-5 py-3 font-mono text-xs uppercase tracking-[0.14em] text-charcoal transition-colors hover:bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
-            >
-              <span aria-hidden>{connected ? "↺" : "▶"}</span>
-              {connected ? "Show starting point" : "See how I design solutions"}
-            </button>
-            <p id="connection-state-description" aria-live="polite" className="sr-only">
-              {connected
-                ? "Danielle's portrait and statement about how she approaches cross-functional problems are now visible."
-                : "The signals are layered in an intentionally complex editorial composition."}
-            </p>
-          </div>
+        <div aria-hidden className="signal-field">
+          {signals.map((signal) => (
+            <span key={signal.label} className={`signal-label ${signal.className}`}>
+              {signal.label}
+            </span>
+          ))}
+          <span className="signal-rule rule-one" />
+          <span className="signal-rule rule-two" />
+          <span className="signal-rule rule-three" />
         </div>
+
+        <blockquote className="hero-note">
+          <span aria-hidden className="note-mark">“</span>
+          <p>
+            I work best between departments, bringing together customer feedback, stakeholder needs, and day-to-day
+            operations.
+          </p>
+          <p>
+            Whether I’m shaping a product, improving an experience, or fixing a workflow, I turn what I learn into
+            practical solutions.
+          </p>
+        </blockquote>
+
+        <a
+          href="#work"
+          className="cta-work arrow-slide inline-flex min-h-12 items-center justify-center border border-teal bg-teal px-6 py-3 font-mono text-xs uppercase tracking-[0.16em] text-charcoal transition-colors hover:bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+        >
+          Explore selected work <span aria-hidden className="arrow">→</span>
+        </a>
+
+        <a
+          href={resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-resume inline-flex min-h-11 items-center border-b border-background/40 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+        >
+          View résumé <span aria-hidden className="ml-3">↗</span>
+        </a>
+
+        <button
+          type="button"
+          aria-expanded={connected}
+          aria-controls="connection-field"
+          aria-describedby="connection-state-description"
+          onClick={() => setConnected((value) => !value)}
+          className="state-toggle inline-flex min-h-11 items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-background/70 transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+        >
+          <span aria-hidden>{connected ? "↺" : "＋"}</span>
+          Pragmatic
+          {connected ? "Show starting point" : "See how I design solutions"}
+        </button>
+
+        <p id="connection-state-description" aria-live="polite" className="sr-only">
+          {connected
+            ? "Danielle's portrait and personal statement about her cross-functional approach are emphasized."
+            : "The starting composition shows functional signals positioned around Danielle's headline and portrait."}
+        </p>
       </div>
 
       <style>{`
         .connection-hero-grid {
           background-image:
-            linear-gradient(color-mix(in oklab, var(--teal) 9%, transparent) 1px, transparent 1px),
-            linear-gradient(90deg, color-mix(in oklab, var(--teal) 9%, transparent) 1px, transparent 1px);
+            linear-gradient(color-mix(in oklab, var(--teal) 8%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in oklab, var(--teal) 8%, transparent) 1px, transparent 1px);
           background-size: 72px 72px;
-          mask-image: linear-gradient(to bottom, black, transparent 92%);
+          mask-image: linear-gradient(to bottom, black, transparent 96%);
         }
-        .word-field {
-          background:
-            radial-gradient(circle at 73% 42%, color-mix(in oklab, var(--teal) 8%, transparent), transparent 39%),
-            color-mix(in oklab, var(--charcoal) 96%, black);
+
+        .editorial-hero {
+          min-height: 45rem;
+          isolation: isolate;
+          border-bottom: 1px solid color-mix(in oklab, var(--background) 16%, transparent);
         }
-        .portrait-field {
-          right: 3%;
-          top: 7%;
-          width: 44%;
-          height: 82%;
-          overflow: hidden;
-          opacity: 0;
-          transform: scale(.92) translateY(12px);
-          transform-origin: center;
-          transition: opacity 520ms ease 420ms, transform 760ms cubic-bezier(.2,.78,.22,1) 380ms, filter 620ms ease 380ms;
-        }
-        .portrait-wash {
-          background: linear-gradient(90deg, color-mix(in oklab, var(--charcoal) 44%, transparent), transparent 24%);
-          opacity: 1;
-          transition: opacity 420ms ease 460ms;
-        }
-        .focus-glow {
-          background: color-mix(in oklab, var(--teal) 22%, transparent);
-          filter: blur(46px);
-          opacity: 0;
-          transform: translate(-50%, -50%) scale(.45);
-          transition: opacity 500ms ease 310ms, transform 760ms cubic-bezier(.2,.78,.22,1) 260ms;
-        }
-        .cloud-word {
+
+        .hero-eyebrow {
           position: absolute;
-          display: block;
-          white-space: nowrap;
-          line-height: .88;
-          color: var(--background);
-          transition:
-            left 860ms cubic-bezier(.2,.78,.22,1),
-            top 860ms cubic-bezier(.2,.78,.22,1),
-            transform 860ms cubic-bezier(.2,.78,.22,1),
-            opacity 620ms ease,
-            filter 700ms ease,
-            letter-spacing 860ms cubic-bezier(.2,.78,.22,1);
-          transition-delay: calc(var(--word-index) * 22ms);
+          left: 0;
+          top: 1.25rem;
+          z-index: 6;
         }
-        .support-word {
-          font-family: var(--font-mono);
-          text-transform: uppercase;
-          letter-spacing: .18em;
-          opacity: .45;
-        }
-        .core-word { z-index: 2; }
 
-        .word-systems { left: 5%; top: 12%; font-family: var(--font-sans); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 600; letter-spacing: -.05em; opacity: .76; }
-        .word-patterns { right: 4%; top: 7%; font-size: clamp(.7rem, 1.6vw, 1rem); color: var(--teal); }
-        .word-research { left: 9%; top: 31%; font-size: clamp(.62rem, 1.3vw, .82rem); }
-        .word-signals { left: 47%; top: 28%; font-size: clamp(.78rem, 1.6vw, 1rem); opacity: .65; }
-        .word-human { right: 5%; top: 35%; font-size: clamp(.62rem, 1.3vw, .82rem); color: var(--teal); }
-        .word-process { left: 48%; top: 68%; font-family: var(--font-sans); font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 600; letter-spacing: -.04em; opacity: .55; }
-        .word-structure { right: 5%; top: 55%; font-size: clamp(.65rem, 1.4vw, .88rem); }
-        .word-context { left: 5%; top: 83%; font-size: clamp(.6rem, 1.2vw, .76rem); writing-mode: vertical-rl; transform: rotate(180deg); }
-        .word-strategy { left: 41%; top: 12%; font-family: var(--font-display); font-size: clamp(1.15rem, 2.7vw, 2rem); font-style: italic; letter-spacing: .01em; opacity: .48; }
-        .word-experience { left: 8%; top: 67%; font-family: var(--font-sans); font-size: clamp(1.15rem, 2.8vw, 2.05rem); letter-spacing: -.02em; opacity: .48; }
-
-        .word-behavior { left: 6%; top: 39%; font-family: var(--font-sans); font-size: clamp(2.25rem, 5.2vw, 4.2rem); font-weight: 600; letter-spacing: -.055em; opacity: .94; }
-        .word-information { right: 5%; top: 20%; font-family: var(--font-mono); font-size: clamp(.72rem, 1.55vw, 1rem); letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
-        .word-friction { left: 56%; top: 42%; font-family: var(--font-display); font-size: clamp(1.35rem, 3vw, 2.3rem); font-style: italic; letter-spacing: .02em; opacity: .82; }
-        .word-constraints { left: 10%; top: 60%; font-family: var(--font-mono); font-size: clamp(.72rem, 1.45vw, .95rem); letter-spacing: .17em; text-transform: uppercase; opacity: .57; }
-        .word-business { left: 33%; top: 80%; font-family: var(--font-mono); font-size: clamp(.68rem, 1.4vw, .9rem); letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
-        .word-contradictions { right: 3%; top: 77%; font-family: var(--font-display); font-size: clamp(1.2rem, 2.7vw, 2rem); font-style: italic; opacity: .74; }
-
-        .clarity-resolution {
-          opacity: 0;
-          pointer-events: none;
-        }
-        .clarity-resolution {
-          left: 6%;
-          top: 22%;
-          width: 42%;
-          filter: blur(13px);
-          transform: scale(.82) translateY(10px);
-          transform-origin: left center;
-          transition: opacity 470ms ease 430ms, filter 650ms ease 390ms, transform 720ms cubic-bezier(.2,.78,.22,1) 360ms;
-        }
-        .clarity-kicker, .clarity-copy {
-          opacity: 0;
-          transform: translateY(8px);
-          transition: opacity 380ms ease 650ms, transform 520ms ease 620ms;
-        }
-        .quote-composition {
+        .hero-headline {
+          position: absolute;
+          left: 0;
+          top: 5.25rem;
+          z-index: 5;
+          max-width: 10.2ch;
           text-wrap: balance;
         }
-        .quote-lines {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          position: relative;
-          z-index: 1;
-        }
-        .quote-line {
-          display: block;
-          color: color-mix(in oklab, var(--background) 80%, transparent);
-          font-family: var(--font-sans);
-          font-size: .9rem;
-          line-height: 1.35;
-        }
-        .quote-mark {
+
+        .portrait-integrated {
           position: absolute;
-          z-index: 0;
-          color: var(--teal);
-          font-family: var(--font-display);
-          font-size: 8.5rem;
-          font-style: italic;
-          line-height: 1;
-          opacity: .6;
-        }
-        .quote-mark-open { left: -1.8rem; top: -3.8rem; }
-        .quote-mark-close { bottom: -4.7rem; right: -.4rem; }
-        .quote-intro {
-          margin-left: 7%;
-          font-weight: 500;
-        }
-        .quote-bridge {
-          align-self: flex-start;
-          margin-left: 25%;
-          margin-top: .08rem;
-        }
-        .quote-feedback {
-          align-self: flex-end;
-          margin-top: .35rem;
-          color: var(--teal);
-          font-family: var(--font-display);
-          font-size: clamp(2.15rem, 4.3vw, 3.4rem);
-          font-style: italic;
-          line-height: .92;
-          letter-spacing: -.035em;
-        }
-        .quote-context {
-          align-self: center;
-          margin-top: .45rem;
-          max-width: 90%;
-        }
-        .quote-transition {
-          margin-left: 4%;
-          margin-top: .7rem;
-        }
-        .quote-product {
-          margin-left: 8%;
-          margin-top: .05rem;
-          color: var(--background);
-          font-family: var(--font-display);
-          font-size: clamp(2.9rem, 5.8vw, 4.6rem);
-          font-style: italic;
-          line-height: .84;
-          letter-spacing: -.045em;
-        }
-        .quote-experience {
-          align-self: flex-end;
-          margin-top: .55rem;
-          max-width: 88%;
-        }
-        .quote-learning {
-          margin-left: 5%;
-          margin-top: .55rem;
-          max-width: 88%;
-          font-weight: 500;
+          right: 1.5%;
+          top: 1rem;
+          z-index: 2;
+          width: 38%;
+          height: 39rem;
+          overflow: hidden;
+          opacity: .58;
+          transform: translateX(1.5rem);
+          transition: opacity 700ms ease, transform 850ms cubic-bezier(.2,.78,.22,1), filter 700ms ease;
+          mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 100%);
         }
 
-        .is-connected .support-word {
-          opacity: 0;
-          filter: blur(8px);
-          transform: scale(.88);
+        .portrait-veil {
+          background:
+            linear-gradient(90deg, var(--charcoal) 0%, transparent 32%),
+            linear-gradient(0deg, var(--charcoal) 0%, transparent 18%);
+          opacity: .88;
+          transition: opacity 650ms ease;
         }
-        .is-connected .core-word {
-          left: 50%;
-          top: 43%;
-          opacity: 0;
-          filter: blur(10px);
-          transform: translate(-50%, -50%) scale(.72);
-          letter-spacing: -.04em;
+
+        .signal-field {
+          position: absolute;
+          inset: 0;
+          z-index: 4;
+          pointer-events: none;
         }
-        .is-connected .portrait-field {
+
+        .signal-label {
+          position: absolute;
+          font-family: var(--font-mono);
+          font-size: .65rem;
+          letter-spacing: .2em;
+          text-transform: uppercase;
+          color: color-mix(in oklab, var(--background) 52%, transparent);
+          transition: opacity 500ms ease, color 500ms ease, transform 700ms cubic-bezier(.2,.78,.22,1);
+        }
+
+        .signal-feedback { left: 47%; top: 45%; color: var(--teal); }
+        .signal-operations { left: 34%; top: 61%; }
+        .signal-behavior { left: 2%; top: 70%; }
+        .signal-product { left: 55%; top: 75%; }
+        .signal-experience { right: 2%; top: 68%; }
+
+        .signal-rule {
+          position: absolute;
+          height: 1px;
+          background: color-mix(in oklab, var(--teal) 32%, transparent);
+          transform-origin: left center;
+          transition: opacity 500ms ease, transform 750ms cubic-bezier(.2,.78,.22,1);
+        }
+
+        .rule-one { left: 32%; top: 48%; width: 12%; transform: rotate(-8deg); }
+        .rule-two { left: 22%; top: 67%; width: 9%; transform: rotate(6deg); }
+        .rule-three { left: 62%; top: 72%; width: 11%; transform: rotate(-5deg); }
+
+        .hero-note {
+          position: absolute;
+          left: 49%;
+          bottom: 5.75rem;
+          z-index: 6;
+          width: min(22rem, 29%);
+          color: color-mix(in oklab, var(--background) 76%, transparent);
+          font-size: .82rem;
+          line-height: 1.55;
+          opacity: 0;
+          transform: translateY(1rem);
+          transition: opacity 520ms ease 260ms, transform 700ms cubic-bezier(.2,.78,.22,1) 220ms;
+        }
+
+        .hero-note p + p { margin-top: .7rem; }
+
+        .note-mark {
+          position: absolute;
+          left: -2.6rem;
+          top: -2rem;
+          color: var(--teal);
+          font-family: var(--font-display);
+          font-size: 5.8rem;
+          font-style: italic;
+          line-height: 1;
+          opacity: .75;
+        }
+
+        .cta-work {
+          position: absolute;
+          left: 0;
+          bottom: 5.6rem;
+          z-index: 8;
+        }
+
+        .cta-resume {
+          position: absolute;
+          left: 24rem;
+          bottom: 6rem;
+          z-index: 8;
+        }
+
+        .state-toggle {
+          position: absolute;
+          right: 2%;
+          bottom: 1rem;
+          z-index: 8;
+        }
+
+        .is-connected .portrait-integrated {
           opacity: 1;
-          transform: scale(1) translateY(0);
-          filter: contrast(1.05);
+          transform: translateX(0);
+          filter: contrast(1.04);
         }
-        .is-connected .portrait-wash {
-          opacity: 0;
-        }
-        .is-connected .focus-glow {
-          opacity: .7;
-          transform: translate(-50%, -50%) scale(1);
-        }
-        .is-connected .clarity-resolution {
-          opacity: 1;
-          filter: blur(0);
-          transform: scale(1) translateY(0);
-        }
-        .is-connected .clarity-kicker,
-        .is-connected .clarity-copy {
+
+        .is-connected .portrait-veil { opacity: .52; }
+        .is-connected .hero-note {
           opacity: 1;
           transform: translateY(0);
         }
-        @media (max-width: 639px) {
-          .word-field { height: 32rem; }
-          .portrait-field { right: 3%; top: 11%; width: 48%; height: 72%; opacity: 0; }
-          .clarity-resolution { left: 4%; top: 12%; width: 52%; }
-          .quote-lines { width: 100%; }
-          .quote-line { font-size: .68rem; line-height: 1.3; }
-          .quote-mark { font-size: 5.7rem !important; }
-          .quote-mark-open { left: -.8rem; top: -2.8rem; }
-          .quote-mark-close { bottom: -3.4rem; right: -.15rem; }
-          .quote-intro { margin-left: 3%; }
-          .quote-bridge { margin-left: 18%; margin-top: .05rem; }
-          .quote-feedback { margin-top: .28rem; font-size: clamp(1.7rem, 7.4vw, 2.3rem); }
-          .quote-context { margin-top: .35rem; max-width: 94%; }
-          .quote-transition { margin-top: .48rem; }
-          .quote-product { margin-left: 4%; margin-top: 0; font-size: clamp(2.3rem, 10vw, 3.15rem); }
-          .quote-experience { margin-top: .4rem; max-width: 94%; }
-          .quote-learning { margin-top: .4rem; max-width: 94%; }
-          .word-systems { font-size: 2.3rem; }
-          .word-behavior { font-size: 2.35rem; top: 40%; }
-          .word-process { font-size: 1.9rem; left: 43%; }
-          .word-friction { left: 50%; font-size: 1.35rem; }
-          .word-contradictions { font-size: 1.15rem; }
-          .word-experience { font-size: 1.15rem; }
-          .word-strategy { left: 39%; font-size: 1.1rem; }
+        .is-connected .signal-label { opacity: .13; }
+        .is-connected .signal-rule { opacity: .12; transform: scaleX(.72); }
+
+        @media (max-width: 1023px) {
+          .editorial-hero { min-height: 43rem; }
+          .portrait-integrated { width: 43%; height: 36rem; }
+          .hero-headline { max-width: 9.4ch; }
+          .hero-note { left: 43%; width: 29%; font-size: .76rem; }
+          .cta-resume { left: 22rem; }
+          .signal-feedback { left: 44%; }
+          .signal-product { left: 48%; }
+        }
+
+        @media (max-width: 767px) {
+          .connection-hero { padding-top: 7rem; }
+          .editorial-hero { min-height: 57rem; }
+          .hero-eyebrow { top: 0; max-width: 19rem; line-height: 1.5; }
+          .hero-headline {
+            top: 4rem;
+            width: 100%;
+            max-width: 9.5ch;
+            font-size: clamp(3.25rem, 16vw, 5.3rem);
+            line-height: .9;
+          }
+          .portrait-integrated {
+            right: -8%;
+            top: 20rem;
+            width: 72%;
+            height: 31rem;
+            opacity: .52;
+            mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 100%);
+          }
+          .portrait-veil {
+            background:
+              linear-gradient(90deg, var(--charcoal) 0%, transparent 35%),
+              linear-gradient(0deg, var(--charcoal) 0%, transparent 22%);
+          }
+          .signal-label { font-size: .54rem; letter-spacing: .14em; }
+          .signal-feedback { left: 4%; top: 38%; }
+          .signal-operations { left: 2%; top: 48%; }
+          .signal-behavior { left: 4%; top: 57%; writing-mode: vertical-rl; transform: rotate(180deg); }
+          .signal-product { left: 38%; top: 63%; }
+          .signal-experience { right: 1%; top: 56%; }
+          .rule-one { left: 6%; top: 41%; width: 28%; }
+          .rule-two { left: 10%; top: 51%; width: 18%; }
+          .rule-three { left: 42%; top: 66%; width: 20%; }
+          .hero-note {
+            left: 5%;
+            bottom: 10.8rem;
+            width: 52%;
+            max-width: 13rem;
+            font-size: .7rem;
+            line-height: 1.5;
+          }
+          .note-mark {
+            left: -1.1rem;
+            top: -1.8rem;
+            font-size: 4.5rem;
+          }
+          .cta-work { left: 0; bottom: 5rem; }
+          .cta-resume { left: auto; right: 0; bottom: 5.35rem; }
+          .state-toggle { left: 0; right: auto; bottom: .75rem; }
+          .is-connected .signal-behavior { transform: rotate(180deg); }
+        }
+
+        @media (max-width: 420px) {
+          .editorial-hero { min-height: 59rem; }
+          .hero-headline { font-size: clamp(3rem, 15.5vw, 4.25rem); }
+          .portrait-integrated { top: 19rem; width: 78%; }
+          .hero-note { width: 55%; bottom: 11.4rem; }
+          .cta-work { width: 100%; }
+          .cta-resume { left: 0; right: auto; bottom: 3.2rem; }
+          .state-toggle { bottom: .15rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .cloud-word, .portrait-field, .focus-glow, .clarity-resolution, .clarity-kicker, .clarity-copy {
+          .portrait-integrated,
+          .portrait-veil,
+          .signal-label,
+          .signal-rule,
+          .hero-note {
             transition: none !important;
           }
         }
