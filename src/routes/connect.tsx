@@ -116,13 +116,13 @@ export function ConnectPage() {
               I connect customer needs, business operations, and technology to design better products,
               experiences, and systems.
             </p>
-            <Link
-              to="/"
+            <a
+              href="https://madebydanielleb.com"
               className="group mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-sm bg-foreground px-5 py-3.5 text-sm font-medium text-background transition-colors hover:bg-teal focus-visible:outline-offset-4 sm:w-auto sm:min-w-48"
             >
               View My Work
               <ArrowRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </div>
           <ProfilePhoto className="hidden aspect-[4/5] w-full md:block" />
         </section>
@@ -202,13 +202,13 @@ export function ConnectPage() {
                 <Icon aria-hidden className="h-4 w-4" />
               </a>
             ))}
-            <Link
-              to="/"
+            <a
+              href="https://madebydanielleb.com"
               className="group flex min-h-14 items-center justify-between rounded-sm border border-border bg-card px-4 py-3 text-sm font-medium transition-colors hover:border-teal hover:text-teal"
             >
               Portfolio
               <Sparkles aria-hidden className="h-4 w-4" />
-            </Link>
+            </a>
             <button
               type="button"
               onClick={saveContact}
