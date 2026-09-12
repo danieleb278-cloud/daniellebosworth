@@ -172,7 +172,7 @@ export function ConnectPage() {
         <section aria-labelledby="proof-heading" className="border-b border-border py-9 sm:py-12">
           <p id="proof-heading" className="eyebrow mb-5 text-teal">Selected proof</p>
           <div className="grid grid-cols-2 gap-x-5 gap-y-6 sm:grid-cols-[0.7fr_0.7fr_1.6fr]">
-            <Proof value="175%" label="Revenue growth" />
+            <Proof value="4×+" label="Monthly location revenue" />
             <Proof value="32%" label="Increase in client retention" />
             <Proof
               value="AI Knowledge System"
