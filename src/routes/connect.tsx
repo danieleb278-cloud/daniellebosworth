@@ -58,7 +58,7 @@ const contactLinks = [
   },
   {
     label: "Email",
-    href: "mailto:Danieleb278@gmail.com",
+    href: "mailto:contact.madebydanielleb@gmail.com",
     icon: Mail,
     external: false,
   },
@@ -72,7 +72,7 @@ export function ConnectPage() {
       "FN:Danielle Bosworth",
       "N:Bosworth;Danielle;;;",
       "TITLE:Product, Customer Experience, AI & Operations",
-      "EMAIL;TYPE=INTERNET:Danieleb278@gmail.com",
+      "EMAIL;TYPE=INTERNET:contact.madebydanielleb@gmail.com",
       "URL:https://madebydanielleb.com",
       "X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/daniellelbosworth",
       "END:VCARD",
