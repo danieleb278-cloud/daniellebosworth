@@ -51,10 +51,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           <h1 className="mt-7 max-w-[12ch] font-display text-[clamp(3.2rem,6.8vw,7rem)] leading-[0.91] tracking-[-0.055em] text-background">
             I see connections others <span className="italic text-teal">overlook.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-background/75 md:text-lg">
-            I bridge human behavior, operational workflows, and emerging technology to turn complex business friction
-            into clear product and systems strategy.
-          </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#work"
