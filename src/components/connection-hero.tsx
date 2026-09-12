@@ -75,7 +75,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             className={`word-field relative isolate h-[31rem] overflow-hidden border border-background/15 bg-background/[0.025] sm:h-[34rem] ${connected ? "is-connected" : ""} ${reduceMotion ? "reduce-motion" : ""}`}
             aria-label={
               connected
-                ? "Danielle's approach to designing solutions is shown beside her portrait."
+                ? "Danielle's statement about how she approaches cross-functional problems is shown beside her portrait."
                 : "A layered field of human, information, process, and business signals."
             }
           >
@@ -107,28 +107,30 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               ))}
             </div>
 
-            <div className="clarity-resolution absolute z-20 text-left">
-              <span className="clarity-kicker block font-mono text-[0.6rem] uppercase tracking-[0.28em] text-teal">
-                How I work
+            <blockquote className="clarity-resolution absolute z-20 text-center">
+              <span
+                aria-hidden
+                className="clarity-kicker block font-display text-[4.5rem] leading-[0.55] text-teal sm:text-[6rem]"
+              >
+                “
               </span>
-              <span className="clarity-word mt-2 block max-w-sm font-display text-[clamp(2.35rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.035em] text-background">
-                Designing solutions
+              <p className="clarity-copy mx-auto mt-4 max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
+                I work best between departments, bringing together{" "}
+                <span className="font-medium text-teal">customer feedback</span>,{" "}
+                <span className="font-medium text-teal">stakeholder needs</span>, and{" "}
+                <span className="font-medium text-teal">day-to-day operations</span>.
+              </p>
+              <p className="clarity-copy mx-auto mt-3 max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
+                Whether I’m shaping a product idea, improving an experience, or fixing a workflow, I use what I learn to{" "}
+                <span className="font-display text-lg italic text-background sm:text-xl">design practical solutions.</span>
+              </p>
+              <span
+                aria-hidden
+                className="clarity-kicker mt-3 block font-display text-[4.5rem] leading-[0.45] text-teal sm:text-[6rem]"
+              >
+                ”
               </span>
-              <span className="clarity-copy mt-5 block max-w-md text-sm leading-relaxed text-background/80 sm:text-base">
-                “I work best between departments, bringing together customer feedback, stakeholder needs, and day-to-day operations. Whether I’m shaping a product idea, improving an experience, or fixing a workflow, I use what I learn to design practical solutions.”
-              </span>
-            </div>
-
-            <div className="outcome-row absolute inset-x-5 bottom-8 z-20 grid grid-cols-3 gap-3 sm:inset-x-8">
-              {["Designs", "Systems", "Experiences"].map((outcome) => (
-                <div
-                  key={outcome}
-                  className="border-t border-teal/70 pt-3 text-center font-mono text-[0.68rem] uppercase tracking-[0.14em] text-background sm:text-xs"
-                >
-                  {outcome}
-                </div>
-              ))}
-            </div>
+            </blockquote>
           </div>
 
           <div className="mt-5 flex items-center justify-between gap-5">
@@ -145,7 +147,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             </button>
             <p id="connection-state-description" aria-live="polite" className="sr-only">
               {connected
-                ? "Danielle's portrait and statement about how she designs solutions are now visible."
+                ? "Danielle's portrait and statement about how she approaches cross-functional problems are now visible."
                 : "The signals are layered in an intentionally complex editorial composition."}
             </p>
           </div>
@@ -229,7 +231,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .word-business { left: 33%; top: 80%; font-family: var(--font-mono); font-size: clamp(.68rem, 1.4vw, .9rem); letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
         .word-contradictions { right: 3%; top: 77%; font-family: var(--font-display); font-size: clamp(1.2rem, 2.7vw, 2rem); font-style: italic; opacity: .74; }
 
-        .clarity-resolution, .outcome-row {
+        .clarity-resolution {
           opacity: 0;
           pointer-events: none;
         }
@@ -246,10 +248,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           opacity: 0;
           transform: translateY(8px);
           transition: opacity 380ms ease 650ms, transform 520ms ease 620ms;
-        }
-        .outcome-row {
-          transform: translateY(14px);
-          transition: opacity 450ms ease 720ms, transform 600ms cubic-bezier(.2,.78,.22,1) 690ms;
         }
 
         .is-connected .support-word {
@@ -287,18 +285,12 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           opacity: 1;
           transform: translateY(0);
         }
-        .is-connected .outcome-row {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
         @media (max-width: 639px) {
           .word-field { height: 32rem; }
           .portrait-field { right: 3%; top: 11%; width: 48%; height: 72%; opacity: 0; }
-          .clarity-resolution { left: 5%; top: 14%; width: 49%; }
-          .clarity-word { font-size: clamp(2rem, 9vw, 3.15rem) !important; }
-          .clarity-kicker { font-size: .5rem !important; letter-spacing: .18em !important; }
-          .clarity-copy { max-width: 15rem; font-size: .76rem !important; line-height: 1.5 !important; }
+          .clarity-resolution { left: 4%; top: 13%; width: 52%; }
+          .clarity-kicker { font-size: 4rem !important; letter-spacing: 0 !important; }
+          .clarity-copy { max-width: 15.5rem; font-size: .76rem !important; line-height: 1.5 !important; }
           .word-systems { font-size: 2.3rem; }
           .word-behavior { font-size: 2.35rem; top: 40%; }
           .word-process { font-size: 1.9rem; left: 43%; }
@@ -306,12 +298,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .word-contradictions { font-size: 1.15rem; }
           .word-experience { font-size: 1.15rem; }
           .word-strategy { left: 39%; font-size: 1.1rem; }
-          .outcome-row { inset-inline: .8rem; gap: .4rem; }
-          .outcome-row > div { font-size: .64rem !important; letter-spacing: .05em !important; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .cloud-word, .portrait-field, .focus-glow, .clarity-resolution, .clarity-kicker, .clarity-copy, .outcome-row {
+          .cloud-word, .portrait-field, .focus-glow, .clarity-resolution, .clarity-kicker, .clarity-copy {
             transition: none !important;
           }
         }
