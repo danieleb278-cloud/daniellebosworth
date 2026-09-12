@@ -277,8 +277,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           font-weight: 500;
         }
         .quote-bridge {
-          align-self: center;
-          margin-top: .18rem;
+          align-self: flex-start;
+          margin-left: 25%;
+          margin-top: .08rem;
         }
         .quote-feedback {
           align-self: flex-end;
@@ -297,11 +298,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
         .quote-transition {
           margin-left: 4%;
-          margin-top: 1.15rem;
+          margin-top: .7rem;
         }
         .quote-product {
-          margin-left: 17%;
-          margin-top: .2rem;
+          margin-left: 8%;
+          margin-top: .05rem;
           color: var(--background);
           font-family: var(--font-display);
           font-size: clamp(2.9rem, 5.8vw, 4.6rem);
@@ -316,7 +317,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
         .quote-learning {
           margin-left: 5%;
-          margin-top: 1rem;
+          margin-top: .55rem;
           max-width: 88%;
           font-weight: 500;
         }
