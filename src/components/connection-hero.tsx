@@ -255,7 +255,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
         .quote-line {
           display: block;
-          color: color-mix(in oklabg, var(--background) 80%, transparent);
+          color: color-mix(in oklab, var(--background) 80%, transparent);
           font-family: var(--font-sans);
           font-size: .9rem;
           line-height: 1.35;
