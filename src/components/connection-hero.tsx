@@ -103,7 +103,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           className="state-toggle inline-flex min-h-12 items-center gap-3 border border-background/25 px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-background transition-colors hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
         >
           <span aria-hidden>↻</span>
-          {connected ? "Show connections" : "Show starting point"}
+          {connected ? "Show starting point" : "Show connections"}
         </button>
 
         <p id="connection-state-description" aria-live="polite" className="sr-only">
@@ -228,6 +228,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           bottom: 5.75rem;
           z-index: 6;
           width: min(25rem, 32%);
+          padding-left: 1.35rem;
           color: color-mix(in oklab, var(--background) 88%, transparent);
           font-size: clamp(1.125rem, 1.35vw, 1.3rem);
           line-height: 1.58;
@@ -240,8 +241,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .note-mark {
           position: absolute;
-          left: -2.6rem;
-          top: -2rem;
+          left: -2.25rem;
+          top: -2.35rem;
           color: var(--teal);
           font-family: var(--font-display);
           font-size: 7.5rem;
@@ -339,8 +340,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             line-height: 1.55;
           }
           .note-mark {
-            left: -1.1rem;
-            top: -1.8rem;
+            left: -1.65rem;
+            top: -2rem;
             font-size: 5.4rem;
           }
           .cta-work { left: 0; bottom: 5rem; }
