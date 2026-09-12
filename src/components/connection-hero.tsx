@@ -103,7 +103,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           className="state-toggle inline-flex min-h-11 items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-background/70 transition-colors hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
         >
           <span aria-hidden>{connected ? "↺" : "＋"}</span>
-          Pragmatic
           {connected ? "Show starting point" : "See how I design solutions"}
         </button>
 
