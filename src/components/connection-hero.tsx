@@ -344,9 +344,24 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             top: -2rem;
             font-size: 5.4rem;
           }
-          .cta-work { left: 0; bottom: 5rem; }
-          .cta-resume { left: auto; right: 0; bottom: 5.35rem; }
-          .state-toggle { left: 0; right: auto; bottom: .75rem; }
+          .cta-work {
+            left: 0;
+            bottom: 8.75rem;
+            width: 100%;
+          }
+          .cta-resume {
+            left: 0;
+            right: auto;
+            bottom: 5rem;
+            min-height: 2.75rem;
+            padding-inline: .1rem;
+          }
+          .state-toggle {
+            left: 0;
+            right: auto;
+            bottom: .5rem;
+            min-height: 3.25rem;
+          }
           .is-connected .signal-behavior { transform: rotate(180deg); }
         }
 
@@ -355,9 +370,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .hero-headline { font-size: clamp(3rem, 15.5vw, 4.25rem); }
           .portrait-integrated { top: 19rem; width: 78%; }
           .hero-note { width: 58%; max-width: 14rem; bottom: 11.4rem; font-size: .86rem; }
-          .cta-work { width: 100%; }
-          .cta-resume { left: 0; right: auto; bottom: 3.2rem; }
-          .state-toggle { bottom: .15rem; }
+          .cta-work { bottom: 8.75rem; }
+          .cta-resume { bottom: 5rem; }
+          .state-toggle { bottom: .5rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
