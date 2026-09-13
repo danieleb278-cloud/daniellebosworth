@@ -305,8 +305,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         .note-mark-close {
-          right: 4.25rem;
-          bottom: -2.15rem;
+          right: .75rem;
+          bottom: -2.4rem;
         }
 
         .cta-work {
