@@ -61,10 +61,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
               {signal.label}
             </span>
           ))}
-          <span className="signal-rule rule-one" />
-          <span className="signal-rule rule-two" />
-          <span className="signal-rule rule-three" />
-          <span className="signal-rule rule-four" />
         </div>
 
         <blockquote className="hero-note">
@@ -216,18 +212,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
         .signal-experience { right: 2%; top: 68%; }
 
-        .signal-rule {
-          position: absolute;
-          height: 1px;
-          background: color-mix(in oklab, var(--teal) 52%, transparent);
-          transform-origin: left center;
-          transition: opacity 500ms ease, transform 750ms cubic-bezier(.2,.78,.22,1);
-        }
-
-        .rule-one { left: 18%; top: 69%; width: 16%; transform: rotate(-12deg); }
-        .rule-two { left: 39%; top: 59%; width: 12%; transform: rotate(-42deg); }
-        .rule-three { left: 54%; top: 49%; width: 23%; transform: rotate(58deg); }
-        .rule-four { left: 64%; top: 74%; width: 29%; transform: rotate(-10deg); }
 
         .hero-note {
           position: absolute;
@@ -342,7 +326,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           transform: translateY(0);
         }
         .is-connected .signal-label { opacity: .1; }
-        .is-connected .signal-rule { opacity: .12; transform: scaleX(.72); }
 
         @media (max-width: 1023px) {
           .editorial-hero { min-height: 43rem; }
@@ -386,10 +369,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .signal-behavior { left: 4%; top: 57%; writing-mode: vertical-rl; transform: rotate(180deg); }
           .signal-product { left: 38%; top: 63%; }
           .signal-experience { right: 1%; top: 56%; }
-          .rule-one { left: 8%; top: 41%; width: 10%; transform: rotate(60deg); }
-          .rule-two { left: 8%; top: 50%; width: 9%; transform: rotate(75deg); }
-          .rule-three { left: 10%; top: 59%; width: 30%; transform: rotate(10deg); }
-          .rule-four { left: 51%; top: 63%; width: 39%; transform: rotate(-10deg); }
           .hero-note {
             left: 3%;
             bottom: 13.1rem;
@@ -444,7 +423,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .portrait-integrated,
           .portrait-veil,
           .signal-label,
-          .signal-rule,
           .hero-note {
             transition: none !important;
           }
