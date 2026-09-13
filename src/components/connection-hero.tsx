@@ -64,6 +64,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           <span className="signal-rule rule-one" />
           <span className="signal-rule rule-two" />
           <span className="signal-rule rule-three" />
+          <span className="signal-rule rule-four" />
         </div>
 
         <blockquote className="hero-note">
@@ -151,7 +152,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .portrait-integrated {
           position: absolute;
-          right: 1.5%;
+          right: -4%;
           top: 1rem;
           z-index: 2;
           width: 38%;
@@ -223,16 +224,17 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           transition: opacity 500ms ease, transform 750ms cubic-bezier(.2,.78,.22,1);
         }
 
-        .rule-one { left: 32%; top: 48%; width: 12%; transform: rotate(-8deg); }
-        .rule-two { left: 22%; top: 67%; width: 9%; transform: rotate(6deg); }
-        .rule-three { left: 62%; top: 72%; width: 11%; transform: rotate(-5deg); }
+        .rule-one { left: 18%; top: 69%; width: 16%; transform: rotate(-12deg); }
+        .rule-two { left: 39%; top: 59%; width: 12%; transform: rotate(-42deg); }
+        .rule-three { left: 54%; top: 49%; width: 23%; transform: rotate(58deg); }
+        .rule-four { left: 64%; top: 74%; width: 29%; transform: rotate(-10deg); }
 
         .hero-note {
           position: absolute;
-          left: 42%;
+          left: 46%;
           bottom: 4.9rem;
           z-index: 6;
-          width: min(27rem, 32%);
+          width: min(28rem, 36%);
           color: color-mix(in oklab, var(--background) 90%, transparent);
           font-family: var(--font-display);
           font-size: clamp(1.08rem, 1.28vw, 1.28rem);
@@ -344,9 +346,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         @media (max-width: 1023px) {
           .editorial-hero { min-height: 43rem; }
-          .portrait-integrated { width: 43%; height: 36rem; }
+          .portrait-integrated { right: -5%; width: 43%; height: 36rem; }
           .hero-headline { max-width: 9.4ch; }
-          .hero-note { left: 38%; width: 35%; font-size: 1rem; }
+          .hero-note { left: 42%; width: 39%; font-size: 1rem; }
           .cta-resume { left: 22rem; }
           .signal-feedback { left: 44%; }
           .signal-product { left: 48%; }
@@ -384,9 +386,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .signal-behavior { left: 4%; top: 57%; writing-mode: vertical-rl; transform: rotate(180deg); }
           .signal-product { left: 38%; top: 63%; }
           .signal-experience { right: 1%; top: 56%; }
-          .rule-one { left: 6%; top: 41%; width: 28%; }
-          .rule-two { left: 10%; top: 51%; width: 18%; }
-          .rule-three { left: 42%; top: 66%; width: 20%; }
+          .rule-one { left: 8%; top: 41%; width: 10%; transform: rotate(60deg); }
+          .rule-two { left: 8%; top: 50%; width: 9%; transform: rotate(75deg); }
+          .rule-three { left: 10%; top: 59%; width: 30%; transform: rotate(10deg); }
+          .rule-four { left: 51%; top: 63%; width: 39%; transform: rotate(-10deg); }
           .hero-note {
             left: 3%;
             bottom: 13.1rem;
