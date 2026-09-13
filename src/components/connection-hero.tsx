@@ -47,7 +47,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         <p className="hero-eyebrow eyebrow !text-teal">Systems-minded product &amp; experience strategist</p>
 
         <h1 className="hero-headline font-display text-[clamp(3.2rem,7.2vw,7.35rem)] leading-[0.88] tracking-[-0.06em] text-background">
-          I see connections others <span className="italic text-teal">overlook.</span>
+          <span className="block">I see</span>
+          <span className="block">connections</span>
+          <span className="block">
+            others <span className="italic text-teal">overlook.</span>
+          </span>
         </h1>
 
         <div aria-hidden className="portrait-integrated">
@@ -215,10 +219,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .hero-note {
           position: absolute;
-          left: 43%;
-          bottom: 3.5rem;
+          left: 42%;
+          top: 15rem;
+          bottom: auto;
           z-index: 6;
-          width: min(28rem, 36%);
+          width: min(23.5rem, 23.5%);
           color: color-mix(in oklab, var(--background) 90%, transparent);
           font-family: var(--font-display);
           font-size: clamp(1.08rem, 1.28vw, 1.28rem);
@@ -300,20 +305,21 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .cta-work {
           position: absolute;
           left: 0;
-          bottom: 4.25rem;
+          bottom: 1.25rem;
           z-index: 8;
         }
 
         .cta-resume {
           position: absolute;
-          left: 24rem;
-          bottom: 4.25rem;
+          left: 50%;
+          bottom: 1.25rem;
           z-index: 8;
+          transform: translateX(-50%);
         }
 
         .state-toggle {
           position: absolute;
-          right: 2%;
+          right: 0;
           bottom: 1.25rem;
           z-index: 8;
         }
@@ -335,7 +341,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .editorial-hero { min-height: 43rem; }
           .portrait-integrated { right: -5%; width: 43%; height: 36rem; }
           .hero-headline { max-width: 9.4ch; }
-          .hero-note { left: 42%; width: 39%; font-size: 1rem; }
+          .hero-note { left: 35%; top: 14rem; width: 26%; font-size: 1rem; }
           .cta-resume { left: 22rem; }
           .signal-feedback { left: 44%; }
           .signal-product { left: 48%; }
@@ -375,6 +381,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .signal-experience { right: 1%; top: 56%; }
           .hero-note {
             left: 3%;
+            top: auto;
             bottom: 13.1rem;
             width: 61%;
             max-width: 17rem;
@@ -401,6 +408,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             left: 0;
             right: auto;
             bottom: 5rem;
+            transform: none;
             min-height: 2.75rem;
             padding-inline: .1rem;
           }
