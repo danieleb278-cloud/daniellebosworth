@@ -229,10 +229,10 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .hero-note {
           position: absolute;
-          left: 46%;
+          left: 42%;
           bottom: 4.9rem;
           z-index: 6;
-          width: min(28rem, 36%);
+          width: min(27rem, 32%);
           color: color-mix(in oklab, var(--background) 90%, transparent);
           font-family: var(--font-display);
           font-size: clamp(1.08rem, 1.28vw, 1.28rem);
@@ -346,7 +346,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .editorial-hero { min-height: 43rem; }
           .portrait-integrated { width: 43%; height: 36rem; }
           .hero-headline { max-width: 9.4ch; }
-          .hero-note { left: 42%; width: 39%; font-size: 1rem; }
+          .hero-note { left: 38%; width: 35%; font-size: 1rem; }
           .cta-resume { left: 22rem; }
           .signal-feedback { left: 44%; }
           .signal-product { left: 48%; }
