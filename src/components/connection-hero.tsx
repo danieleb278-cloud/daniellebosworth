@@ -252,9 +252,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         .note-intro { transform: translateX(-.65rem); }
-        .note-together { margin-top: .12rem; transform: translateX(.55rem); }
+        .note-together { margin-top: .18rem; transform: translateX(.55rem); }
         .note-feedback {
-          margin: .42rem auto .28rem;
+          margin: .58rem auto .42rem;
           transform: translateX(-.6rem);
         }
         .note-feedback span {
@@ -268,9 +268,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           max-width: 19rem;
           transform: translateX(.45rem);
         }
-        .note-transition { margin-top: .72rem; transform: translateX(-.55rem); }
+        .note-transition { margin-top: 1.05rem; transform: translateX(-.55rem); }
         .note-product {
-          margin: .08rem auto .22rem;
+          margin: .18rem auto .36rem;
           color: var(--background);
           font-size: clamp(1.85rem, 2.35vw, 2.4rem);
           font-style: italic;
@@ -283,7 +283,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           transform: translateX(-.35rem);
         }
         .note-ending {
-          margin: .2rem auto 0;
+          margin: .3rem auto 0;
           max-width: 19rem;
           transform: translateX(.5rem);
         }
@@ -305,8 +305,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         .note-mark-close {
-          right: -1.1rem;
-          bottom: -1rem;
+          right: .5rem;
+          bottom: -1.2rem;
         }
 
         .cta-work {
@@ -342,7 +342,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           opacity: 1;
           transform: translateY(0);
         }
-        .is-connected .signal-label { opacity: .1; }
+        .is-connected .signal-label { opacity: 0; }
 
         @media (max-width: 1023px) {
           .editorial-hero { min-height: 43rem; }
@@ -405,7 +405,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           }
           .note-mark { font-size: 5rem; }
           .note-mark-open { left: -.3rem; top: 0; }
-          .note-mark-close { right: -.1rem; bottom: -.3rem; }
+          .note-mark-close { right: .55rem; bottom: -.55rem; }
           .cta-work {
             left: 0;
             bottom: 8.75rem;
