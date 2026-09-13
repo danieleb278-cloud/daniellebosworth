@@ -310,21 +310,21 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .cta-work {
           position: absolute;
           left: 0;
-          bottom: 5.6rem;
+          bottom: 1.25rem;
           z-index: 8;
         }
 
         .cta-resume {
           position: absolute;
           left: 24rem;
-          bottom: 5.6rem;
+          bottom: 1.25rem;
           z-index: 8;
         }
 
         .state-toggle {
           position: absolute;
           right: 2%;
-          bottom: 5.6rem;
+          bottom: 1.25rem;
           z-index: 8;
         }
 
