@@ -226,7 +226,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .hero-note {
           position: absolute;
-          left: 43%;
+          left: 44%;
           top: 7rem;
           bottom: auto;
           z-index: 6;
