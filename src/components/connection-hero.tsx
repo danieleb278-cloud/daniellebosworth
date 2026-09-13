@@ -69,30 +69,35 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         <blockquote className="hero-note">
           <div className="note-composition">
-            <div className="note-group note-opening">
-              <p className="note-line note-intro">I work best between departments,</p>
+            <div className="note-group note-group-1">
+              <p className="note-line">I work best between departments,</p>
               <p className="note-line note-together">bringing together</p>
             </div>
 
-            <p className="note-line note-feedback">
+            <p className="note-line note-group note-group-2 note-feedback">
               <span className="note-feedback-primary">customer</span>
               <span className="note-feedback-secondary"> feedback,</span>
             </p>
 
-            <p className="note-line note-context">stakeholder needs, and<br />day-to-day operations.</p>
+            <p className="note-line note-group note-group-3 note-context">
+              stakeholder needs, and<br />day-to-day operations.
+            </p>
 
-            <div className="note-group note-shaping">
-              <p className="note-line note-transition">Whether I’m shaping a</p>
-              <p className="note-line note-product">product</p>
-            </div>
+            <p className="note-line note-group note-group-4">Whether I’m shaping a</p>
 
-            <div className="note-group note-outcome">
-              <p className="note-line note-action">idea, improving an experience,</p>
+            <p className="note-line note-group note-group-5 note-product">product</p>
+
+            <div className="note-group note-group-6">
+              <p className="note-line">idea, improving an experience,</p>
               <p className="note-line note-action-secondary">or fixing a workflow, I use</p>
               <p className="note-line note-learn">what I learn to</p>
-              <p className="note-line note-design"><strong>design</strong> practical</p>
-              <p className="note-line note-solutions">solutions.</p>
             </div>
+
+            <p className="note-line note-group note-group-7 note-design">
+              <strong>design</strong> practical
+            </p>
+
+            <p className="note-line note-group note-group-8 note-solutions">solutions.</p>
           </div>
         </blockquote>
 
@@ -247,7 +252,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           font-family: var(--font-display);
           font-size: clamp(.88rem, 1vw, 1rem);
           line-height: 1.2;
-          text-align: center;
+          text-align: left;
           opacity: 0;
           transform: translateY(1rem);
           transition: opacity 520ms ease 260ms, transform 700ms cubic-bezier(.2,.78,.22,1) 220ms;
@@ -255,7 +260,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .note-composition {
           position: relative;
-          padding: .5rem .75rem;
+          height: clamp(25rem, 33vw, 31rem);
+          padding: 0;
         }
 
         .note-line {
@@ -263,12 +269,22 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           text-wrap: balance;
         }
 
-        .note-intro { transform: translateX(-.65rem); }
-        .note-together { margin-top: .16rem; transform: translateX(.55rem); }
-        .note-feedback {
-          margin: .72rem auto .65rem;
-          transform: translateX(-.45rem);
+        .note-group {
+          position: absolute;
+          text-align: center;
         }
+
+        .note-group-1 { left: 4%; top: 0; width: 90%; }
+        .note-group-2 { left: 0; top: 17%; width: 78%; }
+        .note-group-3 { left: 19%; top: 31%; width: 77%; }
+        .note-group-4 { left: 5%; top: 47%; width: 76%; }
+        .note-group-5 { left: 34%; top: 57%; width: 54%; }
+        .note-group-6 { left: 0; top: 68%; width: 91%; }
+        .note-group-7 { left: 29%; top: 86%; width: 60%; }
+        .note-group-8 { left: 8%; top: 94%; width: 69%; }
+
+        .note-together { margin-top: .16rem; }
+
         .note-feedback-primary {
           color: var(--teal);
           font-size: clamp(1.55rem, 1.95vw, 2rem);
@@ -281,50 +297,33 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           font-size: 1em;
           font-style: normal;
         }
-        .note-context {
-          margin-inline: auto;
-          max-width: 19rem;
-          line-height: 1.25;
-          transform: translateX(.35rem);
-        }
-        .note-transition { margin-top: 1.15rem; transform: translateX(-.45rem); }
+
+        .note-context { line-height: 1.25; }
+
         .note-product {
-          margin: .28rem auto .7rem;
           color: color-mix(in oklab, var(--teal) 62%, var(--background));
           font-size: clamp(1.6rem, 2vw, 2.05rem);
           font-style: normal;
           line-height: .95;
           letter-spacing: .02em;
           text-transform: uppercase;
-          transform: translateX(.65rem);
-        }
-        .note-action,
-        .note-action-secondary,
-        .note-learn {
-          margin-inline: auto;
-          max-width: 21rem;
         }
 
-        .note-action { transform: translateX(-.3rem); }
-        .note-action-secondary { margin-top: .1rem; transform: translateX(.2rem); }
-        .note-learn { margin-top: .36rem; transform: translateX(-.15rem); }
+        .note-action-secondary { margin-top: .1rem; }
+        .note-learn { margin-top: .28rem; }
 
         .note-design {
-          margin-top: .2rem;
           font-size: clamp(1.05rem, 1.25vw, 1.25rem);
-          transform: translateX(.25rem);
         }
 
         .note-design strong { font-weight: 700; }
 
         .note-solutions {
-          margin-top: .28rem;
           color: var(--teal);
           font-family: ui-sans-serif, system-ui, sans-serif;
           font-size: clamp(1.75rem, 2.2vw, 2.25rem);
           font-weight: 300;
           line-height: 1;
-          transform: translateX(.55rem);
         }
 
         .cta-work {
@@ -413,14 +412,23 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             font-size: .82rem;
             line-height: 1.28;
           }
-          .note-composition { padding: 1.7rem .65rem 1.9rem; }
-          .note-feedback { margin-block: .35rem .22rem; transform: translateX(-.2rem); }
-          .note-feedback-primary { font-size: clamp(1.3rem, 6vw, 1.75rem); }
-          .note-transition { margin-top: .72rem; }
-          .note-product {
-            font-size: clamp(1.7rem, 8vw, 2.25rem);
-            transform: translateX(.35rem);
+          .note-composition {
+            height: auto;
+            padding: 1.2rem .65rem 1.5rem;
           }
+          .note-group {
+            position: static;
+            width: auto;
+            text-align: center;
+          }
+          .note-group-2 { margin-top: .5rem; }
+          .note-group-3 { margin-top: .35rem; }
+          .note-group-4 { margin-top: .85rem; }
+          .note-group-5 { margin-top: .22rem; }
+          .note-group-6 { margin-top: .45rem; }
+          .note-group-7 { margin-top: .28rem; }
+          .note-group-8 { margin-top: .22rem; }
+          .note-feedback-primary { font-size: clamp(1.3rem, 6vw, 1.75rem); }
           
           
           
