@@ -193,7 +193,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .signal-feedback {
           left: 46%;
           top: 40%;
-          color: var(--teal);
+          color: var(--background);
           font-family: var(--font-display);
           font-size: clamp(1.45rem, 2.2vw, 2.15rem);
           font-style: italic;
@@ -201,8 +201,15 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           letter-spacing: -.015em;
           text-transform: none;
         }
-        .signal-operations { left: 42%; top: 69%; }
-        .signal-behavior { left: 4%; top: 76%; }
+        .signal-operations { left: 39%; top: 20%; }
+        .signal-behavior {
+          left: 4%;
+          top: 76%;
+          color: color-mix(in oklab, var(--background) 48%, transparent);
+          font-size: 1.05rem;
+          font-weight: 650;
+          letter-spacing: .13em;
+        }
         .signal-product {
           left: 57%;
           top: 69%;
@@ -214,7 +221,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           letter-spacing: -.02em;
           text-transform: none;
         }
-        .signal-experience { left: 74%; right: auto; top: 69%; }
+        .signal-experience { left: 35%; right: auto; top: 79%; }
 
 
         .hero-note {
