@@ -133,14 +133,14 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .hero-eyebrow {
           position: absolute;
           left: 0;
-          top: 1.25rem;
+          top: 6rem;
           z-index: 6;
         }
 
         .hero-headline {
           position: absolute;
           left: 0;
-          top: 5.25rem;
+          top: 10rem;
           z-index: 5;
           max-width: 10.2ch;
           text-wrap: balance;
@@ -215,8 +215,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .hero-note {
           position: absolute;
-          left: 46%;
-          bottom: 4.9rem;
+          left: 43%;
+          bottom: 3.5rem;
           z-index: 6;
           width: min(28rem, 36%);
           color: color-mix(in oklab, var(--background) 90%, transparent);
@@ -239,10 +239,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           text-wrap: balance;
         }
 
-        .note-together { margin-top: .12rem; }
+        .note-intro { transform: translateX(-.65rem); }
+        .note-together { margin-top: .12rem; transform: translateX(.55rem); }
         .note-feedback {
           margin: .42rem auto .28rem;
-          transform: translateX(-.35rem);
+          transform: translateX(-.6rem);
         }
         .note-feedback span {
           color: var(--teal);
@@ -253,23 +254,26 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         .note-context {
           margin-inline: auto;
           max-width: 19rem;
+          transform: translateX(.45rem);
         }
-        .note-transition { margin-top: 1rem; }
+        .note-transition { margin-top: 1rem; transform: translateX(-.55rem); }
         .note-product {
           margin: .08rem auto .22rem;
           color: var(--background);
           font-size: clamp(2.1rem, 3.3vw, 3.4rem);
           font-style: italic;
           line-height: .92;
-          transform: translateX(.65rem);
+          transform: translateX(.75rem);
         }
         .note-action {
           margin-inline: auto;
           max-width: 21rem;
+          transform: translateX(-.35rem);
         }
         .note-ending {
           margin: .2rem auto 0;
           max-width: 19rem;
+          transform: translateX(.5rem);
         }
 
         .note-mark {
@@ -284,26 +288,26 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         .note-mark-open {
-          left: -.5rem;
-          top: -.15rem;
+          left: -1.2rem;
+          top: -.85rem;
         }
 
         .note-mark-close {
-          right: -.15rem;
-          bottom: -.55rem;
+          right: -1.1rem;
+          bottom: -1rem;
         }
 
         .cta-work {
           position: absolute;
           left: 0;
-          bottom: 1.25rem;
+          bottom: 4.25rem;
           z-index: 8;
         }
 
         .cta-resume {
           position: absolute;
           left: 24rem;
-          bottom: 1.25rem;
+          bottom: 4.25rem;
           z-index: 8;
         }
 
