@@ -260,7 +260,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
 
         .note-composition {
           position: relative;
-          height: clamp(25rem, 33vw, 31rem);
+          height: clamp(22rem, 25vw, 23.5rem);
           padding: 0;
         }
 
@@ -275,13 +275,13 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         .note-group-1 { left: 4%; top: 0; width: 90%; }
-        .note-group-2 { left: 0; top: 17%; width: 78%; }
-        .note-group-3 { left: 19%; top: 31%; width: 77%; }
-        .note-group-4 { left: 5%; top: 47%; width: 76%; }
-        .note-group-5 { left: 34%; top: 57%; width: 54%; }
-        .note-group-6 { left: 0; top: 68%; width: 91%; }
-        .note-group-7 { left: 29%; top: 86%; width: 60%; }
-        .note-group-8 { left: 8%; top: 94%; width: 69%; }
+        .note-group-2 { left: 0; top: 14%; width: 78%; }
+        .note-group-3 { left: 19%; top: 26%; width: 77%; }
+        .note-group-4 { left: 5%; top: 43%; width: 76%; }
+        .note-group-5 { left: 34%; top: 52%; width: 54%; }
+        .note-group-6 { left: 0; top: 63%; width: 91%; }
+        .note-group-7 { left: 29%; top: 82%; width: 60%; }
+        .note-group-8 { left: 8%; top: 91%; width: 69%; }
 
         .note-together { margin-top: .16rem; }
 
