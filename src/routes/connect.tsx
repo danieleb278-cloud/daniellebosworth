@@ -42,14 +42,14 @@ const careerPaths: Array<{
     themes: "Product strategy • Human-AI experience • UX • AI implementation",
     resumeLabel: "View Product, AI & Systems Resume",
     resumeTarget: "product-ai-systems-resume",
-    resumeUrl: null,
+    resumeUrl: "/resumes/Danielle_Bosworth_Product_AI_Systems_Career_Fair_Resume.docx",
   },
   {
     title: "CUSTOMER EXPERIENCE & ENGAGEMENT",
     themes: "Customer journeys • Service design • Voice of Customer • Engagement strategy",
     resumeLabel: "View Customer Experience & Engagement Resume",
     resumeTarget: "customer-experience-engagement-resume",
-    resumeUrl: null,
+    resumeUrl: "/resumes/Danielle_Bosworth_Customer_Experience_Engagement_Career_Fair_Resume.docx",
   },
   {
     title: "PROJECTS & OPERATIONS",
@@ -57,7 +57,7 @@ const careerPaths: Array<{
       "Project coordination • Process improvement • Cross-functional execution • Systems thinking",
     resumeLabel: "View Projects & Operations Resume",
     resumeTarget: "projects-operations-resume",
-    resumeUrl: null,
+    resumeUrl: "/resumes/Danielle_Bosworth_Projects_Operations_Career_Fair_Resume.docx",
   },
 ];
 
@@ -169,6 +169,8 @@ export function ConnectPage() {
                 <a
                   key={path.title}
                   href={path.resumeUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="group card-lift flex min-h-44 flex-col rounded-sm border border-border bg-card p-5 focus-visible:outline-offset-4"
                 >
                   {card}
