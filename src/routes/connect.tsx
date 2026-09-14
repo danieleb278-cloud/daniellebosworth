@@ -253,15 +253,11 @@ export function ConnectPage() {
 function ProfilePhoto({ className }: { className: string }) {
   return (
     <div className={`${className} relative shrink-0 overflow-hidden rounded-sm border border-border bg-muted`}>
-      {/* Replace this src when the final /connect portrait is selected. */}
       <img
-        src="/home/portrait.svg"
+        src="/connect/danielle-bosworth-headshot.jpeg"
         alt="Danielle Bosworth"
-        className="h-full w-full object-cover object-top grayscale"
+        className="h-full w-full object-cover object-top"
       />
-      <span className="absolute bottom-2 right-2 rounded-sm bg-background/90 px-2 py-1 font-mono text-[0.55rem] uppercase tracking-widest text-muted-foreground backdrop-blur-sm">
-        Photo placeholder
-      </span>
     </div>
   );
 }
