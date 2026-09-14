@@ -64,7 +64,7 @@ const careerPaths: Array<{
 const contactLinks = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/daniellelbosworth",
+    href: "https://www.linkedin.com/in/daniellelbosworth",
     icon: Linkedin,
     external: true,
   },
@@ -83,10 +83,11 @@ export function ConnectPage() {
       "VERSION:3.0",
       "FN:Danielle Bosworth",
       "N:Bosworth;Danielle;;;",
-      "TITLE:Product, Customer Experience, AI & Operations",
+      "TITLE:Product • Customer Experience • AI • Operations",
+      "TEL;TYPE=CELL:+17324214944",
       "EMAIL;TYPE=INTERNET:contact.madebydanielleb@gmail.com",
       "URL:https://madebydanielleb.com",
-      "X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/daniellelbosworth",
+      "X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/daniellelbosworth",
       "END:VCARD",
     ].join("\r\n");
     const url = URL.createObjectURL(new Blob([vCard], { type: "text/vcard" }));
