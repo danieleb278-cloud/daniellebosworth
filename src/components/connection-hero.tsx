@@ -383,9 +383,9 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
             line-height: .9;
           }
           .portrait-integrated {
-            right: -8%;
+            right: -16%;
             top: 20rem;
-            width: 72%;
+            width: 68%;
             height: 31rem;
             opacity: .52;
             mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 100%);
@@ -404,11 +404,11 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           .signal-product { left: 38%; top: 63%; }
           .signal-experience { right: 1%; top: 56%; }
           .hero-note {
-            left: 3%;
+            left: 0;
             top: auto;
             bottom: 13.1rem;
-            width: 61%;
-            max-width: 17rem;
+            width: 58%;
+            max-width: 16rem;
             font-size: .82rem;
             line-height: 1.28;
           }
@@ -457,8 +457,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         @media (max-width: 420px) {
           .editorial-hero { min-height: 59rem; }
           .hero-headline { font-size: clamp(3rem, 15.5vw, 4.25rem); }
-          .portrait-integrated { top: 19rem; width: 78%; }
-          .hero-note { width: 64%; max-width: 16rem; bottom: 13.1rem; font-size: .78rem; }
+          .portrait-integrated { right: -18%; top: 19rem; width: 72%; }
+          .hero-note { width: 58%; max-width: 15.5rem; bottom: 13.1rem; font-size: .78rem; }
           .cta-work { bottom: 8.75rem; }
           .cta-resume { bottom: 5rem; }
           .state-toggle { bottom: .5rem; }
