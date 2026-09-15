@@ -50,7 +50,7 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           <span className="block">I see</span>
           <span className="block">connections</span>
           <span className="block">
-            others <span className="italic text-teal">overlook.</span>
+            others <span className="headline-overlook italic text-teal">overlook.</span>
           </span>
         </h1>
 
@@ -360,6 +360,31 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           transform: translateY(0);
         }
         .is-connected .signal-label { opacity: 0; }
+
+        /* Keep the desktop headline, note, and portrait in separate visual columns. */
+        @media (min-width: 1024px) {
+          .hero-headline {
+            width: 40%;
+            max-width: none;
+            font-size: clamp(3.2rem, 6.6vw, 6.5rem);
+          }
+          .headline-overlook { display: block; }
+          .portrait-integrated {
+            right: -1%;
+            width: 34%;
+            height: 36rem;
+          }
+          .hero-note {
+            left: 45%;
+            top: 7rem;
+            width: 22%;
+          }
+          .note-composition { height: auto; }
+          .note-group { position: relative; top: auto; }
+          .note-group + .note-group { margin-top: .8rem; }
+          .note-group.note-group-3,
+          .note-group.note-group-4 { margin-top: 1.5rem; }
+        }
 
         @media (max-width: 1023px) {
           .editorial-hero { min-height: 43rem; }
