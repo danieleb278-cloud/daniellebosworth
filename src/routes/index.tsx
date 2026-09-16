@@ -694,7 +694,9 @@ function WorkCarousel({
   return (
     <div className="mt-16">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-t border-border pt-8">
-        <span className="eyebrow">§ More work</span>
+        <h3 className="font-mono text-[clamp(2.25rem,5vw,4.5rem)] lowercase leading-none tracking-[-0.055em] text-foreground">
+          more work<span aria-hidden className="ml-1 inline-block text-teal soft-pulse">_</span>
+        </h3>
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
