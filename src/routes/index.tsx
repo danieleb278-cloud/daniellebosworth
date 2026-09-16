@@ -211,8 +211,14 @@ function HowIWork() {
               {titleRows.map((row, index) => (
                 <span
                   key={row}
-                  className="block font-sans text-[clamp(4.6rem,12vw,9rem)] font-semibold uppercase leading-[0.62] tracking-[-0.12em]"
-                  style={{ transform: `translateX(${index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
+                  className={`block font-sans font-semibold uppercase leading-[0.62] ${
+                    index === 2
+                      ? "text-[clamp(4.15rem,9vw,7.4rem)] tracking-[-0.14em]"
+                      : "text-[clamp(4.6rem,12vw,9rem)] tracking-[-0.12em]"
+                  }`}
+                  style={{
+                    transform: `translateX(${index === 2 ? "-0.01em" : index % 2 === 0 ? "-0.08em" : "0.04em"})`,
+                  }}
                 >
                   {row}
                 </span>
