@@ -511,6 +511,119 @@ function MagicSleekFieldCase({
 
 const moreWorkOrder = ["robin", "next-destination", "supercuts"];
 
+function ProjectsBlueprint() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [built, setBuilt] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setBuilt(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBuilt(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const gridX = [115, 205, 295, 385, 475, 565, 655];
+  const ticks = [70, 160, 250, 340, 430, 520, 610, 700];
+
+  return (
+    <div ref={ref} aria-hidden className="w-full overflow-hidden">
+      <svg viewBox="0 0 780 210" className="block h-auto w-full" role="presentation">
+        <g fill="none" stroke="var(--teal)" strokeWidth="1" opacity="0.38">
+          {gridX.map((x, index) => (
+            <line key={x} x1={x} y1="52" x2={x} y2="172" strokeDasharray="140" style={{
+              strokeDashoffset: built ? 0 : 140,
+              transition: `stroke-dashoffset 650ms ease ${index * 45}ms`,
+            }} />
+          ))}
+          {[72, 112, 152].map((y, index) => (
+            <line key={y} x1="48" y1={y} x2="732" y2={y} strokeDasharray="720" style={{
+              strokeDashoffset: built ? 0 : 720,
+              transition: `stroke-dashoffset 850ms ease ${120 + index * 70}ms`,
+            }} />
+          ))}
+        </g>
+
+        <g fill="none" stroke="var(--teal)" strokeWidth="1.5">
+          <line x1="48" y1="30" x2="732" y2="30" strokeDasharray="700" style={{
+            strokeDashoffset: built ? 0 : 700,
+            transition: "stroke-dashoffset 900ms cubic-bezier(0.22, 1, 0.36, 1)",
+          }} />
+          <line x1="48" y1="20" x2="48" y2="42" />
+          <line x1="732" y1="20" x2="732" y2="42" />
+          <line x1="30" y1="52" x2="30" y2="172" strokeDasharray="140" style={{
+            strokeDashoffset: built ? 0 : 140,
+            transition: "stroke-dashoffset 650ms ease 180ms",
+          }} />
+          <line x1="20" y1="52" x2="42" y2="52" />
+          <line x1="20" y1="172" x2="42" y2="172" />
+          {ticks.map((x) => <line key={x} x1={x} y1="24" x2={x} y2="36" />)}
+        </g>
+
+        <g
+          fill="var(--teal)"
+          fontFamily="var(--font-mono)"
+          fontSize="10"
+          letterSpacing="2"
+          style={{ opacity: built ? 0.72 : 0, transition: "opacity 500ms ease 450ms" }}
+        >
+          <text x="374" y="18">SYSTEM 01</text>
+          <text x="3" y="116" transform="rotate(-90 3 116)">120</text>
+          {["80", "70", "90", "80", "70", "90", "80", "90"].map((label, index) => (
+            <text key={`${label}-${index}`} x={ticks[index] - 8} y="198">{label}</text>
+          ))}
+        </g>
+
+        <text
+          x="55"
+          y="158"
+          fill="transparent"
+          stroke="var(--teal)"
+          strokeWidth="1.5"
+          fontFamily="var(--font-display)"
+          fontSize="119"
+          fontWeight="400"
+          letterSpacing="-5"
+          style={{ opacity: built ? 1 : 0, transition: "opacity 450ms ease 260ms" }}
+        >
+          PROJECTS
+        </text>
+        <text
+          x="55"
+          y="158"
+          fill="var(--foreground)"
+          fontFamily="var(--font-display)"
+          fontSize="119"
+          fontWeight="400"
+          letterSpacing="-5"
+          style={{
+            opacity: built ? 0.1 : 0,
+            transition: "opacity 850ms ease 850ms",
+          }}
+        >
+          PROJECTS
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
   const rest = moreWorkOrder
@@ -540,33 +653,18 @@ function Work() {
 
 
   return (
-    <section id="work" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="work" aria-labelledby="selected-projects-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 grid grid-cols-12 items-center gap-8 border-b border-border pb-10 md:gap-10">
-          <Reveal className="col-span-12 sm:col-span-5 md:col-span-4">
-            <div
-              aria-hidden
-              className="relative h-44 max-w-md overflow-hidden text-teal sm:h-56 md:h-64"
-            >
-              <div
-                className="absolute -left-2 top-1 font-display text-[clamp(5.5rem,12vw,10rem)] uppercase leading-[0.55] tracking-[-0.1em] text-transparent"
-                style={{ WebkitTextStroke: "1.2px var(--teal)" }}
-              >
-                PROJ
-              </div>
-              <div
-                className="absolute -left-5 bottom-2 font-display text-[clamp(5.5rem,12vw,10rem)] uppercase leading-[0.55] tracking-[-0.1em] text-transparent"
-                style={{ WebkitTextStroke: "1.2px var(--teal)" }}
-              >
-                ECTS
-              </div>
-              <span className="absolute left-[43%] top-[8%] h-[84%] w-px rotate-[18deg] bg-background" />
-              <span className="absolute left-[67%] top-0 h-full w-px -rotate-[12deg] bg-background" />
-            </div>
-          </Reveal>
+        <div className="mb-16 grid grid-cols-12 items-center gap-8 border-b border-border pb-10 md:gap-10 lg:gap-14">
+          <div className="col-span-12 min-w-0 md:col-span-7">
+            <ProjectsBlueprint />
+          </div>
 
-          <Reveal className="col-span-12 sm:col-span-7 md:col-span-8" delay={100}>
-            <h2 className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
+          <Reveal className="col-span-12 md:col-span-5" delay={140}>
+            <h2
+              id="selected-projects-heading"
+              className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl"
+            >
               Selected work across product, research, and
               <span className="italic text-muted-foreground"> systems thinking</span>
               <span className="text-accent">.</span>
