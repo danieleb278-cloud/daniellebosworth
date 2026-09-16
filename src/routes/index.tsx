@@ -665,8 +665,8 @@ function Work() {
               id="selected-projects-heading"
               className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl"
             >
-              Selected work across product, research, and
-              <span className="italic text-muted-foreground"> systems thinking</span>
+              Different problems<span className="text-accent">.</span>{" "}
+              <span className="italic text-muted-foreground">One systems-minded approach</span>
               <span className="text-accent">.</span>
             </h2>
           </Reveal>
