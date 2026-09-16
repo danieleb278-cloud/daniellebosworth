@@ -921,7 +921,11 @@ function EditorialSketches() {
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40"
+    >
       {/* warm editorial tint — subtle separation from surrounding sections */}
       <div
         aria-hidden
@@ -934,10 +938,18 @@ function About() {
       {/* graphite anatomical sketches — anchored to the whole section so they can go huge */}
       <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6 items-stretch">
-          <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
-            <span className="eyebrow text-background/60">§ About</span>
-            <div className="relative mt-6">
+        <Reveal>
+          <h2
+            id="about-heading"
+            className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] tracking-[-0.055em] text-background"
+          >
+            About<span className="text-teal">.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-12 items-stretch gap-6 md:mt-16">
+          <div className="col-span-12 flex flex-col justify-center md:col-span-4">
+            <div className="relative">
               <figure className="relative border-l-2 border-teal pl-5">
                 <span aria-hidden className="font-display text-6xl leading-none text-teal md:text-7xl">
                   “
