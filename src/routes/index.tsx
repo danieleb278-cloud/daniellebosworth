@@ -1060,11 +1060,11 @@ function ExperienceHeading() {
   }, []);
 
   return (
-    <div ref={ref} className="border-b border-border pb-12 md:pb-16">
+    <div ref={ref} className="border-b border-border pb-10 md:pb-12">
       <h2
         id="experience-heading"
         aria-label="Experience"
-        className="grid grid-cols-10 overflow-hidden font-display text-[clamp(2.35rem,10vw,9rem)] font-medium uppercase leading-[0.82] tracking-[-0.07em]"
+        className="grid grid-cols-10 overflow-hidden font-display text-[clamp(1.85rem,8vw,7rem)] font-medium uppercase leading-[0.86] tracking-[-0.06em]"
       >
         {experienceLetters.map(({ letter, startSlot, y, rotate }, index) => (
           <span
@@ -1088,7 +1088,7 @@ function ExperienceHeading() {
       </h2>
 
       <p
-        className={`mx-auto mt-10 max-w-4xl text-center font-display text-xl leading-relaxed transition-all duration-700 md:mt-14 md:text-2xl lg:text-3xl ${
+        className={`mx-auto mt-8 max-w-3xl text-center font-display text-base leading-relaxed transition-all duration-700 md:mt-10 md:text-lg lg:text-xl ${
           assembled ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         } motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none`}
         style={{ transitionDelay: assembled ? "720ms" : "0ms" }}
@@ -1172,7 +1172,7 @@ function Resume() {
     "Systems Thinking",
   ];
   return (
-    <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="resume" aria-labelledby="experience-heading" className="px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
         <ExperienceHeading />
 
