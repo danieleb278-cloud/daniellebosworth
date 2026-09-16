@@ -1018,6 +1018,90 @@ function About() {
   );
 }
 
+const experienceLetters = [
+  { letter: "E", startSlot: 1, y: -18, rotate: -8 },
+  { letter: "X", startSlot: 3, y: 14, rotate: 7 },
+  { letter: "P", startSlot: 0, y: -8, rotate: -5 },
+  { letter: "E", startSlot: 5, y: 20, rotate: 8 },
+  { letter: "R", startSlot: 2, y: -16, rotate: 5 },
+  { letter: "I", startSlot: 4, y: 10, rotate: -7 },
+  { letter: "E", startSlot: 8, y: -12, rotate: 6 },
+  { letter: "N", startSlot: 7, y: 17, rotate: -4 },
+  { letter: "C", startSlot: 6, y: -7, rotate: 8 },
+  { letter: "E", startSlot: 9, y: 12, rotate: -6 },
+];
+
+function ExperienceHeading() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [assembled, setAssembled] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setAssembled(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAssembled(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="border-b border-border pb-12 md:pb-16">
+      <h2
+        id="experience-heading"
+        aria-label="Experience"
+        className="grid grid-cols-10 overflow-hidden font-display text-[clamp(2.35rem,10vw,9rem)] font-medium uppercase leading-[0.82] tracking-[-0.07em]"
+      >
+        {experienceLetters.map(({ letter, startSlot, y, rotate }, index) => (
+          <span
+            key={`${letter}-${index}`}
+            aria-hidden="true"
+            className="block text-center text-foreground motion-reduce:transform-none motion-reduce:transition-none"
+            style={{
+              opacity: assembled ? 1 : 0.58,
+              transform: assembled
+                ? "translate3d(0, 0, 0) rotate(0deg)"
+                : `translate3d(${(startSlot - index) * 100}%, ${y}px, 0) rotate(${rotate}deg)`,
+              transition:
+                "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease",
+              transitionDelay: assembled ? `${index * 28}ms` : "0ms",
+              willChange: "transform, opacity",
+            }}
+          >
+            {letter}
+          </span>
+        ))}
+      </h2>
+
+      <p
+        className={`mx-auto mt-10 max-w-4xl text-center font-display text-xl leading-relaxed transition-all duration-700 md:mt-14 md:text-2xl lg:text-3xl ${
+          assembled ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+        } motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none`}
+        style={{ transitionDelay: assembled ? "720ms" : "0ms" }}
+      >
+        Across roles, the pattern has stayed consistent: I follow problems beyond the department where they first
+        appear. What may begin as a customer issue often reveals a workflow, information, training, or system-design
+        problem. <span className="italic text-teal">Each role added another lens</span> for understanding those
+        connections and turning them into practical improvements<span className="text-accent">.</span>
+      </p>
+    </div>
+  );
+}
+
 function Resume() {
   const roles = [
     {
@@ -1090,15 +1174,7 @@ function Resume() {
   return (
     <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-12 border-b border-border pb-8">
-          <span className="eyebrow">§ Experience</span>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Across roles, the pattern has stayed consistent: I follow problems beyond the department where they first
-            appear. A customer issue may trace back to a workflow, an information gap, a training need, or the way a
-            system is designed. I work across those boundaries to understand the dependencies, translate between
-            perspectives, and turn what I find into practical improvements.
-          </p>
-        </div>
+        <ExperienceHeading />
 
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-8">
