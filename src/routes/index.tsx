@@ -1252,18 +1252,44 @@ function Resume() {
 
 function Contact() {
   return (
-    <section id="contact" className="border-t border-border px-6 py-28 md:px-12 md:py-40">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="border-t border-border px-6 py-24 md:px-12 md:py-32"
+    >
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6">
-          <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
+        <div className="grid grid-cols-12 gap-x-6 gap-y-10">
+          <div className="col-span-12 border-b border-teal pb-5 md:col-span-2 md:border-b-0 md:border-r md:pb-0 md:pr-6">
+            <h2
+              id="contact-heading"
+              aria-label="Contact"
+              className="font-display text-[clamp(3rem,6vw,5.5rem)] uppercase leading-[0.78] tracking-[-0.055em]"
+            >
+              <span className="md:hidden">Contact<span className="text-teal">.</span></span>
+              <span aria-hidden className="hidden md:flex md:flex-col md:items-center md:gap-1">
+                {"CONTACT".split("").map((letter, index) => (
+                  <span key={`${letter}-${index}`} className={index === 6 ? "text-teal" : undefined}>
+                    {letter}
+                  </span>
+                ))}
+              </span>
+            </h2>
+          </div>
+
           <div className="col-span-12 md:col-span-10">
             <Reveal>
-              <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-                Let's bridge design, strategy, <span className="italic text-muted-foreground">and experience</span>
-                <span className="text-accent">.</span>
-              </h2>
+              <div className="inline-block">
+                <h3 className="font-handwriting text-[clamp(4.5rem,10vw,8.5rem)] font-medium leading-[0.82] tracking-[-0.035em] text-teal">
+                  Let&apos;s connect.
+                </h3>
+                <span aria-hidden className="mt-3 block h-px w-full origin-left bg-teal" />
+              </div>
+              <p className="mt-7 max-w-3xl font-display text-xl leading-relaxed text-foreground md:text-2xl">
+                Have a problem that doesn&apos;t fit neatly inside one department? Those are usually the ones I&apos;m
+                most interested in.
+              </p>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
+            <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:items-stretch md:gap-20">
               <div className="flex h-full flex-col gap-10">
                 <div className="flex flex-wrap items-center gap-4">
                   <a
