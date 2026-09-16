@@ -197,14 +197,32 @@ function Marquee() {
 
 function HowIWork() {
   const steps = ["Find the friction", "Trace the system", "Design the intervention"];
+  const titleRows = ["HO", "WI", "WOR", "K"];
+
   return (
-    <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-24 md:px-12 md:py-28">
+    <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="grid grid-cols-12 gap-6">
-            <span className="eyebrow col-span-12 text-teal md:col-span-3">§ How I Work</span>
-            <div className="col-span-12 md:col-span-9">
-              <h2 id="how-i-work-heading" className="font-display text-4xl tracking-tight md:text-5xl">
+        <div className="grid grid-cols-12 items-stretch gap-8 md:gap-10 lg:gap-14">
+          <Reveal className="col-span-12 md:col-span-4 lg:col-span-3">
+            <div
+              aria-hidden
+              className="flex h-60 flex-col justify-center overflow-hidden bg-charcoal px-3 py-4 text-background sm:h-72 md:h-full md:min-h-[30rem]"
+            >
+              {titleRows.map((row, index) => (
+                <span
+                  key={row}
+                  className="block font-sans text-[clamp(4.6rem,12vw,9rem)] font-semibold uppercase leading-[0.62] tracking-[-0.12em]"
+                  style={{ transform: `translateX(${index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
+                >
+                  {row}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="col-span-12 md:col-span-8 lg:col-span-9" delay={100}>
+            <div className="flex h-full flex-col justify-center">
+              <h2 id="how-i-work-heading" className="font-display text-4xl leading-tight tracking-tight md:text-5xl">
                 Find the friction<span className="text-accent">.</span> Trace the system
                 <span className="text-accent">.</span> Design the intervention<span className="text-accent">.</span>
               </h2>
@@ -213,15 +231,15 @@ function HowIWork() {
                 around it. Product strategy turns those findings into something actionable, whether that means changing
                 a workflow, defining a feature, restructuring information, or introducing new technology.
               </p>
-              <ol className="mt-10 flex flex-wrap gap-x-3 gap-y-3">
+              <ol className="mt-9 grid gap-3 sm:grid-cols-3">
                 {steps.map((step, i) => (
                   <li key={step} className="flex items-center gap-3">
-                    <span className="eyebrow rounded-full border border-border px-4 py-2 transition-colors duration-300 hover:border-teal hover:text-teal">
+                    <span className="eyebrow w-full rounded-full border border-border px-4 py-2 text-center transition-colors duration-300 hover:border-teal hover:text-teal">
                       <span className="mr-2 font-mono text-teal">0{i + 1}</span>
                       {step}
                     </span>
                     {i < steps.length - 1 && (
-                      <span aria-hidden className="hidden font-mono text-muted-foreground md:inline">
+                      <span aria-hidden className="hidden font-mono text-muted-foreground lg:inline">
                         →
                       </span>
                     )}
@@ -229,8 +247,8 @@ function HowIWork() {
                 ))}
               </ol>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -277,15 +295,21 @@ function CommercialImpact() {
   return (
     <section
       aria-labelledby="commercial-impact-heading"
-      className="border-b border-border bg-charcoal px-6 py-14 text-background md:px-12 md:py-16"
+      className="border-b border-border bg-charcoal px-6 py-12 text-background md:px-12 md:py-14"
     >
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
-          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <span className="eyebrow text-teal">§ Commercial Impact</span>
-            <h2 id="commercial-impact-heading" className="font-display text-2xl tracking-tight md:text-3xl">
-              Cross-functional work, real business impact<span className="text-accent">.</span>
+          <div className="flex flex-wrap items-baseline gap-x-7 gap-y-3">
+            <h2
+              id="commercial-impact-heading"
+              className="font-mono text-[clamp(2rem,4vw,3.25rem)] lowercase leading-none tracking-[-0.055em] text-background/70"
+            >
+              impact<span aria-hidden className="text-teal">_</span>
             </h2>
+            <p className="font-display text-xl tracking-tight text-background md:text-2xl">
+              Cross-functional work, real business <span className="text-teal">impact</span>
+              <span className="text-accent">.</span>
+            </p>
           </div>
         </Reveal>
 
@@ -293,7 +317,7 @@ function CommercialImpact() {
           {commercialImpact.map((item) => (
             <div
               key={item.index}
-              className="grid grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 sm:flex sm:grid-cols-none sm:gap-4"
+              className="grid grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 border-t border-background/15 pt-5 sm:flex sm:grid-cols-none sm:gap-4"
             >
               <span className="font-display text-3xl leading-none tracking-[-0.03em] text-background md:text-4xl">
                 {item.outcome}
@@ -512,16 +536,37 @@ function Work() {
   return (
     <section id="work" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
-            <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
-            <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
+        <div className="mb-16 grid grid-cols-12 items-center gap-8 border-b border-border pb-10 md:gap-10">
+          <Reveal className="col-span-12 sm:col-span-5 md:col-span-4">
+            <div
+              aria-hidden
+              className="relative h-44 max-w-md overflow-hidden text-teal sm:h-56 md:h-64"
+            >
+              <div
+                className="absolute -left-2 top-1 font-display text-[clamp(5.5rem,12vw,10rem)] uppercase leading-[0.55] tracking-[-0.1em] text-transparent"
+                style={{ WebkitTextStroke: "1.2px var(--teal)" }}
+              >
+                PROJ
+              </div>
+              <div
+                className="absolute -left-5 bottom-2 font-display text-[clamp(5.5rem,12vw,10rem)] uppercase leading-[0.55] tracking-[-0.1em] text-transparent"
+                style={{ WebkitTextStroke: "1.2px var(--teal)" }}
+              >
+                ECTS
+              </div>
+              <span className="absolute left-[43%] top-[8%] h-[84%] w-px rotate-[18deg] bg-background" />
+              <span className="absolute left-[67%] top-0 h-full w-px -rotate-[12deg] bg-background" />
+            </div>
+          </Reveal>
+
+          <Reveal className="col-span-12 sm:col-span-7 md:col-span-8" delay={100}>
+            <h2 className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
               Selected work across product, research, and
               <span className="italic text-muted-foreground"> systems thinking</span>
               <span className="text-accent">.</span>
             </h2>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <div className="divide-y divide-border">
           {featured.map((cs, i) => (
