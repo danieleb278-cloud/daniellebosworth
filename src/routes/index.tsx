@@ -206,7 +206,7 @@ function HowIWork() {
               {titleRows.map((row, index) => (
                 <span
                   key={row}
-                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[34cqw] tracking-[-0.14em]" : "text-[42cqw] tracking-[-0.12em]"}`}
+                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[40cqw] tracking-[-0.14em]" : "text-[46cqw] tracking-[-0.12em]"}`}
                   style={{ transform: `translateX(${index === 2 ? "-0.01em" : index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
                 >
                   {row}
