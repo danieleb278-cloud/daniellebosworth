@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Reveal } from "@/components/reveal";
+import { VocariOpening } from "@/components/vocari-opening";
 import type { CaseStudy } from "@/lib/case-studies";
 
-const HERO_VIDEO_SRC = "/final%20vocari%20hero%20video.mp4";
+
 
 const researchCards = [
   {
@@ -76,33 +77,7 @@ const slides = [
 export function VocariCaseStudy({ study }: { study: CaseStudy }) {
   return (
     <>
-      <section className="px-6 pb-20 md:px-12 md:pb-28">
-        <div className="mx-auto max-w-[1400px]">
-          <Reveal><div className="overflow-hidden bg-secondary p-3 md:p-5"><VocariHero /></div></Reveal>
-        </div>
-      </section>
-
-      <section id="overview" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <SectionLabel number="01 / 05" label="Overview" />
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">The project in 30 seconds</p>
-          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
-            <Summary label="The problem" text="Career assessments often produce fixed labels and recommendations people cannot meaningfully evaluate." />
-            <Summary label="What I did" text="I conceived, named, designed, and built Vocari, including its product system, research direction, information architecture, interface, and working prototype." />
-            <Summary label="The direction" text="Use purposeful AI conversations to reveal strengths people may not recognize in themselves, then connect those abilities to career possibilities they may never have considered." />
-          </div>
-          <div className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
-            <Meta label="Role" value="Product Creator, Product Designer & Prototype Developer" />
-            <Meta label="Duration" value="May–August 2026" />
-            <Meta label="Methods" value="Product strategy, interviews, surveys, usability testing, affective-computing research, IA, interaction design" />
-            <Meta label="Tools" value="Lovable, ChatGPT, GitHub, Vercel, React, TypeScript, Supabase, MorphCast, Figma" />
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="https://myvocari.lovable.app" target="_blank" rel="noreferrer" className="border border-foreground bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-[0.14em] text-background transition-colors hover:bg-accent hover:text-foreground">Explore the research prototype ↗</a>
-            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">Academic research prototype with a limited career catalog and early-stage personalization. The link demonstrates current capability, not the full product vision.</p>
-          </div>
-        </div>
-      </section>
+      <VocariOpening />
 
       <section id="challenge" className="px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
@@ -241,18 +216,6 @@ function AILearningLoop() {
   );
 }
 
-function VocariHero() {
-  const [reducedMotion, setReducedMotion] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(query.matches);
-    const onChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
-  return <figure><div className="relative w-full overflow-hidden bg-background" style={{ aspectRatio: "16/9" }}>{reducedMotion ? <img src="/vocari/homepage.webp" alt="Vocari research prototype" className="absolute inset-0 h-full w-full object-cover" /> : <video className="absolute inset-0 h-full w-full object-cover" src={HERO_VIDEO_SRC} autoPlay muted loop playsInline preload="metadata" aria-label="Short motion preview of the Vocari research prototype" />}</div><figcaption className="eyebrow mt-4 flex items-center justify-between"><span>Fig. 01 · From lived experience to evidence-informed career exploration</span><span aria-hidden>✦</span></figcaption></figure>;
-}
-
 function DesignCarousel() {
   const [active, setActive] = useState(0);
   return <div className="mt-14"><div className="mx-auto max-w-5xl">{slides.map((slide,index)=><div key={slide.src} className={index===active?"block":"hidden"} aria-hidden={index!==active}><CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index===1} /></div>)}</div><div className="mx-auto mt-6 flex max-w-5xl items-center justify-between border-t border-border pt-5"><span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Solution visual {String(active+1).padStart(2,"0")} / {String(slides.length).padStart(2,"0")}</span><div className="flex gap-3"><button type="button" onClick={()=>setActive((active-1+slides.length)%slides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] hover:border-accent hover:text-accent">Previous</button><button type="button" onClick={()=>setActive((active+1)%slides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] hover:border-accent hover:text-accent">Next</button></div></div></div>;
@@ -261,8 +224,6 @@ function DesignCarousel() {
 function CaseFigure({src,alt,caption,portrait=false,dark=false}:{src:string;alt:string;caption:string;portrait?:boolean;dark?:boolean}) {
   return <figure className="w-full"><div className={`flex w-full items-center justify-center border p-4 md:p-6 ${dark?"border-background/20 bg-background/5":"border-border bg-secondary"}`}><img src={src} alt={alt} className={portrait?"block max-h-[760px] w-auto max-w-full":"block h-auto w-full"} loading="lazy" /></div><figcaption className={`eyebrow mt-3 flex items-center justify-between border-t pt-2 ${dark?"border-background/20 text-background/70":"border-border"}`}><span>{caption}</span><span aria-hidden>✦</span></figcaption></figure>;
 }
-function Summary({label,text}:{label:string;text:string}) { return <div><span className="eyebrow text-accent">{label}</span><p className="mt-5 font-display text-2xl leading-snug tracking-tight md:text-3xl">{text}</p></div>; }
-function Meta({label,value}:{label:string;value:string}) { return <div className="min-h-32 border-border px-0 py-6 sm:px-6 sm:first:pl-0 lg:border-r lg:last:border-r-0"><span className="eyebrow text-muted-foreground">{label}</span><p className="mt-3 max-w-[28ch] text-sm leading-relaxed">{value}</p></div>; }
 function SectionLabel({number,label,tone="light"}:{number:string;label:string;tone?:"light"|"dark"}) { return <div className="flex items-baseline gap-5"><span className={`font-mono text-xs ${tone==="dark"?"text-background/60":"text-muted-foreground"}`}>{number}</span><span className="eyebrow text-accent">{label}</span></div>; }
 function ReasonCell({label,text}:{label:string;text:string}) { return <div><span className="eyebrow text-accent">{label}</span><p className="mt-4 font-display text-xl leading-snug md:text-2xl">{text}</p></div>; }
 
