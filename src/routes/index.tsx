@@ -13,8 +13,6 @@ import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
 import resumePdf from "@/assets/resume.pdf.asset.json";
-import earSketch from "@/assets/editorial/ear-sketch.png";
-import eyeSketch from "@/assets/editorial/eye-sketch.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
