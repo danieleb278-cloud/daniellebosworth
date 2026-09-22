@@ -978,10 +978,10 @@ function CommonThread() {
           const appear = Math.min(1, Math.max(0, (ease - 0.28 - index * 0.08) / 0.3));
           const pos = stacked
             ? [
-                { left: 46, top: 9 },
-                { left: 52, top: 33 },
-                { left: 40, top: 60 },
-                { left: 50, top: 86 },
+                { left: 58, top: 8 },
+                { left: 58, top: 30 },
+                { left: 58, top: 54 },
+                { left: 58, top: 90 },
               ][index]
             : [
                 { left: 10, top: 20 },
