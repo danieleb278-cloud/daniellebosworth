@@ -14,6 +14,13 @@ export function VocariOpening() {
               <p className="text-foreground"><strong className="font-medium">Vocari began with the idea that conversational AI could uncover those overlooked patterns, then connect them to careers where those abilities could become an advantage.</strong></p>
             </div>
 
+            <div className="mt-8 max-w-[52ch]">
+              <a href="https://myvocari.lovable.app" target="_blank" rel="noreferrer" className="inline-block border border-foreground bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-[0.14em] text-background transition-colors hover:bg-accent hover:text-foreground">Explore the research prototype ↗</a>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Academic research prototype with a limited career catalog and early-stage personalization. The link demonstrates current capability, not the full product vision.</p>
+            </div>
+
+
+
             <details className="group mt-7 max-w-[52ch]">
               <summary className="flex min-h-12 w-fit cursor-pointer list-none items-center gap-3 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden">
                 <span aria-hidden="true" className="w-3 font-mono text-base group-open:hidden">+</span>
