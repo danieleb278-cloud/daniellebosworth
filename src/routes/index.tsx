@@ -8,6 +8,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { ContentVisualCase } from "@/components/content-visual-case";
 import noiseCover from "@/assets/noise/Cover_Noise_visual_design_study.png.asset.json";
+import howIWorkGraphic from "@/assets/how-i-work-typographic.png.asset.json";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
@@ -196,22 +197,18 @@ function Marquee() {
 }
 
 function HowIWork() {
-  const titleRows = ["HO", "WI", "WOR", "K"];
   return (
     <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 items-stretch gap-8 md:gap-10 lg:gap-14">
           <Reveal className="col-span-12 md:col-span-4 lg:col-span-3">
-            <div aria-hidden className="@container flex aspect-square flex-col justify-center overflow-hidden bg-charcoal px-[3%] py-[2%] text-background">
-              {titleRows.map((row, index) => (
-                <span
-                  key={row}
-                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[40cqw] tracking-[-0.14em]" : "text-[46cqw] tracking-[-0.12em]"}`}
-                  style={{ transform: `translateX(${index === 2 ? "-0.01em" : index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
-                >
-                  {row}
-                </span>
-              ))}
+            <div aria-hidden className="@container aspect-square overflow-hidden bg-charcoal">
+              <img
+                src={howIWorkGraphic.url}
+                alt=""
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
           </Reveal>
           <Reveal className="col-span-12 md:col-span-8 lg:col-span-9" delay={100}>
