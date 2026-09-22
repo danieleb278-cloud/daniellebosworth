@@ -8,6 +8,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { ContentVisualCase } from "@/components/content-visual-case";
 import noiseCover from "@/assets/noise/Cover_Noise_visual_design_study.png.asset.json";
+import howIWorkGraphic from "@/assets/how-i-work-typographic.png.asset.json";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
@@ -196,7 +197,6 @@ function Marquee() {
 }
 
 function HowIWork() {
-  const titleRows = ["HO", "WI", "WOR", "K"];
   return (
     <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
