@@ -889,6 +889,15 @@ const threadQuestions = [
 function CommonThread() {
   const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [stacked, setStacked] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const sync = () => setStacked(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -923,17 +932,26 @@ function CommonThread() {
 
   return (
     <div ref={ref} className="relative mt-20 md:mt-28">
-      <div className="relative h-[34rem] w-full md:h-[30rem]">
+      <div className="relative h-[40rem] w-full md:h-[30rem]">
         {/* the thread itself — a hairline that draws as the words converge */}
-        <div
-          aria-hidden
-          className="absolute left-0 top-1/2 h-px w-full origin-left bg-teal"
-          style={{ transform: `scaleX(${ease})`, opacity: 0.25 + ease * 0.5 }}
-        />
+        {stacked ? (
+          <div
+            aria-hidden
+            className="absolute left-[6%] top-0 h-full w-px origin-top bg-teal"
+            style={{ transform: `scaleY(${ease})`, opacity: 0.25 + ease * 0.5 }}
+          />
+        ) : (
+          <div
+            aria-hidden
+            className="absolute left-0 top-1/2 h-px w-full origin-left bg-teal"
+            style={{ transform: `scaleX(${ease})`, opacity: 0.25 + ease * 0.5 }}
+          />
+        )}
         {threadWords.map(({ word, x, y, rotate }, index) => {
-          // converge onto the thread: evenly distributed, alternating above/below
-          const targetX = 2 + (index * 96) / count;
-          const targetY = index % 2 === 0 ? 42 : 52;
+          // converge onto the thread: a single line on desktop, a stacked
+          // column on narrow screens so nothing collides
+          const targetX = stacked ? 12 : 2 + (index * 96) / count;
+          const targetY = stacked ? 4 + index * 11.5 : index % 2 === 0 ? 42 : 52;
           const left = x + (targetX - x) * ease;
           const top = y + (targetY - y) * ease;
           return (
@@ -945,7 +963,7 @@ function CommonThread() {
                 top: `${top}%`,
                 transform: `rotate(${rotate * (1 - ease)}deg)`,
                 opacity: 0.38 + ease * 0.62,
-                fontSize: `clamp(0.95rem, ${2.4 - ease * 0.7}vw, 2rem)`,
+                fontSize: stacked ? "1.35rem" : `clamp(0.95rem, ${2.4 - ease * 0.7}vw, 2rem)`,
                 letterSpacing: `${0.12 - ease * 0.1}em`,
                 transition: "opacity 300ms linear",
                 willChange: "left, top, transform",
@@ -958,14 +976,27 @@ function CommonThread() {
         {/* the quiet questions that were actually doing the connecting */}
         {threadQuestions.map((question, index) => {
           const appear = Math.min(1, Math.max(0, (ease - 0.28 - index * 0.08) / 0.3));
+          const pos = stacked
+            ? [
+                { left: 46, top: 9 },
+                { left: 52, top: 33 },
+                { left: 40, top: 60 },
+                { left: 50, top: 86 },
+              ][index]
+            : [
+                { left: 10, top: 20 },
+                { left: 62, top: 16 },
+                { left: 26, top: 78 },
+                { left: 66, top: 72 },
+              ][index];
           return (
             <span
               key={question}
               aria-hidden={appear < 0.1}
-              className="absolute font-handwriting text-lg text-teal md:text-2xl"
+              className="absolute max-w-[46%] font-handwriting text-base leading-tight text-teal md:max-w-none md:text-2xl"
               style={{
-                left: `${[10, 62, 26, 66][index]}%`,
-                top: `${[20, 16, 78, 72][index]}%`,
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
                 opacity: appear * 0.85,
                 transform: `translateY(${(1 - appear) * 10}px)`,
               }}
