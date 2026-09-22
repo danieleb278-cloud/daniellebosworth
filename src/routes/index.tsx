@@ -1037,7 +1037,7 @@ function About() {
         <Reveal><h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2></Reveal>
 
         <div className="mt-12 grid grid-cols-12 gap-6 md:mt-16">
-          <div className="col-span-12 md:col-span-7 md:col-start-6">
+          <div className="col-span-12 md:col-span-8 md:col-start-5">
             <Reveal>
               <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
                 My career looks like a strange mix at first. I&rsquo;ve worked in salons, managed teams, handled
