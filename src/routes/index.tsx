@@ -196,7 +196,6 @@ function Marquee() {
 }
 
 function HowIWork() {
-  const steps = ["Find the friction", "Trace the system", "Design the intervention"];
   const titleRows = ["HO", "WI", "WOR", "K"];
   return (
     <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-20 md:px-12 md:py-28">
