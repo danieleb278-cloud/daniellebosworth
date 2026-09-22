@@ -54,16 +54,16 @@ function CaseStudyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav />
-      <section className="px-6 pt-40 pb-14 md:px-12 md:pt-52 md:pb-20">
+      <section className={isVocari ? "px-6 pt-32 pb-10 md:px-12 md:pt-40 md:pb-14" : "px-6 pt-40 pb-14 md:px-12 md:pt-52 md:pb-20"}>
         <div className="mx-auto max-w-[1400px]">
-          <div className="mb-10 flex items-center justify-between border-b border-border pb-6">
+          <div className={`${isVocari ? "" : "mb-10 "}flex items-center justify-between border-b border-border pb-6`}>
             <Link to="/" className="eyebrow link-underline">← Index</Link>
             <span className="eyebrow">Case {study.index} / {String(caseStudies.length).padStart(2, "0")}</span>
           </div>
-          <Reveal>
+          {!isVocari && <Reveal>
             <h1 className="font-display text-[clamp(2.75rem,8vw,8rem)] leading-[0.95] tracking-[-0.03em]">{study.title}<span className="text-accent">.</span></h1>
             <p className="mt-8 max-w-3xl font-display text-2xl leading-snug text-muted-foreground md:text-3xl">{study.subtitle}</p>
-          </Reveal>
+          </Reveal>}
         </div>
       </section>
 
