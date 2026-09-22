@@ -197,14 +197,27 @@ function Marquee() {
 
 function HowIWork() {
   const steps = ["Find the friction", "Trace the system", "Design the intervention"];
+  const titleRows = ["HO", "WI", "WOR", "K"];
   return (
-    <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-24 md:px-12 md:py-28">
+    <section aria-labelledby="how-i-work-heading" className="border-b border-border px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="grid grid-cols-12 gap-6">
-            <span className="eyebrow col-span-12 text-teal md:col-span-3">§ How I Work</span>
-            <div className="col-span-12 md:col-span-9">
-              <h2 id="how-i-work-heading" className="font-display text-4xl tracking-tight md:text-5xl">
+        <div className="grid grid-cols-12 items-stretch gap-8 md:gap-10 lg:gap-14">
+          <Reveal className="col-span-12 md:col-span-4 lg:col-span-3">
+            <div aria-hidden className="flex h-60 flex-col justify-center overflow-hidden bg-charcoal px-3 py-4 text-background sm:h-72 md:h-full md:min-h-[30rem]">
+              {titleRows.map((row, index) => (
+                <span
+                  key={row}
+                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[clamp(4.15rem,9vw,7.4rem)] tracking-[-0.14em]" : "text-[clamp(4.6rem,12vw,9rem)] tracking-[-0.12em]"}`}
+                  style={{ transform: `translateX(${index === 2 ? "-0.01em" : index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
+                >
+                  {row}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal className="col-span-12 md:col-span-8 lg:col-span-9" delay={100}>
+            <div className="flex h-full flex-col justify-center">
+              <h2 id="how-i-work-heading" className="font-display text-4xl leading-tight tracking-tight md:text-5xl">
                 Find the friction<span className="text-accent">.</span> Trace the system
                 <span className="text-accent">.</span> Design the intervention<span className="text-accent">.</span>
               </h2>
@@ -213,15 +226,15 @@ function HowIWork() {
                 around it. Product strategy turns those findings into something actionable, whether that means changing
                 a workflow, defining a feature, restructuring information, or introducing new technology.
               </p>
-              <ol className="mt-10 flex flex-wrap gap-x-3 gap-y-3">
+              <ol className="mt-9 grid gap-3 sm:grid-cols-3">
                 {steps.map((step, i) => (
                   <li key={step} className="flex items-center gap-3">
-                    <span className="eyebrow rounded-full border border-border px-4 py-2 transition-colors duration-300 hover:border-teal hover:text-teal">
+                    <span className="eyebrow w-full rounded-full border border-border px-4 py-2 text-center transition-colors duration-300 hover:border-teal hover:text-teal">
                       <span className="mr-2 font-mono text-teal">0{i + 1}</span>
                       {step}
                     </span>
                     {i < steps.length - 1 && (
-                      <span aria-hidden className="hidden font-mono text-muted-foreground md:inline">
+                      <span aria-hidden className="hidden font-mono text-muted-foreground lg:inline">
                         →
                       </span>
                     )}
@@ -229,8 +242,8 @@ function HowIWork() {
                 ))}
               </ol>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -281,11 +294,11 @@ function CommercialImpact() {
     >
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
-          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <span className="eyebrow text-teal">§ Commercial Impact</span>
-            <h2 id="commercial-impact-heading" className="font-display text-2xl tracking-tight md:text-3xl">
-              Cross-functional work, real business impact<span className="text-accent">.</span>
+          <div className="flex flex-wrap items-baseline gap-x-7 gap-y-3">
+            <h2 id="commercial-impact-heading" className="font-mono text-[clamp(2rem,4vw,3.25rem)] lowercase leading-none text-background/70">
+              impact<span aria-hidden className="text-teal">_</span>
             </h2>
+            <p className="font-display text-xl tracking-tight text-background md:text-2xl">Cross-functional work, real business <span className="text-teal">impact</span><span className="text-accent">.</span></p>
           </div>
         </Reveal>
 
@@ -481,6 +494,53 @@ function MagicSleekFieldCase({
 
 const moreWorkOrder = ["robin", "next-destination", "supercuts"];
 
+function ProjectsBlueprint() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [built, setBuilt] = useState(false);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setBuilt(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setBuilt(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const gridX = [115, 205, 295, 385, 475, 565, 655];
+  const ticks = [70, 160, 250, 340, 430, 520, 610, 700];
+  return (
+    <div ref={ref} aria-hidden className="w-full overflow-hidden">
+      <svg viewBox="0 0 780 210" className="block h-auto w-full" role="presentation">
+        <g fill="none" stroke="var(--teal)" strokeWidth="1" opacity="0.38">
+          {gridX.map((x, index) => <line key={x} x1={x} y1="52" x2={x} y2="172" strokeDasharray="140" style={{ strokeDashoffset: built ? 0 : 140, transition: `stroke-dashoffset 650ms ease ${index * 45}ms` }} />)}
+          {[72, 112, 152].map((y, index) => <line key={y} x1="48" y1={y} x2="732" y2={y} strokeDasharray="720" style={{ strokeDashoffset: built ? 0 : 720, transition: `stroke-dashoffset 850ms ease ${120 + index * 70}ms` }} />)}
+        </g>
+        <g fill="none" stroke="var(--teal)" strokeWidth="1.5">
+          <line x1="48" y1="30" x2="732" y2="30" strokeDasharray="700" style={{ strokeDashoffset: built ? 0 : 700, transition: "stroke-dashoffset 900ms cubic-bezier(0.22, 1, 0.36, 1)" }} />
+          <line x1="48" y1="20" x2="48" y2="42" /><line x1="732" y1="20" x2="732" y2="42" />
+          <line x1="30" y1="52" x2="30" y2="172" strokeDasharray="140" style={{ strokeDashoffset: built ? 0 : 140, transition: "stroke-dashoffset 650ms ease 180ms" }} />
+          <line x1="20" y1="52" x2="42" y2="52" /><line x1="20" y1="172" x2="42" y2="172" />
+          {ticks.map((x) => <line key={x} x1={x} y1="24" x2={x} y2="36" />)}
+        </g>
+        <g fill="var(--teal)" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="2" style={{ opacity: built ? 0.72 : 0, transition: "opacity 500ms ease 450ms" }}>
+          <text x="374" y="18">SYSTEM 01</text><text x="3" y="116" transform="rotate(-90 3 116)">120</text>
+          {["80", "70", "90", "80", "70", "90", "80", "90"].map((label, index) => <text key={`${label}-${index}`} x={ticks[index] - 8} y="198">{label}</text>)}
+        </g>
+        <text x="55" y="158" fill="transparent" stroke="var(--teal)" strokeWidth="1.5" fontFamily="var(--font-display)" fontSize="119" fontWeight="400" letterSpacing="-5" style={{ opacity: built ? 1 : 0, transition: "opacity 450ms ease 260ms" }}>PROJECTS</text>
+        <text x="55" y="158" fill="var(--foreground)" fontFamily="var(--font-display)" fontSize="119" fontWeight="400" letterSpacing="-5" style={{ opacity: built ? 0.1 : 0, transition: "opacity 850ms ease 850ms" }}>PROJECTS</text>
+      </svg>
+    </div>
+  );
+}
+
 function Work() {
   const featured = caseStudies.filter((cs) => cs.slug === "vocari" || cs.slug === "joomla");
   const rest = moreWorkOrder
@@ -510,18 +570,16 @@ function Work() {
 
 
   return (
-    <section id="work" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="work" aria-labelledby="selected-projects-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="mb-16 grid grid-cols-12 gap-6 border-b border-border pb-8">
-            <span className="eyebrow col-span-12 md:col-span-2">§ Selected Projects</span>
-            <h2 className="col-span-12 font-display text-4xl tracking-tight md:col-span-10 md:text-6xl">
-              Selected work across product, research, and
-              <span className="italic text-muted-foreground"> systems thinking</span>
-              <span className="text-accent">.</span>
+        <div className="mb-16 grid grid-cols-12 items-center gap-8 border-b border-border pb-10 md:gap-10 lg:gap-14">
+          <div className="col-span-12 min-w-0 md:col-span-7"><ProjectsBlueprint /></div>
+          <Reveal className="col-span-12 md:col-span-5" delay={140}>
+            <h2 id="selected-projects-heading" className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
+              Different problems<span className="text-accent">.</span>{" "}<span className="italic text-muted-foreground">One systems-minded approach</span><span className="text-accent">.</span>
             </h2>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <div className="divide-y divide-border">
           {featured.map((cs, i) => (
@@ -921,7 +979,7 @@ function EditorialSketches() {
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
+    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
       {/* warm editorial tint — subtle separation from surrounding sections */}
       <div
         aria-hidden
@@ -934,10 +992,10 @@ function About() {
       {/* graphite anatomical sketches — anchored to the whole section so they can go huge */}
       <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6 items-stretch">
+        <Reveal><h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2></Reveal>
+        <div className="mt-12 grid grid-cols-12 items-stretch gap-6 md:mt-16">
           <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
-            <span className="eyebrow text-background/60">§ About</span>
-            <div className="relative mt-6">
+            <div className="relative">
               <figure className="relative border-l-2 border-teal pl-5">
                 <span aria-hidden className="font-display text-6xl leading-none text-teal md:text-7xl">
                   “
@@ -1018,6 +1076,44 @@ function About() {
   );
 }
 
+const experienceLetters = [
+  { letter: "E", startSlot: 1, y: -18, rotate: -8 }, { letter: "X", startSlot: 3, y: 14, rotate: 7 },
+  { letter: "P", startSlot: 0, y: -8, rotate: -5 }, { letter: "E", startSlot: 5, y: 20, rotate: 8 },
+  { letter: "R", startSlot: 2, y: -16, rotate: 5 }, { letter: "I", startSlot: 4, y: 10, rotate: -7 },
+  { letter: "E", startSlot: 8, y: -12, rotate: 6 }, { letter: "N", startSlot: 7, y: 17, rotate: -4 },
+  { letter: "C", startSlot: 6, y: -7, rotate: 8 }, { letter: "E", startSlot: 9, y: 12, rotate: -6 },
+];
+
+function ExperienceHeading() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [assembled, setAssembled] = useState(false);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setAssembled(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setAssembled(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className="border-b border-border pb-10 md:pb-12">
+      <h2 id="experience-heading" aria-label="Experience" className="grid grid-cols-10 overflow-hidden font-display text-[clamp(1.85rem,8vw,7rem)] font-medium uppercase leading-[0.86]">
+        {experienceLetters.map(({ letter, startSlot, y, rotate }, index) => (
+          <span key={`${letter}-${index}`} aria-hidden="true" className="block text-center text-foreground motion-reduce:transform-none motion-reduce:transition-none" style={{ opacity: assembled ? 1 : 0.58, transform: assembled ? "translate3d(0, 0, 0) rotate(0deg)" : `translate3d(${(startSlot - index) * 100}%, ${y}px, 0) rotate(${rotate}deg)`, transition: "transform 1000ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease", transitionDelay: assembled ? `${index * 28}ms` : "0ms", willChange: "transform, opacity" }}>{letter}</span>
+        ))}
+      </h2>
+    </div>
+  );
+}
+
 function Resume() {
   const roles = [
     {
@@ -1088,10 +1184,10 @@ function Resume() {
     "Systems Thinking",
   ];
   return (
-    <section id="resume" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="resume" aria-labelledby="experience-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-12 border-b border-border pb-8">
-          <span className="eyebrow">§ Experience</span>
+        <ExperienceHeading />
+        <div className="mb-12">
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Across roles, the pattern has stayed consistent: I follow problems beyond the department where they first
             appear. A customer issue may trace back to a workflow, an information gap, a training need, or the way a
@@ -1162,16 +1258,21 @@ function Resume() {
 
 function Contact() {
   return (
-    <section id="contact" className="border-t border-border px-6 py-28 md:px-12 md:py-40">
+    <section id="contact" aria-labelledby="contact-heading" className="border-t border-border px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-6">
-          <span className="eyebrow col-span-12 md:col-span-2">§ Contact</span>
+        <div className="grid grid-cols-12 gap-x-6 gap-y-10">
+          <div className="col-span-12 border-b border-teal pb-5 md:col-span-2 md:border-b-0 md:border-r md:pb-0 md:pr-6">
+            <h2 id="contact-heading" aria-label="Contact" className="font-display text-[clamp(3rem,6vw,5.5rem)] uppercase leading-[0.78]">
+              <span className="md:hidden">Contact<span className="text-teal">.</span></span>
+              <span aria-hidden className="hidden md:flex md:flex-col md:items-center md:gap-1">
+                {"CONTACT".split("").map((letter, index) => <span key={`${letter}-${index}`} className={index === 6 ? "text-teal" : undefined}>{letter}</span>)}
+              </span>
+            </h2>
+          </div>
           <div className="col-span-12 md:col-span-10">
             <Reveal>
-              <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]">
-                Let's bridge design, strategy, <span className="italic text-muted-foreground">and experience</span>
-                <span className="text-accent">.</span>
-              </h2>
+              <div className="inline-block"><h3 className="font-handwriting text-[clamp(4.5rem,10vw,8.5rem)] font-medium leading-[0.82] text-teal">Let&apos;s connect.</h3><span aria-hidden className="mt-3 block h-px w-full origin-left bg-teal" /></div>
+              <p className="mt-7 max-w-3xl font-display text-xl leading-relaxed text-foreground md:text-2xl">Have a problem that doesn&apos;t fit neatly inside one department? Those are usually the ones I&apos;m most interested in.</p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
               <div className="flex h-full flex-col gap-10">
