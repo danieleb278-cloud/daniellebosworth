@@ -867,97 +867,127 @@ function WorkCarousel({
   );
 }
 
-function EditorialSketches() {
+// Career words that first read as an unrelated scatter, then settle onto a
+// single line — the realization that the problems, not the industries, were
+// the common thread.
+const threadWords = [
+  { word: "Salons", x: 6, y: 8, rotate: -7 },
+  { word: "Customers", x: 58, y: 2, rotate: 5 },
+  { word: "Operations", x: 30, y: 24, rotate: -3 },
+  { word: "Marketing", x: 72, y: 30, rotate: 8 },
+  { word: "Psychology", x: 4, y: 48, rotate: 4 },
+  { word: "Product", x: 46, y: 58, rotate: -6 },
+  { word: "AI", x: 84, y: 62, rotate: -9 },
+  { word: "Design", x: 20, y: 74, rotate: 6 },
+];
+
+const threadQuestions = [
+  "How can I make this easier?",
+  "Why isn't this working?",
+  "What are people struggling with?",
+  "Could this work better?",
+];
+
+function CommonThread() {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh + 200) {
-      setVisible(true);
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setProgress(1);
       return;
     }
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px" },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const raw = (vh * 0.9 - rect.top) / (rect.height * 0.75 + vh * 0.25);
+      setProgress(Math.min(1, Math.max(0, raw)));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
-  // Ghost-print treatment: invert the dark-line sketches so strokes become
-  // light, then use `screen` so the white paper drops out into the navy
-  // background entirely. What remains is a faint lifted texture — no gray
-  // rectangle, no photographic image, just the barest hint of a shape that
-  // reveals itself once the eye adjusts.
-  const baseImg: React.CSSProperties = {
-    position: "absolute",
-    mixBlendMode: "screen",
-    filter: "invert(1) grayscale(1) contrast(0.85) brightness(0.9)",
-    userSelect: "none",
-    pointerEvents: "none",
-  };
+  const ease = progress * progress * (3 - 2 * progress);
+  const count = threadWords.length;
 
   return (
-    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
-      {/* Ear — large but reduced/staggered so desktop does not collide with the eye. */}
-      <img
-        src={earSketch}
-        alt=""
-        loading="lazy"
-        width={1024}
-        height={1024}
-        
+    <div ref={ref} className="relative mt-20 md:mt-28">
+      <div className="relative h-[34rem] w-full md:h-[30rem]">
+        {/* the thread itself — a hairline that draws as the words converge */}
+        <div
+          aria-hidden
+          className="absolute left-0 top-1/2 h-px w-full origin-left bg-teal"
+          style={{ transform: `scaleX(${ease})`, opacity: 0.25 + ease * 0.5 }}
+        />
+        {threadWords.map(({ word, x, y, rotate }, index) => {
+          // converge onto the thread: evenly distributed, alternating above/below
+          const targetX = 2 + (index * 96) / count;
+          const targetY = index % 2 === 0 ? 42 : 52;
+          const left = x + (targetX - x) * ease;
+          const top = y + (targetY - y) * ease;
+          return (
+            <span
+              key={word}
+              className="absolute whitespace-nowrap font-display uppercase leading-none text-background"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                transform: `rotate(${rotate * (1 - ease)}deg)`,
+                opacity: 0.38 + ease * 0.62,
+                fontSize: `clamp(0.95rem, ${2.4 - ease * 0.7}vw, 2rem)`,
+                letterSpacing: `${0.12 - ease * 0.1}em`,
+                transition: "opacity 300ms linear",
+                willChange: "left, top, transform",
+              }}
+            >
+              {word}
+            </span>
+          );
+        })}
+        {/* the quiet questions that were actually doing the connecting */}
+        {threadQuestions.map((question, index) => {
+          const appear = Math.min(1, Math.max(0, (ease - 0.28 - index * 0.08) / 0.3));
+          return (
+            <span
+              key={question}
+              aria-hidden={appear < 0.1}
+              className="absolute font-handwriting text-lg text-teal md:text-2xl"
+              style={{
+                left: `${[10, 62, 26, 66][index]}%`,
+                top: `${[20, 16, 78, 72][index]}%`,
+                opacity: appear * 0.85,
+                transform: `translateY(${(1 - appear) * 10}px)`,
+              }}
+            >
+              {question}
+            </span>
+          );
+        })}
+      </div>
+      <p
+        className="mt-6 max-w-2xl font-display text-2xl leading-[1.25] text-background md:mt-10 md:text-4xl"
         style={{
-          ...baseImg,
-          top: "clamp(-90px, -4vw, -32px)",
-          left: "clamp(-360px, -18vw, -160px)",
-          width: "clamp(680px, 52vw, 1050px)",
-          transition: "opacity 7s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "2400ms",
-          opacity: visible ? 0.11 : 0,
-          // Flip so the outer helix curls toward the center and the canal
-          // sits at the outside edge. Slightly stronger contrast so the
-          // rim of the ear reads as a shape, not just mist.
-          filter: "invert(1) grayscale(1) contrast(1.05) brightness(1)",
-          transform: "scaleX(-1)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
-          maskImage:
-            "radial-gradient(ellipse 60% 62% at 60% 45%, black 25%, rgba(0,0,0,0.7) 60%, transparent 92%)",
+          opacity: Math.min(1, Math.max(0, (ease - 0.6) / 0.3)),
+          transform: `translateY(${(1 - Math.min(1, Math.max(0, (ease - 0.6) / 0.3))) * 12}px)`,
         }}
-      />
-      {/* Eye — anchored in the lower-left corner, mirroring the ear in the
-          upper-left so it sits in the blank space below the quote. */}
-      <img
-        src={eyeSketch}
-        alt=""
-        loading="lazy"
-        width={1024}
-        height={1024}
-        className="sketch-breathe-eye hidden md:block"
-        style={{
-          ...baseImg,
-          bottom: "clamp(-260px, -22vh, -120px)",
-          left: "clamp(-340px, -18vw, -150px)",
-          width: "clamp(640px, 50vw, 1020px)",
-          transition: "opacity 8s cubic-bezier(0.4, 0, 0.2, 1)",
-          transitionDelay: "3400ms",
-          opacity: visible ? 0.12 : 0,
-          filter: "invert(1) grayscale(1) contrast(1.15) brightness(1.05)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, rgba(0,0,0,0.7) 65%, transparent 92%)",
-          maskImage:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, rgba(0,0,0,0.7) 65%, transparent 92%)",
-        }}
-      />
+      >
+        The industry wasn&rsquo;t the common thread.
+        <br />
+        <span className="text-teal">The problems were.</span>
+      </p>
     </div>
   );
 }
@@ -974,87 +1004,81 @@ function About() {
             "radial-gradient(120% 80% at 15% 20%, color-mix(in oklab, var(--accent-yellow) 10%, transparent) 0%, transparent 55%), radial-gradient(90% 70% at 85% 90%, color-mix(in oklab, var(--accent-purple) 8%, transparent) 0%, transparent 60%)",
         }}
       />
-      {/* graphite anatomical sketches — anchored to the whole section so they can go huge */}
-      <EditorialSketches />
       <div className="relative mx-auto max-w-[1400px]">
         <Reveal><h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2></Reveal>
-        <div className="mt-12 grid grid-cols-12 items-stretch gap-6 md:mt-16">
-          <div className="col-span-12 md:col-span-4 flex flex-col justify-center">
-            <div className="relative">
-              <figure className="relative border-l-2 border-teal pl-5">
-                <span aria-hidden className="font-display text-6xl leading-none text-teal md:text-7xl">
-                  “
-                </span>
-                <h2 className="mt-2 font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-                  One <span className="text-teal">ear</span> on the customer, one <span className="text-teal">eye</span>{" "}
-                  on the business.
-                </h2>
-                <figcaption className="eyebrow mt-5 text-background/60">— Operating philosophy</figcaption>
-              </figure>
-            </div>
-          </div>
 
+        <div className="mt-12 grid grid-cols-12 gap-6 md:mt-16">
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <Reveal>
               <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
-                My path has been cumulative, not scattered. Frontline customer experience → leadership and operations →
-                psychology → product and systems → AI and emerging technology. Each stage added a lens rather than changed
-                 lanes. I often become the{" "}
-                <span className="text-teal">interdepartmental translator</span>, following a problem across the
-                boundaries where customer behavior, business operations, information, and technology meet — and turning
-                what I find there into practical solutions.
+                My career looks like a strange mix at first. I&rsquo;ve worked in salons, managed teams, handled
+                customers, built marketing campaigns, worked with distributors, gone back to school, designed products,
+                and somehow ended up learning how AI systems work because I had an idea I couldn&rsquo;t leave alone.
               </p>
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-8 max-w-3xl text-base leading-loose text-background/75">
-                My foundation in psychology and customer-facing leadership helps me understand people; my Master of
-                Business and Science in Product Design &amp; Innovation at Rutgers University, expected December 2026,
-                strengthens how I approach systems, research, service design, and AI. Together, those perspectives help
-                me find the relationships behind a problem and turn complexity into clear, human-centered solutions.
+                For a long time, I thought those were all separate chapters. Then I realized the industry was never
+                really the common thread.
               </p>
             </Reveal>
-            <Reveal delay={220}>
+            <Reveal delay={180}>
+              <p className="mt-6 font-display text-3xl leading-none text-teal md:text-5xl">The problems were.</p>
+            </Reveal>
+            <Reveal delay={240}>
+              <p className="mt-8 max-w-3xl text-base leading-loose text-background/75">
+                I kept finding things that weren&rsquo;t working as well as they could and trying to make them better
+                for the people dealing with them. Sometimes that meant a customer experience. Sometimes it was a broken
+                process, a confusing system, a team struggling to work around something, or a product I thought should
+                exist but didn&rsquo;t.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
               <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
-                I approach product and service design through a systems-complexity lens. Whether analyzing behavioral
-                patterns, cross-functional dependencies, or operational bottlenecks, I look for the underlying structures
-                that dictate how information and people actually move through a system. My curiosity outside work — about
-                human consciousness, philosophy, physics, and unexpected patterns across disciplines — keeps me asking
-                better questions and finding connections others miss.
+                The tools changed. The setting changed. The problems got more complicated. But I kept doing the same
+                thing: noticing something that could work better and figuring out what I could do about it.
               </p>
             </Reveal>
-
-            <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:grid-cols-4">
-              {[
-                {
-                  header: "Strategy",
-                  items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
-                },
-                {
-                  header: "Experience",
-                  items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
-                },
-                {
-                  header: "Solutions",
-                  items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
-                },
-                {
-                  header: "Communication",
-                  items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
-                },
-              ].map(({ header, items }) => (
-                <div key={header}>
-                  <div className="font-display text-lg">{header}</div>
-                  <ul className="mt-2 space-y-1">
-                    {items.map((item) => (
-                      <li key={item} className="eyebrow text-background/60">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <Reveal delay={360}>
+              <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
+                That&rsquo;s the part of my career that finally makes sense to me.
+              </p>
+            </Reveal>
           </div>
+        </div>
+
+        <CommonThread />
+
+        <div className="mt-20 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:mt-24 md:grid-cols-4">
+          {[
+            {
+              header: "Strategy",
+              items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
+            },
+            {
+              header: "Experience",
+              items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
+            },
+            {
+              header: "Solutions",
+              items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
+            },
+            {
+              header: "Communication",
+              items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
+            },
+          ].map(({ header, items }) => (
+            <div key={header}>
+              <div className="font-display text-lg">{header}</div>
+              <ul className="mt-2 space-y-1">
+                {items.map((item) => (
+                  <li key={item} className="eyebrow text-background/60">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
