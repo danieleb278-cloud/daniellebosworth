@@ -218,29 +218,16 @@ function HowIWork() {
           <Reveal className="col-span-12 md:col-span-8 lg:col-span-9" delay={100}>
             <div className="flex h-full flex-col justify-center">
               <h2 id="how-i-work-heading" className="font-display text-4xl leading-tight tracking-tight md:text-5xl">
-                Find the friction<span className="text-accent">.</span> Trace the system
-                <span className="text-accent">.</span> Design the intervention<span className="text-accent">.</span>
+                I notice things<span className="text-accent">.</span>
               </h2>
               <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Research helps me understand where a problem actually begins. Systems thinking reveals the dependencies
-                around it. Product strategy turns those findings into something actionable, whether that means changing
-                a workflow, defining a feature, restructuring information, or introducing new technology.
+                I get curious about why something works the way it does. If something doesn't make sense, I usually
+                can't leave it alone. I end up following the problem across departments, systems, customer behavior,
+                technology, whatever it touches.
               </p>
-              <ol className="mt-9 grid gap-3 sm:grid-cols-3">
-                {steps.map((step, i) => (
-                  <li key={step} className="flex items-center gap-3">
-                    <span className="eyebrow w-full rounded-full border border-border px-4 py-2 text-center transition-colors duration-300 hover:border-teal hover:text-teal">
-                      <span className="mr-2 font-mono text-teal">0{i + 1}</span>
-                      {step}
-                    </span>
-                    {i < steps.length - 1 && (
-                      <span aria-hidden className="hidden font-mono text-muted-foreground lg:inline">
-                        →
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ol>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                I don't really care what category the problem belongs to. I want to understand why it's happening.
+              </p>
             </div>
           </Reveal>
         </div>
