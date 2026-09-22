@@ -202,11 +202,11 @@ function HowIWork() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 items-stretch gap-8 md:gap-10 lg:gap-14">
           <Reveal className="col-span-12 md:col-span-4 lg:col-span-3">
-            <div aria-hidden className="flex h-60 flex-col justify-center overflow-hidden bg-charcoal px-3 py-4 text-background sm:h-72 md:h-full md:min-h-[30rem]">
+            <div aria-hidden className="@container flex aspect-square flex-col justify-center overflow-hidden bg-charcoal px-[3%] py-[2%] text-background">
               {titleRows.map((row, index) => (
                 <span
                   key={row}
-                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[clamp(4.15rem,9vw,7.4rem)] tracking-[-0.14em]" : "text-[clamp(4.6rem,12vw,9rem)] tracking-[-0.12em]"}`}
+                  className={`block font-sans font-semibold uppercase leading-[0.62] ${index === 2 ? "text-[34cqw] tracking-[-0.14em]" : "text-[42cqw] tracking-[-0.12em]"}`}
                   style={{ transform: `translateX(${index === 2 ? "-0.01em" : index % 2 === 0 ? "-0.08em" : "0.04em"})` }}
                 >
                   {row}
