@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export function VocariOpening() {
+  const [thinkingOpen, setThinkingOpen] = useState(false);
+
   return (
     <section id="overview" aria-labelledby="vocari-idea-title" className="px-6 pb-24 md:px-12 md:pb-32">
       <div className="mx-auto max-w-[1400px]">
