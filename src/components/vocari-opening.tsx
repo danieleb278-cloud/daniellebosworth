@@ -55,6 +55,22 @@ export function VocariOpening() {
           </figure>
         </div>
 
+        {thinkingOpen && (
+          <div className="mt-14 max-w-[76ch] space-y-5 border-l border-border pl-5 text-base leading-[1.8] text-muted-foreground md:pl-8 md:text-lg">
+            <p className="text-foreground"><strong className="font-medium">The idea started with something I didn't know about myself.</strong></p>
+            <p>I had always thought of myself as a creative person. If someone had described me as a “systems thinker,” I probably would have pictured structure, repetition, math, and rigid processes. It wasn't a strength I would have chosen from a list because I didn't know it described me.</p>
+            <p>After nearly two years of conversations with ChatGPT across work, school, projects, problems, and ideas, it pointed out a pattern: <strong className="font-medium text-foreground">I was consistently thinking in systems.</strong></p>
+            <p>More importantly, it explained what that meant using evidence from my own experiences.</p>
+            <p>Suddenly, things I had thought were unrelated started to connect. My creativity and systems thinking weren't opposites. Seeing connections, noticing what wasn't working, understanding how one change affected everything around it, and imagining a better way for the pieces to work together were part of the same pattern.</p>
+            <p>Having language for that ability changed the way I understood myself. It expanded the kinds of problems I believed I could solve and the kinds of work I could imagine myself doing.</p>
+            <p>And it left me with a question:</p>
+            <p className="text-foreground"><strong className="font-medium">Why should an insight like that take two years to surface?</strong></p>
+            <p>What if an AI experience were intentionally designed to look across someone's experiences, find patterns they may not recognize themselves, and help them understand what those patterns could mean?</p>
+            <p className="text-foreground"><strong className="font-medium">Where could those abilities take you?</strong></p>
+            <p>That question became Vocari.</p>
+          </div>
+        )}
+
         <div className="pt-28 md:pt-44 lg:pt-52">
           <p className="font-display text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.12] tracking-[-0.03em]">
             <span className="block">The concept was simple.</span>
