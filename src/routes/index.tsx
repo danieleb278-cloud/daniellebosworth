@@ -279,7 +279,6 @@ function CommercialImpact() {
             <h2 id="commercial-impact-heading" className="font-mono text-[clamp(2rem,4vw,3.25rem)] lowercase leading-none text-background/70">
               impact<span aria-hidden className="text-teal">_</span>
             </h2>
-            <p className="font-display text-xl tracking-tight text-background md:text-2xl">Cross-functional work, real business <span className="text-teal">impact</span><span className="text-accent">.</span></p>
           </div>
         </Reveal>
 
@@ -553,13 +552,8 @@ function Work() {
   return (
     <section id="work" aria-labelledby="selected-projects-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 grid grid-cols-12 items-center gap-8 border-b border-border pb-10 md:gap-10 lg:gap-14">
-          <div className="col-span-12 min-w-0 md:col-span-7"><ProjectsBlueprint /></div>
-          <Reveal className="col-span-12 md:col-span-5" delay={140}>
-            <h2 id="selected-projects-heading" className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
-              Different problems<span className="text-accent">.</span>{" "}<span className="italic text-muted-foreground">One systems-minded approach</span><span className="text-accent">.</span>
-            </h2>
-          </Reveal>
+        <div className="mb-16 flex justify-center border-b border-border pb-10">
+          <ProjectsBlueprint />
         </div>
 
         <div className="divide-y divide-border">
@@ -1176,6 +1170,23 @@ function Resume() {
       <div className="mx-auto max-w-[1400px]">
         <ExperienceHeading />
 
+        <Reveal>
+          <div className="mt-12 flex flex-col items-center text-center">
+            <h3 className="font-display text-2xl tracking-tight md:text-3xl">This is how I got here.</h3>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Different industries, different roles, different problems. Each one gave me something new to learn and
+              another challenge to figure out.
+            </p>
+            <a
+              href={resumePdf.url}
+              download="Danielle_Bosworth_CX_Product_Design_Operations_Resume.pdf"
+              className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
+            >
+              ↓ Download résumé (PDF)
+            </a>
+          </div>
+        </Reveal>
+
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12">
             <ol className="divide-y divide-border">
@@ -1196,23 +1207,6 @@ function Resume() {
             </ol>
           </div>
         </div>
-
-        <Reveal>
-          <div className="mt-14 flex flex-col items-center text-center">
-            <h3 className="font-display text-2xl tracking-tight md:text-3xl">This is how I got here.</h3>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Different industries, different roles, different problems. Each one gave me something new to learn and
-              another challenge to figure out.
-            </p>
-            <a
-              href={resumePdf.url}
-              download="Danielle_Bosworth_CX_Product_Design_Operations_Resume.pdf"
-              className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
-            >
-              ↓ Download résumé (PDF)
-            </a>
-          </div>
-        </Reveal>
 
       </div>
     </section>
@@ -1235,7 +1229,6 @@ function Contact() {
           <div className="col-span-12 md:col-span-10">
             <Reveal>
               <div className="inline-block"><h3 className="font-handwriting text-[clamp(4.5rem,10vw,8.5rem)] font-medium leading-[0.82] text-teal">Let&apos;s connect.</h3><span aria-hidden className="mt-3 block h-px w-full origin-left bg-teal" /></div>
-              <p className="mt-7 max-w-3xl font-display text-xl leading-relaxed text-foreground md:text-2xl">Have a problem that doesn&apos;t fit neatly inside one department? Those are usually the ones I&apos;m most interested in.</p>
             </Reveal>
             <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 md:items-stretch">
               <div className="flex h-full flex-col gap-10">
