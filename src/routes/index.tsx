@@ -1218,10 +1218,10 @@ function Contact() {
     <section id="contact" aria-labelledby="contact-heading" className="border-t border-border px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-12 gap-x-6 gap-y-10">
-          <div className="col-span-12 border-b border-teal pb-5 md:col-span-2 md:border-b-0 md:border-r md:pb-0 md:pr-6">
-            <h2 id="contact-heading" aria-label="Contact" className="font-display text-[clamp(3rem,6vw,5.5rem)] uppercase leading-[0.78]">
+          <div className="col-span-12 border-b border-teal pb-5 md:col-span-2 md:flex md:flex-col md:border-b-0 md:border-r md:pb-0 md:pr-6">
+            <h2 id="contact-heading" aria-label="Contact" className="font-display text-[clamp(3.5rem,7vw,6.5rem)] uppercase leading-[0.78]">
               <span className="md:hidden">Contact<span className="text-teal">.</span></span>
-              <span aria-hidden className="hidden md:flex md:flex-col md:items-center md:gap-1">
+              <span aria-hidden className="hidden md:flex md:h-full md:flex-col md:items-center md:justify-between md:py-6">
                 {"CONTACT".split("").map((letter, index) => <span key={`${letter}-${index}`} className={index === 6 ? "text-teal" : undefined}>{letter}</span>)}
               </span>
             </h2>
