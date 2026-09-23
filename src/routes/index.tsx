@@ -1069,9 +1069,9 @@ function About() {
             </Reveal>
           </div>
 
-          <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
+          <div className="col-span-12 md:col-span-8 md:row-start-2">
             <Reveal delay={180}>
-              <p className="text-base leading-loose text-teal md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
             </Reveal>
           </div>
 
