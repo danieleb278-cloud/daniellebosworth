@@ -1,34 +1,23 @@
-## Goal
+# Homepage hero: Type in tension
 
-Make the Contact section actually contactable: clickable email + LinkedIn links, plus a working contact form.
+## Scope
+Redesign only the homepage opening section. Leave every following homepage section unchanged.
 
-## Changes (all in `src/routes/index.tsx`, Contact section only)
+## Design
+- Replace the current connections concept and all floating topic labels.
+- Keep Danielle’s portrait, recropped within a strict editorial frame.
+- Set “I like a good challenge.” as the dominant headline, pressing against the frame’s boundaries.
+- Use “The constraints are the design.” as the concise secondary statement.
+- Place the supporting sentence within the same measured grid, using spacing and rules to make the composition feel resolved rather than decorative.
+- Keep “Explore selected work” and “View résumé” as the only calls to action.
 
-### 1. Make existing links behave like real links
-- Email: already `mailto:Danieleb278@gmail.com` — keep, just confirm it triggers the mail client on click (it does, no change needed beyond making sure nothing blocks it).
-- LinkedIn: already points to `https://linkedin.com/in/daniellelbosworth` but needs `target="_blank"` and `rel="noopener noreferrer"` so it opens your real LinkedIn profile in a new tab.
+## Interaction
+- On load, the frame, portrait, and type settle subtly into alignment, suggesting a solution finding its place within fixed boundaries.
+- Mobile uses a deliberately restacked composition rather than shrinking desktop.
+- Reduced-motion visitors see the finished composition immediately.
 
-### 2. Add a "Send a message" form
-Going with the **simple mailto approach** — zero setup, no backend, no API keys, no DNS. The form lives on the page; when the visitor hits Send, it opens their email client with a prefilled message addressed to Danieleb278@gmail.com.
+## Copy lock
+Use the three supplied statements and both existing CTA labels verbatim. Add no other visible hero copy.
 
-Fields:
-- Name (required)
-- Email (required)
-- Phone (optional)
-- Message (required)
-
-Behavior:
-- Client-side validation (required fields, valid email format, length limits via zod).
-- On submit, build a `mailto:Danieleb278@gmail.com?subject=...&body=...` URL with the form values URL-encoded and open it.
-- Show a small "Opening your email app…" confirmation under the button.
-
-### 3. Layout
-Place the form in a new right-hand column of the Contact grid, with Email / LinkedIn / Based-in stacked on the left. On mobile the form sits below the contact info. Styling matches the existing design tokens (teal accent, charcoal border, eyebrow labels, font-display headings) — no new colors or fonts.
-
-### Why mailto over a backend form
-You asked for "whatever works easiest." Mailto needs nothing turned on, no domain verification, no third-party account — submissions land in your inbox the same way as someone clicking your email link, but with all their info already filled in. If you later want a real form-to-inbox pipeline (so visitors without a mail client can still reach you), we can swap in Lovable Emails or a Google Form embed — say the word and I'll upgrade it.
-
-## Technical notes
-- Add `zod` schema for validation (already installed).
-- Use existing `eyebrow` / `font-display` / `border-teal` utility classes for consistent styling.
-- No new files, no new dependencies, no routing changes.
+## Validation
+Check desktop and mobile presentation, motion fallback, text fit, both links, and confirm the next homepage section remains unchanged.
