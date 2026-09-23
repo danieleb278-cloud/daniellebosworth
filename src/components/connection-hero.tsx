@@ -141,8 +141,12 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         @media (max-width: 767px) {
           .constraint-hero { padding-top: 7rem; }
           .constraint-frame { min-height: auto; }
-          .constraint-copy { min-height: 34rem; }
-          .constraint-headline { max-width: 7ch; }
+          .constraint-copy { min-height: 30rem; }
+          .constraint-headline {
+            max-width: 7ch;
+            font-size: clamp(3.2rem, 13vw, 4.4rem);
+            line-height: 0.98;
+          }
           .constraint-portrait {
             min-height: 24rem;
             border-bottom: 0;
@@ -155,8 +159,8 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
         }
 
         @media (max-width: 420px) {
-          .constraint-copy { min-height: 32rem; padding: 1.25rem; }
-          .constraint-headline { font-size: clamp(3.6rem, 18vw, 4.8rem); }
+          .constraint-copy { min-height: 28rem; padding: 1.25rem; }
+          .constraint-headline { font-size: clamp(3rem, 13vw, 4rem); }
         }
 
         @media (prefers-reduced-motion: reduce) {
