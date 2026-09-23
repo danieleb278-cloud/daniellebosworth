@@ -906,7 +906,7 @@ function ChallengeFocus() {
       frame = 0;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const raw = (vh * 0.85 - rect.top) / (rect.height * 0.7 + vh * 0.3);
+      const raw = (vh * 0.95 - rect.top) / (rect.height * 0.55 + vh * 0.25);
       setProgress(Math.min(1, Math.max(0, raw)));
     };
     const onScroll = () => {
@@ -1058,7 +1058,7 @@ function About() {
           </div>
 
           <Reveal className="col-span-12 self-center md:col-span-5 md:col-start-8 md:row-start-1">
-            <h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2>
+            <h2 id="about-heading" className="text-right font-display text-[clamp(4.5rem,10.5vw,9.5rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2>
           </Reveal>
 
           <div className="col-span-12 md:col-span-4 md:row-start-2">
@@ -1069,9 +1069,9 @@ function About() {
             </Reveal>
           </div>
 
-          <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
+          <div className="col-span-12 md:col-span-8 md:row-start-2">
             <Reveal delay={180}>
-              <p className="text-base leading-loose text-teal md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
             </Reveal>
           </div>
 
@@ -1094,9 +1094,9 @@ function About() {
 
           <div className="col-span-12 md:col-span-10 md:row-start-5">
             <Reveal delay={360}>
-                <p className="font-display text-xl leading-snug text-background md:text-2xl md:leading-snug">
-                I want to understand it inside and out. I want to learn everything I can, immerse myself in it, and
-                figure out how to make something better than it was before.
+                <p className="text-center font-display text-xl leading-snug text-background md:text-2xl md:leading-snug">
+                I want to <span className="text-teal">understand</span> it inside and out. I want to <span className="text-teal">learn</span> everything I can, <span className="text-teal">immerse</span> myself in it, and
+                figure out how to make something <span className="text-teal">better</span> than it was before.
               </p>
             </Reveal>
           </div>
