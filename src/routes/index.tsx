@@ -1206,14 +1206,7 @@ function Resume() {
     <section id="resume" aria-labelledby="experience-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
         <ExperienceHeading />
-        <div className="mb-12">
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Across roles, the pattern has stayed consistent: I follow problems beyond the department where they first
-            appear. A customer issue may trace back to a workflow, an information gap, a training need, or the way a
-            system is designed. I work across those boundaries to understand the dependencies, translate between
-            perspectives, and turn what I find into practical improvements.
-          </p>
-        </div>
+
 
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-8">
