@@ -1034,7 +1034,7 @@ function ChallengeFocus() {
 
 function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 py-24 text-background md:px-12 md:py-28">
+    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 pt-24 pb-12 text-background md:px-12 md:pt-28 md:pb-14">
       {/* warm editorial tint — subtle separation from surrounding sections */}
       <div
         aria-hidden
@@ -1061,39 +1061,22 @@ function About() {
             <h2 id="about-heading" className="text-right font-display text-[clamp(4.5rem,10.5vw,9.5rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2>
           </Reveal>
 
-          <div className="col-span-12 md:col-span-4 md:row-start-2">
+          <div className="col-span-12 md:col-span-7">
+            <Reveal>
+              <div className="space-y-4 text-[17px] leading-loose text-background/75 md:space-y-5 md:text-[15px] md:leading-relaxed">
+                <p>Eventually, I realized I was looking for the connection in the wrong place.</p>
+                <p>It wasn&rsquo;t the industry or the job title that mattered.</p>
+                <p>It was what the work asked me to do.</p>
+                <p>
+                  I like being challenged. It could be a problem to solve, a skill to master, a process to perfect, a
+                  system to improve, or an experience to design. That&rsquo;s what drives me.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="col-span-12 md:col-span-10">
             <Reveal delay={120}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                Eventually, I realized I was looking for the connection in the wrong place.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-8 md:row-start-2">
-            <Reveal delay={180}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-11 md:row-start-3">
-            <Reveal delay={240}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                It was what the work asked me to do.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-10 md:row-start-4">
-            <Reveal delay={300}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                I like being challenged. It could be a problem to solve, a skill to master, a process to perfect, a
-                system to improve, or an experience to design. That&rsquo;s what drives me.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-10 md:row-start-5">
-            <Reveal delay={360}>
                 <p className="text-center font-display text-xl leading-snug text-background md:text-2xl md:leading-snug">
                 I want to <span className="text-teal">understand</span> it inside and out. I want to <span className="text-teal">learn</span> everything I can, <span className="text-teal">immerse</span> myself in it, and
                 figure out how to make something <span className="text-teal">better</span> than it was before.
@@ -1105,37 +1088,6 @@ function About() {
 
         <ChallengeFocus />
 
-        <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:mt-16 md:grid-cols-4">
-          {[
-            {
-              header: "Strategy",
-              items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
-            },
-            {
-              header: "Experience",
-              items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
-            },
-            {
-              header: "Solutions",
-              items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
-            },
-            {
-              header: "Communication",
-              items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
-            },
-          ].map(({ header, items }) => (
-            <div key={header}>
-              <div className="font-display text-lg">{header}</div>
-              <ul className="mt-2 space-y-1">
-                {items.map((item) => (
-                  <li key={item} className="eyebrow text-background/60">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
