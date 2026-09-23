@@ -1171,52 +1171,13 @@ function Resume() {
         "Foundation in human behavior, research methods, and qualitative analysis — the lens behind every project that follows.",
     },
   ];
-  const tools = [
-    "Figma",
-    "Miro",
-    "Canva",
-    "Adobe Creative Cloud",
-    "CapCut",
-    "Tableau",
-    "GA4",
-    "Search Console",
-    "Salesforce",
-    "Airtable",
-    "Notion",
-    "Shopify",
-    "WordPress",
-    "Webflow",
-    "Meta Business Suite",
-    "ChatGPT",
-    "Gemini",
-    "ElevenLabs",
-  ];
-  const skills = [
-    "Product & Experience Strategy",
-    "Customer Insights & Research Synthesis",
-    "Service & Process Design",
-    "Information Architecture",
-    "Product Education & Enablement",
-    "AI-Assisted Knowledge Systems",
-    "Cross-Functional Operations",
-    "Multichannel Content Strategy",
-    "Systems Thinking",
-  ];
   return (
     <section id="resume" aria-labelledby="experience-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
         <ExperienceHeading />
-        <div className="mb-12">
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Across roles, the pattern has stayed consistent: I follow problems beyond the department where they first
-            appear. A customer issue may trace back to a workflow, an information gap, a training need, or the way a
-            system is designed. I work across those boundaries to understand the dependencies, translate between
-            perspectives, and turn what I find into practical improvements.
-          </p>
-        </div>
 
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-12">
             <ol className="divide-y divide-border">
               {roles.map((r, i) => (
                 <Reveal key={r.role} delay={i * 80}>
@@ -1234,33 +1195,15 @@ function Resume() {
               ))}
             </ol>
           </div>
-          <aside className="col-span-12 md:col-span-3 md:col-start-10">
-            <div className="rule-top pt-6">
-              <span className="eyebrow">Skills</span>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {skills.map((t) => (
-                  <li
-                    key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1 transition-all duration-300 hover:border-teal hover:text-teal hover:-translate-y-0.5"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rule-top mt-10 pt-6">
-              <span className="eyebrow">Toolkit</span>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {tools.map((t) => (
-                  <li
-                    key={t}
-                    className="eyebrow rounded-full border border-border px-3 py-1 transition-all duration-300 hover:border-teal hover:text-teal hover:-translate-y-0.5"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        </div>
+
+        <Reveal>
+          <div className="mt-14 flex flex-col items-center text-center">
+            <h3 className="font-display text-2xl tracking-tight md:text-3xl">This is how I got here.</h3>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Different industries, different roles, different problems. Each one gave me something new to learn and
+              another challenge to figure out.
+            </p>
             <a
               href={resumePdf.url}
               download="Danielle_Bosworth_CX_Product_Design_Operations_Resume.pdf"
@@ -1268,8 +1211,9 @@ function Resume() {
             >
               ↓ Download résumé (PDF)
             </a>
-          </aside>
-        </div>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );
