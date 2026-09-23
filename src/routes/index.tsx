@@ -1071,7 +1071,7 @@ function About() {
 
           <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
             <Reveal delay={180}>
-              <p className="font-display text-3xl leading-none text-teal md:text-4xl">It wasn&rsquo;t the industry or the job title that mattered.</p>
+              <p className="text-base leading-loose text-teal md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
             </Reveal>
           </div>
 
@@ -1094,7 +1094,7 @@ function About() {
 
           <div className="col-span-12 md:col-span-10 md:row-start-5">
             <Reveal delay={360}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
+                <p className="font-display text-xl leading-snug text-background md:text-2xl md:leading-snug">
                 I want to understand it inside and out. I want to learn everything I can, immerse myself in it, and
                 figure out how to make something better than it was before.
               </p>
