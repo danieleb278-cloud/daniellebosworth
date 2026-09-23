@@ -1061,34 +1061,17 @@ function About() {
             <h2 id="about-heading" className="text-right font-display text-[clamp(4.5rem,10.5vw,9.5rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2>
           </Reveal>
 
-          <div className="col-span-12 md:col-span-4 md:row-start-2">
-            <Reveal delay={120}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                Eventually, I realized I was looking for the connection in the wrong place.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-8 md:row-start-2">
-            <Reveal delay={180}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">It wasn&rsquo;t the industry or the job title that mattered.</p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-11 md:row-start-3">
-            <Reveal delay={240}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                It was what the work asked me to do.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="col-span-12 md:col-span-10 md:row-start-4">
-            <Reveal delay={300}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                I like being challenged. It could be a problem to solve, a skill to master, a process to perfect, a
-                system to improve, or an experience to design. That&rsquo;s what drives me.
-              </p>
+          <div className="col-span-12 md:col-span-7">
+            <Reveal>
+              <div className="space-y-4 text-[17px] leading-loose text-background/75 md:space-y-5 md:text-[15px] md:leading-relaxed">
+                <p>Eventually, I realized I was looking for the connection in the wrong place.</p>
+                <p>It wasn&rsquo;t the industry or the job title that mattered.</p>
+                <p>It was what the work asked me to do.</p>
+                <p>
+                  I like being challenged. It could be a problem to solve, a skill to master, a process to perfect, a
+                  system to improve, or an experience to design. That&rsquo;s what drives me.
+                </p>
+              </div>
             </Reveal>
           </div>
 
