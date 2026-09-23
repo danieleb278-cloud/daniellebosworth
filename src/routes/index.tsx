@@ -55,17 +55,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const marquee = [
-  "Product Strategy",
-  "Customer Experience",
-  "UX Research",
-  "Content & Marketing",
-  "Voice of Customer",
-  "Service Design",
-  "Information Architecture",
-  "Cross-Functional",
-];
-
 const projectProof: Record<string, { connection: string; evidence: string }> = {
   vocari: {
     connection:
@@ -110,7 +99,6 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav darkAtTop />
       <Hero />
-      <Marquee />
       <HowIWork />
       <CommercialImpact />
       <Work />
@@ -176,21 +164,6 @@ function ParallaxWrap({ children }: { children: React.ReactNode }) {
     <div ref={ref} style={{ willChange: "transform" }}>
       {children}
     </div>
-  );
-}
-
-function Marquee() {
-  const items = [...marquee, ...marquee];
-  return (
-    <section className="overflow-hidden border-y border-border bg-foreground py-5 text-background">
-      <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
-        {items.map((t, i) => (
-          <span key={i} className="font-display text-2xl tracking-tight md:text-3xl">
-            {t} <span className="text-accent soft-pulse">✦</span>
-          </span>
-        ))}
-      </div>
-    </section>
   );
 }
 
