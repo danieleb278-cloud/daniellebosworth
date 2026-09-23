@@ -931,8 +931,8 @@ function CommonThread() {
   const count = threadWords.length;
 
   return (
-    <div ref={ref} className="relative mt-20 md:mt-28">
-      <div className="relative h-[40rem] w-full md:h-[30rem]">
+    <div ref={ref} className="relative mt-14 md:mt-16">
+      <div className="relative h-[40rem] w-full md:h-[22rem]">
         {/* the thread itself — a hairline that draws as the words converge */}
         {stacked ? (
           <div
@@ -1007,7 +1007,7 @@ function CommonThread() {
         })}
       </div>
       <p
-        className="mt-6 max-w-2xl font-display text-2xl leading-[1.25] text-background md:mt-10 md:text-4xl"
+        className="mt-4 max-w-2xl font-display text-2xl leading-[1.25] text-background md:mt-6 md:text-3xl"
         style={{
           opacity: Math.min(1, Math.max(0, (ease - 0.6) / 0.3)),
           transform: `translateY(${(1 - Math.min(1, Math.max(0, (ease - 0.6) / 0.3))) * 12}px)`,
@@ -1023,7 +1023,7 @@ function CommonThread() {
 
 function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 py-28 text-background md:px-12 md:py-40">
+    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 py-24 text-background md:px-12 md:py-28">
       {/* warm editorial tint — subtle separation from surrounding sections */}
       <div
         aria-hidden
@@ -1034,10 +1034,10 @@ function About() {
         }}
       />
       <div className="relative mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-12 gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-10">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-6">
           <div className="col-span-12 md:col-span-7 md:row-start-1">
             <Reveal>
-              <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
+              <p className="max-w-3xl font-display text-xl leading-relaxed text-background/90 md:text-lg">
                 My career looks like a strange mix at first. I&rsquo;ve worked in salons, managed teams, handled
                 customers, built marketing campaigns, worked with distributors, gone back to school, designed products,
                 and somehow ended up learning how AI systems work because I had an idea I couldn&rsquo;t leave alone.
@@ -1051,7 +1051,7 @@ function About() {
 
           <div className="col-span-12 md:col-span-4 md:row-start-2">
             <Reveal delay={120}>
-              <p className="text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
                 For a long time, I thought those were all separate chapters. Then I realized the industry was never
                 really the common thread.
               </p>
@@ -1060,13 +1060,13 @@ function About() {
 
           <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
             <Reveal delay={180}>
-              <p className="font-display text-3xl leading-none text-teal md:text-5xl">The problems were.</p>
+              <p className="font-display text-3xl leading-none text-teal md:text-4xl">The problems were.</p>
             </Reveal>
           </div>
 
           <div className="col-span-12 md:col-span-11 md:row-start-3">
             <Reveal delay={240}>
-              <p className="text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
                 I kept finding things that weren&rsquo;t working as well as they could and trying to make them better
                 for the people dealing with them. Sometimes that meant a customer experience. Sometimes it was a broken
                 process, a confusing system, a team struggling to work around something, or a product I thought should
@@ -1077,7 +1077,7 @@ function About() {
 
           <div className="col-span-12 md:col-span-10 md:row-start-4">
             <Reveal delay={300}>
-              <p className="text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
                 The tools changed. The setting changed. The problems got more complicated. But I kept doing the same
                 thing: noticing something that could work better and figuring out what I could do about it.
               </p>
@@ -1086,7 +1086,7 @@ function About() {
 
           <div className="col-span-12 md:col-span-8 md:row-start-5">
             <Reveal delay={360}>
-              <p className="text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
                 That&rsquo;s the part of my career that finally makes sense to me.
               </p>
             </Reveal>
@@ -1095,7 +1095,7 @@ function About() {
 
         <CommonThread />
 
-        <div className="mt-20 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:mt-24 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:mt-16 md:grid-cols-4">
           {[
             {
               header: "Strategy",
