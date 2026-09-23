@@ -78,15 +78,6 @@ export function ConnectionHero({ portraitUrl, resumeUrl }: ConnectionHeroProps) 
           animation: constraint-portrait-settle 1100ms cubic-bezier(.2,.78,.22,1) 100ms both;
         }
 
-        .constraint-portrait::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(0deg, var(--charcoal), transparent 30%);
-          opacity: .42;
-          pointer-events: none;
-        }
-
         .constraint-portrait-rule {
           z-index: 2;
           opacity: .6;
