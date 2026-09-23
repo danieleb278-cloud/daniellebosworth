@@ -906,7 +906,9 @@ function ChallengeFocus() {
       frame = 0;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const raw = (vh * 0.95 - rect.top) / (rect.height * 0.55 + vh * 0.25);
+      // start later in the scroll (block must climb to ~55% of the viewport)
+      // and stretch the cycle so every phrase gets time on screen
+      const raw = (vh * 0.55 - rect.top) / (rect.height * 0.6 + vh * 0.3);
       setProgress(Math.min(1, Math.max(0, raw)));
     };
     const onScroll = () => {
