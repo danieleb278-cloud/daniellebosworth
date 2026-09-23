@@ -1078,15 +1078,22 @@ function About() {
           <div className="col-span-12 md:col-span-11 md:row-start-3">
             <Reveal delay={240}>
               <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                It was what the work asked me to do. I like being challenged. It could be a problem to solve, a skill
-                to master, a process to perfect, a system to improve, or an experience to design. That&rsquo;s what
-                drives me.
+                It was what the work asked me to do.
               </p>
             </Reveal>
           </div>
 
           <div className="col-span-12 md:col-span-10 md:row-start-4">
             <Reveal delay={300}>
+              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
+                I like being challenged. It could be a problem to solve, a skill to master, a process to perfect, a
+                system to improve, or an experience to design. That&rsquo;s what drives me.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="col-span-12 md:col-span-10 md:row-start-5">
+            <Reveal delay={360}>
               <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
                 I want to understand it inside and out. I want to learn everything I can, immerse myself in it, and
                 figure out how to make something better than it was before.
