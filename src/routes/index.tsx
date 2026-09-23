@@ -1075,8 +1075,8 @@ function About() {
             </Reveal>
           </div>
 
-          <div className="col-span-12 md:col-span-10 md:row-start-5">
-            <Reveal delay={360}>
+          <div className="col-span-12 md:col-span-10">
+            <Reveal delay={120}>
                 <p className="text-center font-display text-xl leading-snug text-background md:text-2xl md:leading-snug">
                 I want to <span className="text-teal">understand</span> it inside and out. I want to <span className="text-teal">learn</span> everything I can, <span className="text-teal">immerse</span> myself in it, and
                 figure out how to make something <span className="text-teal">better</span> than it was before.
@@ -1088,37 +1088,6 @@ function About() {
 
         <ChallengeFocus />
 
-        <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-background/20 pt-10 md:mt-16 md:grid-cols-4">
-          {[
-            {
-              header: "Strategy",
-              items: ["Discovery", "Positioning", "VOC", "Opportunity Mapping"],
-            },
-            {
-              header: "Experience",
-              items: ["Journey Mapping", "Service Design", "Research Synthesis", "User Insights"],
-            },
-            {
-              header: "Solutions",
-              items: ["Product Design", "AI Workflows", "Process Design", "Prototyping"],
-            },
-            {
-              header: "Communication",
-              items: ["Product Education", "Content Systems", "Enablement", "Brand Experience"],
-            },
-          ].map(({ header, items }) => (
-            <div key={header}>
-              <div className="font-display text-lg">{header}</div>
-              <ul className="mt-2 space-y-1">
-                {items.map((item) => (
-                  <li key={item} className="eyebrow text-background/60">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
