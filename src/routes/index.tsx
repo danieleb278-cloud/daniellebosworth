@@ -550,7 +550,7 @@ function Work() {
 
 
   return (
-    <section id="work" aria-labelledby="selected-projects-heading" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="work" aria-label="Selected projects" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-16 flex justify-center border-b border-border pb-10">
           <ProjectsBlueprint />
