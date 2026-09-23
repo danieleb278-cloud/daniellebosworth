@@ -1034,10 +1034,8 @@ function About() {
         }}
       />
       <div className="relative mx-auto max-w-[1400px]">
-        <Reveal><h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2></Reveal>
-
-        <div className="mt-12 grid grid-cols-12 gap-6 md:mt-16">
-          <div className="col-span-12 md:col-span-8 md:col-start-5">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-10">
+          <div className="col-span-12 md:col-span-7 md:row-start-1">
             <Reveal>
               <p className="font-display text-xl leading-relaxed text-background/90 md:text-2xl">
                 My career looks like a strange mix at first. I&rsquo;ve worked in salons, managed teams, handled
@@ -1045,31 +1043,50 @@ function About() {
                 and somehow ended up learning how AI systems work because I had an idea I couldn&rsquo;t leave alone.
               </p>
             </Reveal>
+          </div>
+
+          <Reveal className="col-span-12 self-center md:col-span-5 md:col-start-8 md:row-start-1">
+            <h2 id="about-heading" className="text-right font-display text-[clamp(4rem,9vw,8rem)] uppercase leading-[0.82] text-background">About<span className="text-teal">.</span></h2>
+          </Reveal>
+
+          <div className="col-span-12 md:col-span-4 md:row-start-2">
             <Reveal delay={120}>
-              <p className="mt-8 max-w-3xl text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75">
                 For a long time, I thought those were all separate chapters. Then I realized the industry was never
                 really the common thread.
               </p>
             </Reveal>
+          </div>
+
+          <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
             <Reveal delay={180}>
-              <p className="mt-6 font-display text-3xl leading-none text-teal md:text-5xl">The problems were.</p>
+              <p className="font-display text-3xl leading-none text-teal md:text-5xl">The problems were.</p>
             </Reveal>
+          </div>
+
+          <div className="col-span-12 md:col-span-11 md:row-start-3">
             <Reveal delay={240}>
-              <p className="mt-8 max-w-3xl text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75">
                 I kept finding things that weren&rsquo;t working as well as they could and trying to make them better
                 for the people dealing with them. Sometimes that meant a customer experience. Sometimes it was a broken
                 process, a confusing system, a team struggling to work around something, or a product I thought should
                 exist but didn&rsquo;t.
               </p>
             </Reveal>
+          </div>
+
+          <div className="col-span-12 md:col-span-10 md:row-start-4">
             <Reveal delay={300}>
-              <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75">
                 The tools changed. The setting changed. The problems got more complicated. But I kept doing the same
                 thing: noticing something that could work better and figuring out what I could do about it.
               </p>
             </Reveal>
+          </div>
+
+          <div className="col-span-12 md:col-span-8 md:row-start-5">
             <Reveal delay={360}>
-              <p className="mt-6 max-w-3xl text-base leading-loose text-background/75">
+              <p className="text-base leading-loose text-background/75">
                 That&rsquo;s the part of my career that finally makes sense to me.
               </p>
             </Reveal>
