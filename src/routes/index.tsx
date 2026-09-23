@@ -1174,8 +1174,7 @@ function Resume() {
           <div className="mt-12 flex flex-col items-center text-center">
             <h3 className="font-display text-2xl tracking-tight md:text-3xl">This is how I got here.</h3>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Different industries, different roles, different problems. Each one gave me something new to learn and
-              another challenge to figure out.
+              Each role taught me something new, challenged me in different ways, and shaped my approach to problem-solving.
             </p>
             <a
               href={resumePdf.url}
