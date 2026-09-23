@@ -1034,7 +1034,7 @@ function ChallengeFocus() {
 
 function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 py-24 text-background md:px-12 md:py-28">
+    <section id="about" aria-labelledby="about-heading" className="relative overflow-hidden bg-navy px-6 pt-24 pb-12 text-background md:px-12 md:pt-28 md:pb-14">
       {/* warm editorial tint — subtle separation from surrounding sections */}
       <div
         aria-hidden
