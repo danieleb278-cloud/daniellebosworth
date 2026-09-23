@@ -1038,9 +1038,10 @@ function About() {
           <div className="col-span-12 md:col-span-7 md:row-start-1">
             <Reveal>
               <p className="max-w-3xl font-display text-xl leading-relaxed text-background/90 md:text-lg">
-                My career looks like a strange mix at first. I&rsquo;ve worked in salons, managed teams, handled
-                customers, built marketing campaigns, worked with distributors, gone back to school, designed products,
-                and somehow ended up learning how AI systems work because I had an idea I couldn&rsquo;t leave alone.
+                For a long time, I thought my career was a strange mix of unrelated things. I&rsquo;ve worked in
+                salons, managed teams, worked with customers and distributors, built marketing, studied psychology and
+                product design, and somehow ended up learning how AI systems work because I had an idea I
+                couldn&rsquo;t leave alone.
               </p>
             </Reveal>
           </div>
@@ -1052,25 +1053,23 @@ function About() {
           <div className="col-span-12 md:col-span-4 md:row-start-2">
             <Reveal delay={120}>
               <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                For a long time, I thought those were all separate chapters. Then I realized the industry was never
-                really the common thread.
+                Eventually, I realized I was looking for the connection in the wrong place.
               </p>
             </Reveal>
           </div>
 
           <div className="col-span-12 self-center md:col-span-7 md:col-start-6 md:row-start-2">
             <Reveal delay={180}>
-              <p className="font-display text-3xl leading-none text-teal md:text-4xl">The problems were.</p>
+              <p className="font-display text-3xl leading-none text-teal md:text-4xl">It wasn&rsquo;t the industry or the job title that mattered.</p>
             </Reveal>
           </div>
 
           <div className="col-span-12 md:col-span-11 md:row-start-3">
             <Reveal delay={240}>
               <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                I kept finding things that weren&rsquo;t working as well as they could and trying to make them better
-                for the people dealing with them. Sometimes that meant a customer experience. Sometimes it was a broken
-                process, a confusing system, a team struggling to work around something, or a product I thought should
-                exist but didn&rsquo;t.
+                It was what the work asked me to do. I like being challenged. It could be a problem to solve, a skill
+                to master, a process to perfect, a system to improve, or an experience to design. That&rsquo;s what
+                drives me.
               </p>
             </Reveal>
           </div>
@@ -1078,19 +1077,12 @@ function About() {
           <div className="col-span-12 md:col-span-10 md:row-start-4">
             <Reveal delay={300}>
               <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                The tools changed. The setting changed. The problems got more complicated. But I kept doing the same
-                thing: noticing something that could work better and figuring out what I could do about it.
+                I want to understand it inside and out. I want to learn everything I can, immerse myself in it, and
+                figure out how to make something better than it was before.
               </p>
             </Reveal>
           </div>
 
-          <div className="col-span-12 md:col-span-8 md:row-start-5">
-            <Reveal delay={360}>
-              <p className="text-base leading-loose text-background/75 md:text-sm md:leading-relaxed">
-                That&rsquo;s the part of my career that finally makes sense to me.
-              </p>
-            </Reveal>
-          </div>
         </div>
 
         <CommonThread />
