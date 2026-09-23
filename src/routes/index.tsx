@@ -868,28 +868,22 @@ function WorkCarousel({
 // Career words that first read as an unrelated scatter, then settle onto a
 // single line — the realization that the problems, not the industries, were
 // the common thread.
-const threadWords = [
-  { word: "Salons", x: 6, y: 8, rotate: -7 },
-  { word: "Customers", x: 58, y: 2, rotate: 5 },
-  { word: "Operations", x: 30, y: 24, rotate: -3 },
-  { word: "Marketing", x: 72, y: 30, rotate: 8 },
-  { word: "Psychology", x: 4, y: 48, rotate: 4 },
-  { word: "Product", x: 46, y: 58, rotate: -6 },
-  { word: "AI", x: 84, y: 62, rotate: -9 },
-  { word: "Design", x: 20, y: 74, rotate: 6 },
+const challengePhrases = [
+  "A problem to solve",
+  "A skill to master",
+  "A process to perfect",
+  "A system to improve",
+  "An experience to design",
 ];
 
-const threadQuestions = [
-  "How can I make this easier?",
-  "Why isn't this working?",
-  "What are people struggling with?",
-  "Could this work better?",
-];
-
-function CommonThread() {
+// Different kinds of challenges pass through focus as the visitor scrolls;
+// the motivation underneath them — "Give me something to figure out." — is
+// present from the start, quiet at first, and never leaves.
+function ChallengeFocus() {
   const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [stacked, setStacked] = useState(false);
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -903,6 +897,7 @@ function CommonThread() {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setReduced(true);
       setProgress(1);
       return;
     }
@@ -911,7 +906,7 @@ function CommonThread() {
       frame = 0;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const raw = (vh * 0.9 - rect.top) / (rect.height * 0.75 + vh * 0.25);
+      const raw = (vh * 0.85 - rect.top) / (rect.height * 0.7 + vh * 0.3);
       setProgress(Math.min(1, Math.max(0, raw)));
     };
     const onScroll = () => {
@@ -928,95 +923,111 @@ function CommonThread() {
   }, []);
 
   const ease = progress * progress * (3 - 2 * progress);
-  const count = threadWords.length;
+  const count = challengePhrases.length;
+  // the moving focus position across the phrase sequence
+  const focus = ease * (count - 1);
+
+  const persistent = (
+    <p
+      className="font-display text-2xl leading-[1.25] text-background md:text-4xl"
+      style={
+        reduced
+          ? undefined
+          : {
+              opacity: 0.35 + ease * 0.65,
+              transform: `translateY(${(1 - Math.min(1, ease * 1.4)) * 10}px)`,
+            }
+      }
+    >
+      Give me something to <span className="text-teal">figure out.</span>
+    </p>
+  );
+
+  if (reduced) {
+    return (
+      <div ref={ref} className="relative mt-14 md:mt-16">
+        <ul className="space-y-2 border-l-2 border-teal/40 pl-6">
+          {challengePhrases.map((phrase) => (
+            <li key={phrase} className="font-display text-xl uppercase tracking-wide text-background md:text-2xl">
+              {phrase}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10">{persistent}</div>
+      </div>
+    );
+  }
+
+  if (stacked) {
+    // staged mobile version: phrases step in one after another, no hover
+    return (
+      <div ref={ref} className="relative mt-14">
+        <div aria-hidden className="absolute left-0 top-1 h-[calc(100%-5.5rem)] w-px bg-teal/30" />
+        <ul className="space-y-7 pl-7">
+          {challengePhrases.map((phrase, index) => {
+            const appear = Math.min(1, Math.max(0, (ease * (count + 0.5) - index) / 0.9));
+            const active = Math.max(0, 1 - Math.abs(focus - index));
+            return (
+              <li
+                key={phrase}
+                className="relative font-display text-2xl uppercase leading-tight"
+                style={{
+                  opacity: 0.15 + appear * 0.85,
+                  color: active > 0.5 ? "var(--teal)" : "var(--background)",
+                  transform: `translateX(${(1 - appear) * 14}px)`,
+                  transition: "color 300ms linear",
+                }}
+              >
+                <span
+                  aria-hidden
+                  className="absolute -left-7 top-[0.55em] h-px bg-teal"
+                  style={{ width: `${appear * 16}px`, opacity: appear * 0.8 }}
+                />
+                {phrase}
+              </li>
+            );
+          })}
+        </ul>
+        <div className="mt-10 pl-7">{persistent}</div>
+      </div>
+    );
+  }
 
   return (
-    <div ref={ref} className="relative mt-14 md:mt-16">
-      <div className="relative h-[40rem] w-full md:h-[22rem]">
-        {/* the thread itself — a hairline that draws as the words converge */}
-        {stacked ? (
-          <div
-            aria-hidden
-            className="absolute left-[6%] top-0 h-full w-px origin-top bg-teal"
-            style={{ transform: `scaleY(${ease})`, opacity: 0.25 + ease * 0.5 }}
-          />
-        ) : (
-          <div
-            aria-hidden
-            className="absolute left-0 top-1/2 h-px w-full origin-left bg-teal"
-            style={{ transform: `scaleX(${ease})`, opacity: 0.25 + ease * 0.5 }}
-          />
-        )}
-        {threadWords.map(({ word, x, y, rotate }, index) => {
-          // converge onto the thread: a single line on desktop, a stacked
-          // column on narrow screens so nothing collides
-          const targetX = stacked ? 12 : 2 + (index * 96) / count;
-          const targetY = stacked ? 4 + index * 11.5 : index % 2 === 0 ? 42 : 52;
-          const left = x + (targetX - x) * ease;
-          const top = y + (targetY - y) * ease;
+    <div ref={ref} className="relative mt-16">
+      {/* one challenge sharpens into focus while the others recede as ghosts */}
+      <div className="relative h-[13rem] w-full md:h-[15rem]">
+        {challengePhrases.map((phrase, index) => {
+          const distance = focus - index;
+          const sharpness = Math.max(0, 1 - Math.abs(distance));
           return (
             <span
-              key={word}
-              className="absolute whitespace-nowrap font-display uppercase leading-none text-background"
+              key={phrase}
+              aria-hidden={sharpness < 0.25}
+              className="absolute left-0 top-1/2 whitespace-nowrap font-display uppercase leading-none text-background"
               style={{
-                left: `${left}%`,
-                top: `${top}%`,
-                transform: `rotate(${rotate * (1 - ease)}deg)`,
-                opacity: 0.38 + ease * 0.62,
-                fontSize: stacked ? "1.35rem" : `clamp(0.95rem, ${2.4 - ease * 0.7}vw, 2rem)`,
-                letterSpacing: `${0.12 - ease * 0.1}em`,
-                transition: "opacity 300ms linear",
-                willChange: "left, top, transform",
+                transform: `translateY(calc(-50% + ${distance * -1.6}rem)) scale(${0.92 + sharpness * 0.08})`,
+                opacity: 0.08 + sharpness * 0.92,
+                filter: `blur(${(1 - sharpness) * 2.5}px)`,
+                letterSpacing: `${0.14 - sharpness * 0.1}em`,
+                fontSize: `clamp(1.6rem, ${3 + sharpness * 1.4}vw, 4.4rem)`,
+                color: sharpness > 0.6 ? "var(--teal)" : "var(--background)",
+                transition: "color 300ms linear",
+                willChange: "transform, opacity, filter",
               }}
             >
-              {word}
+              {phrase}
             </span>
           );
         })}
-        {/* the quiet questions that were actually doing the connecting */}
-        {threadQuestions.map((question, index) => {
-          const appear = Math.min(1, Math.max(0, (ease - 0.28 - index * 0.08) / 0.3));
-          const pos = stacked
-            ? [
-                { left: 58, top: 8 },
-                { left: 58, top: 30 },
-                { left: 58, top: 54 },
-                { left: 58, top: 90 },
-              ][index]
-            : [
-                { left: 10, top: 20 },
-                { left: 62, top: 16 },
-                { left: 26, top: 78 },
-                { left: 66, top: 72 },
-              ][index];
-          return (
-            <span
-              key={question}
-              aria-hidden={appear < 0.1}
-              className="absolute max-w-[46%] font-handwriting text-base leading-tight text-teal md:max-w-none md:text-2xl"
-              style={{
-                left: `${pos.left}%`,
-                top: `${pos.top}%`,
-                opacity: appear * 0.85,
-                transform: `translateY(${(1 - appear) * 10}px)`,
-              }}
-            >
-              {question}
-            </span>
-          );
-        })}
+        {/* teal tick marking the current focus */}
+        <div
+          aria-hidden
+          className="absolute bottom-2 left-0 h-px bg-teal"
+          style={{ width: `${(ease * 100).toFixed(2)}%`, opacity: 0.7 }}
+        />
       </div>
-      <p
-        className="mt-4 max-w-2xl font-display text-2xl leading-[1.25] text-background md:mt-6 md:text-3xl"
-        style={{
-          opacity: Math.min(1, Math.max(0, (ease - 0.6) / 0.3)),
-          transform: `translateY(${(1 - Math.min(1, Math.max(0, (ease - 0.6) / 0.3))) * 12}px)`,
-        }}
-      >
-        The industry wasn&rsquo;t the common thread.
-        <br />
-        <span className="text-teal">The problems were.</span>
-      </p>
+      <div className="mt-8">{persistent}</div>
     </div>
   );
 }
