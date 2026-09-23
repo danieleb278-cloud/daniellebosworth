@@ -511,7 +511,7 @@ function ProjectsBlueprint() {
           {ticks.map((x) => <line key={x} x1={x} y1="24" x2={x} y2="36" />)}
         </g>
         <g fill="var(--teal)" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="2" style={{ opacity: built ? 0.72 : 0, transition: "opacity 500ms ease 450ms" }}>
-          <text x="374" y="18">SYSTEM 01</text><text x="3" y="116" transform="rotate(-90 3 116)">120</text>
+          <text x="3" y="116" transform="rotate(-90 3 116)">120</text>
           {["80", "70", "90", "80", "70", "90", "80", "90"].map((label, index) => <text key={`${label}-${index}`} x={ticks[index] - 8} y="198">{label}</text>)}
         </g>
         <text x="55" y="158" fill="transparent" stroke="var(--teal)" strokeWidth="1.5" fontFamily="var(--font-display)" fontSize="119" fontWeight="400" letterSpacing="-5" style={{ opacity: built ? 1 : 0, transition: "opacity 450ms ease 260ms" }}>PROJECTS</text>
