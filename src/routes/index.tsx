@@ -1139,7 +1139,7 @@ function Resume() {
     },
   ];
   return (
-    <section id="resume" aria-labelledby="experience-heading" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="resume" aria-labelledby="experience-heading" className="px-6 pt-28 pb-16 md:px-12 md:pt-40 md:pb-24">
       <div className="mx-auto max-w-[1400px]">
         <ExperienceHeading />
 
