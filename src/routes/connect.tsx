@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -114,6 +115,47 @@ export function ConnectPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <style>{`
+        .challenge-swap-out {
+          position: relative;
+          display: inline-block;
+          transition: opacity 300ms ease 240ms, transform 300ms ease 240ms;
+        }
+        .challenge-swap-out::after {
+          content: "";
+          position: absolute;
+          left: -0.04em;
+          right: -0.04em;
+          top: 54%;
+          height: 0.075em;
+          background: currentColor;
+          transform: scaleX(0);
+          transform-origin: left center;
+          transition: transform 380ms cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .challenge-swap-out.is-striking::after {
+          transform: scaleX(1);
+        }
+        .challenge-swap-out.is-striking {
+          opacity: 0;
+          transform: translateY(0.12em);
+        }
+        .challenge-swap-in {
+          display: inline-block;
+          animation: challenge-swap-in 420ms cubic-bezier(0.2, 0.78, 0.22, 1) both;
+        }
+        @keyframes challenge-swap-in {
+          from { opacity: 0; transform: translateY(0.18em); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .challenge-swap-out,
+          .challenge-swap-in {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
       <div className="mx-auto w-full max-w-5xl px-5 pb-10 pt-5 sm:px-8 sm:pb-14 sm:pt-8 lg:px-10">
         <header className="flex items-center justify-between border-b border-border pb-4">
           <Link to="/" className="group flex items-center gap-2.5" aria-label="Danielle Bosworth portfolio home">
@@ -138,10 +180,22 @@ export function ConnectPage() {
               Product <span className="text-teal">•</span> Customer Experience{" "}
               <span className="text-teal">•</span> AI <span className="text-teal">•</span> Operations
             </p>
-            <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-muted-foreground sm:text-lg">
-              I connect customer needs, business operations, and technology to design better products,
-              experiences, and systems.
+            <p className="mt-5 max-w-xl font-display text-[clamp(1.8rem,5vw,2.8rem)] leading-[1.08] tracking-[-0.03em]">
+              I&apos;m looking for my next <ChallengeSwap />
             </p>
+            <p className="mt-6 text-lg font-semibold tracking-tight sm:text-xl">
+              I&apos;m all about solutions.
+            </p>
+            <div className="mt-4 max-w-xl space-y-3 text-[0.98rem] leading-relaxed text-muted-foreground sm:text-lg">
+              <p>
+                I do my best work when there&apos;s a problem to solve, a process to improve, an
+                experience to design, or a product to develop.
+              </p>
+              <p>
+                Give me something difficult or messy, and I&apos;ll start looking for the
+                connections that can turn it into a real business advantage.
+              </p>
+            </div>
             <a
               href="https://madebydanielleb.com"
               className="group mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-sm bg-foreground px-5 py-3.5 text-sm font-medium text-background transition-colors hover:bg-teal focus-visible:outline-offset-4 sm:w-auto sm:min-w-48"
@@ -260,6 +314,32 @@ export function ConnectPage() {
         </footer>
       </div>
     </main>
+  );
+}
+
+function ChallengeSwap() {
+  const [stage, setStage] = useState<"opportunity" | "striking" | "challenge">("opportunity");
+
+  useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setStage("challenge");
+      return;
+    }
+    const strike = window.setTimeout(() => setStage("striking"), 1500);
+    const swap = window.setTimeout(() => setStage("challenge"), 2000);
+    return () => {
+      window.clearTimeout(strike);
+      window.clearTimeout(swap);
+    };
+  }, []);
+
+  if (stage === "challenge") {
+    return <span className="challenge-swap-in text-teal">challenge.</span>;
+  }
+  return (
+    <span className={`challenge-swap-out${stage === "striking" ? " is-striking" : ""}`}>
+      opportunity.
+    </span>
   );
 }
 
