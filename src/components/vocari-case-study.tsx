@@ -155,6 +155,26 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
         </div>
       </section>
 
+      <section id="research-constraint" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <span className="eyebrow text-accent">Research constraint → product decision</span>
+              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">MorphCast gave us signals. It also exposed a data problem.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">The affective-computing study became useful for more than the emotional signals themselves. Working with the data forced me to think about what could actually be connected back to an experience, what should remain exploratory, and what privacy boundaries the prototype needed.</p>
+            </div>
+            <div className="space-y-5">
+              <details className="group border-y border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The issue</span><h3 className="mt-2 font-display text-2xl">The data arrived too aggregated to answer the question we were asking.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>MorphCast could provide useful emotional and behavioral signals, but the aggregated output made it difficult to connect those signals cleanly to the specific prototype moments we wanted to understand.</p><p>That meant I could not responsibly treat a broad emotional score as proof that one screen, recommendation, or interaction caused a particular response.</p></div></details>
+              <details className="group border-b border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The workaround</span><h3 className="mt-2 font-display text-2xl">I created an event layer so the research could be interpreted in context.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>I used Supabase to record prototype events alongside the research session so we could better understand what the participant was doing when a signal occurred instead of relying on one undifferentiated session-level result.</p><p>The workaround did not turn exploratory affective data into ground truth. It made the evidence more interpretable while preserving the limitations of what the study could actually tell us.</p></div></details>
+              <details className="group border-b border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The privacy boundary</span><h3 className="mt-2 font-display text-2xl">The prototype needed to explain what was being measured, and what was not being stored.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>I added explicit privacy language around the research experience: video was not stored, participation in camera-based analysis was optional, and research records used anonymous identifiers rather than turning the camera feed into part of the user's Vocari profile.</p><p>That distinction became an early lesson in responsible AI product work. Just because a signal can be collected does not mean it belongs in the product's personalization model.</p></div></details>
+            </div>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {["MorphCast aggregated-data view", "Supabase event workaround", "Privacy / consent statement"].map((label, index) => <div key={label} className="flex min-h-[220px] items-center justify-center border border-dashed border-border bg-background p-8 text-center"><div><span className="font-mono text-xs uppercase tracking-[0.14em] text-accent">Evidence placeholder {String(index + 1).padStart(2,"0")}</span><p className="mt-4 font-display text-2xl">{label}</p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Replace with the strongest screenshot or artifact after the narrative review.</p></div></div>)}
+          </div>
+        </div>
+      </section>
+
       <section id="system" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
