@@ -1,63 +1,135 @@
 import { useState } from "react";
-import { Reveal } from "@/components/reveal";
 import { VocariOpening } from "@/components/vocari-opening";
 import type { CaseStudy } from "@/lib/case-studies";
 
-const challengeCards = [
-  {
-    label: "Start with speed",
-    title: "I needed something people could react to.",
-    summary: "I chose Lovable deliberately so I could turn the idea into a working experience quickly, test assumptions, and learn from interaction instead of polishing a concept in isolation.",
-    detail: "The first architecture was built for discovery. That was the right tradeoff early on because the prototype gave me evidence I could not get from static screens. It also meant I would eventually need to revisit decisions made while the product itself was still changing.",
-  },
-  {
-    label: "The prototype created better questions",
-    title: "A recommendation could make sense and still feel wrong.",
-    summary: "Users did not simply accept or reject results. They questioned the evidence, added context, contradicted earlier answers, and sometimes changed how they described themselves.",
-    detail: "That exposed a deeper product problem. If a user rejects Product Designer, should the system only hide that card? Or does the reaction reveal something about work style, motivation, environment, or another signal that should affect other recommendations too?",
-  },
-  {
-    label: "The product outgrew the prototype",
-    title: "Features that looked separate were actually sharing the same beliefs.",
-    summary: "Profile DNA, recommendations, discovery sessions, career exploration, and feedback all depended on what Vocari believed about the user. Inconsistency in one place could ripple through the rest of the experience.",
-    detail: "The interface was no longer the hardest part. I needed a clearer source of truth, rules for evidence and inference, and a way to keep changes consistent across features without making the system feel rigid.",
-  },
-  {
-    label: "Stop adding. Start understanding.",
-    title: "I paused feature growth and reconstructed the system underneath it.",
-    summary: "I defined what counts as evidence, where it came from, how confidence should work, what happens when evidence changes, and which decisions needed deterministic behavior instead of AI interpretation.",
-    detail: "That work became the foundation for source-aware evidence, typed profile models, recommendation rules, refinement metadata, reversal-safe behavior, and a Progressive Discovery Engine that can admit when it does not know enough yet.",
-  },
-];
+type Evidence = { label: string; description: string; src?: string; alt?: string };
+type StoryBeat = {
+  label: string;
+  note: string;
+  title: string;
+  skim: string;
+  details: string[];
+  evidence: Evidence[];
+};
 
-const decisions = [
+const storyBeats: StoryBeat[] = [
   {
-    title: "Treat Profile DNA as a hypothesis, not a verdict",
-    text: "The profile can evolve as new evidence appears. Missing information is not scored as a negative. Unsupported dimensions are excluded and lower confidence instead.",
+    label: "Build something real",
+    note: "I had the idea before the class.",
+    title: "I needed something people could actually react to.",
+    skim: "Vocari began as my independent concept. I built the prototype in Lovable, then brought the working idea into a course where it became the subject of structured group research.",
+    details: [
+      "I owned the product design and build. My teammates used the prototype with participants, gathered feedback, and contributed to the research, analysis, and academic deliverables.",
+      "That distinction matters because the course did not create Vocari. It gave me a structured environment to pressure-test a product I had already started.",
+      "The final academic project earned a perfect score, but finishing the assignment did not mean I considered the product finished."
+    ],
+    evidence: [{ label: "Early independent prototype", description: "Placeholder: early Lovable screens, first concept notes, or the earliest onboarding flow.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" }]
   },
   {
-    title: "Make disagreement useful",
-    text: "Understand, Clarify, and Challenge interactions let the user inspect an interpretation, add context, or push back. Feedback can become structured evidence instead of a one-time UI reaction.",
+    label: "Research changed the experience",
+    note: "People could use it. Trust was harder.",
+    title: "The real problem was not getting someone through an assessment.",
+    skim: "Course research showed that people wanted to recognize themselves in the result, understand why a recommendation appeared, and have a way to question what the system believed.",
+    details: [
+      "The research included surveys, usability and experience testing, emotional and cognitive evaluation, and exploratory affective-computing work. Those methods were useful because they exposed different parts of the same problem: completion was not the same as trust.",
+      "The experience evolved toward Progressive Discovery, Profile DNA, clearer recommendation explanations, user feedback, and Understand, Clarify, Challenge interactions.",
+      "By the end of the course, the product direction had moved away from a one-time career assessment toward an experience that could keep learning with the user.",
+      "The group research helped shape that direction. I translated the findings into the working prototype."
+    ],
+    evidence: [
+      { label: "Research evidence", description: "Placeholder: survey findings, testing notes, PANAS/SAM/NASA-TLX evidence, or a research synthesis image.", src: "/vocari/morphcast.webp", alt: "Vocari research analytics" },
+      { label: "Design evolution", description: "Placeholder: before/after showing the move from assessment results toward Profile DNA and Progressive Discovery.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" }
+    ]
   },
   {
-    title: "Preserve the reasoning trail",
-    text: "Discovery signals keep source information and history. Refinements can be reversed without pretending the earlier interaction never happened.",
+    label: "The post-course discovery",
+    note: "The prototype said AI. Underneath, it wasn't.",
+    title: "The interface had evolved faster than the intelligence underneath it.",
+    skim: "After the course ended, I kept building and discovered that much of the experience I had designed as adaptive and AI-driven was still being produced through deterministic rules.",
+    details: [
+      "That was the point where Vocari changed for me. The interface could describe a learning relationship, but the system underneath it did not yet have the memory, evidence model, or interpretation layer needed to support that promise.",
+      "Instead of hiding that limitation, I treated it as the next product problem.",
+      "If Vocari was supposed to learn over time, I first had to define what it should remember, where that information came from, how reliable it was, and how later evidence could change an earlier belief.",
+      "This is where the work moved beyond improving screens and into product architecture."
+    ],
+    evidence: [{ label: "Implementation gap", description: "Placeholder: old deterministic recommendation logic, early architecture, or a comparison between the interface promise and the original implementation." }]
   },
   {
-    title: "Let the system say 'not enough yet'",
-    text: "Recommendations deepen only as evidence grows. Vocari can begin with broad directions and move toward specific roles when the profile has enough support.",
+    label: "Give the product memory",
+    note: "Before it could learn, it had to remember.",
+    title: "I rebuilt the foundation around evidence instead of screens.",
+    skim: "I introduced persistent data and a shared evidence model so Profile DNA, discovery, reactions, and recommendations could operate from the same underlying understanding of the user.",
+    details: [
+      "Supabase became part of the architecture so evidence and profile state could persist instead of existing only inside disconnected interface behavior.",
+      "I started defining evidence by source and purpose: what the user explicitly told Vocari, what the system inferred, what came from discovery, what came from reactions, and what a piece of evidence was actually allowed to support.",
+      "I created shared structures for profile state, evidence metadata, recommendation behavior, and synchronization so different features were not quietly maintaining different versions of the same person.",
+      "The Product Book and shared vocabulary became product-governance tools. They forced me to define terms and relationships before adding more behavior.",
+      "This work also pushed me deeper into the codebase, GitHub, TypeScript, migrations, testing, and the implementation details behind the experience."
+    ],
+    evidence: [
+      { label: "Product architecture", description: "Placeholder: Product Book, data model, evidence schema, or architecture map.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
+      { label: "Persistent evidence", description: "Placeholder: Supabase schema or evidence record showing source-aware persistence." }
+    ]
   },
   {
-    title: "Use AI where ambiguity helps",
-    text: "Conversation and interpretation benefit from flexible language. Scoring, profile state, evidence handling, and other consistency-critical behavior use explicit logic and deterministic fallbacks.",
+    label: "One answer can ripple",
+    note: "What should this change, and for how long?",
+    title: "A reaction could not be allowed to rewrite the person.",
+    skim: "Once feedback became evidence, every reaction needed rules for scope, strength, duration, propagation, contradiction, and reversal.",
+    details: [
+      "If someone says Product Designer is not for me, that may be evidence about the role, a work environment, a motivation, or something else entirely. It should not automatically erase every underlying strength that helped produce the recommendation.",
+      "I had to ask what a signal should affect, how strongly it should count, whether it should influence adjacent careers, how long it should remain meaningful, and what happens when later evidence disagrees.",
+      "Reversal mattered too. If a user changes their reaction, the system should be able to unwind the effect without erasing the history that explains why the recommendation changed.",
+      "This led to weighting, confidence, source-aware evidence, structured reactions, and reversal-safe behavior.",
+      "It also clarified where deterministic logic is valuable. State changes and rules that need consistency and traceability should not depend on an AI model improvising the answer."
+    ],
+    evidence: [
+      { label: "Refinement loop", description: "Placeholder: reaction, preview, confirm, receipt, undo sequence.", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
+      { label: "Ripple example", description: "Placeholder: Product Designer rejection and the resulting profile/recommendation changes." }
+    ]
   },
-];
-
-const slides = [
-  { src: "/vocari/dashboard.webp", alt: "Vocari dashboard with confidence, patterns, and career recommendations", caption: "Dashboard connects profile evidence, patterns, exploration, and next actions." },
-  { src: "/vocari/profile-refinement.webp", alt: "Before and after preview of a proposed Profile DNA refinement", caption: "Profile refinement previews a proposed change before the user confirms it." },
-  { src: "/vocari/why-this-fits.webp", alt: "Vocari recommendation explanation with supporting evidence and tradeoff", caption: "Why this fits connects a recommendation to supporting evidence and a realistic consideration." },
-  { src: "/vocari/careers.webp", alt: "Vocari public career library with filters and career cards", caption: "The career library supports exploration beyond the recommendation feed." },
+  {
+    label: "Add real AI deliberately",
+    note: "Not everything should become AI.",
+    title: "The next question was what AI should actually be responsible for.",
+    skim: "With persistent evidence and explicit rules underneath the product, I could introduce real AI where interpretation benefits from nuance while keeping deterministic behavior where consistency matters.",
+    details: [
+      "Flexible conversation, clarification, and interpretation are places where an AI model can add value because human context is messy and language is ambiguous.",
+      "Evidence storage, scoring rules, profile state, eligibility, synchronization, and other consistency-critical behavior need explicit constraints and testable fallbacks.",
+      "The goal became a hybrid system, not an AI system for its own sake.",
+      "That separation also makes it easier to explain why something happened and to keep the user in control when the model's interpretation is wrong."
+    ],
+    evidence: [{ label: "Hybrid intelligence", description: "Placeholder: diagram showing AI interpretation layered over deterministic evidence, scoring, and state rules." }]
+  },
+  {
+    label: "The dataset can bias the answer",
+    note: "The logic can work and the library can still be wrong.",
+    title: "I realized Vocari was too heavily biased toward the careers I had modeled best.",
+    skim: "To test recommendations honestly, I needed a broader career base and a repeatable structure for describing every career consistently.",
+    details: [
+      "Product and design careers were overrepresented and more deeply described in the early prototype. That gave those careers more opportunities to match against user evidence.",
+      "Expanding the library was not just a content task. Every career needed a consistent profile so the recommendation system could compare very different occupations using the same kinds of information.",
+      "That work grew the prototype career library to 35 careers and exposed another requirement: the quality of a recommendation depends on the quality and coverage of the career data underneath it.",
+      "A smarter matching system cannot compensate for a narrow or uneven career universe."
+    ],
+    evidence: [
+      { label: "Career profile structure", description: "Placeholder: one structured career record showing the fields shared across the library." },
+      { label: "Career library", description: "Placeholder: broader career library and filters.", src: "/vocari/careers.webp", alt: "Vocari career library" }
+    ]
+  },
+  {
+    label: "A match is not a path",
+    note: "Okay, this fits. Now how do I get there?",
+    title: "Career recommendations exposed the gap between fit and education.",
+    skim: "A useful career product cannot stop at telling someone what might fit. It eventually has to understand where that person is starting and what a realistic path forward could look like.",
+    details: [
+      "Two people can have similar strengths and preferences but very different education, work history, transferable skills, constraints, and access to training.",
+      "That means background is not just profile decoration. It changes what guidance is useful and what next step is realistic.",
+      "The next product problem is connecting career fit to requirements, existing qualifications, missing qualifications, education or training pathways, and realistic next actions.",
+      "I have identified this gap, but I have not treated it as solved. It is part of the work still ahead."
+    ],
+    evidence: [{ label: "Pathway gap", description: "Placeholder: future-state flow from user background → career requirements → gaps → education/training → next action." }]
+  }
 ];
 
 export function VocariCaseStudy({ study }: { study: CaseStudy }) {
@@ -65,112 +137,44 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
     <>
       <VocariOpening />
 
-      <section id="challenge" className="px-6 pb-24 md:px-12 md:pb-32">
+      <section id="story" className="px-6 pb-24 md:px-12 md:pb-32">
         <div className="mx-auto max-w-[1400px]">
-          <div className="max-w-3xl">
-            <span className="eyebrow text-accent">What building exposed</span>
-            <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,5rem)] leading-[1.02] tracking-[-0.035em]">
-              Every answer created a harder question.
-            </h2>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              The first prototype helped me discover the product. Then the product became complex enough that I had to understand the system underneath it.
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div>
+              <span className="eyebrow text-accent">What building exposed</span>
+              <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,5rem)] leading-[1.02] tracking-[-0.035em]">Every answer created a harder question.</h2>
+            </div>
+            <p className="border-l border-border pl-6 text-lg leading-relaxed text-muted-foreground">
+              Vocari did not move through a clean design process. Each version exposed something the previous version could not answer. The skim tells the story. Open any moment to see the research, reasoning, rules, and implementation underneath it.
             </p>
           </div>
 
           <div className="mt-14 border-t border-border">
-            {challengeCards.map((card, index) => (
-              <ChallengeCard key={card.label} card={card} index={index} />
-            ))}
+            {storyBeats.map((beat, index) => <StoryRow key={beat.label} beat={beat} index={index} />)}
           </div>
         </div>
       </section>
 
-      <section id="research" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <div>
-              <span className="eyebrow text-accent">Evidence changed the direction</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight tracking-tight md:text-6xl">
-                The problem was not getting people through an assessment.
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-              <p>{study.context}</p>
-              <p>
-                Research kept pointing toward trust and recognition. People wanted to understand why something appeared, especially when a result surprised them. Completion alone did not mean the system had earned confidence.
-              </p>
-              <p>
-                Eight participants took part in the affective-computing study. Facial analytics were usable for three participants, so I treated those signals as exploratory research rather than evidence of emotional accuracy or a personalization input.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            <CaseFigure src="/vocari/early-empty-state.webp" alt="Early Career Compass dashboard empty state" caption="Early assessment-style prototype before Progressive Discovery." />
-            <CaseFigure src="/vocari/morphcast.webp" alt="Vocari research analytics showing consented MorphCast data" caption="Consent-aware research instrumentation connected exploratory emotional signals to prototype screens." />
-          </div>
-        </div>
-      </section>
-
-      <section id="decisions" className="px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="max-w-4xl">
-            <span className="eyebrow text-accent">Product decisions</span>
-            <h2 className="mt-6 font-display text-[clamp(2.6rem,5.5vw,5.8rem)] leading-[1] tracking-[-0.035em]">
-              I stopped designing features as isolated screens.
-            </h2>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Once the same evidence was influencing multiple parts of Vocari, each interaction needed rules about what it could change and why.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-px bg-border md:grid-cols-2">
-            {decisions.map((decision, index) => (
-              <Reveal key={decision.title} delay={index * 60}>
-                <article className="h-full bg-background p-7 md:p-9">
-                  <span className="font-mono text-xs text-accent">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-5 font-display text-2xl leading-tight md:text-3xl">{decision.title}</h3>
-                  <p className="mt-5 leading-relaxed text-muted-foreground">{decision.text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-16 grid gap-6 lg:grid-cols-2">
-            <CaseFigure src="/vocari/discovery-journey.webp" alt="Vocari progressive discovery service journey" caption="Progressive Discovery turns continued interaction into a learning loop." />
-            <CaseFigure src="/vocari/product-book.webp" alt="Vocari Product Book North Star and decision filter" caption="The Product Book aligned experience language, evidence rules, data, and future behavior." />
-          </div>
-        </div>
-      </section>
-
-      <section id="architecture" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
+      <section id="system" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <span className="eyebrow text-accent">Under the interface</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
-                Speed discovered the product. Structure made it sustainable.
-              </h2>
+              <span className="eyebrow text-accent">Where the prototype is now</span>
+              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">The hard parts are the project now.</h2>
             </div>
             <div className="space-y-6 text-lg leading-relaxed text-background/70">
-              <p>
-                I began working directly with the codebase when product decisions could no longer be expressed as interface changes alone. I used typed models, evidence metadata, Supabase migrations, deterministic identifiers, structured reaction scoring, and reversal-safe synchronization to make the behavior more explicit.
-              </p>
-              <p>
-                The recommendation system also needed to distinguish a missing signal from a negative one. Evidence retains its source, unsupported dimensions reduce confidence, and role recommendations have eligibility rules rather than appearing simply because the system can generate an answer.
-              </p>
-              <p className="text-background">
-                This was the point where my role shifted from asking, "What should this screen do?" to asking, "What must the whole system believe for this screen to behave correctly?"
-              </p>
+              <p>Vocari is an unfinished working prototype under active development. It now includes persistent evidence, structured career data, recommendation logic, user refinement behavior, progressive discovery, and AI-assisted interpretation, but I do not present it as a finished product.</p>
+              <p>The problems I am working through now are requirements, constraints, rules, data structure, recommendation calibration, broader career coverage, user background, education pathways, and the safeguards a fuller product would need.</p>
+              <p className="text-background">I could start another product and repeat the parts I already know. I would rather keep pushing this one into the parts I do not know yet.</p>
             </div>
           </div>
 
           <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Typed user model", "A shared structure for profile state and evidence."],
-              ["Source-aware evidence", "Signals retain where they came from and what they support."],
-              ["Reversal-safe updates", "Changing a decision does not erase the reasoning history."],
-              ["Deterministic behavior", "Critical rules stay testable instead of depending entirely on AI."],
+              ["Persistent evidence", "Remember what the product knows, where it came from, and what it is allowed to affect."],
+              ["Hybrid intelligence", "Use AI for nuance and interpretation, explicit rules for behavior that must stay consistent."],
+              ["Structured careers", "Represent different careers consistently enough to test recommendations beyond a narrow domain."],
+              ["Pathway requirements", "Connect fit to a person's starting point, gaps, education, training, and realistic next actions."]
             ].map(([title, text]) => (
               <div key={title} className="border border-background/20 p-6">
                 <h3 className="font-display text-2xl">{title}</h3>
@@ -185,40 +189,33 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
             <div>
-              <span className="eyebrow text-accent">The experience</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">The interface became the visible layer of the system.</h2>
+              <span className="eyebrow text-accent">Current prototype</span>
+              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">The interface is only the visible layer.</h2>
             </div>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Profile DNA, career recommendations, explanations, discovery, and refinement are designed to show the user what Vocari currently understands while leaving room for that understanding to change.
-            </p>
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">Profile DNA, discovery, career exploration, explanations, reactions, and refinement now sit on top of a much more deliberate product model than the original prototype. These screens will be replaced with the strongest final evidence set after the narrative is locked.</p>
           </div>
-          <DesignCarousel />
+          <PrototypeGallery />
         </div>
       </section>
 
       <section id="delivery" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-            <div>
-              <span className="eyebrow text-accent">A constraint became a workflow decision</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">
-                When one development path hit limits, I built another.
-              </h2>
-            </div>
-            <div>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                During high-intensity prototyping, platform resource limits began interrupting iteration. I moved relevant codebase context into ChatGPT to reason through targeted changes, worked through GitHub version control, and used automated deployment workflows to keep the prototype available for continued testing.
-              </p>
-              <p className="mt-6 leading-relaxed text-muted-foreground">
-                That workflow reduced dependency on a single prototyping tool and gave me a better understanding of the architecture I was making product decisions on top of.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {["Lovable", "GitHub", "ChatGPT", "Supabase", "Vercel", "TypeScript", "Testing"].map((tool) => (
-                  <span key={tool} className="border border-border bg-background px-4 py-2 font-mono text-xs uppercase tracking-wider">{tool}</span>
-                ))}
+          <details className="group border-y border-border py-7">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-8">
+              <div>
+                <span className="eyebrow text-accent">Build workflow · optional detail</span>
+                <h2 className="mt-3 font-display text-3xl md:text-4xl">When one development path hit limits, I built another.</h2>
+              </div>
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl group-open:rotate-45">+</span>
+            </summary>
+            <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <p className="text-lg leading-relaxed text-muted-foreground">During high-intensity prototyping, platform resource limits began interrupting iteration. I moved relevant codebase context into ChatGPT to reason through targeted changes, worked through GitHub version control, and used automated deployment workflows to keep the prototype available for continued testing.</p>
+              <div>
+                <p className="leading-relaxed text-muted-foreground">That workflow reduced dependency on a single prototyping tool and forced me to understand the architecture I was making product decisions on top of. It also made version history, targeted code changes, testing, and deployment part of the product work instead of something hidden behind the builder.</p>
+                <div className="mt-6 flex flex-wrap gap-3">{["Lovable", "GitHub", "ChatGPT", "Supabase", "Vercel", "TypeScript", "Testing"].map(tool => <span key={tool} className="border border-border bg-background px-4 py-2 font-mono text-xs uppercase tracking-wider">{tool}</span>)}</div>
               </div>
             </div>
-          </div>
+          </details>
         </div>
       </section>
 
@@ -226,19 +223,24 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:gap-24">
             <div>
-              <span className="eyebrow text-accent">What changed for me</span>
-              <h2 className="mt-6 font-display text-[clamp(2.8rem,5.8vw,6rem)] leading-[1] tracking-[-0.035em]">
-                Personalization is not the same as generating a personalized-looking answer.
-              </h2>
-              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-                Vocari taught me that a system earns trust by being able to show what it knows, distinguish evidence from inference, respond when the user disagrees, and update without making the rest of the experience incoherent.
-              </p>
+              <span className="eyebrow text-accent">Why I'm still building it</span>
+              <h2 className="mt-6 font-display text-[clamp(2.8rem,5.8vw,6rem)] leading-[1] tracking-[-0.035em]">The easy problems are mostly behind me.</h2>
+              <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
+                <p>I could start another product and repeat the parts of the process I already know. Instead, I am continuing with Vocari because the questions left are harder: requirements, constraints, evidence, recommendation logic, AI behavior, career coverage, education pathways, and what happens when one new piece of information needs to ripple through an interconnected system.</p>
+                <p>Those are exactly the problems I want to get better at solving. My goal is to keep pushing Vocari toward a fuller product, not because I need another portfolio project, but because building through the difficult parts is expanding what I am capable of building next.</p>
+              </div>
             </div>
             <div className="space-y-8 lg:pt-10">
-              <ReasonCell label="What exists now" text="A working research prototype with progressive profile evidence, career exploration, explainable recommendations, discovery sessions, persistence, and refinement behavior." />
-              <ReasonCell label="What I would validate next" text="Longitudinal use, broader career coverage, recommendation calibration, accessibility, and whether profile refinements improve later recommendations in ways users recognize as more accurate." />
-              <ReasonCell label="The bigger question" text="How do you design a product that can keep learning about a human without pretending the human is static?" />
+              <ReasonCell label="Current state" text="Active, unfinished working prototype. It works, but I am not presenting it as a finished or production-ready product." />
+              <ReasonCell label="What I'm solving now" text="Broader career coverage, recommendation calibration, background and starting-point context, education pathways, requirements, constraints, and safeguards." />
+              <ReasonCell label="The bigger question" text="How do you build a system that can keep learning about a person without treating that person as static?" />
             </div>
+          </div>
+
+          <div className="mt-20 border-t border-border pt-12">
+            <p className="font-display text-3xl md:text-5xl">The idea was straightforward.</p>
+            <p className="mt-3 font-display text-3xl text-muted-foreground md:text-5xl">Building it wasn't.</p>
+            <p className="mt-3 font-display text-3xl text-accent md:text-5xl">That's why I'm still building it.</p>
           </div>
         </div>
       </section>
@@ -246,119 +248,61 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
   );
 }
 
-function ChallengeCard({ card, index }: { card: (typeof challengeCards)[number]; index: number }) {
+function StoryRow({ beat, index }: { beat: StoryBeat; index: number }) {
   const [open, setOpen] = useState(false);
   const [evidenceOpen, setEvidenceOpen] = useState(false);
-  const notes = [
-    "Start with speed.",
-    "Users didn't just accept results.",
-    "Features that looked separate were actually connected.",
-    "So I stopped adding and started understanding.",
-  ];
-  const noteTones = [
-    "bg-[oklch(0.91_0.09_88)]",
-    "bg-[oklch(0.91_0.07_315)]",
-    "bg-[oklch(0.91_0.065_20)]",
-    "bg-[oklch(0.91_0.055_190)]",
-  ];
-  const evidence = [
-    { label: "Early prototype", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
-    { label: "Recommendation reaction", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
-    { label: "Connected system", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery system journey" },
-    { label: "Evidence model", src: "/vocari/product-book.webp", alt: "Vocari product system and evidence documentation" },
-  ][index];
-
+  const tones = ["bg-[oklch(0.91_0.09_88)]","bg-[oklch(0.91_0.07_315)]","bg-[oklch(0.91_0.065_20)]","bg-[oklch(0.91_0.055_190)]"];
   return (
     <article className="border-b border-border">
       <div className="grid gap-6 py-8 md:grid-cols-[10.5rem_0.85fr_1.35fr_6rem_auto] md:items-center md:gap-8">
-        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="group relative w-fit text-left" aria-label={`${open ? "Collapse" : "Expand"} ${card.title}`}>
+        <button type="button" onClick={() => setOpen(!open)} className="group relative w-fit text-left" aria-expanded={open}>
           <span className="absolute left-1/2 top-[-5px] h-3 w-11 -translate-x-1/2 -rotate-2 bg-muted/70" aria-hidden="true" />
-          <span className={`block max-w-[10rem] rotate-[-2deg] border border-foreground/10 px-5 py-5 font-handwriting text-[1.65rem] leading-[0.98] shadow-[0_12px_24px_-18px_rgba(0,0,0,0.55)] transition-transform group-hover:rotate-0 ${noteTones[index]}`}>
-            {notes[index]}
-          </span>
+          <span className={`block max-w-[10rem] rotate-[-2deg] border border-foreground/10 px-5 py-5 font-handwriting text-[1.55rem] leading-[0.98] shadow-[0_12px_24px_-18px_rgba(0,0,0,0.55)] transition-transform group-hover:rotate-0 ${tones[index % tones.length]}`}>{beat.note}</span>
         </button>
-
         <div>
-          <span className="eyebrow text-accent">{String(index + 1).padStart(2, "0")} / {card.label}</span>
-          <h3 className="mt-4 font-display text-[clamp(1.65rem,2.3vw,2.5rem)] leading-[1.04]">{card.title}</h3>
+          <span className="eyebrow text-accent">{String(index + 1).padStart(2, "0")} / {beat.label}</span>
+          <h3 className="mt-4 font-display text-[clamp(1.65rem,2.3vw,2.5rem)] leading-[1.04]">{beat.title}</h3>
         </div>
-
-        <p className="text-[0.95rem] leading-relaxed text-muted-foreground">{card.detail}</p>
-
-        <button type="button" onClick={() => setEvidenceOpen(true)} className="group justify-self-start md:justify-self-center" aria-label={`View evidence for ${card.title}`}>
-          <span className="relative block h-16 w-16">
-            <span className="absolute left-0 top-1 h-12 w-12 border border-border bg-secondary" />
-            <span className="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center border border-border bg-background transition-transform group-hover:-translate-y-1">
-              <span className="font-mono text-xl text-muted-foreground" aria-hidden="true">▧</span>
-            </span>
-          </span>
-          <span className="mt-2 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">View evidence</span>
+        <p className="text-[0.95rem] leading-relaxed text-muted-foreground">{beat.skim}</p>
+        <button type="button" onClick={() => setEvidenceOpen(true)} className="group justify-self-start md:justify-self-center" aria-label={`View evidence for ${beat.title}`}>
+          <span className="relative block h-16 w-16"><span className="absolute left-0 top-1 h-12 w-12 border border-border bg-secondary" /><span className="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center border border-border bg-background transition-transform group-hover:-translate-y-1"><span className="font-mono text-xl text-muted-foreground">▧</span></span></span>
+          <span className="mt-2 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">Evidence</span>
         </button>
-
-        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="flex h-12 w-12 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl text-muted-foreground transition-colors hover:border-accent hover:text-accent" aria-label={`${open ? "Collapse" : "Expand"} details for ${card.title}`}>
-          {open ? "−" : "+"}
-        </button>
+        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="flex h-12 w-12 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl text-muted-foreground transition-colors hover:border-accent hover:text-accent" aria-label={`${open ? "Collapse" : "Expand"} details for ${beat.title}`}>{open ? "−" : "+"}</button>
       </div>
-
-      {open && (
-        <div className="grid gap-6 pb-10 md:grid-cols-[10.5rem_0.85fr_1.35fr_6rem_auto] md:gap-8">
-          <div className="hidden md:block" />
-          <div className="md:col-span-2 border-l border-accent pl-5">
-            <span className="eyebrow text-accent">What I noticed</span>
-            <p className="mt-3 font-display text-xl leading-snug">{card.summary}</p>
-          </div>
-        </div>
-      )}
-
-      {evidenceOpen && (
-        <div role="dialog" aria-modal="true" aria-label={evidence.label} className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/80 p-5" onClick={() => setEvidenceOpen(false)}>
-          <div className="max-h-[90vh] w-full max-w-5xl overflow-auto bg-background p-4 md:p-6" onClick={(event) => event.stopPropagation()}>
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <div><span className="eyebrow text-accent">Evidence</span><h4 className="mt-1 font-display text-2xl">{evidence.label}</h4></div>
-              <button type="button" onClick={() => setEvidenceOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl" aria-label="Close evidence">×</button>
-            </div>
-            <img src={evidence.src} alt={evidence.alt} className="mx-auto block max-h-[72vh] w-auto max-w-full border border-border object-contain" />
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Temporary evidence selection. This can become a small click-through gallery when we choose the final screenshots for this moment in the story.</p>
-          </div>
-        </div>
-      )}
+      {open && <div className="grid gap-6 pb-10 md:grid-cols-[10.5rem_0.85fr_1.35fr_6rem_auto] md:gap-8"><div className="hidden md:block" /><div className="space-y-5 border-l border-accent pl-5 md:col-span-2"><span className="eyebrow text-accent">The deeper story</span>{beat.details.map((detail, i) => <p key={i} className={i === 0 ? "font-display text-xl leading-snug" : "leading-relaxed text-muted-foreground"}>{detail}</p>)}</div></div>}
+      {evidenceOpen && <EvidenceModal beat={beat} onClose={() => setEvidenceOpen(false)} />}
     </article>
   );
 }
 
-function DesignCarousel() {
+function EvidenceModal({ beat, onClose }: { beat: StoryBeat; onClose: () => void }) {
   const [active, setActive] = useState(0);
-  return (
-    <div className="mt-14">
-      <div className="mx-auto max-w-5xl">
-        {slides.map((slide, index) => (
-          <div key={slide.src} className={index === active ? "block" : "hidden"} aria-hidden={index !== active}>
-            <CaseFigure src={slide.src} alt={slide.alt} caption={slide.caption} portrait={index === 0} />
-          </div>
-        ))}
-      </div>
-      <div className="mx-auto mt-6 flex max-w-5xl items-center justify-between border-t border-border pt-5">
-        <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">{String(active + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}</span>
-        <div className="flex gap-3">
-          <button type="button" onClick={() => setActive((active - 1 + slides.length) % slides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] hover:border-accent hover:text-accent">Previous</button>
-          <button type="button" onClick={() => setActive((active + 1) % slides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] hover:border-accent hover:text-accent">Next</button>
-        </div>
-      </div>
+  const item = beat.evidence[active];
+  return <div role="dialog" aria-modal="true" className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/80 p-5" onClick={onClose}>
+    <div className="max-h-[90vh] w-full max-w-5xl overflow-auto bg-background p-5 md:p-7" onClick={e => e.stopPropagation()}>
+      <div className="mb-5 flex items-start justify-between gap-4"><div><span className="eyebrow text-accent">Evidence placeholder</span><h4 className="mt-2 font-display text-2xl">{item.label}</h4></div><button type="button" onClick={onClose} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl">×</button></div>
+      {item.src ? <img src={item.src} alt={item.alt || ""} className="mx-auto block max-h-[62vh] w-auto max-w-full border border-border object-contain" /> : <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-secondary p-10 text-center"><div><span className="font-mono text-3xl text-accent">▧</span><p className="mt-4 font-display text-2xl">Image placeholder</p></div></div>}
+      <p className="mt-5 leading-relaxed text-muted-foreground">{item.description}</p>
+      {beat.evidence.length > 1 && <div className="mt-6 flex items-center justify-between border-t border-border pt-4"><span className="font-mono text-xs text-muted-foreground">{active + 1} / {beat.evidence.length}</span><div className="flex gap-2"><button type="button" onClick={() => setActive((active - 1 + beat.evidence.length) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Previous</button><button type="button" onClick={() => setActive((active + 1) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Next</button></div></div>}
     </div>
-  );
+  </div>;
 }
 
-function CaseFigure({ src, alt, caption, portrait = false }: { src: string; alt: string; caption: string; portrait?: boolean }) {
-  return (
-    <figure className="w-full">
-      <div className="flex w-full items-center justify-center border border-border bg-background p-4 md:p-6">
-        <img src={src} alt={alt} className={portrait ? "block max-h-[760px] w-auto max-w-full" : "block h-auto w-full"} loading="lazy" />
-      </div>
-      <figcaption className="eyebrow mt-3 flex items-center justify-between border-t border-border pt-2">
-        <span>{caption}</span><span aria-hidden>✦</span>
-      </figcaption>
-    </figure>
-  );
+const prototypeSlides = [
+  { src: "/vocari/dashboard.webp", alt: "Vocari dashboard", caption: "Dashboard" },
+  { src: "/vocari/profile-refinement.webp", alt: "Vocari Profile DNA refinement", caption: "Profile refinement" },
+  { src: "/vocari/why-this-fits.webp", alt: "Vocari recommendation explanation", caption: "Why this fits" },
+  { src: "/vocari/careers.webp", alt: "Vocari career library", caption: "Career library" }
+];
+
+function PrototypeGallery() {
+  const [active, setActive] = useState(0);
+  const slide = prototypeSlides[active];
+  return <div className="mt-14">
+    <div className="mx-auto max-w-5xl border border-border bg-background p-4 md:p-6"><img src={slide.src} alt={slide.alt} className="mx-auto block max-h-[760px] w-auto max-w-full" loading="lazy" /></div>
+    <div className="mx-auto mt-5 flex max-w-5xl items-center justify-between border-t border-border pt-5"><div><span className="eyebrow text-accent">{String(active + 1).padStart(2,"0")} / {String(prototypeSlides.length).padStart(2,"0")}</span><p className="mt-2 font-display text-xl">{slide.caption}</p></div><div className="flex gap-3"><button type="button" onClick={() => setActive((active - 1 + prototypeSlides.length) % prototypeSlides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em]">Previous</button><button type="button" onClick={() => setActive((active + 1) % prototypeSlides.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em]">Next</button></div></div>
+  </div>;
 }
 
 function ReasonCell({ label, text }: { label: string; text: string }) {
