@@ -247,21 +247,65 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
 }
 
 function ChallengeCard({ card, index }: { card: (typeof challengeCards)[number]; index: number }) {
-  const [open, setOpen] = useState(index === 0);
+  const [open, setOpen] = useState(false);
+  const notes = [
+    "Start with speed.",
+    "Users didn't just accept results.",
+    "Features that looked separate were actually connected.",
+    "So I stopped adding and started understanding.",
+  ];
+  const placeholderLabels = [
+    "Early prototype",
+    "Recommendation reaction",
+    "Connected system",
+    "Evidence model",
+  ];
+
   return (
     <article className="border-b border-border">
-      <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="grid w-full gap-5 py-7 text-left md:grid-cols-[4rem_0.7fr_1.3fr_auto] md:items-start md:gap-8 md:py-9">
-        <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="grid w-full gap-5 py-7 text-left md:grid-cols-[12rem_0.8fr_1.4fr_auto] md:items-center md:gap-8 md:py-8"
+      >
+        <div className="relative w-fit">
+          <span className="block max-w-[11rem] rotate-[-1deg] border border-border bg-secondary px-5 py-5 font-display text-xl leading-tight shadow-sm">
+            {notes[index]}
+          </span>
+        </div>
         <span className="eyebrow text-accent">{card.label}</span>
         <span className="font-display text-2xl leading-tight md:text-3xl">{card.title}</span>
-        <span aria-hidden className="font-mono text-xl text-muted-foreground">{open ? "−" : "+"}</span>
+        <span
+          aria-hidden
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl text-muted-foreground transition-colors group-hover:border-accent"
+        >
+          {open ? "−" : "+"}
+        </span>
       </button>
+
       {open && (
-        <div className="grid gap-5 pb-9 md:grid-cols-[4rem_0.7fr_1.3fr_auto] md:gap-8">
-          <span className="hidden md:block" />
+        <div className="grid gap-8 pb-10 md:grid-cols-[12rem_0.8fr_1.4fr_auto] md:gap-8">
+          <div className="hidden md:block" />
           <p className="leading-relaxed text-muted-foreground">{card.summary}</p>
-          <p className="leading-relaxed text-muted-foreground">{card.detail}</p>
-          <span className="hidden md:block" />
+          <div>
+            <p className="leading-relaxed text-muted-foreground">{card.detail}</p>
+            <button
+              type="button"
+              className="mt-7 w-full border border-dashed border-border bg-secondary p-4 text-left transition-colors hover:border-accent"
+              aria-label={`Placeholder evidence gallery for ${placeholderLabels[index]}`}
+            >
+              <span className="block aspect-[16/8] bg-background" aria-hidden="true" />
+              <span className="mt-3 flex items-center justify-between gap-4">
+                <span>
+                  <span className="eyebrow text-accent">Evidence gallery placeholder</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{placeholderLabels[index]} · choose final images later</span>
+                </span>
+                <span className="font-mono text-lg text-muted-foreground">↗</span>
+              </span>
+            </button>
+          </div>
+          <div className="hidden md:block" />
         </div>
       )}
     </article>
