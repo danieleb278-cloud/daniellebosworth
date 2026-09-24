@@ -24,6 +24,18 @@ export const Route = createFileRoute("/connect")({
           "Product, customer experience, AI, operations, and marketing strategy.",
       },
       { property: "og:url", content: "https://madebydanielleb.com/connect" },
+      { property: "og:type", content: "profile" },
+      { property: "og:image", content: "https://madebydanielleb.com/connect/og-share.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Portrait of Danielle Bosworth" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Connect with Danielle Bosworth" },
+      {
+        name: "twitter:description",
+        content: "Product, customer experience, AI, operations, and marketing strategy.",
+      },
+      { name: "twitter:image", content: "https://madebydanielleb.com/connect/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://madebydanielleb.com/connect" }],
   }),
@@ -120,6 +132,7 @@ export function ConnectPage() {
             <p className="eyebrow mb-3 hidden text-teal md:block">Let&apos;s connect</p>
             <h1 className="max-w-3xl font-display text-[clamp(2.55rem,9vw,5.4rem)] leading-[0.94] tracking-[-0.045em]">
               Danielle Bosworth<span className="text-accent">.</span>
+              <span className="sr-only"> Connect about product, customer experience, AI, and operations roles</span>
             </h1>
             <p className="mt-4 text-base font-medium tracking-tight sm:text-lg">
               Product <span className="text-teal">•</span> Customer Experience{" "}

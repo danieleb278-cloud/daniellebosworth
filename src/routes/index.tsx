@@ -17,13 +17,13 @@ import resumePdf from "@/assets/resume.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth" },
+      { title: "Danielle Bosworth | Design Portfolio" },
       {
         name: "description",
         content:
           "Danielle Bosworth is a product and experience designer who likes a good challenge. Explore work across product design, customer experience, AI, research, and business.",
       },
-      { property: "og:title", content: "Danielle Bosworth" },
+      { property: "og:title", content: "Danielle Bosworth | Design Portfolio" },
       {
         property: "og:description",
         content:
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
       { property: "og:image:alt", content: "Danielle Bosworth logo" },
       { name: "twitter:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
-      { name: "twitter:title", content: "Danielle Bosworth" },
+      { name: "twitter:title", content: "Danielle Bosworth | Design Portfolio" },
       { name: "twitter:description", content: "I like a good challenge. Explore my work across product design, customer experience, AI, research, and business." },
     ],
     links: [{ rel: "canonical", href: "https://madebydanielleb.com/" }],
@@ -448,7 +448,7 @@ function MagicSleekFieldCase({
 const moreWorkOrder = ["robin", "next-destination", "supercuts"];
 
 function ProjectsBlueprint() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const [built, setBuilt] = useState(false);
   useEffect(() => {
     const element = ref.current;
@@ -470,7 +470,7 @@ function ProjectsBlueprint() {
   const gridX = [115, 205, 295, 385, 475, 565, 655];
   const ticks = [70, 160, 250, 340, 430, 520, 610, 700];
   return (
-    <div ref={ref} aria-hidden className="w-full overflow-hidden">
+    <span ref={ref} aria-hidden className="block w-full overflow-hidden">
       <svg viewBox="0 0 780 210" className="block h-auto w-full" role="presentation">
         <g fill="none" stroke="var(--teal)" strokeWidth="1" opacity="0.38">
           {gridX.map((x, index) => <line key={x} x1={x} y1="52" x2={x} y2="172" strokeDasharray="140" style={{ strokeDashoffset: built ? 0 : 140, transition: `stroke-dashoffset 650ms ease ${index * 45}ms` }} />)}
@@ -490,7 +490,7 @@ function ProjectsBlueprint() {
         <text x="55" y="158" fill="transparent" stroke="var(--teal)" strokeWidth="1.5" fontFamily="var(--font-display)" fontSize="119" fontWeight="400" letterSpacing="-5" style={{ opacity: built ? 1 : 0, transition: "opacity 450ms ease 260ms" }}>PROJECTS</text>
         <text x="55" y="158" fill="var(--foreground)" fontFamily="var(--font-display)" fontSize="119" fontWeight="400" letterSpacing="-5" style={{ opacity: built ? 0.1 : 0, transition: "opacity 850ms ease 850ms" }}>PROJECTS</text>
       </svg>
-    </div>
+    </span>
   );
 }
 
@@ -523,11 +523,12 @@ function Work() {
 
 
   return (
-    <section id="work" aria-label="Selected projects" className="px-6 py-28 md:px-12 md:py-40">
+    <section id="work" aria-labelledby="projects-heading" className="px-6 py-28 md:px-12 md:py-40">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 flex justify-center border-b border-border pb-10">
+        <h2 id="projects-heading" className="mb-16 flex justify-center border-b border-border pb-10">
+          <span className="sr-only">Projects</span>
           <ProjectsBlueprint />
-        </div>
+        </h2>
 
         <div className="divide-y divide-border">
           {featured.map((cs, i) => (
