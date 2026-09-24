@@ -248,69 +248,78 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
 
 function ChallengeCard({ card, index }: { card: (typeof challengeCards)[number]; index: number }) {
   const [open, setOpen] = useState(false);
+  const [evidenceOpen, setEvidenceOpen] = useState(false);
   const notes = [
     "Start with speed.",
     "Users didn't just accept results.",
     "Features that looked separate were actually connected.",
     "So I stopped adding and started understanding.",
   ];
-  const placeholderLabels = [
-    "Early prototype",
-    "Recommendation reaction",
-    "Connected system",
-    "Evidence model",
+  const noteTones = [
+    "bg-[oklch(0.91_0.09_88)]",
+    "bg-[oklch(0.91_0.07_315)]",
+    "bg-[oklch(0.91_0.065_20)]",
+    "bg-[oklch(0.91_0.055_190)]",
   ];
+  const evidence = [
+    { label: "Early prototype", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
+    { label: "Recommendation reaction", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
+    { label: "Connected system", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery system journey" },
+    { label: "Evidence model", src: "/vocari/product-book.webp", alt: "Vocari product system and evidence documentation" },
+  ][index];
 
   return (
     <article className="border-b border-border">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="group grid w-full gap-5 py-7 text-left md:grid-cols-[14rem_0.72fr_1.45fr_auto] md:items-center md:gap-10 md:py-9"
-      >
-        <div className="relative w-fit px-2 py-1">
-          <span className="absolute left-1/2 top-0 h-3 w-12 -translate-x-1/2 -rotate-2 bg-muted opacity-80" aria-hidden="true" />
-          <span className="block max-w-[12rem] rotate-[-1deg] border border-border/70 bg-secondary px-6 py-6 font-handwriting text-[1.7rem] leading-[1.02] shadow-[0_10px_24px_-18px_rgba(0,0,0,0.5)]">
+      <div className="grid gap-6 py-8 md:grid-cols-[10.5rem_0.85fr_1.35fr_6rem_auto] md:items-center md:gap-8">
+        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="group relative w-fit text-left" aria-label={`${open ? "Collapse" : "Expand"} ${card.title}`}>
+          <span className="absolute left-1/2 top-[-5px] h-3 w-11 -translate-x-1/2 -rotate-2 bg-muted/70" aria-hidden="true" />
+          <span className={`block max-w-[10rem] rotate-[-2deg] border border-foreground/10 px-5 py-5 font-handwriting text-[1.65rem] leading-[0.98] shadow-[0_12px_24px_-18px_rgba(0,0,0,0.55)] transition-transform group-hover:rotate-0 ${noteTones[index]}`}>
             {notes[index]}
           </span>
+        </button>
+
+        <div>
+          <span className="eyebrow text-accent">{String(index + 1).padStart(2, "0")} / {card.label}</span>
+          <h3 className="mt-4 font-display text-[clamp(1.65rem,2.3vw,2.5rem)] leading-[1.04]">{card.title}</h3>
         </div>
-        <span className="eyebrow text-accent">{card.label}</span>
-        <span className="font-display text-2xl leading-tight md:text-3xl">{card.title}</span>
-        <span
-          aria-hidden
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl text-muted-foreground transition-colors group-hover:border-accent"
-        >
+
+        <p className="text-[0.95rem] leading-relaxed text-muted-foreground">{card.detail}</p>
+
+        <button type="button" onClick={() => setEvidenceOpen(true)} className="group justify-self-start md:justify-self-center" aria-label={`View evidence for ${card.title}`}>
+          <span className="relative block h-16 w-16">
+            <span className="absolute left-0 top-1 h-12 w-12 border border-border bg-secondary" />
+            <span className="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center border border-border bg-background transition-transform group-hover:-translate-y-1">
+              <span className="font-mono text-xl text-muted-foreground" aria-hidden="true">▧</span>
+            </span>
+          </span>
+          <span className="mt-2 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">View evidence</span>
+        </button>
+
+        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="flex h-12 w-12 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl text-muted-foreground transition-colors hover:border-accent hover:text-accent" aria-label={`${open ? "Collapse" : "Expand"} details for ${card.title}`}>
           {open ? "−" : "+"}
-        </span>
-      </button>
+        </button>
+      </div>
 
       {open && (
-        <div className="grid gap-8 pb-12 md:grid-cols-[14rem_0.72fr_1.45fr_auto] md:gap-10">
+        <div className="grid gap-6 pb-10 md:grid-cols-[10.5rem_0.85fr_1.35fr_6rem_auto] md:gap-8">
           <div className="hidden md:block" />
-          <div>
+          <div className="md:col-span-2 border-l border-accent pl-5">
             <span className="eyebrow text-accent">What I noticed</span>
             <p className="mt-3 font-display text-xl leading-snug">{card.summary}</p>
           </div>
-          <div>
-            <span className="eyebrow text-accent">Why it mattered</span>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{card.detail}</p>
-            <button
-              type="button"
-              className="mt-7 w-full border border-dashed border-border bg-secondary p-4 text-left transition-colors hover:border-accent"
-              aria-label={`Placeholder evidence gallery for ${placeholderLabels[index]}`}
-            >
-              <span className="block aspect-[16/8] bg-background" aria-hidden="true" />
-              <span className="mt-3 flex items-center justify-between gap-4">
-                <span>
-                  <span className="eyebrow text-accent">Evidence gallery placeholder</span>
-                  <span className="mt-1 block text-sm text-muted-foreground">{placeholderLabels[index]} · choose final images later</span>
-                </span>
-                <span className="font-mono text-lg text-muted-foreground">↗</span>
-              </span>
-            </button>
+        </div>
+      )}
+
+      {evidenceOpen && (
+        <div role="dialog" aria-modal="true" aria-label={evidence.label} className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/80 p-5" onClick={() => setEvidenceOpen(false)}>
+          <div className="max-h-[90vh] w-full max-w-5xl overflow-auto bg-background p-4 md:p-6" onClick={(event) => event.stopPropagation()}>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div><span className="eyebrow text-accent">Evidence</span><h4 className="mt-1 font-display text-2xl">{evidence.label}</h4></div>
+              <button type="button" onClick={() => setEvidenceOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl" aria-label="Close evidence">×</button>
+            </div>
+            <img src={evidence.src} alt={evidence.alt} className="mx-auto block max-h-[72vh] w-auto max-w-full border border-border object-contain" />
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Temporary evidence selection. This can become a small click-through gallery when we choose the final screenshots for this moment in the story.</p>
           </div>
-          <div className="hidden md:block" />
         </div>
       )}
     </article>
