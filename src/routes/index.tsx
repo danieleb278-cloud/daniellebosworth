@@ -17,13 +17,13 @@ import resumePdf from "@/assets/resume.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth | Product & Experience Design" },
+      { title: "Danielle Bosworth" },
       {
         name: "description",
         content:
           "Danielle Bosworth is a product and experience designer who likes a good challenge. Explore work across product design, customer experience, AI, research, and business.",
       },
-      { property: "og:title", content: "Danielle Bosworth | Product & Experience Design" },
+      { property: "og:title", content: "Danielle Bosworth" },
       {
         property: "og:description",
         content:
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
       { property: "og:image:alt", content: "Danielle Bosworth logo" },
       { name: "twitter:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
-      { name: "twitter:title", content: "Danielle Bosworth | Product & Experience Design" },
+      { name: "twitter:title", content: "Danielle Bosworth" },
       { name: "twitter:description", content: "I like a good challenge. Explore my work across product design, customer experience, AI, research, and business." },
     ],
     links: [{ rel: "canonical", href: "https://madebydanielleb.com/" }],
