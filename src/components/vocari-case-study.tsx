@@ -14,121 +14,102 @@ type StoryBeat = {
 
 const storyBeats: StoryBeat[] = [
   {
-    label: "Build something real",
+    label: "Build and pressure-test",
     note: "I had the idea before the class.",
-    title: "I needed something people could actually react to.",
-    skim: "Vocari began as my independent concept. I built the prototype in Lovable, then brought the working idea into a course where it became the subject of structured group research.",
+    title: "I needed something real enough for people to react to.",
+    skim: "Vocari began as my independent concept. I built the Lovable prototype, then used the course as a structured environment to pressure-test it through group research while I continued owning the product design and build.",
     details: [
-      "I owned the product design and build. My teammates used the prototype with participants, gathered feedback, and contributed to the research, analysis, and academic deliverables.",
-      "That distinction matters because the course did not create Vocari. It gave me a structured environment to pressure-test a product I had already started.",
-      "The final academic project earned a perfect score, but finishing the assignment did not mean I considered the product finished."
-    ],
-    evidence: [{ label: "Early independent prototype", description: "Placeholder: early Lovable screens, first concept notes, or the earliest onboarding flow.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" }]
-  },
-  {
-    label: "Research changed the experience",
-    note: "People could use it. Trust was harder.",
-    title: "The real problem was not getting someone through an assessment.",
-    skim: "Course research showed that people wanted to recognize themselves in the result, understand why a recommendation appeared, and have a way to question what the system believed.",
-    details: [
-      "The research included surveys, usability and experience testing, emotional and cognitive evaluation, and exploratory affective-computing work. Those methods were useful because they exposed different parts of the same problem: completion was not the same as trust.",
-      "The experience evolved toward Progressive Discovery, Profile DNA, clearer recommendation explanations, user feedback, and Understand, Clarify, Challenge interactions.",
-      "By the end of the course, the product direction had moved away from a one-time career assessment toward an experience that could keep learning with the user.",
-      "The group research helped shape that direction. I translated the findings into the working prototype."
+      "My teammates used the prototype with participants, gathered feedback, and contributed to the research, analysis, and academic deliverables. I translated what we learned into the working product.",
+      "Research showed that completion was not the same as trust. People wanted to recognize themselves in the result, understand why a recommendation appeared, and question what the system believed.",
+      "That drove the experience toward Progressive Discovery, Profile DNA, clearer explanations, feedback, and Understand, Clarify, Challenge interactions.",
+      "The academic project earned a perfect score. The assignment ended, but Vocari did not."
     ],
     evidence: [
-      { label: "Research evidence", description: "Placeholder: survey findings, testing notes, PANAS/SAM/NASA-TLX evidence, or a research synthesis image.", src: "/vocari/morphcast.webp", alt: "Vocari research analytics" },
-      { label: "Design evolution", description: "Placeholder: before/after showing the move from assessment results toward Profile DNA and Progressive Discovery.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" }
+      { label: "Early prototype", description: "Placeholder: earliest Lovable flow or onboarding.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
+      { label: "Research evolution", description: "Placeholder: research synthesis or before/after showing how the experience changed.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" }
     ]
   },
   {
-    label: "The post-course discovery",
+    label: "Research constraint",
+    note: "The data was useful, but too aggregated.",
+    title: "MorphCast created a research problem I had to design around.",
+    skim: "The affective-computing work produced useful signals, but the aggregated output made it difficult to connect a response to the exact prototype moment that may have triggered it.",
+    details: [
+      "I created a Supabase event workaround so prototype activity could be interpreted alongside the research session instead of treating one broad session-level emotional result as proof about a specific screen.",
+      "I kept the affective data exploratory rather than turning it into personalization ground truth.",
+      "The research experience also needed an explicit privacy boundary: camera participation was optional, video was not stored, and anonymous identifiers kept the research record separate from the person's Vocari profile.",
+      "That became an early lesson in responsible AI product work. A signal being technically collectible does not mean it belongs in the product's learning model."
+    ],
+    evidence: [
+      { label: "MorphCast output", description: "Placeholder: strongest screenshot showing the aggregated-data limitation.", src: "/vocari/morphcast.webp", alt: "Vocari MorphCast research analytics" },
+      { label: "Event workaround", description: "Placeholder: Supabase event record or diagram connecting prototype events to the research session." },
+      { label: "Privacy statement", description: "Placeholder: consent/privacy screen showing no stored video, optional camera participation, and anonymous IDs." }
+    ]
+  },
+  {
+    label: "Define the system",
+    note: "We needed one language for what Vocari knew.",
+    title: "Before I could improve the intelligence, I had to define the product's language.",
+    skim: "As the prototype grew, Profile DNA, patterns, discovery, reactions, and recommendations were all describing the same person in slightly different ways. I stopped adding screens and defined the concepts underneath them.",
+    details: [
+      "The Product Book and shared vocabulary forced me to define what a pattern meant, what counted as evidence, what was inference, where a signal came from, and what different parts of the product were allowed to change.",
+      "Once those terms were explicit, the next problem became obvious: not every input should count equally.",
+      "An explicit user correction should not have the same weight as a weak inferred pattern. Missing evidence should not be treated as negative evidence. Contradictory signals needed confidence and weighting rules instead of silent overwrites.",
+      "This is where the work shifted from interface consistency to product rules, requirements, data structure, and a shared source of truth."
+    ],
+    evidence: [
+      { label: "Product Book", description: "Placeholder: strongest Product Book page showing vocabulary, North Star, or decision rules.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
+      { label: "Evidence model", description: "Placeholder: source-aware evidence or weighting model." }
+    ]
+  },
+  {
+    label: "The AI gap",
     note: "The prototype said AI. Underneath, it wasn't.",
-    title: "The interface had evolved faster than the intelligence underneath it.",
-    skim: "After the course ended, I kept building and discovered that much of the experience I had designed as adaptive and AI-driven was still being produced through deterministic rules.",
+    title: "Defining the rules exposed that the intelligence was still deterministic.",
+    skim: "Once I could trace how evidence became a recommendation, I realized much of the adaptive experience was still being produced by explicit rules rather than an AI model interpreting the person's context.",
     details: [
-      "That was the point where Vocari changed for me. The interface could describe a learning relationship, but the system underneath it did not yet have the memory, evidence model, or interpretation layer needed to support that promise.",
-      "Instead of hiding that limitation, I treated it as the next product problem.",
-      "If Vocari was supposed to learn over time, I first had to define what it should remember, where that information came from, how reliable it was, and how later evidence could change an earlier belief.",
-      "This is where the work moved beyond improving screens and into product architecture."
-    ],
-    evidence: [{ label: "Implementation gap", description: "Placeholder: old deterministic recommendation logic, early architecture, or a comparison between the interface promise and the original implementation." }]
-  },
-  {
-    label: "Give the product memory",
-    note: "Before it could learn, it had to remember.",
-    title: "I rebuilt the foundation around evidence instead of screens.",
-    skim: "I introduced persistent data and a shared evidence model so Profile DNA, discovery, reactions, and recommendations could operate from the same underlying understanding of the user.",
-    details: [
-      "Supabase became part of the architecture so evidence and profile state could persist instead of existing only inside disconnected interface behavior.",
-      "I started defining evidence by source and purpose: what the user explicitly told Vocari, what the system inferred, what came from discovery, what came from reactions, and what a piece of evidence was actually allowed to support.",
-      "I created shared structures for profile state, evidence metadata, recommendation behavior, and synchronization so different features were not quietly maintaining different versions of the same person.",
-      "The Product Book and shared vocabulary became product-governance tools. They forced me to define terms and relationships before adding more behavior.",
-      "This work also pushed me deeper into the codebase, GitHub, TypeScript, migrations, testing, and the implementation details behind the experience."
+      "That discovery happened after the course. The interface had evolved faster than the intelligence underneath it.",
+      "Instead of hiding the gap, I treated it as the next architecture problem. Vocari needed persistent evidence and memory before a model could interpret anything meaningful over time.",
+      "I expanded the stack with Supabase, typed models, evidence metadata, migrations, synchronization, testing, and a real AI layer.",
+      "I did not replace every deterministic rule with AI. Evidence storage, state changes, scoring constraints, eligibility, and other consistency-critical behavior still benefit from explicit logic. AI belongs where interpretation and ambiguity actually require it."
     ],
     evidence: [
-      { label: "Product architecture", description: "Placeholder: Product Book, data model, evidence schema, or architecture map.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
-      { label: "Persistent evidence", description: "Placeholder: Supabase schema or evidence record showing source-aware persistence." }
+      { label: "Deterministic implementation", description: "Placeholder: old recommendation logic showing the deterministic implementation." },
+      { label: "Expanded architecture", description: "Placeholder: Supabase/evidence/AI architecture or implementation diagram." }
     ]
   },
   {
-    label: "One answer can ripple",
-    note: "What should this change, and for how long?",
-    title: "A reaction could not be allowed to rewrite the person.",
-    skim: "Once feedback became evidence, every reaction needed rules for scope, strength, duration, propagation, contradiction, and reversal.",
+    label: "Human in the loop",
+    note: "One 'no' can mean very different things.",
+    title: "Feedback only works if the system understands what the feedback is about.",
+    skim: "A user rejecting Product Designer should not blindly remove a card or rewrite their entire profile. The reason for the rejection determines what, if anything, should ripple into other careers.",
     details: [
-      "If someone says Product Designer is not for me, that may be evidence about the role, a work environment, a motivation, or something else entirely. It should not automatically erase every underlying strength that helped produce the recommendation.",
-      "I had to ask what a signal should affect, how strongly it should count, whether it should influence adjacent careers, how long it should remain meaningful, and what happens when later evidence disagrees.",
-      "Reversal mattered too. If a user changes their reaction, the system should be able to unwind the effect without erasing the history that explains why the recommendation changed.",
-      "This led to weighting, confidence, source-aware evidence, structured reactions, and reversal-safe behavior.",
-      "It also clarified where deterministic logic is valuable. State changes and rules that need consistency and traceability should not depend on an AI model improvising the answer."
+      "If the user says, 'I'm bad at computers,' replacing Product Designer with Software Engineer would ignore the meaning of the feedback. That reason may apply across a family of technology-heavy roles.",
+      "A different reason, such as disliking visual design work, may be much more specific. The system needs to distinguish job-specific feedback from evidence that should affect broader attributes, environments, tasks, or adjacent careers.",
+      "That creates rules around scope, strength, duration, propagation, contradiction, and reversal. What should this answer change? How strongly? For how long? What happens when later evidence disagrees? What unwinds if the user changes their mind?",
+      "This is where I am now: implementing real AI interpretation with deterministic guardrails so the system can understand the reason behind feedback and decide what it should influence without letting one answer rewrite the person."
     ],
     evidence: [
-      { label: "Refinement loop", description: "Placeholder: reaction, preview, confirm, receipt, undo sequence.", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
-      { label: "Ripple example", description: "Placeholder: Product Designer rejection and the resulting profile/recommendation changes." }
+      { label: "Refinement interaction", description: "Placeholder: reaction → reason → preview → confirm → receipt/undo flow.", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
+      { label: "Ripple test", description: "Placeholder: Product Designer rejection showing why Software Engineer should not automatically become the replacement." }
     ]
   },
   {
-    label: "Add real AI deliberately",
-    note: "Not everything should become AI.",
-    title: "The next question was what AI should actually be responsible for.",
-    skim: "With persistent evidence and explicit rules underneath the product, I could introduce real AI where interpretation benefits from nuance while keeping deterministic behavior where consistency matters.",
+    label: "Broaden the product",
+    note: "A smart matcher can still have a biased library.",
+    title: "Testing the logic exposed two bigger product gaps.",
+    skim: "Product and design careers were overrepresented, and a career match still did not tell someone how to get from their current background to that career.",
     details: [
-      "Flexible conversation, clarification, and interpretation are places where an AI model can add value because human context is messy and language is ambiguous.",
-      "Evidence storage, scoring rules, profile state, eligibility, synchronization, and other consistency-critical behavior need explicit constraints and testable fallbacks.",
-      "The goal became a hybrid system, not an AI system for its own sake.",
-      "That separation also makes it easier to explain why something happened and to keep the user in control when the model's interpretation is wrong."
-    ],
-    evidence: [{ label: "Hybrid intelligence", description: "Placeholder: diagram showing AI interpretation layered over deterministic evidence, scoring, and state rules." }]
-  },
-  {
-    label: "The dataset can bias the answer",
-    note: "The logic can work and the library can still be wrong.",
-    title: "I realized Vocari was too heavily biased toward the careers I had modeled best.",
-    skim: "To test recommendations honestly, I needed a broader career base and a repeatable structure for describing every career consistently.",
-    details: [
-      "Product and design careers were overrepresented and more deeply described in the early prototype. That gave those careers more opportunities to match against user evidence.",
-      "Expanding the library was not just a content task. Every career needed a consistent profile so the recommendation system could compare very different occupations using the same kinds of information.",
-      "That work grew the prototype career library to 35 careers and exposed another requirement: the quality of a recommendation depends on the quality and coverage of the career data underneath it.",
-      "A smarter matching system cannot compensate for a narrow or uneven career universe."
+      "To test recommendations honestly, I needed a broader career base and a repeatable structure for every career profile. The prototype library grew to 35 careers, but the larger requirement is consistent career data across very different occupations.",
+      "That work exposed the next gap: fit is not the same as a pathway. Education, work history, transferable skills, constraints, and existing qualifications change what guidance is realistic.",
+      "The next product layer is connecting career requirements to a person's starting point, identifying gaps, and eventually connecting those gaps to education, training, and realistic next actions.",
+      "I have identified these problems, but I am not presenting them as solved. They are part of the active prototype work ahead."
     ],
     evidence: [
-      { label: "Career profile structure", description: "Placeholder: one structured career record showing the fields shared across the library." },
-      { label: "Career library", description: "Placeholder: broader career library and filters.", src: "/vocari/careers.webp", alt: "Vocari career library" }
+      { label: "Career profile structure", description: "Placeholder: structured career record showing the shared career schema." },
+      { label: "Broader library", description: "Placeholder: career library showing expanded coverage.", src: "/vocari/careers.webp", alt: "Vocari career library" },
+      { label: "Pathway gap", description: "Placeholder: future flow from background → requirements → gaps → education/training → next action." }
     ]
-  },
-  {
-    label: "A match is not a path",
-    note: "Okay, this fits. Now how do I get there?",
-    title: "Career recommendations exposed the gap between fit and education.",
-    skim: "A useful career product cannot stop at telling someone what might fit. It eventually has to understand where that person is starting and what a realistic path forward could look like.",
-    details: [
-      "Two people can have similar strengths and preferences but very different education, work history, transferable skills, constraints, and access to training.",
-      "That means background is not just profile decoration. It changes what guidance is useful and what next step is realistic.",
-      "The next product problem is connecting career fit to requirements, existing qualifications, missing qualifications, education or training pathways, and realistic next actions.",
-      "I have identified this gap, but I have not treated it as solved. It is part of the work still ahead."
-    ],
-    evidence: [{ label: "Pathway gap", description: "Placeholder: future-state flow from user background → career requirements → gaps → education/training → next action." }]
   }
 ];
 
@@ -155,111 +136,30 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
         </div>
       </section>
 
-      <section id="research-constraint" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <div>
-              <span className="eyebrow text-accent">Research constraint → product decision</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">MorphCast gave us signals. It also exposed a data problem.</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">The affective-computing study became useful for more than the emotional signals themselves. Working with the data forced me to think about what could actually be connected back to an experience, what should remain exploratory, and what privacy boundaries the prototype needed.</p>
-            </div>
-            <div className="space-y-5">
-              <details className="group border-y border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The issue</span><h3 className="mt-2 font-display text-2xl">The data arrived too aggregated to answer the question we were asking.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>MorphCast could provide useful emotional and behavioral signals, but the aggregated output made it difficult to connect those signals cleanly to the specific prototype moments we wanted to understand.</p><p>That meant I could not responsibly treat a broad emotional score as proof that one screen, recommendation, or interaction caused a particular response.</p></div></details>
-              <details className="group border-b border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The workaround</span><h3 className="mt-2 font-display text-2xl">I created an event layer so the research could be interpreted in context.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>I used Supabase to record prototype events alongside the research session so we could better understand what the participant was doing when a signal occurred instead of relying on one undifferentiated session-level result.</p><p>The workaround did not turn exploratory affective data into ground truth. It made the evidence more interpretable while preserving the limitations of what the study could actually tell us.</p></div></details>
-              <details className="group border-b border-border py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">The privacy boundary</span><h3 className="mt-2 font-display text-2xl">The prototype needed to explain what was being measured, and what was not being stored.</h3></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-xl group-open:rotate-45">+</span></summary><div className="mt-5 space-y-4 leading-relaxed text-muted-foreground"><p>I added explicit privacy language around the research experience: video was not stored, participation in camera-based analysis was optional, and research records used anonymous identifiers rather than turning the camera feed into part of the user's Vocari profile.</p><p>That distinction became an early lesson in responsible AI product work. Just because a signal can be collected does not mean it belongs in the product's personalization model.</p></div></details>
-            </div>
-          </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {["MorphCast aggregated-data view", "Supabase event workaround", "Privacy / consent statement"].map((label, index) => <div key={label} className="flex min-h-[220px] items-center justify-center border border-dashed border-border bg-background p-8 text-center"><div><span className="font-mono text-xs uppercase tracking-[0.14em] text-accent">Evidence placeholder {String(index + 1).padStart(2,"0")}</span><p className="mt-4 font-display text-2xl">{label}</p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Replace with the strongest screenshot or artifact after the narrative review.</p></div></div>)}
-          </div>
-        </div>
-      </section>
-
-      <section id="system" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-            <div>
-              <span className="eyebrow text-accent">Where the prototype is now</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">The hard parts are the project now.</h2>
-            </div>
-            <div className="space-y-6 text-lg leading-relaxed text-background/70">
-              <p>Vocari is an unfinished working prototype under active development. It now includes persistent evidence, structured career data, recommendation logic, user refinement behavior, progressive discovery, and AI-assisted interpretation, but I do not present it as a finished product.</p>
-              <p>The problems I am working through now are requirements, constraints, rules, data structure, recommendation calibration, broader career coverage, user background, education pathways, and the safeguards a fuller product would need.</p>
-              <p className="text-background">I could start another product and repeat the parts I already know. I would rather keep pushing this one into the parts I do not know yet.</p>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Persistent evidence", "Remember what the product knows, where it came from, and what it is allowed to affect."],
-              ["Hybrid intelligence", "Use AI for nuance and interpretation, explicit rules for behavior that must stay consistent."],
-              ["Structured careers", "Represent different careers consistently enough to test recommendations beyond a narrow domain."],
-              ["Pathway requirements", "Connect fit to a person's starting point, gaps, education, training, and realistic next actions."]
-            ].map(([title, text]) => (
-              <div key={title} className="border border-background/20 p-6">
-                <h3 className="font-display text-2xl">{title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-background/60">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" className="px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-            <div>
-              <span className="eyebrow text-accent">Current prototype</span>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">The interface is only the visible layer.</h2>
-            </div>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">Profile DNA, discovery, career exploration, explanations, reactions, and refinement now sit on top of a much more deliberate product model than the original prototype. These screens will be replaced with the strongest final evidence set after the narrative is locked.</p>
-          </div>
-          <PrototypeGallery />
-        </div>
-      </section>
-
-      <section id="delivery" className="bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
-          <details className="group border-y border-border py-7">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-8">
-              <div>
-                <span className="eyebrow text-accent">Build workflow · optional detail</span>
-                <h2 className="mt-3 font-display text-3xl md:text-4xl">When one development path hit limits, I built another.</h2>
-              </div>
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl group-open:rotate-45">+</span>
-            </summary>
-            <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <p className="text-lg leading-relaxed text-muted-foreground">During high-intensity prototyping, platform resource limits began interrupting iteration. I moved relevant codebase context into ChatGPT to reason through targeted changes, worked through GitHub version control, and used automated deployment workflows to keep the prototype available for continued testing.</p>
-              <div>
-                <p className="leading-relaxed text-muted-foreground">That workflow reduced dependency on a single prototyping tool and forced me to understand the architecture I was making product decisions on top of. It also made version history, targeted code changes, testing, and deployment part of the product work instead of something hidden behind the builder.</p>
-                <div className="mt-6 flex flex-wrap gap-3">{["Lovable", "GitHub", "ChatGPT", "Supabase", "Vercel", "TypeScript", "Testing"].map(tool => <span key={tool} className="border border-border bg-background px-4 py-2 font-mono text-xs uppercase tracking-wider">{tool}</span>)}</div>
-              </div>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <section id="reflection" className="px-6 py-24 md:px-12 md:py-32">
+      <section id="current-state" className="bg-foreground px-6 py-24 text-background md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:gap-24">
             <div>
-              <span className="eyebrow text-accent">Why I'm still building it</span>
-              <h2 className="mt-6 font-display text-[clamp(2.8rem,5.8vw,6rem)] leading-[1] tracking-[-0.035em]">The easy problems are mostly behind me.</h2>
-              <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>I could start another product and repeat the parts of the process I already know. Instead, I am continuing with Vocari because the questions left are harder: requirements, constraints, evidence, recommendation logic, AI behavior, career coverage, education pathways, and what happens when one new piece of information needs to ripple through an interconnected system.</p>
-                <p>Those are exactly the problems I want to get better at solving. My goal is to keep pushing Vocari toward a fuller product, not because I need another portfolio project, but because building through the difficult parts is expanding what I am capable of building next.</p>
+              <span className="eyebrow text-accent">Active prototype · 2026–Present</span>
+              <h2 className="mt-6 font-display text-[clamp(2.8rem,5.8vw,6rem)] leading-[1] tracking-[-0.035em]">I'm still building it because the hard parts are the project now.</h2>
+              <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-background/70">
+                <p>Vocari is an unfinished working prototype under active development. I could start another product and repeat the parts I already know: research, flows, interfaces, prototyping, testing, and iteration. Instead, I am continuing with Vocari because the questions left are the ones I want to learn from.</p>
+                <p>Right now that means implementing AI-assisted interpretation for human-in-the-loop feedback, refining the rules that control how evidence ripples through the system, broadening and standardizing career coverage, and defining how a person's background can connect a career match to realistic education and training pathways.</p>
+                <p className="text-background">Requirements, constraints, rules, structure, calibration, and safeguards are not cleanup after the product. They are the product work I am doing now.</p>
               </div>
             </div>
             <div className="space-y-8 lg:pt-10">
-              <ReasonCell label="Current state" text="Active, unfinished working prototype. It works, but I am not presenting it as a finished or production-ready product." />
-              <ReasonCell label="What I'm solving now" text="Broader career coverage, recommendation calibration, background and starting-point context, education pathways, requirements, constraints, and safeguards." />
-              <ReasonCell label="The bigger question" text="How do you build a system that can keep learning about a person without treating that person as static?" />
+              <ReasonCell label="Working now" text="Persistent evidence, Profile DNA, Progressive Discovery, structured reactions, career exploration, recommendation logic, and an expanding AI interpretation layer." />
+              <ReasonCell label="Not finished" text="The current prototype is not production-ready, and I do not present unresolved pathway, calibration, career-coverage, or safeguard questions as solved." />
+              <details className="group border-y border-background/20 py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6"><div><span className="eyebrow text-accent">Build workflow · optional detail</span><p className="mt-3 font-display text-xl">Lovable → GitHub → ChatGPT → Supabase → Vercel → testing</p></div><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-background/40 font-mono text-xl group-open:rotate-45">+</span></summary>
+                <p className="mt-5 leading-relaxed text-background/65">When prototyping limits interrupted iteration, I moved relevant codebase context into ChatGPT for targeted changes, worked through GitHub version control, and used deployment workflows to keep the prototype available. That workaround also pushed me deeper into the architecture behind my product decisions.</p>
+              </details>
             </div>
           </div>
-
-          <div className="mt-20 border-t border-border pt-12">
+          <div className="mt-20 border-t border-background/20 pt-12">
             <p className="font-display text-3xl md:text-5xl">The idea was straightforward.</p>
-            <p className="mt-3 font-display text-3xl text-muted-foreground md:text-5xl">Building it wasn't.</p>
+            <p className="mt-3 font-display text-3xl text-background/55 md:text-5xl">Building it wasn't.</p>
             <p className="mt-3 font-display text-3xl text-accent md:text-5xl">That's why I'm still building it.</p>
           </div>
         </div>
