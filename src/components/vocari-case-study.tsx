@@ -267,10 +267,11 @@ function ChallengeCard({ card, index }: { card: (typeof challengeCards)[number];
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="grid w-full gap-5 py-7 text-left md:grid-cols-[12rem_0.8fr_1.4fr_auto] md:items-center md:gap-8 md:py-8"
+        className="group grid w-full gap-5 py-7 text-left md:grid-cols-[14rem_0.72fr_1.45fr_auto] md:items-center md:gap-10 md:py-9"
       >
-        <div className="relative w-fit">
-          <span className="block max-w-[11rem] rotate-[-1deg] border border-border bg-secondary px-5 py-5 font-display text-xl leading-tight shadow-sm">
+        <div className="relative w-fit px-2 py-1">
+          <span className="absolute left-1/2 top-0 h-3 w-12 -translate-x-1/2 -rotate-2 bg-muted opacity-80" aria-hidden="true" />
+          <span className="block max-w-[12rem] rotate-[-1deg] border border-border/70 bg-secondary px-6 py-6 font-handwriting text-[1.7rem] leading-[1.02] shadow-[0_10px_24px_-18px_rgba(0,0,0,0.5)]">
             {notes[index]}
           </span>
         </div>
@@ -285,11 +286,15 @@ function ChallengeCard({ card, index }: { card: (typeof challengeCards)[number];
       </button>
 
       {open && (
-        <div className="grid gap-8 pb-10 md:grid-cols-[12rem_0.8fr_1.4fr_auto] md:gap-8">
+        <div className="grid gap-8 pb-12 md:grid-cols-[14rem_0.72fr_1.45fr_auto] md:gap-10">
           <div className="hidden md:block" />
-          <p className="leading-relaxed text-muted-foreground">{card.summary}</p>
           <div>
-            <p className="leading-relaxed text-muted-foreground">{card.detail}</p>
+            <span className="eyebrow text-accent">What I noticed</span>
+            <p className="mt-3 font-display text-xl leading-snug">{card.summary}</p>
+          </div>
+          <div>
+            <span className="eyebrow text-accent">Why it mattered</span>
+            <p className="mt-3 leading-relaxed text-muted-foreground">{card.detail}</p>
             <button
               type="button"
               className="mt-7 w-full border border-dashed border-border bg-secondary p-4 text-left transition-colors hover:border-accent"
