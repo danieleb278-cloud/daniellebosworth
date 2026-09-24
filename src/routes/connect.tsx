@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Download,
+  Github,
   Linkedin,
   Mail,
 } from "lucide-react";
@@ -86,6 +87,12 @@ const contactLinks = [
     href: "mailto:contact.madebydanielleb@gmail.com",
     icon: Mail,
     external: false,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/danieleb278-cloud",
+    icon: Github,
+    external: true,
   },
 ] as const;
 
@@ -283,7 +290,7 @@ export function ConnectPage() {
               Keep in touch<span className="text-accent">.</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {contactLinks.map(({ label, href, icon: Icon, external }) => (
               <a
                 key={label}
@@ -299,7 +306,7 @@ export function ConnectPage() {
             <button
               type="button"
               onClick={saveContact}
-              className="group col-span-2 flex min-h-14 items-center justify-between rounded-sm border border-foreground bg-foreground px-4 py-3 text-left text-sm font-medium text-background transition-colors hover:border-teal hover:bg-teal sm:col-span-1"
+              className="group flex min-h-14 items-center justify-between rounded-sm border border-foreground bg-foreground px-4 py-3 text-left text-sm font-medium text-background transition-colors hover:border-teal hover:bg-teal"
             >
               Save Contact
               <Download aria-hidden className="h-4 w-4" />
