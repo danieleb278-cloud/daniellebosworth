@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
+  ArrowUpRight,
   BriefcaseBusiness,
   Download,
   Linkedin,
   Mail,
-  Sparkles,
 } from "lucide-react";
 
 export const Route = createFileRoute("/connect")({
@@ -162,7 +162,15 @@ export function ConnectPage() {
             <img src="/home/site-logo.png" alt="" className="h-9 w-9" />
             <span className="font-display text-lg tracking-tight">Danielle Bosworth</span>
           </Link>
-          <span className="eyebrow hidden text-teal sm:block">Open to opportunities</span>
+          <a
+            href="https://madebydanielleb.com"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-medium tracking-wide transition-colors hover:border-teal hover:text-teal focus-visible:outline-offset-4 sm:inline-flex"
+          >
+            Full Portfolio
+            <ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
+          </a>
         </header>
 
         <section className="grid gap-7 border-b border-border py-9 sm:py-12 md:grid-cols-[minmax(0,1fr)_13rem] md:items-center md:gap-12">
@@ -275,7 +283,7 @@ export function ConnectPage() {
               Keep in touch<span className="text-accent">.</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {contactLinks.map(({ label, href, icon: Icon, external }) => (
               <a
                 key={label}
@@ -288,17 +296,10 @@ export function ConnectPage() {
                 <Icon aria-hidden className="h-4 w-4" />
               </a>
             ))}
-            <a
-              href="https://madebydanielleb.com"
-              className="group flex min-h-14 items-center justify-between rounded-sm border border-border bg-card px-4 py-3 text-sm font-medium transition-colors hover:border-teal hover:text-teal"
-            >
-              Portfolio
-              <Sparkles aria-hidden className="h-4 w-4" />
-            </a>
             <button
               type="button"
               onClick={saveContact}
-              className="group flex min-h-14 items-center justify-between rounded-sm border border-foreground bg-foreground px-4 py-3 text-left text-sm font-medium text-background transition-colors hover:border-teal hover:bg-teal"
+              className="group col-span-2 flex min-h-14 items-center justify-between rounded-sm border border-foreground bg-foreground px-4 py-3 text-left text-sm font-medium text-background transition-colors hover:border-teal hover:bg-teal sm:col-span-1"
             >
               Save Contact
               <Download aria-hidden className="h-4 w-4" />
