@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -138,10 +139,22 @@ export function ConnectPage() {
               Product <span className="text-teal">•</span> Customer Experience{" "}
               <span className="text-teal">•</span> AI <span className="text-teal">•</span> Operations
             </p>
-            <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-muted-foreground sm:text-lg">
-              I connect customer needs, business operations, and technology to design better products,
-              experiences, and systems.
+            <p className="mt-5 max-w-xl font-display text-[clamp(1.8rem,5vw,2.8rem)] leading-[1.08] tracking-[-0.03em]">
+              I&apos;m looking for my next <ChallengeSwap />
             </p>
+            <p className="mt-6 text-lg font-semibold tracking-tight sm:text-xl">
+              I&apos;m all about solutions.
+            </p>
+            <div className="mt-4 max-w-xl space-y-3 text-[0.98rem] leading-relaxed text-muted-foreground sm:text-lg">
+              <p>
+                I do my best work when there&apos;s a problem to solve, a process to improve, an
+                experience to design, or a product to develop.
+              </p>
+              <p>
+                Give me something difficult or messy, and I&apos;ll start looking for the
+                connections that can turn it into a real business advantage.
+              </p>
+            </div>
             <a
               href="https://madebydanielleb.com"
               className="group mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-sm bg-foreground px-5 py-3.5 text-sm font-medium text-background transition-colors hover:bg-teal focus-visible:outline-offset-4 sm:w-auto sm:min-w-48"
