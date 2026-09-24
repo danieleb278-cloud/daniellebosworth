@@ -115,6 +115,47 @@ export function ConnectPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <style>{`
+        .challenge-swap-out {
+          position: relative;
+          display: inline-block;
+          transition: opacity 300ms ease 240ms, transform 300ms ease 240ms;
+        }
+        .challenge-swap-out::after {
+          content: "";
+          position: absolute;
+          left: -0.04em;
+          right: -0.04em;
+          top: 54%;
+          height: 0.075em;
+          background: currentColor;
+          transform: scaleX(0);
+          transform-origin: left center;
+          transition: transform 380ms cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .challenge-swap-out.is-striking::after {
+          transform: scaleX(1);
+        }
+        .challenge-swap-out.is-striking {
+          opacity: 0;
+          transform: translateY(0.12em);
+        }
+        .challenge-swap-in {
+          display: inline-block;
+          animation: challenge-swap-in 420ms cubic-bezier(0.2, 0.78, 0.22, 1) both;
+        }
+        @keyframes challenge-swap-in {
+          from { opacity: 0; transform: translateY(0.18em); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .challenge-swap-out,
+          .challenge-swap-in {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
       <div className="mx-auto w-full max-w-5xl px-5 pb-10 pt-5 sm:px-8 sm:pb-14 sm:pt-8 lg:px-10">
         <header className="flex items-center justify-between border-b border-border pb-4">
           <Link to="/" className="group flex items-center gap-2.5" aria-label="Danielle Bosworth portfolio home">
