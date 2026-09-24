@@ -276,6 +276,32 @@ export function ConnectPage() {
   );
 }
 
+function ChallengeSwap() {
+  const [stage, setStage] = useState<"opportunity" | "striking" | "challenge">("opportunity");
+
+  useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setStage("challenge");
+      return;
+    }
+    const strike = window.setTimeout(() => setStage("striking"), 1500);
+    const swap = window.setTimeout(() => setStage("challenge"), 2000);
+    return () => {
+      window.clearTimeout(strike);
+      window.clearTimeout(swap);
+    };
+  }, []);
+
+  if (stage === "challenge") {
+    return <span className="challenge-swap-in text-teal">challenge.</span>;
+  }
+  return (
+    <span className={`challenge-swap-out${stage === "striking" ? " is-striking" : ""}`}>
+      opportunity.
+    </span>
+  );
+}
+
 function ProfilePhoto({ className }: { className: string }) {
   return (
     <div className={`${className} relative shrink-0 overflow-hidden rounded-sm border border-border bg-muted`}>
