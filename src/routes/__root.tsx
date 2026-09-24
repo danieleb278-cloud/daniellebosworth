@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://madebydanielleb.com",
           jobTitle: "Product Strategist & UX Designer",
           description:
-            "Product strategist, customer experience, and UX designer crafting systems, narratives, and impactful results.",
+            "Portfolio of Danielle Bosworth, featuring work across product design, customer experience, AI, research, and business.",
         }),
       },
     ],

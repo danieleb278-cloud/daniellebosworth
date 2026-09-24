@@ -17,24 +17,24 @@ import resumePdf from "@/assets/resume.pdf.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Danielle Bosworth — Product, AI & Experience Strategy" },
+      { title: "Danielle Bosworth | Product & Experience Design" },
       {
         name: "description",
         content:
-          "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems.",
+          "Danielle Bosworth is a product and experience designer who likes a good challenge. Explore work across product design, customer experience, AI, research, and business.",
       },
-      { property: "og:title", content: "Danielle Bosworth — Product, AI & Experience Strategy" },
+      { property: "og:title", content: "Danielle Bosworth | Product & Experience Design" },
       {
         property: "og:description",
         content:
-          "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems.",
+          "I like a good challenge. Explore my work across product design, customer experience, AI, research, and business.",
       },
       { property: "og:url", content: "https://madebydanielleb.com/" },
       { property: "og:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
       { property: "og:image:alt", content: "Danielle Bosworth logo" },
       { name: "twitter:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
-      { name: "twitter:title", content: "Danielle Bosworth — Product, AI & Experience Strategy" },
-      { name: "twitter:description", content: "Danielle Bosworth is a product and experience strategist connecting human behavior, operational workflows, and AI systems to solve complex business problems." },
+      { name: "twitter:title", content: "Danielle Bosworth | Product & Experience Design" },
+      { name: "twitter:description", content: "I like a good challenge. Explore my work across product design, customer experience, AI, research, and business." },
     ],
     links: [{ rel: "canonical", href: "https://madebydanielleb.com/" }],
     scripts: [
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
           name: "Danielle Bosworth",
           url: "https://madebydanielleb.com/",
           description:
-            "Product and experience strategy portfolio of Danielle Bosworth, connecting human behavior, operational workflows, systems thinking, and AI.",
+            "Portfolio of Danielle Bosworth, featuring work across product design, customer experience, AI, research, and business.",
           author: { "@type": "Person", name: "Danielle Bosworth" },
         }),
       },
