@@ -42,9 +42,9 @@ const storyBeats: StoryBeat[] = [
       "That became an early lesson in responsible AI product work. A signal being technically collectible does not mean it belongs in the product's learning model."
     ],
     evidence: [
-      { label: "MorphCast output", description: "Placeholder: strongest screenshot showing the aggregated-data limitation.", src: "/vocari/morphcast.webp", alt: "Vocari MorphCast research analytics" },
-      { label: "Event workaround", description: "Placeholder: Supabase event record or diagram connecting prototype events to the research session." },
-      { label: "Privacy statement", description: "Placeholder: consent/privacy screen showing no stored video, optional camera participation, and anonymous IDs." }
+      { label: "Aggregated research output", description: "MorphCast's dashboard made the research limitation visible: useful affective patterns were available, but the session-level view alone could not reliably explain which prototype interaction produced a response.", src: "/vocari/Screenshot%202026-07-07%20221856.png", alt: "MorphCast research dashboard with aggregated affect and engagement results" },
+      { label: "Raw callback events", description: "I inspected the MorphCast callback data directly while the prototype was running to understand what signals were actually available beyond the aggregate dashboard.", src: "/vocari/Screenshot%202026-07-01%20011442.png", alt: "Browser console showing MorphCast data aggregator callback events" },
+      { label: "Timestamped research analytics", description: "The workaround captured participant-level events with time, screen, route, attention, valence, arousal, and dominant affect. That gave me a second reference point for interpreting a session without treating the affective signal as proof of causation.", src: "/vocari/Screenshot%202026-07-08%20002434.png", alt: "Vocari research analytics showing timestamped MorphCast events by screen and route" }
     ]
   },
   {
@@ -60,7 +60,7 @@ const storyBeats: StoryBeat[] = [
     ],
     evidence: [
       { label: "Product Book", description: "The Product Book became a working source of truth for vocabulary, product rules, and the concepts different parts of Vocari needed to share.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
-      { label: "Visible evidence", description: "Profile DNA exposes the answers behind a pattern rather than asking the user to trust an unexplained label.", src: "/vocari/Screenshot%202026-09-03%20233630.png", alt: "Vocari Profile DNA showing evidence behind a pattern" }
+      { label: "Visible evidence", description: "Profile DNA exposes the individual answers and their sources behind a pattern rather than asking the user to trust an unexplained label.", src: "/vocari/Screenshot%202026-09-25%20032004.png", alt: "Vocari Profile DNA showing the source evidence behind Room to work your own way" }
     ]
   },
   {
