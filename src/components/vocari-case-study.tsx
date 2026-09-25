@@ -2,7 +2,7 @@ import { useState } from "react";
 import { VocariOpening } from "@/components/vocari-opening";
 import type { CaseStudy } from "@/lib/case-studies";
 
-type Evidence = { label: string; description: string; src?: string; alt?: string; tall?: boolean };
+type Evidence = { label: string; description: string; src?: string; alt?: string; tall?: boolean; zoom?: boolean };
 type StoryBeat = {
   label: string;
   note: string;
@@ -27,7 +27,7 @@ const storyBeats: StoryBeat[] = [
     evidence: [
       { label: "Early prototype", description: "The early Lovable onboarding gave the research team a working experience to test instead of a static concept.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
       { label: "From assessment to discovery", description: "The experience evolved toward Progressive Discovery as research showed that people wanted continued reflection, context, and clearer reasoning behind recommendations.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" },
-      { label: "Early Profile DNA", description: "An early Profile DNA view made the product's interpretation visible so users could inspect the patterns behind the experience.", src: "/vocari/profile-dna-phase1.png", alt: "Early Vocari Profile DNA interface" }
+      { label: "Early Profile DNA", description: "An early Profile DNA view made the product's interpretation visible so users could inspect the patterns behind the experience.", src: "/vocari/profile-dna-phase1.png", alt: "Early Vocari Profile DNA interface", zoom: true }
     ]
   },
   {
@@ -206,7 +206,7 @@ function EvidenceModal({ beat, onClose }: { beat: StoryBeat; onClose: () => void
   return <div role="dialog" aria-modal="true" className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/80 p-5" onClick={onClose}>
     <div className="max-h-[90vh] w-full max-w-5xl overflow-auto bg-background p-5 md:p-7" onClick={e => e.stopPropagation()}>
       <div className="mb-5 flex items-start justify-between gap-4"><div><span className="eyebrow text-accent">Evidence</span><h4 className="mt-2 font-display text-2xl">{item.label}</h4></div><button type="button" onClick={onClose} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl">×</button></div>
-      {item.src ? <img src={item.src} alt={item.alt || ""} className={item.tall ? "mx-auto block h-auto w-full max-w-4xl border border-border" : "mx-auto block max-h-[62vh] w-auto max-w-full border border-border object-contain"} /> : <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-secondary p-10 text-center"><div><span className="font-mono text-3xl text-accent">▧</span><p className="mt-4 font-display text-2xl">Image placeholder</p></div></div>}
+      {item.src ? <div className={item.zoom ? "overflow-auto border border-border bg-secondary/30 p-3" : ""}><img src={item.src} alt={item.alt || ""} className={item.tall ? "mx-auto block h-auto w-full max-w-4xl border border-border" : item.zoom ? "mx-auto block h-auto w-[1500px] max-w-none cursor-zoom-in" : "mx-auto block max-h-[62vh] w-auto max-w-full border border-border object-contain"} /></div> : <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-secondary p-10 text-center"><div><span className="font-mono text-3xl text-accent">▧</span><p className="mt-4 font-display text-2xl">Image placeholder</p></div></div>}
       <p className="mt-5 leading-relaxed text-muted-foreground">{item.description}</p>
       {beat.evidence.length > 1 && <div className="mt-6 flex items-center justify-between border-t border-border pt-4"><span className="font-mono text-xs text-muted-foreground">{active + 1} / {beat.evidence.length}</span><div className="flex gap-2"><button type="button" onClick={() => setActive((active - 1 + beat.evidence.length) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Previous</button><button type="button" onClick={() => setActive((active + 1) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Next</button></div></div>}
     </div>
