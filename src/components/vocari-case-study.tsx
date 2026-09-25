@@ -2,7 +2,7 @@ import { useState } from "react";
 import { VocariOpening } from "@/components/vocari-opening";
 import type { CaseStudy } from "@/lib/case-studies";
 
-type Evidence = { label: string; description: string; src?: string; alt?: string };
+type Evidence = { label: string; description: string; src?: string; alt?: string; tall?: boolean };
 type StoryBeat = {
   label: string;
   note: string;
@@ -25,8 +25,9 @@ const storyBeats: StoryBeat[] = [
       "That early feedback eventually exposed a bigger issue than usability alone: people wanted to recognize themselves in the result, understand why a recommendation appeared, and have a way to question what the system believed."
     ],
     evidence: [
-      { label: "Early prototype", description: "Placeholder: earliest Lovable flow or onboarding.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
-      { label: "Research evolution", description: "Placeholder: research synthesis or before/after showing how the experience changed.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" }
+      { label: "Early prototype", description: "The early Lovable onboarding gave the research team a working experience to test instead of a static concept.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
+      { label: "From assessment to discovery", description: "The experience evolved toward Progressive Discovery as research showed that people wanted continued reflection, context, and clearer reasoning behind recommendations.", src: "/vocari/discovery-journey.webp", alt: "Vocari Progressive Discovery journey" },
+      { label: "Early Profile DNA", description: "An early Profile DNA view made the product's interpretation visible so users could inspect the patterns behind the experience.", src: "/vocari/profile-dna-phase1.png", alt: "Early Vocari Profile DNA interface" }
     ]
   },
   {
@@ -58,8 +59,8 @@ const storyBeats: StoryBeat[] = [
       "This is where the work shifted from interface consistency to product rules, requirements, data structure, and a shared source of truth."
     ],
     evidence: [
-      { label: "Product Book", description: "Placeholder: strongest Product Book page showing vocabulary, North Star, or decision rules.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
-      { label: "Evidence model", description: "Placeholder: source-aware evidence or weighting model." }
+      { label: "Product Book", description: "The Product Book became a working source of truth for vocabulary, product rules, and the concepts different parts of Vocari needed to share.", src: "/vocari/product-book.webp", alt: "Vocari Product Book" },
+      { label: "Visible evidence", description: "Profile DNA exposes the answers behind a pattern rather than asking the user to trust an unexplained label.", src: "/vocari/Screenshot%202026-09-03%20233630.png", alt: "Vocari Profile DNA showing evidence behind a pattern" }
     ]
   },
   {
@@ -74,8 +75,9 @@ const storyBeats: StoryBeat[] = [
       "I did not replace every deterministic rule with AI. Evidence storage, state changes, scoring constraints, eligibility, and other consistency-critical behavior still benefit from explicit logic. AI belongs where interpretation and ambiguity actually require it."
     ],
     evidence: [
-      { label: "Deterministic implementation", description: "Placeholder: old recommendation logic showing the deterministic implementation." },
-      { label: "Expanded architecture", description: "Placeholder: Supabase/evidence/AI architecture or implementation diagram." }
+      { label: "Hybrid decision flow", description: "The architecture now separates interpretation from persistence: AI can propose meaning, the user can approve or edit it, and deterministic logic controls the actual profile update.", src: "/vocari/vocari%20ai%20decision%20diagram.png", alt: "Vocari hybrid AI and deterministic decision flow" },
+      { label: "AI vs. mocked behavior", description: "A development review made the boundary explicit: some discovery behavior still used a deliberately small deterministic interpreter while the bounded AI conversation architecture handled a narrower job safely.", src: "/vocari/Screenshot%202026-09-25%20025047.png", alt: "Development review explaining Vocari AI versus deterministic mocked behavior" },
+      { label: "The revised next step", description: "Adding a model was not the finish line. The next work became hardening the existing AI conversation and testing whether it actually reveals useful context, proposes reasonable changes, and changes recommendations for understandable reasons.", src: "/vocari/Screenshot%202026-09-25%20024725.png", alt: "Vocari AI hardening and evaluation plan" }
     ]
   },
   {
@@ -90,8 +92,10 @@ const storyBeats: StoryBeat[] = [
       "This is where I am now: implementing real AI interpretation with deterministic guardrails so the system can understand the reason behind feedback and decide what it should influence without letting one answer rewrite the person."
     ],
     evidence: [
-      { label: "Refinement interaction", description: "Placeholder: reaction → reason → preview → confirm → receipt/undo flow.", src: "/vocari/profile-refinement.webp", alt: "Vocari profile refinement interaction" },
-      { label: "Ripple test", description: "Placeholder: Product Designer rejection showing why Software Engineer should not automatically become the replacement." }
+      { label: "A reaction needs a reason", description: "A career-level reaction can include context, giving the system something more meaningful than a simple yes or no.", src: "/vocari/Screenshot%202026-09-04%20004341.png", alt: "Vocari career reaction with user context" },
+      { label: "Scope before propagation", description: "Before saving, Vocari keeps the reaction attached to the specific career and asks what caused it instead of silently rewriting the person's broader profile.", src: "/vocari/Screenshot%202026-09-04%20004354.png", alt: "Vocari feedback preview before saving a career reaction" },
+      { label: "Visible receipt", description: "When feedback does affect Profile DNA, the interface shows that consequence directly with an Updated from your feedback receipt.", src: "/vocari/Screenshot%202026-09-25%20023250.png", alt: "Vocari Profile DNA pattern updated from user feedback" },
+      { label: "The ledger exposed a bug", description: "The recent-changes ledger makes downstream effects inspectable. It also exposed duplicate propagation events, which is one of the unresolved system behaviors I am working through now.", src: "/vocari/Screenshot%202026-09-25%20023206.png", alt: "Vocari recent changes ledger showing feedback propagation and duplicate events" }
     ]
   },
   {
@@ -106,9 +110,9 @@ const storyBeats: StoryBeat[] = [
       "I have identified these problems, but I am not presenting them as solved. They are part of the active prototype work ahead."
     ],
     evidence: [
-      { label: "Career profile structure", description: "Placeholder: structured career record showing the shared career schema." },
-      { label: "Broader library", description: "Placeholder: career library showing expanded coverage.", src: "/vocari/careers.webp", alt: "Vocari career library" },
-      { label: "Pathway gap", description: "Placeholder: future flow from background → requirements → gaps → education/training → next action." }
+      { label: "Broader library", description: "The prototype library expanded to 35 careers so recommendation behavior could be tested against more than a product-and-design-heavy set.", src: "/vocari/careers.webp", alt: "Vocari career library" },
+      { label: "Structured career depth", description: "A full Marketing Manager record shows why career data needed a repeatable structure, not just a title and match score. The system needs enough depth to explain fit, requirements, tradeoffs, and eventually pathways.", src: "/vocari/marketing%20managwr%20career%20profile.png", alt: "Full Vocari Marketing Manager career profile", tall: true },
+      { label: "Explainable fit", description: "Career cards connect recommendation evidence to the role while surfacing tradeoffs instead of presenting a match as certainty.", src: "/vocari/why-this-fits.webp", alt: "Vocari Why This Fits career explanation" }
     ]
   }
 ];
@@ -201,8 +205,8 @@ function EvidenceModal({ beat, onClose }: { beat: StoryBeat; onClose: () => void
   const item = beat.evidence[active];
   return <div role="dialog" aria-modal="true" className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/80 p-5" onClick={onClose}>
     <div className="max-h-[90vh] w-full max-w-5xl overflow-auto bg-background p-5 md:p-7" onClick={e => e.stopPropagation()}>
-      <div className="mb-5 flex items-start justify-between gap-4"><div><span className="eyebrow text-accent">Evidence placeholder</span><h4 className="mt-2 font-display text-2xl">{item.label}</h4></div><button type="button" onClick={onClose} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl">×</button></div>
-      {item.src ? <img src={item.src} alt={item.alt || ""} className="mx-auto block max-h-[62vh] w-auto max-w-full border border-border object-contain" /> : <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-secondary p-10 text-center"><div><span className="font-mono text-3xl text-accent">▧</span><p className="mt-4 font-display text-2xl">Image placeholder</p></div></div>}
+      <div className="mb-5 flex items-start justify-between gap-4"><div><span className="eyebrow text-accent">Evidence</span><h4 className="mt-2 font-display text-2xl">{item.label}</h4></div><button type="button" onClick={onClose} className="flex h-11 w-11 items-center justify-center rounded-full border border-border font-mono text-xl">×</button></div>
+      {item.src ? <img src={item.src} alt={item.alt || ""} className={item.tall ? "mx-auto block h-auto w-full max-w-4xl border border-border" : "mx-auto block max-h-[62vh] w-auto max-w-full border border-border object-contain"} /> : <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-secondary p-10 text-center"><div><span className="font-mono text-3xl text-accent">▧</span><p className="mt-4 font-display text-2xl">Image placeholder</p></div></div>}
       <p className="mt-5 leading-relaxed text-muted-foreground">{item.description}</p>
       {beat.evidence.length > 1 && <div className="mt-6 flex items-center justify-between border-t border-border pt-4"><span className="font-mono text-xs text-muted-foreground">{active + 1} / {beat.evidence.length}</span><div className="flex gap-2"><button type="button" onClick={() => setActive((active - 1 + beat.evidence.length) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Previous</button><button type="button" onClick={() => setActive((active + 1) % beat.evidence.length)} className="border border-border px-4 py-2 font-mono text-xs uppercase">Next</button></div></div>}
     </div>
