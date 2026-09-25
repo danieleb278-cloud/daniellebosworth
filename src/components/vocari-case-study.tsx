@@ -189,8 +189,17 @@ function StoryRow({ beat, index }: { beat: StoryBeat; index: number }) {
         </div>
         <p className="text-[0.95rem] leading-relaxed text-muted-foreground">{beat.skim}</p>
         <button type="button" onClick={() => setEvidenceOpen(true)} className="group justify-self-start md:justify-self-center" aria-label={`View evidence for ${beat.title}`}>
-          <span className="relative block h-16 w-16"><span className="absolute left-0 top-1 h-12 w-12 border border-border bg-secondary" /><span className="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center border border-border bg-background transition-transform group-hover:-translate-y-1"><span className="font-mono text-xl text-muted-foreground">▧</span></span></span>
-          <span className="mt-2 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">Evidence</span>
+          <span className="relative block h-[4.25rem] w-[5rem]" aria-hidden="true">
+            {beat.evidence.slice(0, 3).map((item, thumbIndex) => item.src ? (
+              <span
+                key={item.label}
+                className={`absolute left-1/2 top-1/2 h-12 w-14 overflow-hidden border border-border bg-background shadow-sm transition-transform duration-200 ${thumbIndex === 0 ? "-translate-x-[62%] -translate-y-[58%] -rotate-6 group-hover:-translate-x-[72%] group-hover:-rotate-8" : thumbIndex === 1 ? "-translate-x-[38%] -translate-y-[42%] rotate-5 group-hover:-translate-x-[28%] group-hover:rotate-7" : "-translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[58%]"}`}
+              >
+                <img src={item.src} alt="" className="h-full w-full object-cover object-top" loading="lazy" />
+              </span>
+            ) : null)}
+          </span>
+          <span className="mt-1 block text-center font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground transition-colors group-hover:text-accent">Evidence</span>
         </button>
         <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="flex h-12 w-12 items-center justify-center rounded-full border border-muted-foreground/50 font-mono text-2xl text-muted-foreground transition-colors hover:border-accent hover:text-accent" aria-label={`${open ? "Collapse" : "Expand"} details for ${beat.title}`}>{open ? "−" : "+"}</button>
       </div>
