@@ -15,14 +15,14 @@ type StoryBeat = {
 const storyBeats: StoryBeat[] = [
   {
     label: "Build and pressure-test",
-    note: "I had the idea before the class.",
-    title: "I needed something real enough for people to react to.",
-    skim: "Vocari began as my independent concept. I built the Lovable prototype, then used the course as a structured environment to pressure-test it through group research while I continued owning the product design and build.",
+    note: "I already had a basic concept to build from.",
+    title: "A rough working prototype gave us something real to test from the start.",
+    skim: "Before the course began, I had already created a very basic version of Vocari in Lovable. My team and I decided to build our Experience Design project around that concept. They contributed to the research and testing while I continued owning the prototype itself.",
     details: [
-      "My teammates used the prototype with participants, gathered feedback, and contributed to the research, analysis, and academic deliverables. I translated what we learned into the working product.",
-      "Research showed that completion was not the same as trust. People wanted to recognize themselves in the result, understand why a recommendation appeared, and question what the system believed.",
-      "That drove the experience toward Progressive Discovery, Profile DNA, clearer explanations, feedback, and Understand, Clarify, Challenge interactions.",
-      "The academic project earned a perfect score. The assignment ended, but Vocari did not."
+      "Using Lovable meant we could work with an interactive prototype very early instead of waiting until the end of the project to put something in front of people.",
+      "Participants could actually move through the experience, react to recommendations, and show us where the concept made sense or broke down. That feedback could then go directly back into the next version of the prototype.",
+      "My teammates helped conduct research, gather participant feedback, and contribute to the analysis and academic deliverables. I owned the product design and build and translated what we learned into the evolving prototype.",
+      "That early feedback eventually exposed a bigger issue than usability alone: people wanted to recognize themselves in the result, understand why a recommendation appeared, and have a way to question what the system believed."
     ],
     evidence: [
       { label: "Early prototype", description: "Placeholder: earliest Lovable flow or onboarding.", src: "/vocari/early-onboarding.png", alt: "Early Vocari onboarding prototype" },
@@ -126,7 +126,7 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
               <h2 className="mt-6 font-display text-[clamp(2.5rem,5vw,5rem)] leading-[1.02] tracking-[-0.035em]">Every answer created a harder question.</h2>
             </div>
             <p className="border-l border-border pl-6 text-lg leading-relaxed text-muted-foreground">
-              Vocari did not move through a clean design process. Each version exposed something the previous version could not answer. The skim tells the story. Open any moment to see the research, reasoning, rules, and implementation underneath it.
+              Vocari started as a passion project, then became the focus of a group project in an Experience Design course. I kept owning and building the prototype while my team and I used the course to research, test, and challenge the idea. The build was anything but easy, but what I learned from each problem was irreplaceable. Every limitation exposed something new to understand, and each lesson shaped what I built next.
             </p>
           </div>
 
