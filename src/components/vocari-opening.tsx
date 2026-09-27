@@ -29,10 +29,13 @@ export function VocariOpening() {
               type="button"
               onClick={() => setThinkingOpen((open) => !open)}
               aria-expanded={thinkingOpen}
-              className="flex min-h-12 w-fit cursor-pointer list-none items-center gap-3 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="mt-2 flex min-h-14 w-full max-w-[52ch] cursor-pointer items-center justify-between gap-4 border-y border-border bg-secondary/60 px-4 py-3 text-left text-sm transition-colors hover:border-accent hover:bg-secondary"
             >
-              <span aria-hidden="true" className="w-3 font-mono text-base">{thinkingOpen ? "−" : "+"}</span>
-              <span>The thinking behind the idea</span>
+              <span>
+                <span className="eyebrow text-accent">Optional backstory</span>
+                <span className="mt-1 block font-display text-lg text-foreground">The thinking behind the idea</span>
+              </span>
+              <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full border border-border font-mono text-lg text-muted-foreground">{thinkingOpen ? "−" : "+"}</span>
             </button>
           </div>
 
