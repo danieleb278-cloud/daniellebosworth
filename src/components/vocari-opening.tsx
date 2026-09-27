@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 export function VocariOpening() {
-  const [thinkingOpen, setThinkingOpen] = useState(false);
-
   return (
     <section id="overview" aria-labelledby="vocari-idea-title" className="px-6 pb-24 md:px-12 md:pb-32">
       <div className="mx-auto max-w-[1400px]">
@@ -25,18 +21,31 @@ export function VocariOpening() {
 
 
 
-            <button
-              type="button"
-              onClick={() => setThinkingOpen((open) => !open)}
-              aria-expanded={thinkingOpen}
-              className="mt-2 flex min-h-14 w-full max-w-[52ch] cursor-pointer items-center justify-between gap-4 border-y border-border bg-secondary/60 px-4 py-3 text-left text-sm transition-colors hover:border-accent hover:bg-secondary"
-            >
-              <span>
-                <span className="eyebrow text-accent">Optional backstory</span>
-                <span className="mt-1 block font-display text-lg text-foreground">The thinking behind the idea</span>
-              </span>
-              <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full border border-border font-mono text-lg text-muted-foreground">{thinkingOpen ? "−" : "+"}</span>
-            </button>
+            <details className="group/thinking mt-2 w-full max-w-[52ch] border-y border-border bg-secondary/60 transition-colors hover:border-accent">
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 text-left text-sm [&::-webkit-details-marker]:hidden">
+                <span>
+                  <span className="eyebrow text-accent">Optional backstory</span>
+                  <span className="mt-1 block font-display text-lg text-foreground">The thinking behind the idea</span>
+                </span>
+                <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border font-mono text-lg text-muted-foreground">
+                  <span className="group-open/thinking:hidden">+</span>
+                  <span className="hidden group-open/thinking:inline">−</span>
+                </span>
+              </summary>
+              <div className="border-t border-border px-4 pb-6 pt-5 text-base leading-[1.8] text-muted-foreground">
+                <p className="text-foreground"><strong className="font-medium">The idea started with something I didn't know about myself.</strong></p>
+                <p className="mt-5">I had always thought of myself as a creative person. If someone had described me as a “systems thinker,” I probably would have pictured structure, repetition, math, and rigid processes. It wasn't a strength I would have chosen from a list because I didn't know it described me.</p>
+                <p className="mt-5">After nearly two years of conversations with ChatGPT across work, school, projects, problems, and ideas, it pointed out a pattern: <strong className="font-medium text-foreground">I was consistently thinking in systems.</strong></p>
+                <p className="mt-5">More importantly, it explained what that meant using evidence from my own experiences.</p>
+                <p className="mt-5">Suddenly, things I had thought were unrelated started to connect. My creativity and systems thinking weren't opposites. Seeing connections, noticing what wasn't working, understanding how one change affected everything around it, and imagining a better way for the pieces to work together were part of the same pattern.</p>
+                <p className="mt-5">Having language for that ability changed the way I understood myself. It expanded the kinds of problems I believed I could solve and the kinds of work I could imagine myself doing.</p>
+                <p className="mt-5">And it left me with a question:</p>
+                <p className="mt-5 text-foreground"><strong className="font-medium">Why should an insight like that take two years to surface?</strong></p>
+                <p className="mt-5">What if an AI experience were intentionally designed to look across someone's experiences, find patterns they may not recognize themselves, and help them understand what those patterns could mean?</p>
+                <p className="mt-5 text-foreground"><strong className="font-medium">Where could those abilities take you?</strong></p>
+                <p className="mt-5">That question became Vocari.</p>
+              </div>
+            </details>
           </div>
 
           <figure className="min-w-0 lg:pt-1">
@@ -57,22 +66,6 @@ export function VocariOpening() {
             </figcaption>
           </figure>
         </div>
-
-        {thinkingOpen && (
-          <div className="mt-14 max-w-[76ch] space-y-5 border-l border-border pl-5 text-base leading-[1.8] text-muted-foreground md:pl-8 md:text-lg">
-            <p className="text-foreground"><strong className="font-medium">The idea started with something I didn't know about myself.</strong></p>
-            <p>I had always thought of myself as a creative person. If someone had described me as a “systems thinker,” I probably would have pictured structure, repetition, math, and rigid processes. It wasn't a strength I would have chosen from a list because I didn't know it described me.</p>
-            <p>After nearly two years of conversations with ChatGPT across work, school, projects, problems, and ideas, it pointed out a pattern: <strong className="font-medium text-foreground">I was consistently thinking in systems.</strong></p>
-            <p>More importantly, it explained what that meant using evidence from my own experiences.</p>
-            <p>Suddenly, things I had thought were unrelated started to connect. My creativity and systems thinking weren't opposites. Seeing connections, noticing what wasn't working, understanding how one change affected everything around it, and imagining a better way for the pieces to work together were part of the same pattern.</p>
-            <p>Having language for that ability changed the way I understood myself. It expanded the kinds of problems I believed I could solve and the kinds of work I could imagine myself doing.</p>
-            <p>And it left me with a question:</p>
-            <p className="text-foreground"><strong className="font-medium">Why should an insight like that take two years to surface?</strong></p>
-            <p>What if an AI experience were intentionally designed to look across someone's experiences, find patterns they may not recognize themselves, and help them understand what those patterns could mean?</p>
-            <p className="text-foreground"><strong className="font-medium">Where could those abilities take you?</strong></p>
-            <p>That question became Vocari.</p>
-          </div>
-        )}
 
         <div className="pt-28 md:pt-44 lg:pt-52">
           <p className="font-display text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.12] tracking-[-0.03em]">
