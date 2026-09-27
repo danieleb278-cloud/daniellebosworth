@@ -64,9 +64,9 @@ const projectProof: Record<string, { connection: string; evidence: string }> = {
   },
   joomla: {
     connection:
-      "Users were not simply struggling to search. Metadata quality, ranking logic, compatibility, and trust all shaped whether they could make a confident decision.",
+      "At first, this looked like a search problem. People couldn't find the right Joomla extensions. But the more I dug into it, the more I realized search was only the surface.",
     evidence:
-      "Four stakeholder interviews, two surveys, a heuristic evaluation, and competitive research informed an IA and search recommendation framework.",
+      "Interviews, surveys, usability testing, and competitor research kept pointing to the same bigger problem: inconsistent terminology, weak metadata, ranking, compatibility information, and trust were all tangled together. Fixing search meant understanding the system behind it.",
   },
   "next-destination": {
     connection:
