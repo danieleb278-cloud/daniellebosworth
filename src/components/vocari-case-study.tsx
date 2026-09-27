@@ -137,6 +137,8 @@ export function VocariCaseStudy({ study }: { study: CaseStudy }) {
           <div className="mt-14 border-t border-border">
             {storyBeats.map((beat, index) => <StoryRow key={beat.label} beat={beat} index={index} />)}
           </div>
+
+          <PrototypeGallery />
         </div>
       </section>
 
