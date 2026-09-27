@@ -58,9 +58,9 @@ export const Route = createFileRoute("/")({
 const projectProof: Record<string, { connection: string; evidence: string }> = {
   vocari: {
     connection:
-      "An independent AI/product innovation: Vocari explores how behavioral signals, confirmed evidence, and reflection can power adaptive career discovery without flattening a person's complexity.",
+      "I started Vocari with a simple question: what if career guidance helped people recognize strengths they don't always see in themselves? The more I built, the more complicated that question became.",
     evidence:
-      "An end-to-end research prototype, eight affective-computing sessions, Profile DNA, explainable recommendations, and the Progressive Discovery system established the foundation for learning over time.",
+      "What began as a small prototype grew through real user research, emotional testing, Profile DNA, career recommendations, feedback loops, and eventually a much harder question: what would the system actually need to know, remember, and understand to learn from someone over time?",
   },
   joomla: {
     connection:
