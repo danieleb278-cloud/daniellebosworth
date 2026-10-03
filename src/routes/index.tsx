@@ -1152,7 +1152,7 @@ function Resume() {
             </p>
             <a
               href={resumePdf.url}
-              download="Danielle_Bosworth_CX_Product_Design_Operations_Resume.pdf"
+              download="Danielle_Bosworth_Public_Resume_Revised.pdf"
               className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
             >
               ↓ Download résumé (PDF)
