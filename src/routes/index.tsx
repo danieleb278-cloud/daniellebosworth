@@ -24,6 +24,7 @@ export const Route = createFileRoute("/")({
           "Danielle Bosworth is a product and experience designer who likes a good challenge. Explore work across product design, customer experience, AI, research, and business.",
       },
       { property: "og:title", content: "Danielle Bosworth | Design Portfolio" },
+      { property: "og:type", content: "website" },
       {
         property: "og:description",
         content:
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
       { property: "og:image:alt", content: "Danielle Bosworth logo" },
       { name: "twitter:image", content: "https://madebydanielleb.com/__l5e/assets-v1/482779bb-540e-4b8e-b11b-fabba4614b04/d-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Danielle Bosworth | Design Portfolio" },
       { name: "twitter:description", content: "I like a good challenge. Explore my work across product design, customer experience, AI, research, and business." },
     ],
@@ -1152,7 +1154,7 @@ function Resume() {
             </p>
             <a
               href={resumePdf.url}
-              download="Danielle_Bosworth_CX_Product_Design_Operations_Resume.pdf"
+              download="Danielle_Bosworth_Public_Resume_Revised.pdf"
               className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
             >
               ↓ Download résumé (PDF)
