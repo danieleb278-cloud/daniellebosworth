@@ -19,7 +19,14 @@ export const Route = createFileRoute("/work/$slug")({
     return { study };
   },
   head: ({ params, loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Case study — Danielle Bosworth" }] };
+    if (!loaderData) return { meta: [
+      { title: "Case study — Danielle Bosworth" },
+      { name: "description", content: "A project by Danielle Bosworth." },
+      { property: "og:title", content: "Case study — Danielle Bosworth" },
+      { property: "og:description", content: "A project by Danielle Bosworth." },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ] };
     const url = `https://madebydanielleb.com/work/${params.slug}`;
     const title = `${loaderData.study.title} — Danielle Bosworth`;
     const desc = loaderData.study.subtitle;
@@ -30,6 +37,7 @@ export const Route = createFileRoute("/work/$slug")({
         { title }, { name: "description", content: desc },
         { property: "og:title", content: title }, { property: "og:description", content: desc },
         { property: "og:type", content: "article" }, { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
         ...(imageUrl ? [{ property: "og:image", content: imageUrl }, { property: "og:image:alt", content: loaderData.study.cover?.alt ?? title }, { name: "twitter:image", content: imageUrl }] : []),
         { name: "twitter:title", content: title }, { name: "twitter:description", content: desc },
       ],
