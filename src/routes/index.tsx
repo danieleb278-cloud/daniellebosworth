@@ -1222,6 +1222,14 @@ function Contact() {
                   >
                     LinkedIn →
                   </a>
+                  <a
+                    href="https://github.com/danieleb278-cloud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-5 py-2.5 text-background transition-colors hover:bg-transparent hover:text-teal"
+                  >
+                    GitHub →
+                  </a>
                 </div>
                 <div>
                   <span className="eyebrow">Looking for</span>
