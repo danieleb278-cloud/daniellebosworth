@@ -261,7 +261,7 @@ function CommercialImpact() {
           {commercialImpact.map((item) => (
             <div
               key={item.index}
-              className="grid grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 sm:flex sm:grid-cols-none sm:gap-4"
+              className="grid min-w-0 grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 sm:grid-cols-1 sm:gap-4 lg:grid-cols-[8.5rem_minmax(0,1fr)]"
             >
               <span className="font-display text-3xl leading-none tracking-[-0.03em] text-background md:text-4xl">
                 {item.outcome}
