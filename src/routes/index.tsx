@@ -102,7 +102,6 @@ function Index() {
       <SiteNav darkAtTop />
       <Hero />
       <HowIWork />
-      <CommercialImpact />
       <Work />
       <About />
       <Resume />
@@ -205,78 +204,6 @@ function HowIWork() {
   );
 }
 
-const commercialImpact = [
-  {
-    index: "01",
-    category: "AI Product & Knowledge Design",
-    outcome: "1 Source",
-    outcomeLabel: "Unified AI knowledge hub",
-    context: "Magic Sleek · Internal AI System",
-    description:
-      "Designed an AI-assisted knowledge system that unified fragmented product data and technical guidance, simplifying internal workflows and helping teams deliver more consistent answers to customer questions.",
-    tags: ["AI Workflows", "Information Architecture", "Process Optimization"],
-    featuredCase: false,
-  },
-  {
-    index: "02",
-    category: "CX & Service Design",
-    outcome: "4×+",
-    outcomeLabel: "Monthly location revenue",
-    context: "G&C Robins Co. / Supercuts",
-    description:
-      "Improved frontline service workflows, staffing, CRM outreach, and client follow-up, helping turn a struggling retail location into a high-performing operation with a +32% lift in retention.",
-    tags: ["CX Design", "Service Design", "Customer Journey Mapping"],
-    featuredCase: false,
-    caseSlug: "supercuts",
-  },
-  {
-    index: "03",
-    category: "Product & Partner Strategy",
-    outcome: "~$56K",
-    outcomeLabel: "First-order account activation",
-    context: "Magic Sleek · B2B Expansion",
-    description:
-      "Connected business goals with salon and distributor needs by creating targeted product education, onboarding assets, and cross-functional communication for a major regional partner.",
-    tags: ["Product Strategy", "Cross-Functional Enablement", "User Onboarding"],
-    featuredCase: true,
-  },
-];
-
-function CommercialImpact() {
-  return (
-    <section
-      aria-labelledby="commercial-impact-heading"
-      className="border-b border-border bg-charcoal px-6 py-14 text-background md:px-12 md:py-16"
-    >
-      <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="flex flex-wrap items-baseline gap-x-7 gap-y-3">
-            <h2 id="commercial-impact-heading" className="font-mono text-[clamp(2rem,4vw,3.25rem)] lowercase leading-none text-background/70">
-              impact<span aria-hidden className="text-teal">_</span>
-            </h2>
-          </div>
-        </Reveal>
-
-        <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-3">
-          {commercialImpact.map((item) => (
-            <div
-              key={item.index}
-              className="grid min-w-0 grid-cols-[7rem_minmax(0,1fr)] items-baseline gap-5 sm:grid-cols-1 sm:gap-4 lg:grid-cols-[8.5rem_minmax(0,1fr)]"
-            >
-              <span className="font-display text-3xl leading-none tracking-[-0.03em] text-background md:text-4xl">
-                {item.outcome}
-              </span>
-              <span className="min-w-0">
-                <span className="block text-sm text-background/80">{item.outcomeLabel}</span>
-                <span className="eyebrow block text-background/45">{item.context}</span>
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 
 
