@@ -2,10 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "work", label: "Case Studies" },
-  { id: "about", label: "About" },
-  { id: "resume", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { id: "work", label: "Case Studies", href: "/#work" },
+  { id: "about", label: "About", href: "/#about" },
+  { id: "resume", label: "Experience", href: "/#resume" },
+  { id: "connect", label: "Work With Me", href: "/connect" },
+  { id: "contact", label: "Contact", href: "/#contact" },
 ];
 
 type SiteNavProps = {
@@ -77,13 +78,13 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           </span>
         </Link>
 
-        <ul className="hidden shrink-0 items-center gap-5 md:flex lg:gap-8">
+        <ul className="hidden shrink-0 items-center gap-5 lg:flex lg:gap-8">
           {sections.map((s) => {
             const isActive = active === s.id;
             return (
               <li key={s.id}>
                 <a
-                  href={`/#${s.id}`}
+                  href={s.href}
                   className={`eyebrow link-underline flex items-center gap-2 transition-colors duration-300 ${useLightText ? 'text-background' : 'text-foreground'} ${isActive ? '!text-teal' : ''}`}
                 >
                   <span
@@ -102,7 +103,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={`eyebrow flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 md:hidden ${useLightText ? 'border-background/30 text-background' : 'border-foreground text-foreground'}`}
+          className={`eyebrow flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 lg:hidden ${useLightText ? 'border-background/30 text-background' : 'border-foreground text-foreground'}`}
         >
           <span className="relative block h-3 w-4">
             <span
@@ -118,7 +119,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
 
       {/* Mobile sheet */}
       <div
-        className={`overflow-hidden md:hidden ${
+        className={`overflow-hidden lg:hidden ${
           open ? "max-h-[80vh] border-t border-background/20 bg-charcoal text-background" : "max-h-0"
         } transition-[max-height] duration-500 ease-out`}
       >
@@ -126,7 +127,7 @@ export function SiteNav({ darkAtTop = false }: SiteNavProps) {
           {sections.map((s) => (
             <li key={s.id}>
               <a
-                href={`/#${s.id}`}
+                href={s.href}
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between py-5 font-display text-2xl tracking-tight text-background"
               >
