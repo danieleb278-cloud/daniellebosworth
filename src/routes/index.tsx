@@ -12,7 +12,7 @@ import howIWorkGraphic from "@/assets/how-i-work-typographic.png.asset.json";
 import { caseStudies } from "@/lib/case-studies";
 import { supabase } from "@/integrations/supabase/client";
 const portraitUrl = "/home/portrait.svg";
-import resumePdf from "@/assets/resume.pdf.asset.json";
+const resumeUrl = "/resumes/Danielle_Bosworth_Resume.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -122,7 +122,7 @@ function Index() {
 }
 
 function Hero() {
-  return <ConnectionHero portraitUrl={portraitUrl} resumeUrl={resumePdf.url} />;
+  return <ConnectionHero portraitUrl={portraitUrl} resumeUrl={resumeUrl} />;
 }
 
 function Stat({ k, label }: { k: string; label: string }) {
@@ -1153,8 +1153,8 @@ function Resume() {
               Each role taught me something new, challenged me in different ways, and shaped my approach to problem-solving.
             </p>
             <a
-              href={resumePdf.url}
-              download="Danielle_Bosworth_Public_Resume_Revised.pdf"
+              href={resumeUrl}
+              download="Danielle_Bosworth_Resume.pdf"
               className="eyebrow mt-10 inline-flex items-center gap-2 rounded-full border-2 border-teal bg-teal px-4 py-2 text-background transition-colors hover:bg-transparent hover:text-teal"
             >
               ↓ Download résumé (PDF)
